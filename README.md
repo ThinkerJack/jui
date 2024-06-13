@@ -1,3 +1,7 @@
+# 简介
+
+flutter ui组件库
+
 # 组件依赖
 
 `flutter pub add jac_uikit`
@@ -37,3 +41,4 @@ HighlightedTextWidget.builder(
 
 图片示例：
 
+![](https://github.com/ThinkerJack/jac_uikit/blob/develop/example/assets/WX20240613-140619.png)
