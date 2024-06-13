@@ -1,10 +1,6 @@
 # 简介
 
-flutter ui组件库
-
-# 组件依赖
-
-`flutter pub add jac_uikit`
+flutter UI组件库
 
 # 组件文档
 
