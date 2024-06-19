@@ -1,5 +1,4 @@
 import 'package:example/demo_router.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatelessWidget {

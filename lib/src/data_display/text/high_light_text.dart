@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 
-class HighlightedTextWidget {
+class HighlightedText {
   static Widget builder({
     required String text,
     List<HighlightWord> highlights = const [],

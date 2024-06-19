@@ -13,26 +13,31 @@ class DataDisplayDemo extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: ListView(
           children: [
-            HighlightedTextWidget.builder(
+            HighlightedText.builder(
               text: "全部文案包含高亮文案测试用",
               highlights: [
                 HighlightWord(
                   "文案",
                   () {
-                    print("文案");
+                    debugPrint("文案");
                   },
-                  highlightStyle: TextStyle(color: Colors.red),
+                  highlightStyle: const TextStyle(color: Colors.red),
                 ),
                 HighlightWord("含", () {
-                  print("含");
+                  debugPrint("含");
                 }),
                 HighlightWord("测试", () {
-                  print("测试");
+                  debugPrint("测试");
                 }),
               ],
-              defaultTextStyle: TextStyle(color: Colors.black, fontSize: 16),
-              defaultHighlightStyle: TextStyle(color: Colors.cyanAccent, fontSize: 16),
-            )
+              defaultTextStyle: const TextStyle(color: Colors.black, fontSize: 16),
+              defaultHighlightStyle: const TextStyle(color: Colors.cyanAccent, fontSize: 16),
+            ),
+            const SizedBox(height: 30),
+            ExpandableText(
+              content: '测试' * 50,
+              maxLines: 3,
+            ),
           ],
         ),
       ),
