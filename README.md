@@ -37,13 +37,17 @@ flutter UI组件库
 
 图片示例：
 
-![](https://github.com/ThinkerJack/jac_uikit/blob/develop/example/assets/WX20240613-140619.png)
+![](https://github.com/ThinkerJack/jac_uikit/blob/develop/example/assets/img_2.png)
 
 #### 展开收起文本
 
 使用方式：
 
 ```dart
+  ExpandableText(
+              content: '测试' * 50,
+              maxLines: 3,
+            ),
 ```
 
 图片示例：
