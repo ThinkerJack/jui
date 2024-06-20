@@ -21,6 +21,10 @@ class SplashPage extends StatelessWidget {
               onPressed: () => Navigator.of(context).pushNamed(DemoRouter.dataDisplayDemo),
               child: const Text("数据展示"),
             ),
+            ElevatedButton(
+              onPressed: () => Navigator.of(context).pushNamed(DemoRouter.commonDemo),
+              child: const Text("通用组件"),
+            ),
           ],
         ),
       ),
