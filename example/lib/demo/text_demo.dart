@@ -2,13 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jac_uikit/data_display.dart';
 
-class DataDisplayDemo extends StatelessWidget {
-  const DataDisplayDemo({super.key});
+class TextDemo extends StatelessWidget {
+  const TextDemo({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("数据展示")),
+      appBar: AppBar(title: const Text("文本示例")),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: ListView(

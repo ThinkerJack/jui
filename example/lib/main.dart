@@ -1,4 +1,4 @@
-import 'package:example/demo/data_display_demo.dart';
+import 'package:example/demo/text_demo.dart';
 import 'package:example/splash_page.dart';
 import 'package:flutter/material.dart';
 

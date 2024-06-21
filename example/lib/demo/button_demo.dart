@@ -6,13 +6,13 @@ Widget space = const SizedBox(
   height: 30,
 );
 
-class CommonDemo extends StatelessWidget {
-  const CommonDemo({super.key});
+class ButtonDemo extends StatelessWidget {
+  const ButtonDemo({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("数据展示")),
+      appBar: AppBar(title: const Text("按钮示例")),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: ListView(
