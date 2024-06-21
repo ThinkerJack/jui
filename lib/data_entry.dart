@@ -1,0 +1,1 @@
+export 'src/data_entry/item/tap_item.dart';

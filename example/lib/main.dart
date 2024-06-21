@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: demoRouterMap,
-      home: const SplashPage(),
+      home: const MainPage(),
     );
   }
 }

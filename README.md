@@ -1,6 +1,6 @@
 # 简介
 
-flutter UI组件库
+Flutter UI组件库
 
 # 组件文档
 
@@ -172,3 +172,52 @@ class HighlightWord {
   final TextStyle? contentTextStyle; //普通文本样式
   final TextStyle? expandTextStyle; //展开收起文本样式
 ```
+
+## 数据录入
+
+### 表单项
+
+#### 点击
+
+使用方式：
+
+```dart
+              TapItem(
+                title: '标题',
+                content: '内容',
+                tipText: "请输入",
+                onTap: () {
+                  debugPrint("点击");
+                },
+              ),
+              TapItem(
+                title: '标题',
+                content: '内容',
+                tipText: "请输入",
+                isRequired: true,
+                maxLine: 1,
+                hintText: '请选择',
+                showTips: true,
+                onTap: () {
+                  debugPrint("点击");
+                },
+              ),
+```
+
+图片示例：
+
+![](https://github.com/ThinkerJack/jac_uikit/blob/develop/example/assets/img_4.png)
+
+参数：
+
+```dart
+  final String title; //标题
+  final String hintText; //输入框底文
+  final String content; //输入框内容
+  final Function onTap; //点击事件
+  final bool showTips; //是否报错
+  final String tipText; //错误文案
+  final int maxLine; //文本内容最大行数
+  final bool isRequired; //是否是必填
+```
+

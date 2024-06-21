@@ -1,8 +1,8 @@
 import 'package:example/demo_router.dart';
 import 'package:flutter/material.dart';
 
-class SplashPage extends StatelessWidget {
-  const SplashPage({super.key});
+class MainPage extends StatelessWidget {
+  const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +24,10 @@ class SplashPage extends StatelessWidget {
             ElevatedButton(
               onPressed: () => Navigator.of(context).pushNamed(DemoRouter.buttonDemo),
               child: const Text("按钮示例"),
+            ),
+            ElevatedButton(
+              onPressed: () => Navigator.of(context).pushNamed(DemoRouter.itemDemo),
+              child: const Text("表单项示例"),
             ),
           ],
         ),

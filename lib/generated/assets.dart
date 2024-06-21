@@ -2,6 +2,7 @@
 class Assets {
   Assets._();
 
-  static const String assetsSearchEmpty = 'assets/test.png';
+  static const String imagesIconRight = 'assets/images/icon_right.png';
+  static const String imagesItemRequired = 'assets/images/item_required.png';
 
 }
