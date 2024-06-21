@@ -70,9 +70,9 @@ class HighlightedText {
 }
 
 class HighlightWord {
-  final String word;
-  final VoidCallback onTap;
-  final TextStyle? highlightStyle;
+  final String word;//文字内容
+  final VoidCallback onTap;//点击事件
+  final TextStyle? highlightStyle;//高亮样式
 
   HighlightWord(this.word, this.onTap,{ this.highlightStyle});
 }

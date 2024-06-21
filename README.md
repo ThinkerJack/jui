@@ -67,6 +67,23 @@ flutter UI组件库
 
 ![](https://github.com/ThinkerJack/jac_uikit/blob/develop/example/assets/img_3.png)
 
+参数：
+```dart
+  final Function onTap; //点击事件
+  final String text; //文本内容
+  final JacButtonSizeType sizeType; //大小类型
+  final JacButtonColorType colorType; //颜色类型
+  final bool? visibility; //是否展示
+  final bool disable; //是否禁用
+  final double? width; //宽度
+  final double? height; //高度
+  final double? fontSize; //文字大小
+  final double? circular; //圆角度
+  final double? fontHeight; //文字行高
+```
+
+
+
 ## 数据展示
 
 ### 文本
@@ -102,6 +119,24 @@ flutter UI组件库
 
 ![](https://github.com/ThinkerJack/jac_uikit/blob/develop/example/assets/img_2.png)
 
+参数：
+```dart
+    required String text,//全部文本内容
+    List<HighlightWord> highlights = const [],//高亮数据集合
+    TextStyle? defaultTextStyle,//默认文本样式
+    TextStyle? defaultHighlightStyle,//高亮文本样式
+    int maxLines = 5,//最大行数
+    TextOverflow overflow = TextOverflow.ellipsis,//文本超出样式
+
+class HighlightWord {
+  final String word;//文字内容
+  final VoidCallback onTap;//点击事件
+  final TextStyle? highlightStyle;//高亮样式
+
+  HighlightWord(this.word, this.onTap,{ this.highlightStyle});
+}
+```
+
 #### 展开收起文本
 
 使用方式：
@@ -118,3 +153,16 @@ flutter UI组件库
 ![](https://github.com/ThinkerJack/jac_uikit/blob/develop/example/assets/img.png)
 
 ![](https://github.com/ThinkerJack/jac_uikit/blob/develop/example/assets/img_1.png)
+
+参数：
+
+```dart
+  final String content; //文本内容
+  final String expandText; //展开文字
+  final String collapsedText; //收起文字
+  final int maxLines; //最大行数
+  final bool canCollapsed; //是否支持收起
+  final TextStyle? contentTextStyle; //普通文本样式
+  final TextStyle? expandTextStyle; //展开收起文本样式
+```
+
