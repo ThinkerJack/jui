@@ -3,12 +3,12 @@ import 'package:flutter/gestures.dart';
 
 class HighlightedText {
   static Widget builder({
-    required String text,
-    List<HighlightWord> highlights = const [],
-    TextStyle? defaultTextStyle,
-    TextStyle? defaultHighlightStyle,
-    int maxLines = 5,
-    TextOverflow overflow = TextOverflow.ellipsis,
+    required String text,//全部文本内容
+    List<HighlightWord> highlights = const [],//高亮数据集合
+    TextStyle? defaultTextStyle,//默认文本样式
+    TextStyle? defaultHighlightStyle,//高亮文本样式
+    int maxLines = 5,//最大行数
+    TextOverflow overflow = TextOverflow.ellipsis,//文本超出样式
   }) {
     var spans = _buildTextSpans(text, highlights, defaultTextStyle, defaultHighlightStyle);
     return RichText(

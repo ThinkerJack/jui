@@ -16,15 +16,13 @@ class ExpandableText extends StatefulWidget {
     this.collapsedText = "收起",
   }) : super(key: key);
 
-  final String content;
-  final String expandText;
-  final String collapsedText;
-  final int maxLines;
-
-  //是否支持收起
-  final bool canCollapsed;
-  final TextStyle? contentTextStyle;
-  final TextStyle? expandTextStyle;
+  final String content; //文本内容
+  final String expandText; //展开文字
+  final String collapsedText; //收起文字
+  final int maxLines; //最大行数
+  final bool canCollapsed; //是否支持收起
+  final TextStyle? contentTextStyle; //普通文本样式
+  final TextStyle? expandTextStyle; //展开收起文本样式
 
   @override
   State<ExpandableText> createState() => _ExpandableTextState();

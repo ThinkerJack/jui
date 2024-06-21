@@ -1,94 +1,95 @@
 import 'package:flutter/material.dart';
+
 import '../../utils/custom_color.dart';
 
 
 const double _defaultCircular = 24;
 
 //大小
-enum CButtonSizeType { large, middle, small, ultraSmall }
+enum JacButtonSizeType { large, middle, small, ultraSmall }
 
 //颜色
-enum CButtonColorType { blue, gray, white, blueBorder }
+enum JacButtonColorType { blue, gray, white, blueBorder }
 
-double _getHeight(CButtonSizeType type) {
+double _getHeight(JacButtonSizeType type) {
   switch (type) {
-    case CButtonSizeType.large:
+    case JacButtonSizeType.large:
       return 48;
-    case CButtonSizeType.middle:
+    case JacButtonSizeType.middle:
       return 40;
-    case CButtonSizeType.small:
+    case JacButtonSizeType.small:
       return 32;
-    case CButtonSizeType.ultraSmall:
+    case JacButtonSizeType.ultraSmall:
       return 24;
   }
 }
 
-double _getFontSize(CButtonSizeType type) {
+double _getFontSize(JacButtonSizeType type) {
   switch (type) {
-    case CButtonSizeType.large:
+    case JacButtonSizeType.large:
       return 16;
-    case CButtonSizeType.middle:
+    case JacButtonSizeType.middle:
       return 14;
-    case CButtonSizeType.small:
+    case JacButtonSizeType.small:
       return 14;
-    case CButtonSizeType.ultraSmall:
+    case JacButtonSizeType.ultraSmall:
       return 12;
   }
 }
 
-double _getPadding(CButtonSizeType type) {
+double _getPadding(JacButtonSizeType type) {
   switch (type) {
-    case CButtonSizeType.large:
+    case JacButtonSizeType.large:
       return 32;
-    case CButtonSizeType.middle:
+    case JacButtonSizeType.middle:
       return 24;
-    case CButtonSizeType.small:
+    case JacButtonSizeType.small:
       return 16;
-    case CButtonSizeType.ultraSmall:
+    case JacButtonSizeType.ultraSmall:
       return 12;
   }
 }
 
-Color _getContainerColor(CButtonColorType type, bool disable) {
+Color _getContainerColor(JacButtonColorType type, bool disable) {
   switch (type) {
-    case CButtonColorType.white:
+    case JacButtonColorType.white:
       return colorFFFFFF;
-    case CButtonColorType.gray:
+    case JacButtonColorType.gray:
       return colorF6F7F8;
-    case CButtonColorType.blue:
+    case JacButtonColorType.blue:
       return disable ? colorC7DDFF : color5590F6;
-    case CButtonColorType.blueBorder:
+    case JacButtonColorType.blueBorder:
       return colorFFFFFF;
   }
 }
 
-Color _getFontColor(CButtonColorType type, bool disable) {
+Color _getFontColor(JacButtonColorType type, bool disable) {
   switch (type) {
-    case CButtonColorType.white:
+    case JacButtonColorType.white:
       return disable ? colorDCE0E8 : color2A2F3C;
-    case CButtonColorType.gray:
+    case JacButtonColorType.gray:
       return disable ? colorDCE0E8 : color2A2F3C;
-    case CButtonColorType.blue:
+    case JacButtonColorType.blue:
       return colorFFFFFF;
-    case CButtonColorType.blueBorder:
+    case JacButtonColorType.blueBorder:
       return color5590F6;
   }
 }
 
-BoxBorder? _getBorder(CButtonColorType type) {
+BoxBorder? _getBorder(JacButtonColorType type) {
   switch (type) {
-    case CButtonColorType.white:
+    case JacButtonColorType.white:
       return Border.all(color: colorE8EAEF, width: 1);
-    case CButtonColorType.gray:
-    case CButtonColorType.blue:
+    case JacButtonColorType.gray:
+    case JacButtonColorType.blue:
       return null;
-    case CButtonColorType.blueBorder:
+    case JacButtonColorType.blueBorder:
       return Border.all(color: color5590F6, width: 1);
   }
 }
 
-class CButton extends StatelessWidget {
-  const CButton({
+class JacButton extends StatelessWidget {
+  const JacButton({
     Key? key,
     required this.colorType,
     required this.sizeType,
@@ -103,17 +104,17 @@ class CButton extends StatelessWidget {
     this.disable = false,
   }) : super(key: key);
 
-  final Function onTap;
-  final String text;
-  final CButtonSizeType sizeType;
-  final CButtonColorType colorType;
-  final bool? visibility;
-  final bool disable;
-  final double? width;
-  final double? height;
-  final double? fontSize;
-  final double? circular;
-  final double? fontHeight;
+  final Function onTap; //点击事件
+  final String text; //文本内容
+  final JacButtonSizeType sizeType; //大小类型
+  final JacButtonColorType colorType; //颜色类型
+  final bool? visibility; //是否展示
+  final bool disable; //是否禁用
+  final double? width; //宽度
+  final double? height; //高度
+  final double? fontSize; //文字大小
+  final double? circular; //圆角度
+  final double? fontHeight; //文字行高
 
   @override
   Widget build(BuildContext context) {
