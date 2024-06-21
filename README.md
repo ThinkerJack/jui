@@ -170,5 +170,5 @@ class HighlightWord {
   final int maxLines; //最大行数
   final bool canCollapsed; //是否支持收起
   final TextStyle? contentTextStyle; //普通文本样式
-  final TextStyle? expandTextStyle; //展开收起文本样
+  final TextStyle? expandTextStyle; //展开收起文本样式
 ```
