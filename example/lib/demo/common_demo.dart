@@ -74,9 +74,6 @@ class CommonDemo extends StatelessWidget {
               text: "自定义宽高按钮",
               onTap: () {},
             ),
-            Checkbox(value: true, onChanged: (value){
-              value = !value!;
-            })
           ],
         ),
       ),

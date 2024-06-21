@@ -11,51 +11,58 @@ flutter UI组件库
 使用方式：
 
 ```dart
-     CButton(
-              colorType: CButtonColorType.blue,
-              sizeType: CButtonSizeType.ultraSmall,
+            JacButton(
+              colorType: JacButtonColorType.blue,
+              sizeType: JacButtonSizeType.ultraSmall,
               text: "最小号蓝色按钮",
               onTap: () {},
             ),
-            CButton(
-              colorType: CButtonColorType.blue,
-              sizeType: CButtonSizeType.small,
+      
+            JacButton(
+              colorType: JacButtonColorType.blue,
+              sizeType: JacButtonSizeType.small,
               text: "小号蓝色按钮",
               onTap: () {},
             ),
-            CButton(
-              colorType: CButtonColorType.blue,
-              sizeType: CButtonSizeType.middle,
+
+            JacButton(
+              colorType: JacButtonColorType.blue,
+              sizeType: JacButtonSizeType.middle,
               text: "中号蓝色按钮",
               onTap: () {},
             ),
-            CButton(
-              colorType: CButtonColorType.blue,
-              sizeType: CButtonSizeType.large,
+      
+            JacButton(
+              colorType: JacButtonColorType.blue,
+              sizeType: JacButtonSizeType.large,
               text: "大号蓝色按钮",
               onTap: () {},
             ),
-            CButton(
-              colorType: CButtonColorType.white,
-              sizeType: CButtonSizeType.large,
+     
+            JacButton(
+              colorType: JacButtonColorType.white,
+              sizeType: JacButtonSizeType.large,
               text: "大号白色按钮",
               onTap: () {},
             ),
-            CButton(
-              colorType: CButtonColorType.gray,
-              sizeType: CButtonSizeType.large,
+       
+            JacButton(
+              colorType: JacButtonColorType.gray,
+              sizeType: JacButtonSizeType.large,
               text: "大号灰色按钮",
               onTap: () {},
             ),
-            CButton(
-              colorType: CButtonColorType.blueBorder,
-              sizeType: CButtonSizeType.large,
+        
+            JacButton(
+              colorType: JacButtonColorType.blueBorder,
+              sizeType: JacButtonSizeType.large,
               text: "大号蓝边按钮",
               onTap: () {},
             ),
-            CButton(
-              colorType: CButtonColorType.blueBorder,
-              sizeType: CButtonSizeType.large,
+     
+            JacButton(
+              colorType: JacButtonColorType.blueBorder,
+              sizeType: JacButtonSizeType.large,
               width: 230,
               height: 80,
               text: "自定义宽高按钮",
@@ -163,6 +170,5 @@ class HighlightWord {
   final int maxLines; //最大行数
   final bool canCollapsed; //是否支持收起
   final TextStyle? contentTextStyle; //普通文本样式
-  final TextStyle? expandTextStyle; //展开收起文本样式
+  final TextStyle? expandTextStyle; //展开收起文本样
 ```
-
