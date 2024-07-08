@@ -128,12 +128,12 @@ Flutter UI组件库
 
 参数：
 ```dart
-    required String text,//全部文本内容
-    List<HighlightWord> highlights = const [],//高亮数据集合
-    TextStyle? defaultTextStyle,//默认文本样式
-    TextStyle? defaultHighlightStyle,//高亮文本样式
-    int maxLines = 5,//最大行数
-    TextOverflow overflow = TextOverflow.ellipsis,//文本超出样式
+required String text,//全部文本内容
+List<HighlightWord> highlights = const [],//高亮数据集合
+TextStyle? defaultTextStyle,//默认文本样式
+TextStyle? defaultHighlightStyle,//高亮文本样式
+int maxLines = 5,//最大行数
+TextOverflow overflow = TextOverflow.ellipsis,//文本超出样式
 
 class HighlightWord {
   final String word;//文字内容

@@ -12,7 +12,7 @@ class ItemDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("按钮示例")),
+      appBar: AppBar(title: const Text("表单示例")),
       body: Padding(
           padding: const EdgeInsets.all(20),
           child: ListView(

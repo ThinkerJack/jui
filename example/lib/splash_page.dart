@@ -29,6 +29,10 @@ class MainPage extends StatelessWidget {
               onPressed: () => Navigator.of(context).pushNamed(DemoRouter.itemDemo),
               child: const Text("表单项示例"),
             ),
+            ElevatedButton(
+              onPressed: () => Navigator.of(context).pushNamed(DemoRouter.tagDemo),
+              child: const Text("标签示例"),
+            ),
           ],
         ),
       ),

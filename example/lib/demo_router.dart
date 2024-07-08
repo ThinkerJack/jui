@@ -1,4 +1,5 @@
 import 'package:example/demo/item_demo.dart';
+import 'package:example/demo/tag_demo.dart';
 import 'package:example/splash_page.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -10,6 +11,7 @@ final demoRouterMap = <String, WidgetBuilder>{
   DemoRouter.textDemo: (context) => const TextDemo(),
   DemoRouter.buttonDemo: (context) => const ButtonDemo(),
   DemoRouter.itemDemo: (context) => const ItemDemo(),
+  DemoRouter.tagDemo: (context) => const TagDemo(),
 };
 
 class DemoRouter {
@@ -17,4 +19,5 @@ class DemoRouter {
   static const String textDemo = "textDemo";
   static const String buttonDemo = "buttonDemo";
   static const String itemDemo = "itemDemo";
+  static const String tagDemo = "tagDemo";
 }
