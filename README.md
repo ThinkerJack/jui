@@ -173,6 +173,69 @@ class HighlightWord {
   final TextStyle? expandTextStyle; //展开收起文本样式
 ```
 
+### 标签
+
+使用方式：
+
+```dart
+                  JacTag(
+                    paddingVertical: 1,
+                    paddingHorizontal: 6,
+                    tagType: JacTagType.text,
+                    tagShapeType: JacTagShapeType.rectangle,
+                    tagColorType: JacTagColorType.blue,
+                    text: "标签",
+                    fontSize: 12,
+                  ),
+                  JacTag(
+                    paddingVertical: 5,
+                    paddingHorizontal: 10,
+                    tagType: JacTagType.icon,
+                    tagShapeType: JacTagShapeType.semicircle,
+                    tagColorType: JacTagColorType.blue,
+                    text: "标签",
+                    icon: Icon(
+                      Icons.ac_unit,
+                      size: 14,
+                      color: Color(0XFF5590F6),
+                    ),
+                    fontSize: 14,
+                  ),
+                  JacTag(
+                    paddingVertical: 5,
+                    paddingHorizontal: 10,
+                    tagType: JacTagType.icon,
+                    tagShapeType: JacTagShapeType.rectangle,
+                    tagColorType: JacTagColorType.blue,
+                    text: "标签",
+                    icon: Icon(
+                      Icons.ac_unit,
+                      size: 14,
+                      color: Color(0XFF5590F6),
+                    ),
+                    fontSize: 14,
+                  ),
+
+                  JacTag(
+                    paddingVertical: 5,
+                    paddingHorizontal: 10,
+                    tagType: JacTagType.icon,
+                    tagShapeType: JacTagShapeType.capsule,
+                    tagColorType: JacTagColorType.blue,
+                    text: "标签",
+                    icon: Icon(
+                      Icons.ac_unit,
+                      size: 14,
+                      color: Color(0XFF5590F6),
+                    ),
+                    fontSize: 14,
+                  ),
+```
+
+图片示例：
+
+![]()
+
 ## 数据录入
 
 ### 表单项
