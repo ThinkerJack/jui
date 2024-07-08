@@ -128,12 +128,12 @@ Flutter UI组件库
 
 参数：
 ```dart
-required String text,//全部文本内容
-List<HighlightWord> highlights = const [],//高亮数据集合
-TextStyle? defaultTextStyle,//默认文本样式
-TextStyle? defaultHighlightStyle,//高亮文本样式
-int maxLines = 5,//最大行数
-TextOverflow overflow = TextOverflow.ellipsis,//文本超出样式
+    required String text,//全部文本内容
+    List<HighlightWord> highlights = const [],//高亮数据集合
+    TextStyle? defaultTextStyle,//默认文本样式
+    TextStyle? defaultHighlightStyle,//高亮文本样式
+    int maxLines = 5,//最大行数
+    TextOverflow overflow = TextOverflow.ellipsis,//文本超出样式
 
 class HighlightWord {
   final String word;//文字内容
@@ -234,7 +234,41 @@ class HighlightWord {
 
 图片示例：
 
-![]()
+![](https://github.com/ThinkerJack/jac_uikit/blob/develop/example/assets/img_5.png)
+
+参数：
+
+```dart
+  final double paddingVertical; //垂直内边距
+  final double paddingHorizontal; //水平内边距
+  final JacTagType tagType; //tag类型
+  final JacTagShapeType tagShapeType; //tag形状类型
+  final JacTagColorType tagColorType; //tag颜色类型
+  final String text; //文字内容
+  final double fontSize; //字体大小
+  final Widget? icon; //左侧图标
+
+//tag颜色类型
+enum JacTagColorType { black, blue, green, yellow, red, gray }
+
+//tag形状类型
+enum JacTagShapeType {
+  //半圆
+  semicircle,
+  //矩形
+  rectangle,
+  //胶囊
+  capsule
+}
+
+//tag类型
+enum JacTagType {
+  //纯文字
+  text,
+  //icon+文字
+  icon
+}
+```
 
 ## 数据录入
 
