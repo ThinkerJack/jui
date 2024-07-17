@@ -33,6 +33,10 @@ class MainPage extends StatelessWidget {
               onPressed: () => Navigator.of(context).pushNamed(DemoRouter.tagDemo),
               child: const Text("标签示例"),
             ),
+            ElevatedButton(
+              onPressed: () => Navigator.of(context).pushNamed(DemoRouter.dashedBorderDemo),
+              child: const Text("虚线边框"),
+            ),
           ],
         ),
       ),
