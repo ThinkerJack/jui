@@ -29,8 +29,8 @@ class JacTag extends StatelessWidget {
     this.icon,
     required this.fontSize,
   }) : super(key: key);
-// 垂直内边距
-  final double paddingVertical;
+
+  final double paddingVertical;// 垂直内边距
   final double paddingHorizontal;// 水平内边距
   final JacTagType tagType; // Tag类型
   final JacTagShapeType tagShapeType;// Tag形状类型

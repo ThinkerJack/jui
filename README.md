@@ -76,17 +76,17 @@ Flutter UI组件库
 
 参数：
 ```dart
-  final Function onTap; //点击事件
-  final String text; //文本内容
-  final JacButtonSizeType sizeType; //大小类型
-  final JacButtonColorType colorType; //颜色类型
-  final bool? visibility; //是否展示
-  final bool disable; //是否禁用
-  final double? width; //宽度
-  final double? height; //高度
-  final double? fontSize; //文字大小
-  final double? circular; //圆角度
-  final double? fontHeight; //文字行高
+  final Function onTap; // 点击事件
+  final String text; // 按钮文本内容
+  final JacButtonSizeType sizeType; // 按钮大小类型
+  final JacButtonColorType colorType; // 按钮颜色类型
+  final bool? visibility; // 按钮是否显示
+  final bool disable; // 按钮是否禁用
+  final double? width; // 按钮宽度
+  final double? height; // 按钮高度
+  final double? fontSize; // 字体大小
+  final double? circular; // 按钮圆角度
+  final double? fontHeight; // 字体行高
 ```
 
 
@@ -164,13 +164,13 @@ class HighlightWord {
 参数：
 
 ```dart
-  final String content; //文本内容
-  final String expandText; //展开文字
-  final String collapsedText; //收起文字
-  final int maxLines; //最大行数
-  final bool canCollapsed; //是否支持收起
-  final TextStyle? contentTextStyle; //普通文本样式
-  final TextStyle? expandTextStyle; //展开收起文本样式
+  final String content;// 文本内容
+  final String expandText;// 展开文字
+  final String collapsedText; // 收起文字
+  final int maxLines;// 最大行数
+  final bool canCollapsed;// 是否支持收起
+  final TextStyle? contentTextStyle;// 普通文本样式
+  final TextStyle? expandTextStyle; // 展开收起文本样式
 ```
 
 ### 标签
@@ -239,14 +239,14 @@ class HighlightWord {
 参数：
 
 ```dart
-  final double paddingVertical; //垂直内边距
-  final double paddingHorizontal; //水平内边距
-  final JacTagType tagType; //tag类型
-  final JacTagShapeType tagShapeType; //tag形状类型
-  final JacTagColorType tagColorType; //tag颜色类型
-  final String text; //文字内容
-  final double fontSize; //字体大小
-  final Widget? icon; //左侧图标
+  final double paddingVertical;// 垂直内边距
+  final double paddingHorizontal;// 水平内边距
+  final JacTagType tagType; // Tag类型
+  final JacTagShapeType tagShapeType;// Tag形状类型
+  final JacTagColorType tagColorType;// Tag颜色类型
+  final String text;// 文字内容
+  final double fontSize;// 左侧图标
+  final Widget? icon;// 字体大小
 
 //tag颜色类型
 enum JacTagColorType { black, blue, green, yellow, red, gray }
