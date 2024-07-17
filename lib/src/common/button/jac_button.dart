@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-
 import '../../utils/custom_color.dart';
 
+const double _defaultCircular = 24; // 默认圆角度
 
-const double _defaultCircular = 24;
-
-//大小
+// 按钮大小类型
 enum JacButtonSizeType { large, middle, small, ultraSmall }
 
-//颜色
+// 按钮颜色类型
 enum JacButtonColorType { blue, gray, white, blueBorder }
 
+// 获取按钮高度
 double _getHeight(JacButtonSizeType type) {
   switch (type) {
     case JacButtonSizeType.large:
@@ -24,6 +23,7 @@ double _getHeight(JacButtonSizeType type) {
   }
 }
 
+// 获取字体大小
 double _getFontSize(JacButtonSizeType type) {
   switch (type) {
     case JacButtonSizeType.large:
@@ -37,6 +37,7 @@ double _getFontSize(JacButtonSizeType type) {
   }
 }
 
+// 获取按钮内边距
 double _getPadding(JacButtonSizeType type) {
   switch (type) {
     case JacButtonSizeType.large:
@@ -50,6 +51,7 @@ double _getPadding(JacButtonSizeType type) {
   }
 }
 
+// 获取按钮背景颜色
 Color _getContainerColor(JacButtonColorType type, bool disable) {
   switch (type) {
     case JacButtonColorType.white:
@@ -63,6 +65,7 @@ Color _getContainerColor(JacButtonColorType type, bool disable) {
   }
 }
 
+// 获取字体颜色
 Color _getFontColor(JacButtonColorType type, bool disable) {
   switch (type) {
     case JacButtonColorType.white:
@@ -76,6 +79,7 @@ Color _getFontColor(JacButtonColorType type, bool disable) {
   }
 }
 
+// 获取按钮边框
 BoxBorder? _getBorder(JacButtonColorType type) {
   switch (type) {
     case JacButtonColorType.white:
@@ -88,6 +92,7 @@ BoxBorder? _getBorder(JacButtonColorType type) {
   }
 }
 
+// 按钮组件
 class JacButton extends StatelessWidget {
   const JacButton({
     Key? key,
@@ -104,48 +109,52 @@ class JacButton extends StatelessWidget {
     this.disable = false,
   }) : super(key: key);
 
-  final Function onTap; //点击事件
-  final String text; //文本内容
-  final JacButtonSizeType sizeType; //大小类型
-  final JacButtonColorType colorType; //颜色类型
-  final bool? visibility; //是否展示
-  final bool disable; //是否禁用
-  final double? width; //宽度
-  final double? height; //高度
-  final double? fontSize; //文字大小
-  final double? circular; //圆角度
-  final double? fontHeight; //文字行高
+  final Function onTap; // 点击事件
+  final String text; // 按钮文本内容
+  final JacButtonSizeType sizeType; // 按钮大小类型
+  final JacButtonColorType colorType; // 按钮颜色类型
+  final bool? visibility; // 按钮是否显示
+  final bool disable; // 按钮是否禁用
+  final double? width; // 按钮宽度
+  final double? height; // 按钮高度
+  final double? fontSize; // 字体大小
+  final double? circular; // 按钮圆角度
+  final double? fontHeight; // 字体行高
 
   @override
   Widget build(BuildContext context) {
     return Visibility(
       visible: visibility ?? true,
       child: InkWell(
-          onTap: () {
-            if (!disable) onTap();
-          },
-          child: hasUnconstrainedBox(
-            Container(
-              height: height ?? _getHeight(sizeType),
-              width: width,
-              padding: width == null ? EdgeInsets.symmetric(horizontal: _getPadding(sizeType)) : null,
-              decoration: BoxDecoration(
-                  color: _getContainerColor(colorType, disable),
-                  borderRadius: BorderRadius.circular(circular ?? _defaultCircular),
-                  border: _getBorder(colorType)),
-              alignment: Alignment.center,
-              child: Text(
-                text,
-                style: TextStyle(
-                    color: _getFontColor(colorType, disable),
-                    fontSize: fontSize ?? _getFontSize(sizeType),
-                    height: fontHeight ?? 1.0),
+        onTap: () {
+          if (!disable) onTap();
+        },
+        child: hasUnconstrainedBox(
+          Container(
+            height: height ?? _getHeight(sizeType),
+            width: width,
+            padding: width == null ? EdgeInsets.symmetric(horizontal: _getPadding(sizeType)) : null,
+            decoration: BoxDecoration(
+              color: _getContainerColor(colorType, disable),
+              borderRadius: BorderRadius.circular(circular ?? _defaultCircular),
+              border: _getBorder(colorType),
+            ),
+            alignment: Alignment.center,
+            child: Text(
+              text,
+              style: TextStyle(
+                color: _getFontColor(colorType, disable),
+                fontSize: fontSize ?? _getFontSize(sizeType),
+                height: fontHeight ?? 1.0,
               ),
             ),
-          )),
+          ),
+        ),
+      ),
     );
   }
 
+  // 如果按钮宽度为无限大，则不受约束
   Widget hasUnconstrainedBox(Widget widget) {
     if (width == double.infinity) {
       return widget;
@@ -156,4 +165,3 @@ class JacButton extends StatelessWidget {
     }
   }
 }
-
