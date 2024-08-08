@@ -16,15 +16,18 @@ class _Text extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Text(
-        title,
-        style: TextStyle(
-          fontSize: 16,
-          color: ui2A2F3C,
-          fontWeight: FontWeight.w500,
+    return Padding(
+      padding: const EdgeInsets.only(left: 16),
+      child: Expanded(
+        child: Text(
+          title,
+          style: TextStyle(
+            fontSize: 16,
+            color: ui2A2F3C,
+            fontWeight: FontWeight.w500,
+          ),
         ),
-      ).paddingLeft(16),
+      ),
     );
   }
 }

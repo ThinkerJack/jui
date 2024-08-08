@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 import '../../../basic/picker_widget.dart';
 import 'common/picker_func.dart';
 import 'common/picker_widget.dart';
@@ -52,21 +51,32 @@ class _MVScrollDatePickerState extends State<MVScrollDatePicker> {
                   widget.onDone(vm.startTime.value!, vm.endTime.value);
                 }),
             const Divider(thickness: 0.5, color: Color.fromRGBO(0, 0, 0, 0.04)),
-            ValueListnableTuple3Builder(
-                valueListenables: Tuple3(vm.startTime, vm.endTime, vm.startOrEndFlag),
-                builder: (context, v, c) {
-                  return CommonTimeTitle(
-                    startOrEndFlag: vm.startOrEndFlag,
-                    endTime: vm.endTime,
-                    tapStart: () {
-                      vm.tapStartTime();
-                    },
-                    tapEnd: () {
-                      vm.tapEndTime();
-                    },
-                    type: widget.type,
-                    startTime: vm.startTime.value!,
-                  );
+            ValueListenableBuilder(
+                key: UniqueKey(),
+                valueListenable: vm.startTime,
+                builder: (context, value, child) {
+                  return ValueListenableBuilder(
+                      key: UniqueKey(),
+                      valueListenable: vm.endTime,
+                      builder: (context, value, child) {
+                        return ValueListenableBuilder(
+                            key: UniqueKey(),
+                            valueListenable: vm.startOrEndFlag,
+                            builder: (context, value, child) {
+                              return CommonTimeTitle(
+                                startOrEndFlag: vm.startOrEndFlag,
+                                endTime: vm.endTime,
+                                tapStart: () {
+                                  vm.tapStartTime();
+                                },
+                                tapEnd: () {
+                                  vm.tapEndTime();
+                                },
+                                type: widget.type,
+                                startTime: vm.startTime.value!,
+                              );
+                            });
+                      });
                 }),
             DatePickerSliding(
               picker: ValueListenableBuilder(
@@ -205,20 +215,24 @@ class _MVScrollDatePickerState extends State<MVScrollDatePicker> {
                   }),
             ),
             Expanded(
-              child: ValueListnableTuple2Builder(
-                  key: UniqueKey(),
-                  valueListenables: Tuple2(vm.endMonthChange, vm.endYearChange),
-                  builder: (context, value, child) {
-                    return VVCupertinoPicker(
-                      scrollEnd: () {
-                        vm.updateEndTimeByDay();
-                      },
-                      childCount: vm.endDayList(vm.endTime.value!).length,
-                      textList: vm.endDayList(vm.endTime.value!),
-                      controller: vm.endDayController,
-                    );
-                  }),
-            ),
+                child: ValueListenableBuilder(
+                    key: UniqueKey(),
+                    valueListenable: vm.endMonthChange,
+                    builder: (context, value, child) {
+                      return ValueListenableBuilder(
+                          key: UniqueKey(),
+                          valueListenable: vm.endYearChange,
+                          builder: (context, value, child) {
+                            return VVCupertinoPicker(
+                              scrollEnd: () {
+                                vm.updateEndByMinute(context);
+                              },
+                              childCount: vm.endMinuteList(vm.endTime.value!).length,
+                              textList: vm.endMinuteList(vm.endTime.value!),
+                              controller: vm.endMinuteController,
+                            );
+                          });
+                    })),
           ],
         );
       case DatePickerType.YMDWHM:
@@ -253,18 +267,23 @@ class _MVScrollDatePickerState extends State<MVScrollDatePicker> {
                       );
                     })),
             Expanded(
-                child: ValueListnableTuple2Builder(
+                child: ValueListenableBuilder(
                     key: UniqueKey(),
-                    valueListenables: Tuple2(vm.endYMDWChange, vm.endHourChange),
+                    valueListenable: vm.endYMDWChange,
                     builder: (context, value, child) {
-                      return VVCupertinoPicker(
-                        scrollEnd: () {
-                          vm.updateEndByMinute(context);
-                        },
-                        childCount: vm.endMinuteList(vm.endTime.value!).length,
-                        textList: vm.endMinuteList(vm.endTime.value!),
-                        controller: vm.endMinuteController,
-                      );
+                      return ValueListenableBuilder(
+                          key: UniqueKey(),
+                          valueListenable: vm.endHourChange,
+                          builder: (context, value, child) {
+                            return VVCupertinoPicker(
+                              scrollEnd: () {
+                                vm.updateEndByMinute(context);
+                              },
+                              childCount: vm.endMinuteList(vm.endTime.value!).length,
+                              textList: vm.endMinuteList(vm.endTime.value!),
+                              controller: vm.endMinuteController,
+                            );
+                          });
                     })),
           ],
         );

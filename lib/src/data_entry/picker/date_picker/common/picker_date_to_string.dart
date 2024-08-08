@@ -1,6 +1,8 @@
 
 
 
+import 'package:intl/intl.dart';
+
 String getMinuteText(DateTime date) {
   return date.minute.toString().padLeft(2, "0");
 }
