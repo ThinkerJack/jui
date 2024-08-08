@@ -1,15 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
-
 import '../../utils.dart';
 import '../data_entry/picker/date_picker/common/vv_ios_cupertino_picker.dart';
 
 TextStyle _leftTextStyle = TextStyle(fontSize: 14, color: ui858B9B, height: 1.5);
 
-TextStyle _rightTextDefaultStyle =
-    TextStyle(fontSize: 14, color: ui5590F6, height: 1.5, fontWeight: FontWeight.w500);
+TextStyle _rightTextDefaultStyle = TextStyle(fontSize: 14, color: ui5590F6, height: 1.5, fontWeight: FontWeight.w500);
 
 class PickerTitle extends StatelessWidget {
   const PickerTitle({

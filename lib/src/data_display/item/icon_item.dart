@@ -1,6 +1,4 @@
 import 'package:flutter/cupertino.dart';
-
-
 import '../../../utils.dart';
 
 /// 图片文字表单项组件

@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
 class ItemDivider extends StatelessWidget {
   const ItemDivider({
     Key? key,

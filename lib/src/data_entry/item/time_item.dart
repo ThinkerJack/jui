@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:jac_uikit/src/basic/extension.dart';
 
 import '../../../generated/assets.dart';

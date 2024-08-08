@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:jac_uikit/src/basic/extension.dart';
 import 'package:jac_uikit/src/utils/color.dart';
 

@@ -1,6 +1,3 @@
-
-
-
 import 'package:intl/intl.dart';
 
 String getMinuteText(DateTime date) {

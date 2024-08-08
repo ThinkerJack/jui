@@ -1,6 +1,4 @@
 import 'package:flutter/cupertino.dart';
-
-
 import '../../../utils.dart';
 import 'common.dart';
 
@@ -48,15 +46,12 @@ class VVSimpleDialog extends StatelessWidget {
             ),
             SizedBox(height: dialogSpacer),
             // 确认和取消按钮
-            buildDialogButton(
-              context,
-              () {
-                onConfirmTap.call();
-              },
-              confirmButtonText: confirmButtonText,
-              showCancelButton: showCancelButton,
-              cancelButtonText: cancelButtonText
-            ),
+            buildDialogButton(context, () {
+              onConfirmTap.call();
+            },
+                confirmButtonText: confirmButtonText,
+                showCancelButton: showCancelButton,
+                cancelButtonText: cancelButtonText),
           ],
         ),
       ),

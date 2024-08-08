@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 
-
 Text noDataText(String emptyText) {
   return Text(
     emptyText,

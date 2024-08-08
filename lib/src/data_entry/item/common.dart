@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:jac_uikit/src/basic/extension.dart';
 
 import '../../../generated/assets.dart';
@@ -88,10 +87,10 @@ final TextStyle itemTitleStyle =
 final TextStyle itemTitleDisabledStyle =
     TextStyle(color: uiBCC1CD, fontSize: 14, fontWeight: FontWeight.w400, height: 1.5);
 final TextStyle itemHintStyle = TextStyle(color: uiBCC1CD, fontSize: 16, fontWeight: FontWeight.w400, height: 1.5);
-final TextStyle itemHintDisabledStyle = TextStyle(color: uiDCE0E8, fontSize: 16, fontWeight: FontWeight.w400, height: 1.5);
+final TextStyle itemHintDisabledStyle =
+    TextStyle(color: uiDCE0E8, fontSize: 16, fontWeight: FontWeight.w400, height: 1.5);
 
-final TextStyle itemContentStyle =
-    TextStyle(color: ui2A2F3C, fontSize: 16, fontWeight: FontWeight.w400, height: 1.5);
+final TextStyle itemContentStyle = TextStyle(color: ui2A2F3C, fontSize: 16, fontWeight: FontWeight.w400, height: 1.5);
 const Color tipsColor = uiF55656;
 
 /// 用于调用接口，判断输入内容是否涉及敏感词

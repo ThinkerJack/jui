@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:jac_uikit/src/basic/item_widget.dart';
 
 /// 详情表单项类型：simple, custom 均为多行，singleLine 为单行
@@ -107,7 +106,7 @@ class DetailItem extends StatelessWidget {
               children: [
                 //todo
                 // if (LanguageHelper.instance.isZh)
-                  if(true)
+                if (true)
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,

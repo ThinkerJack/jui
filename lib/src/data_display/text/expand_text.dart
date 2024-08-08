@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-
 import '../../utils/color.dart';
 
 String _expandText = "... ${"展开"}";
@@ -38,8 +36,7 @@ class ExpandTextWidget extends StatefulWidget {
 class _ExpandTextWidgetState extends State<ExpandTextWidget> {
   bool expandFlag = true; // 是否展开标志
   late TextStyle contextTextStyle = widget.contentTextStyle ?? TextStyle(color: ui2A2F3C, fontSize: 16, height: 1.5);
-  late TextStyle expandedTextStyle =
-      widget.expandedTextStyle ?? TextStyle(color: ui5590F6, fontSize: 16, height: 1.5);
+  late TextStyle expandedTextStyle = widget.expandedTextStyle ?? TextStyle(color: ui5590F6, fontSize: 16, height: 1.5);
 
   @override
   Widget build(BuildContext context) {

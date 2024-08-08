@@ -1,6 +1,4 @@
 import 'package:flutter/cupertino.dart';
-
-
 import '../../../utils.dart';
 import 'common.dart';
 
@@ -13,7 +11,8 @@ class VVCustomDialog extends StatelessWidget {
     required this.confirmButtonText,
     required this.showCancelButton,
     required this.contentWidget,
-    required this.width, required this.cancelButtonText,
+    required this.width,
+    required this.cancelButtonText,
   }) : super(key: key);
 
   /// 对话框标题
@@ -21,8 +20,9 @@ class VVCustomDialog extends StatelessWidget {
 
   /// 确认按钮文本
   final String confirmButtonText;
+
   /// 取消按钮文本
-  final String  cancelButtonText;
+  final String cancelButtonText;
 
   /// 确认按钮点击回调
   final DialogTapCallBack onConfirmTap;
@@ -64,15 +64,12 @@ class VVCustomDialog extends StatelessWidget {
             SizedBox(height: dialogSpacer),
 
             // 确认和取消按钮
-            buildDialogButton(
-              context,
-              () {
-                onConfirmTap.call();
-              },
-              confirmButtonText: confirmButtonText,
-              showCancelButton: showCancelButton,
-              cancelButtonText: cancelButtonText
-            )
+            buildDialogButton(context, () {
+              onConfirmTap.call();
+            },
+                confirmButtonText: confirmButtonText,
+                showCancelButton: showCancelButton,
+                cancelButtonText: cancelButtonText)
           ],
         ),
       ),

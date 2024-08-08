@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-
-
-
 import '../../../../utils.dart';
 
 /// 日期选择器组件，允许用户选择年和月
@@ -28,20 +25,7 @@ class _TapDatePickerState extends State<TapDatePicker> {
   int _year = YearMonth.now().year; // 当前选择的年
 
   // 当前语言环境下的月份列表
-  final List<String> _monthList = [
-    "一月",
-    "二月",
-    "三月",
-    "四月",
-    "五月",
-    "六月",
-    "七月",
-    "八月",
-    "九月",
-    "十月",
-    "十一月",
-    "十二月"
-  ];
+  final List<String> _monthList = ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"];
 
   // 判断是否可以增加年份
   bool get canForwardYear {
@@ -99,7 +83,7 @@ class _TapDatePickerState extends State<TapDatePicker> {
           Expanded(
             // 标题文本
             child: Text(
-              widget.title ??"选择起止日期",
+              widget.title ?? "选择起止日期",
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
               style: const TextStyle(color: ui2A2F3C, fontSize: 17, fontWeight: FontWeight.w500),
@@ -302,6 +286,7 @@ class YearMonth {
     return YearMonth(year ?? this.year, month ?? this.month);
   }
 }
+
 extension ListExtensions<E> on List<E> {
   /// Maps each element and its index to a new value.
   Iterable<R> mapIndexed<R>(R Function(int index, E element) convert) sync* {

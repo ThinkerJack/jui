@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:jac_uikit/src/basic/extension.dart';
 
 import '../../../../generated/assets.dart';
@@ -147,15 +146,14 @@ class _MultiSelectionPickerState extends State<MultiSelectionPicker> {
               child: Container(
                 margin: EdgeInsets.only(right: 9),
                 child: Text(widget.filterItemData[data].toString(),
-                        style: TextStyle(
-                          color: ui2A2F3C,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 16,
-                        ),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis),
-              )
-                  ,
+                    style: TextStyle(
+                      color: ui2A2F3C,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 16,
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis),
+              ),
             ),
           ],
         );
@@ -167,15 +165,14 @@ class _MultiSelectionPickerState extends State<MultiSelectionPicker> {
               child: Container(
                 margin: EdgeInsets.only(left: 9, right: 9),
                 child: Text(widget.filterItemData[data],
-                        style: TextStyle(
-                          color: ui2A2F3C,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 16,
-                        ),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis),
-              )
-                  ,
+                    style: TextStyle(
+                      color: ui2A2F3C,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 16,
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis),
+              ),
             ),
             Padding(
               padding: EdgeInsets.only(right: 15),

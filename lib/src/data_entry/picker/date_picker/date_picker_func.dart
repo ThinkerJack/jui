@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:jac_uikit/src/data_entry/picker/date_picker/sv_scroll_date_picker.dart';
 import 'package:jac_uikit/src/data_entry/picker/date_picker/tap_date_picker.dart';
 
@@ -50,7 +49,6 @@ Future<dynamic> showVVDatePicker(
             isToDate: isToDate,
           );
   }
-
 
   Widget buildYearMonthPicker() {
     return SizedBox(

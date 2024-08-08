@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-
 import '../../../basic/bottom_cancel_widget.dart';
 import '../../../basic/picker_widget.dart';
 import '../common/picker_const.dart';

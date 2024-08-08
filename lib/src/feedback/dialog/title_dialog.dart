@@ -1,6 +1,4 @@
 import 'package:flutter/cupertino.dart';
-
-
 import '../../../utils.dart';
 import 'common.dart';
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:jac_uikit/src/utils/color.dart';
 
 import '../../../../data_entry.dart';

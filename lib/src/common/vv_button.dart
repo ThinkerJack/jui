@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
-
 import '../../utils.dart';
-
 
 final double _defaultCircular = 24;
 

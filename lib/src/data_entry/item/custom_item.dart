@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-
 import '../../basic/item_widget.dart';
 import 'common.dart';
 
