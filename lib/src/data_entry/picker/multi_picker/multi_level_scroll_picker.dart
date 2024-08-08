@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jac_uikit/src/utils/color.dart';
+import 'package:jui/src/utils/color.dart';
 
 import '../../../../data_entry.dart';
 import '../../../basic/picker_widget.dart';

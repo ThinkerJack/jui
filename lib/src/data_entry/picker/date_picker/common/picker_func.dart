@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:jac_uikit/src/data_entry/picker/date_picker/common/picker_date_to_string.dart';
+import 'package:jui/src/data_entry/picker/date_picker/common/picker_date_to_string.dart';
 
 enum RangeType { hasMin, hasMax, common, hasMinAndMax }
 

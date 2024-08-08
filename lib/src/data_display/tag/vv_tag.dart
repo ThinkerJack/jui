@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:jac_uikit/src/utils/color.dart';
+import 'package:jui/src/utils/color.dart';
 
 // Tag 颜色类型枚举
 enum VVTagColorType { black, blue, green, yellow, red, gray }

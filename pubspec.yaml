@@ -1,7 +1,7 @@
-name: jac_uikit
-description: Flutter uikit
+name: jui
+description: Flutter UI components
 version: 0.0.7
-homepage: https://github.com/ThinkerJack/jac_uikit
+homepage: https://github.com/ThinkerJack/jui
 
 environment:
   sdk: '>=2.18.6 <3.0.0'

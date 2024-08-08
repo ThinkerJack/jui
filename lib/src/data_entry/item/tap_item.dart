@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jac_uikit/generated/assets.dart';
-import 'package:jac_uikit/src/basic/extension.dart';
+import 'package:jui/generated/assets.dart';
+import 'package:jui/src/basic/extension.dart';
 
 import '../../basic/item_widget.dart';
 import 'common.dart';

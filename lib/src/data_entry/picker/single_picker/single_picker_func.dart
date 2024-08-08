@@ -1,8 +1,8 @@
 //滚动单选
 import 'package:flutter/material.dart';
-import 'package:jac_uikit/src/data_entry/picker/single_picker/bottom_cancel.dart';
-import 'package:jac_uikit/src/data_entry/picker/single_picker/right_tick.dart';
-import 'package:jac_uikit/src/data_entry/picker/single_picker/scroll.dart';
+import 'package:jui/src/data_entry/picker/single_picker/bottom_cancel.dart';
+import 'package:jui/src/data_entry/picker/single_picker/right_tick.dart';
+import 'package:jui/src/data_entry/picker/single_picker/scroll.dart';
 
 import '../common/picker_const.dart';
 

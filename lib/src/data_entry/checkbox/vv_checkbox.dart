@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:jac_uikit/src/basic/extension.dart';
+import 'package:jui/src/basic/extension.dart';
 
 import '../../../generated/assets.dart';
 

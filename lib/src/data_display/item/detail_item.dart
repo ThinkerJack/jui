@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jac_uikit/src/basic/item_widget.dart';
+import 'package:jui/src/basic/item_widget.dart';
 
 /// 详情表单项类型：simple, custom 均为多行，singleLine 为单行
 enum DetailItemType { simple, custom, singleLine }

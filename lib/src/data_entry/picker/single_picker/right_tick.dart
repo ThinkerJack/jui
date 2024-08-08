@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:jac_uikit/src/basic/extension.dart';
-import 'package:jac_uikit/src/utils/color.dart';
+import 'package:jui/src/basic/extension.dart';
+import 'package:jui/src/utils/color.dart';
 
 import '../../../../generated/assets.dart';
 import '../../../basic/picker_widget.dart';

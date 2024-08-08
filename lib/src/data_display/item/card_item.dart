@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';import 'package:jac_uikit/src/utils/color.dart';
+import 'package:flutter/cupertino.dart';import 'package:jui/src/utils/color.dart';
 
 /// 卡片项组件，显示一个标题和一个内容组件
 class CardItem extends StatelessWidget {
