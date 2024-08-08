@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:habit/habit.dart';
-import 'package:vv_ui_kit/src/basic/extension.dart';
+
+import 'package:jac_uikit/src/basic/extension.dart';
 
 import '../../../generated/assets.dart';
-import '../../../generated/l10n.dart';
 import 'common.dart';
 
 /// 搜索空页面组件，用于显示搜索结果为空时的提示
@@ -31,9 +30,9 @@ class SearchEmptyWidget extends StatelessWidget {
           children: <Widget>[
             Image.asset(Assets.imagesSearchEmpty.path), // 显示搜索为空的图片
             SizedBox(
-              height: 8.w, // 图片和文字之间的间距
+              height: 8, // 图片和文字之间的间距
             ),
-            noDataText(emptyText ?? getLanguage<S>().LMID_00007233), // 显示空页面提示文字
+            noDataText(emptyText ?? "暂无数据"), // 显示空页面提示文字
           ],
         ),
       ),

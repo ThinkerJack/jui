@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:habit/life/base/extensions/language_extension.dart';
-import 'package:vv_ui_kit/src/data_entry/picker/date_picker/sv_scroll_date_picker.dart';
-import 'package:vv_ui_kit/src/data_entry/picker/date_picker/tap_date_picker.dart';
 
-import '../../../../generated/l10n.dart';
-import 'calendar_time_picker.dart';
+import 'package:jac_uikit/src/data_entry/picker/date_picker/sv_scroll_date_picker.dart';
+import 'package:jac_uikit/src/data_entry/picker/date_picker/tap_date_picker.dart';
+
 import 'mv_date_picker.dart';
 
 Future<dynamic> showVVDatePicker(
@@ -23,7 +21,7 @@ Future<dynamic> showVVDatePicker(
   bool isToDate = false,
   String? title,
 }) {
-  final String defaultTitle = title ?? getLanguage<S>().LMID_00000041;
+  final String defaultTitle = title ?? "选择时间";
 
   Widget buildCupertinoPicker() {
     return showTopTitle
@@ -53,34 +51,6 @@ Future<dynamic> showVVDatePicker(
           );
   }
 
-  Widget buildCalendarPicker() {
-    return CalendarTimePicker(
-      startTime: startTime,
-      endTime: endTime,
-      title: defaultTitle,
-      isFilter: false,
-      onDone: (value) {
-        if (value != null) {
-          final start = DateTime(value.start.year, value.start.month, value.start.day);
-          final end = DateTime(value.end.year, value.end.month, value.end.day);
-          Navigator.pop(context);
-          switch (rangeSelectType) {
-            case CalendarSelectRangeType.day:
-              onDone(start);
-              break;
-            case CalendarSelectRangeType.week:
-              onDone(start, end);
-              break;
-            default:
-              onDone(start, end);
-              break;
-          }
-        }
-      },
-      maxSelect: maxTime,
-      rangeSelectType: rangeSelectType!,
-    );
-  }
 
   Widget buildYearMonthPicker() {
     return SizedBox(
@@ -106,15 +76,6 @@ Future<dynamic> showVVDatePicker(
         barrierColor: const Color(0x80000000),
         builder: (BuildContext context) => buildCupertinoPicker(),
       );
-    case DatePickerType.calendar:
-      return showModalBottomSheet(
-        context: context,
-        isScrollControlled: true,
-        isDismissible: false,
-        enableDrag: true,
-        backgroundColor: Colors.transparent,
-        builder: (BuildContext context) => buildCalendarPicker(),
-      );
     case DatePickerType.yearMonth:
     case DatePickerType.tapYM:
       return showModalBottomSheet(
@@ -132,7 +93,6 @@ Future<dynamic> showVVDatePicker(
 
 enum DatePickerType {
   tapYM, //点击年月
-  calendar, //日历
   scrollYM, //滚动年月
   scrollYMD, //滚动年月日
   scrollYMDWHM, //滚动年月日时分

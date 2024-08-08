@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:habit/habit.dart';
+
 
 import '../../../utils.dart';
 import 'common.dart';
@@ -64,10 +64,10 @@ class _VVInputDialogState extends State<VVInputDialog> {
     return Center(
       child: Container(
         width: widget.width,
-        padding: EdgeInsets.fromLTRB(24.w, dialogMarginTop, 24.w, 16.w),
+        padding: EdgeInsets.fromLTRB(24, dialogMarginTop, 24, 16),
         decoration: BoxDecoration(
           color: uiFFFFFF,
-          borderRadius: BorderRadius.all(Radius.circular(16.w)),
+          borderRadius: BorderRadius.all(Radius.circular(16)),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -86,8 +86,8 @@ class _VVInputDialogState extends State<VVInputDialog> {
             // 输入框容器
             Container(
               decoration: BoxDecoration(
-                border: Border.all(color: const Color(0XFF5590F6), width: 1.w),
-                borderRadius: BorderRadius.all(Radius.circular(8.w)),
+                border: Border.all(color: const Color(0XFF5590F6), width: 1),
+                borderRadius: BorderRadius.all(Radius.circular(8)),
               ),
               // 输入框
               child: TextField(
@@ -97,7 +97,7 @@ class _VVInputDialogState extends State<VVInputDialog> {
                 maxLines: 1,
                 style: TextStyle(
                   color: const Color(0XFF212123),
-                  fontSize: 16.sp,
+                  fontSize: 16,
                   height: 1.5,
                 ),
                 inputFormatters: inputFormatters(),
@@ -108,16 +108,16 @@ class _VVInputDialogState extends State<VVInputDialog> {
                 decoration: InputDecoration(
                   isDense: true,
                   contentPadding: EdgeInsets.only(
-                    bottom: 10.w,
-                    top: 10.w,
-                    left: 12.w,
-                    right: 12.w,
+                    bottom: 10,
+                    top: 10,
+                    left: 12,
+                    right: 12,
                   ),
                   border: InputBorder.none,
                   hintText: widget.hintText,
                   hintStyle: TextStyle(
                     color: uiBCC1CD,
-                    fontSize: 16.sp,
+                    fontSize: 16,
                     height: 1.3,
                   ),
                   counterText: '',

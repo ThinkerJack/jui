@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:habit/habit.dart';
-import 'package:vv_ui_kit/src/basic/extension.dart';
+
+import 'package:jac_uikit/src/basic/extension.dart';
 
 import '../../../generated/assets.dart';
 import '../../../utils.dart';
@@ -20,11 +20,11 @@ class _Text extends StatelessWidget {
       child: Text(
         title,
         style: TextStyle(
-          fontSize: 16.sp,
+          fontSize: 16,
           color: ui2A2F3C,
           fontWeight: FontWeight.w500,
         ),
-      ).paddingLeft(16.r),
+      ).paddingLeft(16),
     );
   }
 }
@@ -38,17 +38,17 @@ class _BlueBlock extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 4.r,
-      height: 16.r,
+      width: 4,
+      height: 16,
       decoration: BoxDecoration(
           color: ui5590F6,
-          borderRadius: BorderRadius.only(topRight: Radius.circular(2.w), bottomRight: Radius.circular(2.w))),
+          borderRadius: BorderRadius.only(topRight: Radius.circular(2), bottomRight: Radius.circular(2))),
     );
   }
 }
 
 /// 构建 EdgeInsets 用于设置 padding
-EdgeInsets _buildEdgeInsets() => EdgeInsets.only(right: 20.w, top: 11.w, bottom: 11.w);
+EdgeInsets _buildEdgeInsets() => EdgeInsets.only(right: 20, top: 11, bottom: 11);
 
 /// 详情页标题组件
 class DetailTitle extends StatelessWidget {

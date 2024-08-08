@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:habit/habit.dart';
 
-import '../../../generated/l10n.dart';
+
 import '../../utils/color.dart';
 
-String _expandText = "... ${getLanguage<S>().LMID_00001604}";
+String _expandText = "... ${"展开"}";
 
 // 文字展开收起组件
 class ExpandTextWidget extends StatefulWidget {
@@ -38,9 +37,9 @@ class ExpandTextWidget extends StatefulWidget {
 
 class _ExpandTextWidgetState extends State<ExpandTextWidget> {
   bool expandFlag = true; // 是否展开标志
-  late TextStyle contextTextStyle = widget.contentTextStyle ?? TextStyle(color: ui2A2F3C, fontSize: 16.w, height: 1.5);
+  late TextStyle contextTextStyle = widget.contentTextStyle ?? TextStyle(color: ui2A2F3C, fontSize: 16, height: 1.5);
   late TextStyle expandedTextStyle =
-      widget.expandedTextStyle ?? TextStyle(color: ui5590F6, fontSize: 16.w, height: 1.5);
+      widget.expandedTextStyle ?? TextStyle(color: ui5590F6, fontSize: 16, height: 1.5);
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +68,7 @@ class _ExpandTextWidgetState extends State<ExpandTextWidget> {
               visible: !expandFlag && widget.canPackUp,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: [buildExpandedWidget(), SizedBox(width: 5.w)],
+                children: [buildExpandedWidget(), SizedBox(width: 5)],
               ),
             ),
           ],
@@ -92,7 +91,7 @@ class _ExpandTextWidgetState extends State<ExpandTextWidget> {
         });
       },
       child: Text(
-        expandFlag ? getLanguage<S>().LMID_00001604 : getLanguage<S>().LMID_00009480,
+        expandFlag ? "展开" : "收起",
         textAlign: TextAlign.end,
         style: expandedTextStyle,
       ),

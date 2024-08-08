@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:habit/dependencies.dart';
-import 'package:vv_ui_kit/src/utils/color.dart';
+
+import 'package:jac_uikit/src/utils/color.dart';
 
 // Tag 颜色类型枚举
 enum VVTagColorType { black, blue, green, yellow, red, gray }
@@ -89,7 +89,7 @@ class VVTag extends StatelessWidget {
           children: [
             icon ?? const SizedBox(),
             SizedBox(
-              width: 4.w,
+              width: 4,
             ),
             Text(
               text,
@@ -122,11 +122,11 @@ class VVTag extends StatelessWidget {
   BorderRadius getBorderRadius() {
     switch (tagShapeType) {
       case VVTagShapeType.semicircle:
-        return BorderRadius.only(topLeft: Radius.circular(16.w), bottomLeft: Radius.circular(16.w));
+        return BorderRadius.only(topLeft: Radius.circular(16), bottomLeft: Radius.circular(16));
       case VVTagShapeType.rectangle:
-        return fontSize > 12.sp ? BorderRadius.all(Radius.circular(6.w)) : BorderRadius.all(Radius.circular(4.w));
+        return fontSize > 12 ? BorderRadius.all(Radius.circular(6)) : BorderRadius.all(Radius.circular(4));
       case VVTagShapeType.capsule:
-        return BorderRadius.all(Radius.circular(16.w));
+        return BorderRadius.all(Radius.circular(16));
     }
   }
 }

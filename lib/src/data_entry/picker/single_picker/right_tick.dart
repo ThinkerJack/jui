@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:habit/habit.dart';
-import 'package:vv_ui_kit/src/basic/extension.dart';
-import 'package:vv_ui_kit/src/utils/color.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'package:jac_uikit/src/basic/extension.dart';
+import 'package:jac_uikit/src/utils/color.dart';
 
 import '../../../../generated/assets.dart';
 import '../../../basic/picker_widget.dart';
@@ -50,7 +51,7 @@ class _RightTickPickerState extends State<RightTickPicker> {
       padding: EdgeInsets.only(bottom: ScreenUtil().bottomBarHeight),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.only(topRight: Radius.circular(24.w), topLeft: Radius.circular(24.w)),
+        borderRadius: BorderRadius.only(topRight: Radius.circular(24), topLeft: Radius.circular(24)),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -66,7 +67,7 @@ class _RightTickPickerState extends State<RightTickPicker> {
           ),
           // 列表区域
           Container(
-            constraints: BoxConstraints(maxHeight: 550.w),
+            constraints: BoxConstraints(maxHeight: 550),
             child: MediaQuery.removePadding(
               removeBottom: true,
               context: context,
@@ -85,11 +86,11 @@ class _RightTickPickerState extends State<RightTickPicker> {
                       behavior: HitTestBehavior.opaque,
                       child: Container(
                         width: ScreenUtil().screenWidth,
-                        padding: EdgeInsets.only(left: 20.w),
+                        padding: EdgeInsets.only(left: 20),
                         child: Column(
                           children: [
                             Padding(
-                              padding: EdgeInsets.symmetric(vertical: 20.w),
+                              padding: EdgeInsets.symmetric(vertical: 20),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -97,13 +98,13 @@ class _RightTickPickerState extends State<RightTickPicker> {
                                   Expanded(
                                     child: Text(widget.filterItemData[key] ?? "",
                                         style: TextStyle(
-                                          fontSize: 16.sp,
+                                          fontSize: 16,
                                           height: 1.5,
                                           color: key == selectedKey ? ui2A2F3C : ui858B9B,
                                         )),
                                   ),
                                   Padding(
-                                    padding: EdgeInsets.only(right: 20.w, top: 5.w, left: 20.w),
+                                    padding: EdgeInsets.only(right: 20, top: 5, left: 20),
                                     child: Visibility(
                                         visible: key == selectedKey, child: Image.asset(Assets.imagesIconTick.path)),
                                   )

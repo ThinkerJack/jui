@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:habit/habit.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 import '../../../basic/bottom_cancel_widget.dart';
 import '../../../basic/picker_widget.dart';
@@ -38,13 +39,13 @@ class _EventPickerState extends State<EventPicker> {
       padding: EdgeInsets.only(bottom: ScreenUtil().bottomBarHeight),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.only(topRight: Radius.circular(24.w), topLeft: Radius.circular(24.w)),
+        borderRadius: BorderRadius.only(topRight: Radius.circular(24), topLeft: Radius.circular(24)),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            constraints: BoxConstraints(maxHeight: 550.w),
+            constraints: BoxConstraints(maxHeight: 550),
             child: MediaQuery.removePadding(
               removeBottom: true,
               context: context,
@@ -85,7 +86,7 @@ class _EventPickerState extends State<EventPicker> {
       case EventPickerType.icon:
         return _getContainer([
           Padding(
-            padding: EdgeInsets.only(right: 12.w),
+            padding: EdgeInsets.only(right: 12),
             child: data.icon ?? const SizedBox(),
           ),
           _getText(data)
@@ -99,7 +100,7 @@ class _EventPickerState extends State<EventPicker> {
   Container _getContainer(List<Widget> data) {
     return Container(
       width: ScreenUtil().screenWidth,
-      padding: EdgeInsets.symmetric(vertical: 16.w),
+      padding: EdgeInsets.symmetric(vertical: 16),
       alignment: Alignment.center,
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -115,7 +116,7 @@ class _EventPickerState extends State<EventPicker> {
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
       style: TextStyle(
-        fontSize: 16.sp,
+        fontSize: 16,
         height: 1.5,
         color: const Color(0xFF2A2F3C),
       ),

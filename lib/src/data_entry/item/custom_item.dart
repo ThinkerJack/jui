@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habit/habit.dart';
+
 
 import '../../basic/item_widget.dart';
 import 'common.dart';
@@ -50,7 +50,7 @@ class CustomItem extends StatelessWidget {
                 isRequired: isRequired,
                 isDisabled: isDisabled,
               ),
-              SizedBox(height: 4.w),
+              SizedBox(height: 4),
               contentWidget,
               SizedBox(height: itemPaddingV),
             ],

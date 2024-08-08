@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:habit/habit.dart';
+
 
 import '../../utils.dart';
 
-export 'vv_button_old.dart';
 
-final _defaultCircular = 24.w;
+final double _defaultCircular = 24;
 
 /// 按钮尺寸类型
 enum VVButtonSizeType { large, middle, small, ultraSmall }
@@ -17,13 +16,13 @@ enum VVButtonColorType { blue, gray, white, blueBorder }
 double _getHeight(VVButtonSizeType type) {
   switch (type) {
     case VVButtonSizeType.large:
-      return 48.w;
+      return 48;
     case VVButtonSizeType.middle:
-      return 40.w;
+      return 40;
     case VVButtonSizeType.small:
-      return 32.w;
+      return 32;
     case VVButtonSizeType.ultraSmall:
-      return 24.w;
+      return 24;
   }
 }
 
@@ -31,13 +30,13 @@ double _getHeight(VVButtonSizeType type) {
 double _getFontSize(VVButtonSizeType type) {
   switch (type) {
     case VVButtonSizeType.large:
-      return 16.w;
+      return 16;
     case VVButtonSizeType.middle:
-      return 14.w;
+      return 14;
     case VVButtonSizeType.small:
-      return 14.w;
+      return 14;
     case VVButtonSizeType.ultraSmall:
-      return 12.w;
+      return 12;
   }
 }
 
@@ -45,13 +44,13 @@ double _getFontSize(VVButtonSizeType type) {
 double _getPadding(VVButtonSizeType type) {
   switch (type) {
     case VVButtonSizeType.large:
-      return 32.w;
+      return 32;
     case VVButtonSizeType.middle:
-      return 24.w;
+      return 24;
     case VVButtonSizeType.small:
-      return 16.w;
+      return 16;
     case VVButtonSizeType.ultraSmall:
-      return 12.w;
+      return 12;
   }
 }
 
@@ -87,12 +86,12 @@ Color _getFontColor(VVButtonColorType type, bool disable) {
 BoxBorder? _getBorder(VVButtonColorType type) {
   switch (type) {
     case VVButtonColorType.white:
-      return Border.all(color: uiE8EAEF, width: 1.w);
+      return Border.all(color: uiE8EAEF, width: 1);
     case VVButtonColorType.gray:
     case VVButtonColorType.blue:
       return null;
     case VVButtonColorType.blueBorder:
-      return Border.all(color: ui5590F6, width: 1.w);
+      return Border.all(color: ui5590F6, width: 1);
   }
 }
 

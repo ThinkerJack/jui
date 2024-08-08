@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:habit/dependencies.dart';
-import 'package:habit/life/base/extensions/language_extension.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../generated/l10n.dart';
+
+
 import '../common/picker_const.dart';
 import 'multi_level_scroll_picker.dart';
 import 'multi_picker.dart';
@@ -35,8 +35,8 @@ showMultiPicker(BuildContext context,
             filterItemData: itemData,
             onDone: onDone,
             selectedKeys: selectedKeys ?? [],
-            topLeftText: getLanguage<S>().LMID_00002552,
-            topRightText: getLanguage<S>().LMID_00013631,
+            topLeftText: "取消",
+            topRightText: "确定",
             onCancel: onCancel,
             type: type,
           ));
@@ -52,7 +52,7 @@ showMultiLevelScrollPicker(BuildContext context,
       barrierColor: const Color.fromRGBO(0, 0, 0, 0.7),
       isScrollControlled: true,
       enableDrag: false,
-      constraints: BoxConstraints(maxHeight: 650.w),
+      constraints: BoxConstraints(maxHeight: 650),
       backgroundColor: Colors.transparent,
       builder: (context) => MultiLevelScrollPicker(title: title, data: data, tipsWidget: tipsWidget, onDone: onDone));
 }

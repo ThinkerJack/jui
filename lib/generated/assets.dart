@@ -5,7 +5,9 @@ class Assets {
   static const String imagesIcArrow = 'assets/images/ic_arrow.png';
   static const String imagesIconCircularSelected = 'assets/images/icon_circular_selected.png';
   static const String imagesIconCircularUnselected = 'assets/images/icon_circular_unselected.png';
+  static const String imagesIconClear = 'assets/images/icon_clear.png';
   static const String imagesIconDown = 'assets/images/icon_down.png';
+  static const String imagesIconMore = 'assets/images/icon_more.png';
   static const String imagesIconMoreDisabled = 'assets/images/icon_more_disabled.png';
   static const String imagesIconRight = 'assets/images/icon_right.png';
   static const String imagesIconSelected = 'assets/images/icon_selected.png';
@@ -14,6 +16,7 @@ class Assets {
   static const String imagesIconUnselected = 'assets/images/icon_unselected.png';
   static const String imagesIconUnselectedDisabled = 'assets/images/icon_unselected_disabled.png';
   static const String imagesIconUp = 'assets/images/icon_up.png';
+  static const String imagesImg = 'assets/images/img.png';
   static const String imagesItemInterval = 'assets/images/item_interval.png';
   static const String imagesItemRequired = 'assets/images/item_required.png';
   static const String imagesListEmpty = 'assets/images/list_empty.png';

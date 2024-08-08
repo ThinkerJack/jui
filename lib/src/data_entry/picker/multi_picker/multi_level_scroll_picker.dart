@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:habit/habit.dart';
-import 'package:vv_ui_kit/src/utils/color.dart';
+
+import 'package:jac_uikit/src/utils/color.dart';
 
 import '../../../../data_entry.dart';
-import '../../../../generated/l10n.dart';
 import '../../../basic/picker_widget.dart';
 import 'multi_level_scroll_vm.dart';
 
@@ -39,9 +38,9 @@ class _MultiLevelScrollPickerState extends State<MultiLevelScrollPicker> {
     return Material(
       type: MaterialType.transparency,
       child: Container(
-        constraints: BoxConstraints(maxHeight: 350.w, minWidth: 37.w),
+        constraints: BoxConstraints(maxHeight: 350, minWidth: 37),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(16.r)),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
           color: Colors.white,
         ),
         child: Column(
@@ -57,8 +56,8 @@ class _MultiLevelScrollPickerState extends State<MultiLevelScrollPicker> {
 
   Widget _buildHeader(BuildContext context) {
     return PickerTitle(
-      leftText: getLanguage<S>().LMID_00002552,
-      rightText: getLanguage<S>().LMID_00013631,
+      leftText: "取消",
+      rightText: "确定",
       onCancel: () => Navigator.pop(context),
       onConfirm: () {
         final firstSelected = widget.data[vm.firstController.selectedItem];
@@ -76,8 +75,8 @@ class _MultiLevelScrollPickerState extends State<MultiLevelScrollPicker> {
 
   Widget _buildPicker() {
     return Container(
-      constraints: BoxConstraints(maxHeight: 220.w, minWidth: 345.w),
-      padding: EdgeInsets.symmetric(horizontal: 15.w),
+      constraints: BoxConstraints(maxHeight: 220, minWidth: 345),
+      padding: EdgeInsets.symmetric(horizontal: 15),
       child: Stack(
         children: [
           _buildSelectionIndicator(),
@@ -95,14 +94,14 @@ class _MultiLevelScrollPickerState extends State<MultiLevelScrollPicker> {
   Widget _buildSelectionIndicator() {
     return Positioned(
         left: 0,
-        top: 90.w,
+        top: 90,
         right: 0,
         child: PickerSelectionArea(
-          height: 40.w,
+          height: 40,
           child: Center(
             child: Text(
               "～",
-              style: TextStyle(color: ui858B9B, fontSize: 16.w),
+              style: TextStyle(color: ui858B9B, fontSize: 16),
             ),
           ),
         ));

@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:habit/habit.dart';
+
 
 import '../../../utils.dart';
 
@@ -40,7 +40,7 @@ class IconItem extends StatelessWidget {
             // 图标组件
             iconWidget,
             SizedBox(
-              width: widgetSpacing ?? 8.w,
+              width: widgetSpacing ?? 8,
             ),
             // 标题文本和尾部组件
             Expanded(
@@ -53,14 +53,14 @@ class IconItem extends StatelessWidget {
                       alignment: PlaceholderAlignment.top,
                     ),
                   ],
-                  style: textStyle ?? TextStyle(color: ui2A2F3C, fontSize: 12.w, height: 1.5),
+                  style: textStyle ?? TextStyle(color: ui2A2F3C, fontSize: 12, height: 1.5),
                 ),
               ),
             )
           ],
         ),
         SizedBox(
-          height: 8.w,
+          height: 8,
         )
       ],
     );

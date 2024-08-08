@@ -1,11 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:habit/habit.dart';
-import 'package:vv_ui_kit/src/basic/extension.dart';
-import 'package:vv_ui_kit/src/data_entry/picker/date_picker/common/picker_date_to_string.dart';
+
+import 'package:jac_uikit/src/basic/extension.dart';
+import 'package:jac_uikit/src/data_entry/picker/date_picker/common/picker_date_to_string.dart';
 
 import '../../../../../generated/assets.dart';
-import '../../../../../generated/l10n.dart';
 import '../../../../basic/picker_widget.dart';
 import '../date_picker_func.dart';
 
@@ -25,8 +24,8 @@ class DateProcessTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20.w),
-      constraints: BoxConstraints(maxHeight: 56.w, minHeight: 56.w),
+      padding: EdgeInsets.symmetric(horizontal: 20),
+      constraints: BoxConstraints(maxHeight: 56, minHeight: 56),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -35,9 +34,9 @@ class DateProcessTitle extends StatelessWidget {
               Navigator.pop(context);
             },
             child: Text(
-              getLanguage<S>().LMID_00002552,
+              "取消",
               style: TextStyle(
-                fontSize: 14.sp,
+                fontSize: 14,
                 fontWeight: FontWeight.w400,
                 fontFamily: 'PingFang SC',
                 color: const Color(0xFF858B9B),
@@ -45,12 +44,12 @@ class DateProcessTitle extends StatelessWidget {
             ),
           ),
           Text(
-            title ?? getLanguage<S>().LMID_00000041,
+            title ?? "选择时间",
             textAlign: TextAlign.center,
             style: TextStyle(
               fontFamily: 'PingFang SC',
               fontWeight: FontWeight.w500,
-              fontSize: 16.sp,
+              fontSize: 16,
               height: 1.3,
               color: const Color(0xFF2A2F3C),
             ),
@@ -60,9 +59,9 @@ class DateProcessTitle extends StatelessWidget {
             builder: (context, value, child) => Visibility(
               visible: time.value != null,
               replacement: Text(
-                getLanguage<S>().LMID_00013631,
+                "确定",
                 style: TextStyle(
-                  fontSize: 14.sp,
+                  fontSize: 14,
                   fontWeight: FontWeight.w400,
                   fontFamily: 'PingFang SC',
                   color: const Color(0xFFC7DDFF),
@@ -71,9 +70,9 @@ class DateProcessTitle extends StatelessWidget {
               child: GestureDetector(
                 onTap: onDone,
                 child: Text(
-                  getLanguage<S>().LMID_00013631,
+                  "确定",
                   style: TextStyle(
-                    fontSize: 14.sp,
+                    fontSize: 14,
                     fontWeight: FontWeight.w400,
                     fontFamily: 'PingFang SC',
                     color: const Color(0xFF5590F6),
@@ -102,16 +101,16 @@ class DatePickerSliding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(maxHeight: 220.w, minWidth: 345.w),
-      padding: EdgeInsets.symmetric(horizontal: 15.w),
+      constraints: BoxConstraints(maxHeight: 220, minWidth: 345),
+      padding: EdgeInsets.symmetric(horizontal: 15),
       child: Stack(
         children: [
           Positioned(
               left: 0,
-              top: 90.w,
+              top: 90,
               right: 0,
               child: PickerSelectionArea(
-                height: 40.w,
+                height: 40,
                 child: getLine(),
               )),
           picker,
@@ -146,11 +145,11 @@ class DateSpaceLine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 8.w,
-      height: 1.w,
+      width: 8,
+      height: 1,
       decoration: BoxDecoration(
         color: const Color(0x5C141824),
-        borderRadius: BorderRadius.circular(1.w),
+        borderRadius: BorderRadius.circular(1),
       ),
     );
   }
@@ -178,8 +177,8 @@ class CommonTimeTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(maxHeight: 64.w, minHeight: 64.w),
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      constraints: BoxConstraints(maxHeight: 64, minHeight: 64),
+      padding: EdgeInsets.symmetric(horizontal: 16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -207,9 +206,9 @@ class CommonTimeTitle extends StatelessWidget {
                   color: Colors.white,
                   alignment: Alignment.centerRight,
                   child: Text(
-                    getLanguage<S>().LMID_00003643,
+                    "结束时间",
                     style: TextStyle(
-                      fontSize: 14.w,
+                      fontSize: 14,
                       fontFamily: 'PingFang SC',
                       height: 1.2,
                       color: !startOrEndFlag.value ? const Color(0xFF5590F6) : const Color(0xFF858B9B),
@@ -238,22 +237,22 @@ class CommonTimeTitle extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Padding(
-                padding: EdgeInsets.only(top: 9.w),
+                padding: EdgeInsets.only(top: 9),
                 child: Text(
                   endTimeIsNotNull ? getDateStringFromDate(endTime.value!, 'yyyy-MM-dd') : "",
                   style: TextStyle(
-                    fontSize: 14.w,
+                    fontSize: 14,
                     fontFamily: 'PingFang SC',
                     color: !startOrEndFlag.value ? const Color(0xFF5590F6) : const Color(0xFF2A2F3C),
                   ),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(bottom: 9.w),
+                padding: EdgeInsets.only(bottom: 9),
                 child: Text(
                   endTimeIsNotNull ? getWeekString(endTime.value!.weekday, context, isAbbreviation: true) : "",
                   style: TextStyle(
-                    fontSize: 14.w,
+                    fontSize: 14,
                     fontFamily: 'PingFang SC',
                     color: !startOrEndFlag.value ? const Color(0xFF5590F6) : const Color(0xFF2A2F3C),
                   ),
@@ -271,11 +270,11 @@ class CommonTimeTitle extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Padding(
-                padding: EdgeInsets.only(top: 9.w),
+                padding: EdgeInsets.only(top: 9),
                 child: Text(
                   endTimeIsNotNull ? getYMDWText(endTime.value!, context, isAbbreviation: true) : "",
                   style: TextStyle(
-                    fontSize: 14.w,
+                    fontSize: 14,
                     fontWeight: FontWeight.w500,
                     fontFamily: 'PingFang SC',
                     color: !startOrEndFlag.value ? const Color(0xFF5590F6) : const Color(0xFF2A2F3C),
@@ -283,11 +282,11 @@ class CommonTimeTitle extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(bottom: 9.w),
+                padding: EdgeInsets.only(bottom: 9),
                 child: Text(
                   endTimeIsNotNull ? getHMText(endTime.value!) : "",
                   style: TextStyle(
-                    fontSize: 14.w,
+                    fontSize: 14,
                     fontWeight: FontWeight.w400,
                     fontFamily: 'PingFang SC',
                     color: !startOrEndFlag.value ? const Color(0xFF5590F6) : const Color(0xFF2A2F3C),
@@ -314,22 +313,22 @@ class CommonTimeTitle extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.only(top: 10.w),
+                padding: EdgeInsets.only(top: 10),
                 child: Text(
                   startTimeIsNotNull ? getDateStringFromDate(startTime!, 'yyyy-MM-dd') : "",
                   style: TextStyle(
-                    fontSize: 14.w,
+                    fontSize: 14,
                     fontFamily: 'PingFang SC',
                     color: startOrEndFlag.value ? const Color(0xFF5590F6) : const Color(0xFF2A2F3C),
                   ),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(bottom: 10.w),
+                padding: EdgeInsets.only(bottom: 10),
                 child: Text(
                   startTimeIsNotNull ? getWeekString(startTime!.weekday, context, isAbbreviation: true) : "",
                   style: TextStyle(
-                    fontSize: 14.w,
+                    fontSize: 14,
                     fontWeight: FontWeight.w400,
                     fontFamily: 'PingFang SC',
                     color: startOrEndFlag.value ? const Color(0xFF5590F6) : const Color(0xFF2A2F3C),
@@ -348,11 +347,11 @@ class CommonTimeTitle extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.only(top: 10.w),
+                padding: EdgeInsets.only(top: 10),
                 child: Text(
                   startTimeIsNotNull ? getYMDWText(startTime!, context, isAbbreviation: true) : "",
                   style: TextStyle(
-                    fontSize: 14.w,
+                    fontSize: 14,
                     fontWeight: FontWeight.w500,
                     fontFamily: 'PingFang SC',
                     color: startOrEndFlag.value ? const Color(0xFF5590F6) : const Color(0xFF2A2F3C),
@@ -360,11 +359,11 @@ class CommonTimeTitle extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(bottom: 10.w),
+                padding: EdgeInsets.only(bottom: 10),
                 child: Text(
                   startTimeIsNotNull ? getHMText(startTime!) : "",
                   style: TextStyle(
-                    fontSize: 14.w,
+                    fontSize: 14,
                     fontWeight: FontWeight.w400,
                     fontFamily: 'PingFang SC',
                     color: startOrEndFlag.value ? const Color(0xFF5590F6) : const Color(0xFF2A2F3C),

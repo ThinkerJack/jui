@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:habit/habit.dart';
+
 
 import '../../../utils.dart';
 import 'common.dart';
@@ -32,10 +32,10 @@ class VVTitleDialog extends StatelessWidget {
     return Center(
       child: Container(
         width: width,
-        padding: EdgeInsets.fromLTRB(24.w, dialogMarginTop, 24.w, 24.w),
+        padding: EdgeInsets.fromLTRB(24, dialogMarginTop, 24, 24),
         decoration: BoxDecoration(
           color: uiFFFFFF,
-          borderRadius: BorderRadius.all(Radius.circular(16.w)),
+          borderRadius: BorderRadius.all(Radius.circular(16)),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -49,7 +49,7 @@ class VVTitleDialog extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             SizedBox(
-              height: 12.w,
+              height: 12,
             ),
             // 对话框内容
             Text(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habit/habit.dart';
+
 
 import 'common.dart';
 
@@ -35,7 +35,7 @@ class CustomEmptyWidget extends StatelessWidget {
           children: <Widget>[
             emptyImage, // 空页面显示的图片
             SizedBox(
-              height: 8.w, // 图片和文字之间的间距
+              height: 8, // 图片和文字之间的间距
             ),
             noDataText(emptyText), // 显示空页面提示文字
           ],

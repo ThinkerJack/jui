@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:vv_ui_kit/src/feedback/dialog/custom_dialog.dart';
-import 'package:vv_ui_kit/src/feedback/dialog/simple_dialog.dart';
-import 'package:vv_ui_kit/src/feedback/dialog/title_dialog.dart';
+import 'package:jac_uikit/src/feedback/dialog/simple_dialog.dart';
+import 'package:jac_uikit/src/feedback/dialog/title_dialog.dart';
+
 
 import 'common.dart';
+import 'custom_dialog.dart';
 import 'input_dialog.dart';
 
 /// 弹出框类型枚举

@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:vv_ui_kit/src/utils/color.dart';
+import 'package:jac_uikit/src/utils/color.dart';
 
 /// 一个带虚线边框的容器组件
 class DashedBorderContainer extends StatelessWidget {

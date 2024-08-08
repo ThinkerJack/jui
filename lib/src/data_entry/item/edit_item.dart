@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:habit/habit.dart';
-import 'package:vv_ui_kit/src/basic/extension.dart';
-import 'package:vv_ui_kit/src/utils/color.dart';
+
+import 'package:jac_uikit/src/basic/extension.dart';
+import 'package:jac_uikit/src/utils/color.dart';
 
 import '../../../generated/assets.dart';
 import '../../basic/item_widget.dart';
@@ -54,7 +54,7 @@ class _EditItemState extends State<EditItem> with InputCheckMixin {
   late final TextField _textField;
   bool _showTextField = false;
   bool _showClearIcon = false; // 是否显示清除按钮
-  final TextStyle _textStyle = TextStyle(fontSize: 16.sp, height: 1.5, color: ui2A2F3C);
+  final TextStyle _textStyle = TextStyle(fontSize: 16, height: 1.5, color: ui2A2F3C);
 
   @override
   void initState() {
@@ -88,7 +88,7 @@ class _EditItemState extends State<EditItem> with InputCheckMixin {
         isCollapsed: true,
         counterText: '',
         border: InputBorder.none,
-        contentPadding: EdgeInsets.only(right: widget.needClear ? 50.w : 20.w),
+        contentPadding: EdgeInsets.only(right: widget.needClear ? 50 : 20),
       ),
     );
   }
@@ -164,7 +164,7 @@ class _EditItemState extends State<EditItem> with InputCheckMixin {
         children: [
           SizedBox(height: itemPaddingV),
           ItemTitle(title: widget.title, isRequired: widget.isRequired),
-          SizedBox(height: 6.w),
+          SizedBox(height: 6),
           LayoutBuilder(builder: (context, size) {
             return buildText(size.maxWidth);
           }),
@@ -193,7 +193,7 @@ class _EditItemState extends State<EditItem> with InputCheckMixin {
         },
         behavior: HitTestBehavior.opaque,
         child: Padding(
-          padding: EdgeInsets.only(right: 20.w),
+          padding: EdgeInsets.only(right: 20),
           child: Text(
             _textField.controller?.text ?? "",
             style: _textStyle,
@@ -208,7 +208,7 @@ class _EditItemState extends State<EditItem> with InputCheckMixin {
   /// 构建带清除按钮的输入框
   Widget _buildTextFieldWithClearButton() {
     return Padding(
-      padding: EdgeInsets.only(left: 2.w),
+      padding: EdgeInsets.only(left: 2),
       child: Stack(
         children: [
           _textField,
@@ -218,7 +218,7 @@ class _EditItemState extends State<EditItem> with InputCheckMixin {
               top: 0,
               bottom: 0,
               child: InkWell(
-                child: Image.asset(Assets.imagesIconClear.path, width: 16.w),
+                child: Image.asset(Assets.imagesIconClear.path, width: 16),
                 onTap: () {
                   widget.controller.clear();
                   _handleTextChange();
@@ -237,6 +237,6 @@ class _EditItemState extends State<EditItem> with InputCheckMixin {
         maxLines: widget.maxLine,
         textDirection: TextDirection.ltr,
         textScaleFactor: MediaQuery.of(context).textScaleFactor)
-      ..layout(maxWidth: maxWidth - 50.w);
+      ..layout(maxWidth: maxWidth - 50);
   }
 }

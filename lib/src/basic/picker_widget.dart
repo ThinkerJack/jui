@@ -1,14 +1,15 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:habit/habit.dart';
+
 
 import '../../utils.dart';
 import '../data_entry/picker/date_picker/common/vv_ios_cupertino_picker.dart';
 
-TextStyle _leftTextStyle = TextStyle(fontSize: 14.sp, color: ui858B9B, height: 1.5);
+TextStyle _leftTextStyle = TextStyle(fontSize: 14, color: ui858B9B, height: 1.5);
 
 TextStyle _rightTextDefaultStyle =
-    TextStyle(fontSize: 14.sp, color: ui5590F6, height: 1.5, fontWeight: FontWeight.w500);
+    TextStyle(fontSize: 14, color: ui5590F6, height: 1.5, fontWeight: FontWeight.w500);
 
 class PickerTitle extends StatelessWidget {
   const PickerTitle({
@@ -32,11 +33,11 @@ class PickerTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: paddingHorizontal.r),
+      padding: EdgeInsets.symmetric(horizontal: paddingHorizontal),
       alignment: Alignment.center,
       decoration: BoxDecoration(
         color: Colors.transparent,
-        border: Border(bottom: BorderSide(color: uiE5E5E5, width: 0.5.w)),
+        border: Border(bottom: BorderSide(color: uiE5E5E5, width: 0.5)),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -47,7 +48,7 @@ class PickerTitle extends StatelessWidget {
               onCancel();
             },
             child: Padding(
-              padding: EdgeInsets.all(15.w),
+              padding: EdgeInsets.all(15),
               child: Text(leftText, style: _leftTextStyle),
             ),
           ),
@@ -56,9 +57,9 @@ class PickerTitle extends StatelessWidget {
               title,
               maxLines: 1,
               style: TextStyle(
-                fontSize: 16.sp,
+                fontSize: 16,
                 color: ui2A2F3C,
-                height: 1.5.r,
+                height: 1.5,
                 fontWeight: FontWeight.w500,
               ),
               overflow: TextOverflow.ellipsis,
@@ -68,14 +69,14 @@ class PickerTitle extends StatelessWidget {
           Visibility(
             visible: rightText != null,
             replacement: SizedBox(
-              width: 60.w,
+              width: 60,
             ),
             child: GestureDetector(
               onTap: () {
                 onConfirm?.call();
               },
               child: Padding(
-                padding: EdgeInsets.all(15.w),
+                padding: EdgeInsets.all(15),
                 child: Text(rightText ?? "", style: rightTextStyle ?? _rightTextDefaultStyle),
               ),
             ),
@@ -95,7 +96,7 @@ class PickerDivider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Divider(
       color: const Color(0X14000000),
-      height: 0.5.w,
+      height: 0.5,
     );
   }
 }
@@ -111,8 +112,8 @@ class PickerSelectionArea extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: const Color(0xFFFAFBFC),
-        borderRadius: BorderRadius.all(Radius.circular(8.w)),
-        border: Border.all(color: uiE8EAEF, width: 0.5.w),
+        borderRadius: BorderRadius.all(Radius.circular(8)),
+        border: Border.all(color: uiE8EAEF, width: 0.5),
       ),
       height: height,
       child: child,
@@ -156,7 +157,7 @@ class VVCupertinoPicker extends StatelessWidget {
       child: _isWeb()
           ? VViOSCupertinoPicker.builder(
               scrollController: controller,
-              itemExtent: 44.w,
+              itemExtent: 44,
               childCount: childCount,
               squeeze: 1.2,
               selectionOverlay: null,
@@ -169,7 +170,7 @@ class VVCupertinoPicker extends StatelessWidget {
                   child: Text(
                     textList[index],
                     style: TextStyle(
-                      fontSize: 16.sp,
+                      fontSize: 16,
                       fontWeight: FontWeight.w500,
                       fontFamily: 'Avenger',
                       color: const Color(0xFF2A2F3C),
@@ -182,7 +183,7 @@ class VVCupertinoPicker extends StatelessWidget {
               scrollController: controller,
               selectionOverlay: null,
               childCount: childCount,
-              itemExtent: 44.w,
+              itemExtent: 44,
               squeeze: 1.2,
               onSelectedItemChanged: (index) {
                 itemChanged?.call(index);
@@ -192,7 +193,7 @@ class VVCupertinoPicker extends StatelessWidget {
                   child: Text(
                     textList[index],
                     style: TextStyle(
-                      fontSize: 16.sp,
+                      fontSize: 16,
                       fontWeight: FontWeight.w500,
                       fontFamily: 'Avenger',
                       color: const Color(0xFF2A2F3C),

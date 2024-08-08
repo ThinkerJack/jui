@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:habit/habit.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 import '../../../basic/bottom_cancel_widget.dart';
 import '../../../basic/picker_widget.dart';
@@ -46,14 +47,14 @@ class _BottomCancelPickerState extends State<BottomCancelPicker> {
       padding: EdgeInsets.only(bottom: ScreenUtil().bottomBarHeight),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.only(topRight: Radius.circular(24.w), topLeft: Radius.circular(24.w)),
+        borderRadius: BorderRadius.only(topRight: Radius.circular(24), topLeft: Radius.circular(24)),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           // 列表区域
           Container(
-            constraints: BoxConstraints(maxHeight: 550.w),
+            constraints: BoxConstraints(maxHeight: 550),
             child: MediaQuery.removePadding(
               removeBottom: true,
               context: context,
@@ -71,7 +72,7 @@ class _BottomCancelPickerState extends State<BottomCancelPicker> {
                         children: [
                           Container(
                             width: ScreenUtil().screenWidth,
-                            padding: EdgeInsets.symmetric(vertical: 16.w),
+                            padding: EdgeInsets.symmetric(vertical: 16),
                             alignment: Alignment.center,
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
@@ -81,7 +82,7 @@ class _BottomCancelPickerState extends State<BottomCancelPicker> {
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
-                                    fontSize: 16.sp,
+                                    fontSize: 16,
                                     height: 1.5,
                                     color: const Color(0xFF2A2F3C),
                                   ),

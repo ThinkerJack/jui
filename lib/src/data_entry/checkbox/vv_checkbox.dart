@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:habit/habit.dart';
-import 'package:vv_ui_kit/src/basic/extension.dart';
+
+import 'package:jac_uikit/src/basic/extension.dart';
 
 import '../../../generated/assets.dart';
 
@@ -32,8 +32,8 @@ class VVCheckBox extends StatelessWidget {
           },
           child: Image.asset(
             _getImage(), // 根据状态和类型获取相应的图片资源
-            width: 20.r,
-            height: 20.r,
+            width: 20,
+            height: 20,
           ),
         );
       },

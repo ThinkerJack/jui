@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:habit/dependencies.dart';
-import 'package:habit/life/base/extensions/language_extension.dart';
 
-import '../../../../generated/l10n.dart';
+
+
 import '../common/picker_const.dart';
 import 'event_picker.dart';
 
@@ -39,10 +38,10 @@ showEventPicker(
       barrierColor: const Color.fromRGBO(0, 0, 0, 0.7),
       isScrollControlled: true,
       enableDrag: false,
-      constraints: BoxConstraints(maxHeight: 650.w),
+      constraints: BoxConstraints(maxHeight: 650),
       backgroundColor: Colors.transparent,
       builder: (context) => EventPicker(
-            cancelText: getLanguage<S>().LMID_00002552,
+            cancelText: "取消",
             onCancel: onCancel,
             eventBeanList: eventBeanList,
             type: type,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habit/habit.dart';
+
 
 import '../../../basic/picker_widget.dart';
 import 'common/picker_func.dart';
@@ -33,13 +33,13 @@ class _MVScrollDatePickerState extends State<MVScrollDatePicker> {
     return Material(
       type: MaterialType.transparency,
       child: Container(
-        constraints: BoxConstraints(maxHeight: 370.w, minWidth: 37.w),
+        constraints: BoxConstraints(maxHeight: 370, minWidth: 37),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(
-              16.r,
+              16,
             ),
-            topRight: Radius.circular(16.r),
+            topRight: Radius.circular(16),
           ),
           color: Colors.white,
         ),

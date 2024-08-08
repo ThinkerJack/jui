@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:habit/dependencies.dart';
+
 
 class ItemDivider extends StatelessWidget {
   const ItemDivider({
@@ -11,7 +11,7 @@ class ItemDivider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Divider(
       color: const Color(0XFFE8EAEF),
-      height: 1.w,
+      height: 1,
     );
   }
 }

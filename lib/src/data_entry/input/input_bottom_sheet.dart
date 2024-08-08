@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:habit/habit.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../generated/l10n.dart';
+
 import '../../basic/picker_widget.dart';
 
 typedef InputDoneCallBack = void Function(String contentText);
@@ -32,9 +32,9 @@ showInputBottomSheet(
     // 弹窗背景颜色
     builder: (context) => _InputSheetWidget(
       title: title,
-      topLeftText: getLanguage<S>().LMID_00002552,
+      topLeftText: "取消",
       // 左侧按钮文本
-      topRightText: getLanguage<S>().LMID_00013631,
+      topRightText: "确定",
       // 右侧按钮文本
       inputDoneCallBack: callback,
       // 输入完成后的回调
@@ -105,7 +105,7 @@ class _InputSheetWidgetState extends State<_InputSheetWidget> {
       padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.only(topRight: Radius.circular(24.w), topLeft: Radius.circular(24.w)),
+        borderRadius: BorderRadius.only(topRight: Radius.circular(24), topLeft: Radius.circular(24)),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -122,27 +122,27 @@ class _InputSheetWidgetState extends State<_InputSheetWidget> {
               widget.inputDoneCallBack(_controller.text);
             },
             rightTextStyle: _controller.text.isEmpty
-                ? TextStyle(fontSize: 16.sp, color: const Color(0xFFC7DDFF), height: 1.5.r, fontWeight: FontWeight.w500)
+                ? TextStyle(fontSize: 16, color: const Color(0xFFC7DDFF), height: 1.5, fontWeight: FontWeight.w500)
                 : null,
             title: widget.title,
           ),
           Container(
-            padding: EdgeInsets.only(left: 20.w, right: 36.w, bottom: 10.h, top: 10.h),
+            padding: EdgeInsets.only(left: 20, right: 36, bottom: 10.h, top: 10.h),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  width: 300.w,
+                  width: 300,
                   child: TextField(
                     controller: _controller,
                     maxLength: widget.maxLength,
                     maxLines: 5,
-                    style: TextStyle(fontSize: 16.sp, height: 1.5),
+                    style: TextStyle(fontSize: 16, height: 1.5),
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.zero,
                       hintText: widget.hintText,
-                      hintStyle: TextStyle(fontSize: 16.sp, color: const Color(0xFFBCC1CD)),
+                      hintStyle: TextStyle(fontSize: 16, color: const Color(0xFFBCC1CD)),
                       counter: Container(),
                     ),
                     onChanged: (data) {
@@ -158,15 +158,15 @@ class _InputSheetWidgetState extends State<_InputSheetWidget> {
                       setState(() {});
                     },
                     child: Padding(
-                      padding: EdgeInsets.only(top: 4.w),
+                      padding: EdgeInsets.only(top: 4),
                       child: ClipOval(
                           child: Container(
-                              width: 16.r,
-                              height: 16.r,
+                              width: 16,
+                              height: 16,
                               color: const Color(0xFFBCC1CD),
                               child: Icon(
                                 Icons.close,
-                                size: 10.r,
+                                size: 10,
                                 color: Colors.white,
                               ))),
                     ),

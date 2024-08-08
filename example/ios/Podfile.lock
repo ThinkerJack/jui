@@ -1,0 +1,72 @@
+PODS:
+  - device_info (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+  - habit (0.0.1):
+    - Flutter
+  - package_info (0.0.1):
+    - Flutter
+  - path_provider_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
+  - shared_preferences_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
+  - url_launcher_ios (0.0.1):
+    - Flutter
+  - vv_lingo_kit (0.0.1):
+    - Flutter
+  - vv_logger_kit (0.0.1):
+    - Flutter
+  - vv_permission_handler_apple (1.0.4):
+    - Flutter
+
+DEPENDENCIES:
+  - device_info (from `.symlinks/plugins/device_info/ios`)
+  - Flutter (from `Flutter`)
+  - habit (from `.symlinks/plugins/habit/ios`)
+  - package_info (from `.symlinks/plugins/package_info/ios`)
+  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/ios`)
+  - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/ios`)
+  - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
+  - vv_lingo_kit (from `.symlinks/plugins/vv_lingo_kit/ios`)
+  - vv_logger_kit (from `.symlinks/plugins/vv_logger_kit/ios`)
+  - vv_permission_handler_apple (from `.symlinks/plugins/vv_permission_handler_apple/ios`)
+
+EXTERNAL SOURCES:
+  device_info:
+    :path: ".symlinks/plugins/device_info/ios"
+  Flutter:
+    :path: Flutter
+  habit:
+    :path: ".symlinks/plugins/habit/ios"
+  package_info:
+    :path: ".symlinks/plugins/package_info/ios"
+  path_provider_foundation:
+    :path: ".symlinks/plugins/path_provider_foundation/ios"
+  shared_preferences_foundation:
+    :path: ".symlinks/plugins/shared_preferences_foundation/ios"
+  url_launcher_ios:
+    :path: ".symlinks/plugins/url_launcher_ios/ios"
+  vv_lingo_kit:
+    :path: ".symlinks/plugins/vv_lingo_kit/ios"
+  vv_logger_kit:
+    :path: ".symlinks/plugins/vv_logger_kit/ios"
+  vv_permission_handler_apple:
+    :path: ".symlinks/plugins/vv_permission_handler_apple/ios"
+
+SPEC CHECKSUMS:
+  device_info: d7d233b645a32c40dfdc212de5cf646ca482f175
+  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  habit: 4041faf795ce576b9aa5ba0564b720ff73eb5a18
+  package_info: 873975fc26034f0b863a300ad47e7f1ac6c7ec62
+  path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
+  shared_preferences_foundation: 5b919d13b803cadd15ed2dc053125c68730e5126
+  url_launcher_ios: 08a3dfac5fb39e8759aeb0abbd5d9480f30fc8b4
+  vv_lingo_kit: 5af5495d983ab9e4b1ce456fd7b9b70c78378cea
+  vv_logger_kit: fe39de30c4f436b45c394c1f618bf1d00a8cb7df
+  vv_permission_handler_apple: ef1e5e534f97f15af74408ed7c3e2001d48b9499
+
+PODFILE CHECKSUM: ef19549a9bc3046e7bb7d2fab4d021637c0c58a3
+
+COCOAPODS: 1.15.0

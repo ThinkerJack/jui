@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vv_ui_kit/src/business/non_vv_user_page.dart';
-import 'package:vv_ui_kit/src/business/vv_user_page.dart';
+import 'package:jac_uikit/src/business/non_vv_user_page.dart';
+import 'package:jac_uikit/src/business/vv_user_page.dart';
 
 ///Author:Jason
 ///Date:2024-04-08 22:00

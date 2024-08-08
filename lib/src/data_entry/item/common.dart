@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:habit/habit.dart';
-import 'package:vv_ui_kit/src/basic/extension.dart';
+
+import 'package:jac_uikit/src/basic/extension.dart';
 
 import '../../../generated/assets.dart';
 import '../../../utils.dart';
@@ -27,11 +27,11 @@ class ItemTipsText extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(
-            height: 4.w,
+            height: 4,
           ),
           Text(
             tipText,
-            style: TextStyle(color: tipsColor, fontSize: 12.w, height: 1.5),
+            style: TextStyle(color: tipsColor, fontSize: 12, height: 1.5),
           ),
         ],
       ),
@@ -67,11 +67,11 @@ class ItemTitle extends StatelessWidget {
           style: isDisabled ? itemTitleDisabledStyle : itemTitleStyle,
           maxLines: 1,
         ),
-        SizedBox(width: 4.w),
+        SizedBox(width: 4),
         Visibility(
           visible: !isDisabled && isRequired,
           child: Padding(
-            padding: EdgeInsets.only(top: 5.w),
+            padding: EdgeInsets.only(top: 5),
             child: Image.asset(
               Assets.imagesItemRequired.path,
             ),
@@ -84,14 +84,14 @@ class ItemTitle extends StatelessWidget {
 
 /// 全局样式定义
 final TextStyle itemTitleStyle =
-    TextStyle(color: const Color(0XFF858B9B), fontSize: 14.w, fontWeight: FontWeight.w400, height: 1.5);
+    TextStyle(color: const Color(0XFF858B9B), fontSize: 14, fontWeight: FontWeight.w400, height: 1.5);
 final TextStyle itemTitleDisabledStyle =
-    TextStyle(color: uiBCC1CD, fontSize: 14.w, fontWeight: FontWeight.w400, height: 1.5);
-final TextStyle itemHintStyle = TextStyle(color: uiBCC1CD, fontSize: 16.sp, fontWeight: FontWeight.w400, height: 1.5);
-final TextStyle itemHintDisabledStyle = TextStyle(color: uiDCE0E8, fontSize: 16.sp, fontWeight: FontWeight.w400, height: 1.5);
+    TextStyle(color: uiBCC1CD, fontSize: 14, fontWeight: FontWeight.w400, height: 1.5);
+final TextStyle itemHintStyle = TextStyle(color: uiBCC1CD, fontSize: 16, fontWeight: FontWeight.w400, height: 1.5);
+final TextStyle itemHintDisabledStyle = TextStyle(color: uiDCE0E8, fontSize: 16, fontWeight: FontWeight.w400, height: 1.5);
 
 final TextStyle itemContentStyle =
-    TextStyle(color: ui2A2F3C, fontSize: 16.sp, fontWeight: FontWeight.w400, height: 1.5);
+    TextStyle(color: ui2A2F3C, fontSize: 16, fontWeight: FontWeight.w400, height: 1.5);
 const Color tipsColor = uiF55656;
 
 /// 用于调用接口，判断输入内容是否涉及敏感词
@@ -122,6 +122,6 @@ mixin InputCheckMixin {
 }
 
 /// 全局边距定义
-final itemPaddingL = 20.w;
-final itemPaddingR = 20.w;
-final itemPaddingV = 16.w;
+final double itemPaddingL = 20;
+final double itemPaddingR = 20;
+final double itemPaddingV = 16;

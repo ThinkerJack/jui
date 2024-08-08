@@ -1,12 +1,14 @@
 //滚动单选
 import 'package:flutter/material.dart';
-import 'package:habit/habit.dart';
-import 'package:vv_ui_kit/src/data_entry/picker/single_picker/bottom_cancel.dart';
-import 'package:vv_ui_kit/src/data_entry/picker/single_picker/right_tick.dart';
-import 'package:vv_ui_kit/src/data_entry/picker/single_picker/scroll.dart';
 
-import '../../../../generated/l10n.dart';
+import 'package:jac_uikit/src/data_entry/picker/single_picker/right_tick.dart';
+import 'package:jac_uikit/src/data_entry/picker/single_picker/scroll.dart';
+import 'package:jac_uikit/src/data_entry/picker/single_picker/bottom_cancel.dart';
+import 'package:jac_uikit/src/data_entry/picker/single_picker/right_tick.dart';
+import 'package:jac_uikit/src/data_entry/picker/single_picker/scroll.dart';
+
 import '../common/picker_const.dart';
+import 'bottom_cancel.dart';
 
 enum SinglePickerType { scroll, bottomCancel, rightTick }
 
@@ -41,7 +43,7 @@ showSinglePicker(
       barrierColor: const Color.fromRGBO(0, 0, 0, 0.7),
       isScrollControlled: true,
       enableDrag: false,
-      constraints: BoxConstraints(maxHeight: 650.w),
+      constraints: BoxConstraints(maxHeight: 650),
       backgroundColor: Colors.transparent,
       builder: (context) => _getPicker(title, itemData, onDone, selectedKey, onCancel, type));
 }
@@ -61,8 +63,8 @@ Widget _getPicker(
         filterItemData: itemData,
         onDone: onDone,
         selectedKey: selectedKey,
-        cancelText: getLanguage<S>().LMID_00002552,
-        confirmText: getLanguage<S>().LMID_00013631,
+        cancelText: "取消",
+        confirmText: "确定",
         onCancel: onCancel,
       );
     case SinglePickerType.scroll:
@@ -71,8 +73,8 @@ Widget _getPicker(
         filterItemData: itemData,
         onDone: onDone,
         selectedKey: selectedKey,
-        cancelText: getLanguage<S>().LMID_00002552,
-        confirmText: getLanguage<S>().LMID_00013631,
+        cancelText: "取消",
+        confirmText: "确定",
       );
     case SinglePickerType.rightTick:
       return RightTickPicker(
@@ -80,8 +82,8 @@ Widget _getPicker(
         filterItemData: itemData,
         onDone: onDone,
         selectedKey: selectedKey,
-        cancelText: getLanguage<S>().LMID_00002552,
-        confirmText: getLanguage<S>().LMID_00013631,
+        cancelText: "取消",
+        confirmText: "确定",
         onCancel: onCancel,
       );
   }

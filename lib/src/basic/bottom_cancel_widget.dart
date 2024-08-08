@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:habit/dependencies.dart';
-import 'package:habit/life/base/extensions/language_extension.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../generated/l10n.dart';
+
+
 import '../../utils.dart';
 
 //底部取消组件 灰色分割线
@@ -13,7 +13,7 @@ class BCPSpacer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: uiF6F7F8,
-      height: 8.w,
+      height: 8,
       width: double.infinity,
     );
   }
@@ -39,10 +39,10 @@ class BCPButton extends StatelessWidget {
       child: Container(
         alignment: Alignment.center,
         width: ScreenUtil().screenWidth,
-        padding: EdgeInsets.symmetric(vertical: 16.w),
-        child: Text(getLanguage<S>().LMID_00002552,
+        padding: EdgeInsets.symmetric(vertical: 16),
+        child: Text("取消",
             style: TextStyle(
-              fontSize: 16.sp,
+              fontSize: 16,
               height: 1.5,
               color: const Color(0xFF858B9B),
             )),

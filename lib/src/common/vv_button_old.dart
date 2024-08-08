@@ -1,38 +1,38 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:habit/dependencies.dart';
+
 
 import '../../utils.dart';
 
 @Deprecated('Use VVButton instead')
 enum VVButtonType { simple, middle }
 
-final _defaultCircular = 24.w;
+final double _defaultCircular = 24;
 
 double _getDefaultWidth(VVButtonType type) {
   switch (type) {
     case VVButtonType.simple:
-      return 133.5.w;
+      return 133.5;
     case VVButtonType.middle:
-      return 165.5.w;
+      return 165.5;
   }
 }
 
 double _getDefaultHeight(VVButtonType type) {
   switch (type) {
     case VVButtonType.simple:
-      return 40.w;
+      return 40;
     case VVButtonType.middle:
-      return 48.w;
+      return 48;
   }
 }
 
 double _getDefaultFontSize(VVButtonType type) {
   switch (type) {
     case VVButtonType.simple:
-      return 14.w;
+      return 14;
     case VVButtonType.middle:
-      return 16.w;
+      return 16;
   }
 }
 

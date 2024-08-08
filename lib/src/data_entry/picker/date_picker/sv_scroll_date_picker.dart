@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:habit/habit.dart';
-import 'package:vv_ui_kit/src/data_entry/picker/date_picker/sv_scroll_date_picker_vm.dart';
-import 'package:vv_ui_kit/src/utils/color.dart';
+
+import 'package:jac_uikit/src/data_entry/picker/date_picker/sv_scroll_date_picker_vm.dart';
+import 'package:jac_uikit/src/utils/color.dart';
 
 import '../../../../common.dart';
-import '../../../../generated/l10n.dart';
 import '../../../basic/picker_widget.dart';
 import 'common/picker_widget.dart';
 import 'date_picker_func.dart';
@@ -50,11 +49,11 @@ class _SVScrollDatePickerState extends State<SVScrollDatePicker> {
     return Material(
       type: MaterialType.transparency,
       child: Container(
-        constraints: BoxConstraints(maxHeight: widget.hasToDate ? 370.w : 320.w, minWidth: 37.w),
+        constraints: BoxConstraints(maxHeight: widget.hasToDate ? 370 : 320, minWidth: 37),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(16.r),
-            topRight: Radius.circular(16.r),
+            topLeft: Radius.circular(16),
+            topRight: Radius.circular(16),
           ),
           color: Colors.white,
         ),
@@ -97,18 +96,18 @@ class _SVScrollDatePickerState extends State<SVScrollDatePicker> {
             return Align(
               alignment: Alignment.centerLeft,
               child: Padding(
-                padding: EdgeInsets.only(left: 16.w, top: 12.w, bottom: 12.w),
+                padding: EdgeInsets.only(left: 16, top: 12, bottom: 12),
                 child: VVButton(
-                  text: getLanguage<S>().LMID_00001359,
+                  text: "至今",
                   onTap: () {
                     vm.isToDate.value = !vm.isToDate.value;
                   },
                   colorType: vm.isToDate.value ? VVButtonColorType.blueBorder : VVButtonColorType.gray,
                   backGroundColor: vm.isToDate.value ? uiEEF4FE : null,
                   type: VVButtonSizeType.small,
-                  height: 32.w,
-                  width: 110.w,
-                  circular: 8.w,
+                  height: 32,
+                  width: 110,
+                  circular: 8,
                 ),
               ),
             );

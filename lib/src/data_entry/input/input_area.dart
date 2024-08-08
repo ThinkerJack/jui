@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:habit/habit.dart';
-import 'package:vv_ui_kit/src/basic/extension.dart';
+
+import 'package:jac_uikit/src/basic/extension.dart';
 
 import '../../../utils.dart';
 import '../item/common.dart';
@@ -82,10 +82,10 @@ class _InputAreaState extends State<InputArea> with InputCheckMixin {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              decoration: BoxDecoration(color: widget.backgroundColor, borderRadius: BorderRadius.circular(10.r)),
+              decoration: BoxDecoration(color: widget.backgroundColor, borderRadius: BorderRadius.circular(10)),
               margin: EdgeInsets.only(left: widget.marginLeft, right: widget.marginRight),
-              height: widget.height ?? 120.w,
-              padding: widget.padding ?? EdgeInsets.only(left: 12.w, right: 10.w, top: 0, bottom: 6.w),
+              height: widget.height ?? 120,
+              padding: widget.padding ?? EdgeInsets.only(left: 12, right: 10, top: 0, bottom: 6),
               child: _buildScrollbar(
                 TextField(
                   onChanged: (text) {},
@@ -94,19 +94,19 @@ class _InputAreaState extends State<InputArea> with InputCheckMixin {
                   maxLines: widget.maxLine,
                   focusNode: focusNode,
                   controller: widget.textEditingController,
-                  style: TextStyle(fontSize: 16.sp, color: ui2A2F3C, height: widget.fontHeight),
+                  style: TextStyle(fontSize: 16, color: ui2A2F3C, height: widget.fontHeight),
                   decoration: InputDecoration(
                     border: InputBorder.none,
-                    contentPadding: widget.contentPadding ?? EdgeInsets.only(top: 12.w),
+                    contentPadding: widget.contentPadding ?? EdgeInsets.only(top: 12),
                     fillColor: Colors.transparent,
                     hintText: widget.hintText,
-                    hintStyle: TextStyle(fontSize: 16.w, height: widget.fontHeight, color: uiBCC1CD),
-                    helperStyle: TextStyle(color: uiBCC1CD, fontSize: 12.sp, height: 1.5),
+                    hintStyle: TextStyle(fontSize: 16, height: widget.fontHeight, color: uiBCC1CD),
+                    helperStyle: TextStyle(color: uiBCC1CD, fontSize: 12, height: 1.5),
                   ),
                 ),
               ),
             ),
-            SizedBox(height: 4.w),
+            SizedBox(height: 4),
             Padding(
               padding: EdgeInsets.only(left: widget.marginLeft),
               child: ItemTipsText(
@@ -123,7 +123,7 @@ class _InputAreaState extends State<InputArea> with InputCheckMixin {
     if (widget.showScrollbar) {
       return RawScrollbar(
         // 滚动条的宽度
-        thickness: 4.w,
+        thickness: 4,
         // 滚动条的圆角
         radius: const Radius.circular(5),
         thumbColor: uiE8EAEF,

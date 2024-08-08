@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:habit/habit.dart';
-import 'package:vv_ui_kit/src/basic/extension.dart';
+
+import 'package:jac_uikit/src/basic/extension.dart';
 
 import '../../../../generated/assets.dart';
 import '../../../../utils.dart';
@@ -53,9 +53,9 @@ class _MultiSelectionPickerState extends State<MultiSelectionPicker> {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.only(topRight: Radius.circular(24.w), topLeft: Radius.circular(24.w)),
+        borderRadius: BorderRadius.only(topRight: Radius.circular(24), topLeft: Radius.circular(24)),
       ),
-      padding: EdgeInsets.only(bottom: 24.w),
+      padding: EdgeInsets.only(bottom: 24),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -76,7 +76,7 @@ class _MultiSelectionPickerState extends State<MultiSelectionPicker> {
           ),
           // 列表区域
           Container(
-            constraints: BoxConstraints(maxHeight: 550.w),
+            constraints: BoxConstraints(maxHeight: 550),
             child: keys.isNotEmpty
                 ? ListView.builder(
                     shrinkWrap: true,
@@ -112,13 +112,13 @@ class _MultiSelectionPickerState extends State<MultiSelectionPicker> {
         });
       },
       child: Padding(
-        padding: EdgeInsets.only(left: 24.w),
+        padding: EdgeInsets.only(left: 24),
         child: Column(
           children: [
             Container(
               color: Colors.white,
               alignment: Alignment.center,
-              height: 63.r,
+              height: 63,
               child: getItemRow(data),
             ),
             const PickerDivider()
@@ -136,11 +136,11 @@ class _MultiSelectionPickerState extends State<MultiSelectionPicker> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
-              padding: EdgeInsets.only(right: 8.w),
+              padding: EdgeInsets.only(right: 8),
               child: Image.asset(
                 selectedKeys.contains(data) ? Assets.imagesIconSelected.path : Assets.imagesIconUnselected.path,
-                width: 20.r,
-                height: 20.r,
+                width: 20,
+                height: 20,
               ),
             ),
             Expanded(
@@ -148,11 +148,11 @@ class _MultiSelectionPickerState extends State<MultiSelectionPicker> {
                       style: TextStyle(
                         color: ui2A2F3C,
                         fontWeight: FontWeight.w400,
-                        fontSize: 16.sp,
+                        fontSize: 16,
                       ),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis)
-                  .margin(right: 9.r),
+                  .margin(right: 9),
             ),
           ],
         );
@@ -165,20 +165,20 @@ class _MultiSelectionPickerState extends State<MultiSelectionPicker> {
                       style: TextStyle(
                         color: ui2A2F3C,
                         fontWeight: FontWeight.w400,
-                        fontSize: 16.sp,
+                        fontSize: 16,
                       ),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis)
-                  .margin(left: 9.r, right: 9.r),
+                  .margin(left: 9, right: 9),
             ),
             Padding(
-              padding: EdgeInsets.only(right: 15.w),
+              padding: EdgeInsets.only(right: 15),
               child: Image.asset(
                 selectedKeys.contains(data)
                     ? Assets.imagesIconCircularSelected.path
                     : Assets.imagesIconCircularUnselected.path,
-                width: 20.r,
-                height: 20.r,
+                width: 20,
+                height: 20,
               ),
             ),
           ],

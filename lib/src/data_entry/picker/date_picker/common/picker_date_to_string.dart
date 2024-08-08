@@ -1,7 +1,5 @@
-import 'package:habit/habit.dart';
-import 'package:intl/intl.dart';
 
-import '../../../../../generated/l10n.dart';
+
 
 String getMinuteText(DateTime date) {
   return date.minute.toString().padLeft(2, "0");
@@ -24,11 +22,11 @@ String getYMDWText(DateTime date, context, {bool isAbbreviation = false}) {
 }
 
 String getMDWText(DateTime date, context) {
-  return "${getMonthText(date)}${getLanguage<S>().LMID_00012413}${getDayText(date)}${getLanguage<S>().LMID_00012289} ${getWeekString(date.weekday, context)}";
+  return "${getMonthText(date)}${"月"}${getDayText(date)}${"日"} ${getWeekString(date.weekday, context)}";
 }
 
 String getYMDText(DateTime date, context) {
-  return "${date.year}${getLanguage<S>().LMID_00011395}${getMonthText(date)}${getLanguage<S>().LMID_00012413}${getDayText(date)}${getLanguage<S>().LMID_00012289}";
+  return "${date.year}${"年"}${getMonthText(date)}${"月"}${getDayText(date)}${"日"}";
 }
 
 String getWText(DateTime date, context) {
@@ -42,26 +40,26 @@ String getHMText(DateTime date) {
 String getWeekString(int weekIndex, context, {bool isAbbreviation = false}) {
   if (isAbbreviation) {
     final abbreviationWeekArray = [
-      getLanguage<S>().LMID_00021072,
-      getLanguage<S>().LMID_00021073,
-      getLanguage<S>().LMID_00021074,
-      getLanguage<S>().LMID_00021075,
-      getLanguage<S>().LMID_00021076,
-      getLanguage<S>().LMID_00021077,
-      getLanguage<S>().LMID_00021078,
+      "周一",
+      "周二",
+      "周三",
+      "周四",
+      "周五",
+      "周六",
+      "周日",
     ];
     if (abbreviationWeekArray.length > weekIndex - 1) {
       return abbreviationWeekArray[weekIndex - 1];
     }
   } else {
     final weekArray = [
-      getLanguage<S>().LMID_00000834,
-      getLanguage<S>().LMID_00000921,
-      getLanguage<S>().LMID_00000846,
-      getLanguage<S>().LMID_00001904,
-      getLanguage<S>().LMID_00000916,
-      getLanguage<S>().LMID_00001241,
-      getLanguage<S>().LMID_00003749,
+      "周一",
+      "周二",
+      "周三",
+      "周四",
+      "周五",
+      "周六",
+      "周日",
     ];
     if (weekArray.length > weekIndex - 1) {
       return weekArray[weekIndex - 1];

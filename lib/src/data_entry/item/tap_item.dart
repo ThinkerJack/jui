@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:habit/habit.dart';
-import 'package:vv_ui_kit/generated/assets.dart';
-import 'package:vv_ui_kit/src/basic/extension.dart';
+
+import 'package:jac_uikit/generated/assets.dart';
+import 'package:jac_uikit/src/basic/extension.dart';
 
 import '../../basic/item_widget.dart';
 import 'common.dart';
@@ -66,7 +66,7 @@ class TapItem extends StatelessWidget {
             widgetAfterTitle ?? const SizedBox(),
           ],
         ),
-        SizedBox(height: 4.w),
+        SizedBox(height: 4),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -100,8 +100,8 @@ class TapItem extends StatelessWidget {
   /// 构建右侧图标
   Widget _buildIcon() {
     return Container(
-      padding: EdgeInsets.only(left: 18.r, right: 16.w, top: 9.w),
-      child: Image.asset(isDisabled ? Assets.imagesIconMoreDisabled.path : Assets.imagesIconMore.path, height: 12.w),
+      padding: EdgeInsets.only(left: 18, right: 16, top: 9),
+      child: Image.asset(isDisabled ? Assets.imagesIconMoreDisabled.path : Assets.imagesIconMore.path, height: 12),
     );
   }
 }

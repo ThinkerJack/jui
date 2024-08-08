@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:habit/dependencies.dart';
-import 'package:vv_ui_kit/src/basic/extension.dart';
+
+import 'package:jac_uikit/src/basic/extension.dart';
 
 import '../../../generated/assets.dart';
 import '../../../utils.dart';
@@ -62,15 +62,15 @@ class TimeItem extends StatelessWidget {
             style: TextStyle(
               color: ui858B9B,
               height: 1.5,
-              fontSize: 14.w,
+              fontSize: 14,
             ),
           ),
-          SizedBox(height: 4.w),
+          SizedBox(height: 4),
           Row(
             children: [
               _buildDateText(startDate, startHintText),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30.w),
+                padding: EdgeInsets.symmetric(horizontal: 30),
                 child: Image.asset(Assets.imagesItemInterval.path),
               ),
               _buildDateText(endDate, endHintText),
@@ -89,7 +89,7 @@ class TimeItem extends StatelessWidget {
         date.isNotEmpty ? date : hintText,
         style: TextStyle(
           color: date.isNotEmpty ? ui2A2F3C : uiBCC1CD,
-          fontSize: 16.sp,
+          fontSize: 16,
           fontWeight: FontWeight.w400,
         ),
         maxLines: 1,
@@ -101,12 +101,12 @@ class TimeItem extends StatelessWidget {
   Widget _buildTips() {
     return Column(
       children: [
-        SizedBox(height: 4.w),
+        SizedBox(height: 4),
         Text(
           tipText,
           style: TextStyle(
             color: uiF55656,
-            fontSize: 12.w,
+            fontSize: 12,
           ),
         ),
       ],

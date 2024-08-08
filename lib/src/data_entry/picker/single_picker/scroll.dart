@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:habit/habit.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 import '../../../basic/picker_widget.dart';
 import '../common/picker_const.dart';
@@ -45,12 +46,12 @@ class _SingleScrollPickerState extends State<SingleScrollPicker> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(maxHeight: 343.w),
+      constraints: BoxConstraints(maxHeight: 343),
       width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.only(bottom: ScreenUtil().bottomBarHeight),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.only(topRight: Radius.circular(24.w), topLeft: Radius.circular(24.w)),
+        borderRadius: BorderRadius.only(topRight: Radius.circular(24), topLeft: Radius.circular(24)),
       ),
       child: SafeArea(
         child: Column(
@@ -130,7 +131,7 @@ class CustomCupertinoPicker extends StatelessWidget {
         scrollController: controller,
         selectionOverlay: null,
         childCount: childCount,
-        itemExtent: 52.w,
+        itemExtent: 52,
         squeeze: 1.2,
         onSelectedItemChanged: (index) {
           itemChanged?.call(index);
@@ -141,7 +142,7 @@ class CustomCupertinoPicker extends StatelessWidget {
               textList[index],
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 16.sp,
+                fontSize: 16,
                 fontWeight: FontWeight.w500,
                 color: const Color(0xFF2A2F3C),
               ),
@@ -162,17 +163,17 @@ class ScrollFixedArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(maxHeight: 220.w, minWidth: 345.w),
-      padding: EdgeInsets.symmetric(horizontal: 15.w),
+      constraints: BoxConstraints(maxHeight: 220, minWidth: 345),
+      padding: EdgeInsets.symmetric(horizontal: 15),
       child: Stack(
         children: [
           // 选择区域的视觉效果
           Positioned(
             left: 0,
-            top: 84.w,
+            top: 84,
             right: 0,
             child: PickerSelectionArea(
-              height: 46.w,
+              height: 46,
               child: null,
             ),
           ),

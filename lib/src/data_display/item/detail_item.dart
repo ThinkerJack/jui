@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:habit/habit.dart';
-import 'package:vv_ui_kit/src/basic/item_widget.dart';
+
+import 'package:jac_uikit/src/basic/item_widget.dart';
 
 /// 详情表单项类型：simple, custom 均为多行，singleLine 为单行
 enum DetailItemType { simple, custom, singleLine }
@@ -35,13 +35,13 @@ class DetailItem extends StatelessWidget {
     // 多行类型处理
     if (type == DetailItemType.simple || type == DetailItemType.custom) {
       return Padding(
-        padding: padding ?? EdgeInsets.only(left: 24.w),
+        padding: padding ?? EdgeInsets.only(left: 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               width: double.infinity,
-              padding: EdgeInsets.only(top: 20.w, right: 20.w, bottom: 16.w),
+              padding: EdgeInsets.only(top: 20, right: 20, bottom: 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -74,7 +74,7 @@ class DetailItem extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 4.w),
+                  SizedBox(height: 4),
                   if (type == DetailItemType.custom) contentWidget ?? const SizedBox(),
                   if (type == DetailItemType.simple)
                     Row(
@@ -101,24 +101,26 @@ class DetailItem extends StatelessWidget {
         children: [
           Container(
             width: double.infinity,
-            padding: padding ?? EdgeInsets.only(top: 16.w, left: 16.w, right: 16.w),
+            padding: padding ?? EdgeInsets.only(top: 16, left: 16, right: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                if (LanguageHelper.instance.isZh)
+                //todo
+                // if (LanguageHelper.instance.isZh)
+                  if(true)
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                        width: 190.w,
+                        width: 190,
                         child: Text(
                           title,
                           style: titleStyle ?? _defaultTitleStyle,
                         ),
                       ),
                       SizedBox(
-                        width: 127.w,
+                        width: 127,
                         child: contentWidget ??
                             Text(
                               contentText ?? "",
@@ -160,7 +162,7 @@ class DetailItem extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 4.w),
+                      SizedBox(height: 4),
                       contentWidget ??
                           Row(
                             mainAxisSize: MainAxisSize.min,
@@ -172,7 +174,7 @@ class DetailItem extends StatelessWidget {
                           ),
                     ],
                   ),
-                SizedBox(height: 16.w),
+                SizedBox(height: 16),
                 const ItemDivider(),
               ],
             ),
@@ -185,5 +187,5 @@ class DetailItem extends StatelessWidget {
   }
 }
 
-final TextStyle _defaultContentStyle = TextStyle(color: const Color(0xFF2A2F3C), fontSize: 16.w, height: 1.5);
-final TextStyle _defaultTitleStyle = TextStyle(color: const Color(0XFF858B9B), fontSize: 14.w, height: 1.5);
+final TextStyle _defaultContentStyle = TextStyle(color: const Color(0xFF2A2F3C), fontSize: 16, height: 1.5);
+final TextStyle _defaultTitleStyle = TextStyle(color: const Color(0XFF858B9B), fontSize: 14, height: 1.5);

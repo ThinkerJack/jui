@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:habit/dependencies.dart';
-import 'package:habit/habit.dart';
 
-import '../../../../generated/l10n.dart';
+
+
 import '../../../../utils.dart';
 
 /// 日期选择器组件，允许用户选择年和月
@@ -30,18 +29,18 @@ class _TapDatePickerState extends State<TapDatePicker> {
 
   // 当前语言环境下的月份列表
   final List<String> _monthList = [
-    getLanguage<S>().LMID_00021087,
-    getLanguage<S>().LMID_00021088,
-    getLanguage<S>().LMID_00021089,
-    getLanguage<S>().LMID_00021090,
-    getLanguage<S>().LMID_00021085,
-    getLanguage<S>().LMID_00021086,
-    getLanguage<S>().LMID_00021084,
-    getLanguage<S>().LMID_00021083,
-    getLanguage<S>().LMID_00021082,
-    getLanguage<S>().LMID_00021080,
-    getLanguage<S>().LMID_00021081,
-    getLanguage<S>().LMID_00021079,
+    "一月",
+    "二月",
+    "三月",
+    "四月",
+    "五月",
+    "六月",
+    "七月",
+    "八月",
+    "九月",
+    "十月",
+    "十一月",
+    "十二月"
   ];
 
   // 判断是否可以增加年份
@@ -61,11 +60,11 @@ class _TapDatePickerState extends State<TapDatePicker> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 52.r + 48.r + 1 + 16.r + (36.r + 16.sp) * 4 + 34.r,
-      padding: EdgeInsets.only(bottom: 34.r),
+      height: 52 + 48 + 1 + 16 + (36 + 16) * 4 + 34,
+      padding: EdgeInsets.only(bottom: 34),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.only(topRight: Radius.circular(16.r), topLeft: Radius.circular(16.r)),
+        borderRadius: BorderRadius.only(topRight: Radius.circular(16), topLeft: Radius.circular(16)),
       ),
       child: Column(
         children: [
@@ -82,8 +81,8 @@ class _TapDatePickerState extends State<TapDatePicker> {
   /// 构建标题栏
   Widget _buildTitleBar() {
     return Container(
-      height: 52.r,
-      margin: EdgeInsets.symmetric(horizontal: 16.r),
+      height: 52,
+      margin: EdgeInsets.symmetric(horizontal: 16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -95,12 +94,12 @@ class _TapDatePickerState extends State<TapDatePicker> {
               padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 5),
               minimumSize: const Size(0, 0),
             ),
-            child: Text(getLanguage<S>().LMID_00002552, style: const TextStyle(color: ui858B9B)),
+            child: Text("取消", style: const TextStyle(color: ui858B9B)),
           ),
           Expanded(
             // 标题文本
             child: Text(
-              widget.title ?? getLanguage<S>().LMID_00012931,
+              widget.title ??"选择起止日期",
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
               style: const TextStyle(color: ui2A2F3C, fontSize: 17, fontWeight: FontWeight.w500),
@@ -119,7 +118,7 @@ class _TapDatePickerState extends State<TapDatePicker> {
               minimumSize: const Size(0, 0),
             ),
             child: Text(
-              getLanguage<S>().LMID_00013631,
+              "确定",
               style: const TextStyle(color: ui5590F6, fontWeight: FontWeight.w500),
             ),
           ),
@@ -131,7 +130,7 @@ class _TapDatePickerState extends State<TapDatePicker> {
   /// 构建年份选择栏
   Widget _buildYearBar() {
     return Container(
-      height: 48.r,
+      height: 48,
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Row(
         children: [
@@ -143,8 +142,8 @@ class _TapDatePickerState extends State<TapDatePicker> {
               });
             },
             child: SizedBox(
-              width: 32.r,
-              height: 32.r,
+              width: 32,
+              height: 32,
               child: const Icon(Icons.keyboard_double_arrow_left, color: Color(0xff4e5969)),
             ),
           ),
@@ -152,7 +151,7 @@ class _TapDatePickerState extends State<TapDatePicker> {
             // 显示当前年份
             child: Text(
               _year.toString(),
-              style: TextStyle(color: ui2A2F3C, fontSize: 16.sp, fontWeight: FontWeight.w500, fontFamily: "DIN"),
+              style: TextStyle(color: ui2A2F3C, fontSize: 16, fontWeight: FontWeight.w500, fontFamily: "DIN"),
               textAlign: TextAlign.center,
             ),
           ),
@@ -166,8 +165,8 @@ class _TapDatePickerState extends State<TapDatePicker> {
                   }
                 : null,
             child: SizedBox(
-              width: 32.r,
-              height: 32.r,
+              width: 32,
+              height: 32,
               child: Icon(
                 Icons.keyboard_double_arrow_right,
                 color: canForwardYear ? const Color(0xff4e5969) : uiBCC1CD,
@@ -185,12 +184,12 @@ class _TapDatePickerState extends State<TapDatePicker> {
       child: LayoutBuilder(
         builder: (context, constraints) {
           final width = constraints.maxWidth;
-          final itemWidth = (width - 32.r) / 3;
+          final itemWidth = (width - 32) / 3;
           return GridView.count(
             physics: const NeverScrollableScrollPhysics(),
-            padding: EdgeInsets.only(top: 16.r, left: 16.r, right: 16.r),
+            padding: EdgeInsets.only(top: 16, left: 16, right: 16),
             crossAxisCount: 3,
-            childAspectRatio: itemWidth / (36.r + 16.sp),
+            childAspectRatio: itemWidth / (36 + 16),
             children: _monthList.mapIndexed((index, e) {
               final itemMonth = index + 1;
               final itemYearMonth = YearMonth(_year, itemMonth);
@@ -238,21 +237,21 @@ class _YearMonthItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 4.5.r, vertical: 4.r),
+      margin: EdgeInsets.symmetric(horizontal: 4.5, vertical: 4),
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: canSelect ? () => onSelect.call(itemYearMonth) : null,
         child: Container(
           decoration: isSelect
               ? BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(6.r)),
+                  borderRadius: BorderRadius.all(Radius.circular(6)),
                   color: ui5590F6,
                 )
               : null,
           alignment: Alignment.center,
           child: Text(
             text,
-            style: TextStyle(color: canSelect ? (isSelect ? uiFFFFFF : ui2A2F3C) : uiBCC1CD, fontSize: 16.sp),
+            style: TextStyle(color: canSelect ? (isSelect ? uiFFFFFF : ui2A2F3C) : uiBCC1CD, fontSize: 16),
             textAlign: TextAlign.center,
           ),
         ),

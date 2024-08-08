@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:habit/dependencies.dart';
-import 'package:habit/life/base/extensions/language_extension.dart';
 
-import '../../../generated/l10n.dart';
+
+import '../../../common.dart';
 import '../../../utils.dart';
-import '../../common/vv_button_old.dart';
 
 typedef DialogTapCallBack = void Function();
 typedef InputConfirmTapCallBack = void Function(String);
@@ -26,7 +24,7 @@ Row buildDialogButton(BuildContext context, Function confirmTap,
           Navigator.pop(context);
           cancelTap?.call();
         },
-        text: cancelButtonText.isNotEmpty ? cancelButtonText : getLanguage<S>().LMID_00002552,
+        text: cancelButtonText.isNotEmpty ? cancelButtonText : "取消",
       ),
 
       /// 确认按钮
@@ -37,8 +35,8 @@ Row buildDialogButton(BuildContext context, Function confirmTap,
           confirmTap.call();
         },
         disable: doneDisable,
-        width: !showCancelButton ? 279.w : null,
-        text: confirmButtonText.isNotEmpty ? confirmButtonText : getLanguage<S>().LMID_00013631,
+        width: !showCancelButton ? 279 : null,
+        text: confirmButtonText.isNotEmpty ? confirmButtonText : "确定",
       ),
     ],
   );
@@ -48,7 +46,7 @@ Row buildDialogButton(BuildContext context, Function confirmTap,
 TextStyle dialogContentStyle = TextStyle(
   decoration: TextDecoration.none,
   color: ui858B9B,
-  fontSize: 14.sp,
+  fontSize: 14,
   height: 1.5,
 );
 
@@ -56,16 +54,16 @@ TextStyle dialogContentStyle = TextStyle(
 TextStyle dialogTitleStyle = TextStyle(
   decoration: TextDecoration.none,
   color: ui2A2F3C,
-  fontSize: 16.sp,
+  fontSize: 16,
   height: 1.5,
   fontWeight: FontWeight.w500,
 );
 
 /// 对话框顶部间距
-double dialogMarginTop = 24.w;
+double dialogMarginTop = 24;
 
 /// 对话框内部元素间隔
-double dialogSpacer = 20.w;
+double dialogSpacer = 20;
 
 /// 对话框宽度
-double dialogWidth = 327.w;
+double dialogWidth = 327;

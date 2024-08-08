@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:habit/dependencies.dart';
-import 'package:habit/habit.dart';
-import 'package:vv_ui_kit/src/utils/color.dart';
+
+
+import 'package:jac_uikit/src/utils/color.dart';
 
 /// 卡片项组件，显示一个标题和一个内容组件
 class CardItem extends StatelessWidget {
@@ -20,7 +20,9 @@ class CardItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isZh = LanguageHelper.instance.isZh; // 判断当前语言是否为中文
+    //todo
+   // bool isZh = LanguageHelper.instance.isZh; // 判断当前语言是否为中文
+    bool isZh=true;
     if (isZh) {
       // 中文时，标题和内容组件横向排列
       return Row(
@@ -28,7 +30,7 @@ class CardItem extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyle(color: ui666F86, fontSize: 14.w, height: 1.5),
+            style: TextStyle(color: ui666F86, fontSize: 14, height: 1.5),
           ),
           Expanded(child: contentWidget)
         ],
@@ -40,7 +42,7 @@ class CardItem extends StatelessWidget {
       children: [
         Text(
           title,
-          style: TextStyle(color: ui666F86, fontSize: 14.w, height: 1.5),
+          style: TextStyle(color: ui666F86, fontSize: 14, height: 1.5),
         ),
         contentWidget
       ],
