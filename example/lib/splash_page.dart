@@ -17,26 +17,6 @@ class MainPage extends StatelessWidget {
               childAspectRatio: 3 //宽高比为1时，子widget
               ),
           children: [
-            ElevatedButton(
-              onPressed: () => Navigator.of(context).pushNamed(DemoRouter.textDemo),
-              child: const Text("文本示例"),
-            ),
-            ElevatedButton(
-              onPressed: () => Navigator.of(context).pushNamed(DemoRouter.buttonDemo),
-              child: const Text("按钮示例"),
-            ),
-            ElevatedButton(
-              onPressed: () => Navigator.of(context).pushNamed(DemoRouter.itemDemo),
-              child: const Text("表单项示例"),
-            ),
-            ElevatedButton(
-              onPressed: () => Navigator.of(context).pushNamed(DemoRouter.tagDemo),
-              child: const Text("标签示例"),
-            ),
-            ElevatedButton(
-              onPressed: () => Navigator.of(context).pushNamed(DemoRouter.dashedBorderDemo),
-              child: const Text("虚线边框"),
-            ),
           ],
         ),
       ),

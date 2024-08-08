@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:jac_uikit/src/utils/extension.dart';
+import 'package:habit/habit.dart';
+import 'package:vv_ui_kit/src/basic/extension.dart';
 
-import '../../../../generated/assets.dart';
-import '../../utils/custom_color.dart';
+import '../../../generated/assets.dart';
+import '../../../utils.dart';
 
+/// 提示文本组件
 class ItemTipsText extends StatelessWidget {
   const ItemTipsText({
     Key? key,
@@ -12,7 +14,10 @@ class ItemTipsText extends StatelessWidget {
     required this.tipText,
   }) : super(key: key);
 
+  /// 是否显示提示信息
   final bool showTips;
+
+  /// 提示文本内容
   final String tipText;
 
   @override
@@ -21,12 +26,12 @@ class ItemTipsText extends StatelessWidget {
       visible: showTips,
       child: Column(
         children: [
-          const SizedBox(
-            height: 4,
+          SizedBox(
+            height: 4.w,
           ),
           Text(
             tipText,
-            style: const TextStyle(color: tipsColor, fontSize: 14, height: 1.5),
+            style: TextStyle(color: tipsColor, fontSize: 12.w, height: 1.5),
           ),
         ],
       ),
@@ -34,15 +39,23 @@ class ItemTipsText extends StatelessWidget {
   }
 }
 
+/// 标题组件
 class ItemTitle extends StatelessWidget {
   const ItemTitle({
     Key? key,
     required this.title,
     required this.isRequired,
+    this.isDisabled = false,
   }) : super(key: key);
 
+  /// 标题文本
   final String title;
+
+  /// 是否为必填项
   final bool isRequired;
+
+  /// 是否禁用
+  final bool isDisabled;
 
   @override
   Widget build(BuildContext context) {
@@ -51,17 +64,16 @@ class ItemTitle extends StatelessWidget {
       children: [
         Text(
           title,
-          style: itemTitleStyle,
+          style: isDisabled ? itemTitleDisabledStyle : itemTitleStyle,
           maxLines: 1,
         ),
-        const SizedBox(width: 4),
+        SizedBox(width: 4.w),
         Visibility(
-          visible: isRequired,
+          visible: !isDisabled && isRequired,
           child: Padding(
-            padding: const EdgeInsets.only(top: 5),
+            padding: EdgeInsets.only(top: 5.w),
             child: Image.asset(
               Assets.imagesItemRequired.path,
-              height: 10,
             ),
           ),
         )
@@ -70,36 +82,29 @@ class ItemTitle extends StatelessWidget {
   }
 }
 
-const TextStyle itemTitleStyle =
-    TextStyle(color: color858B9B, fontSize: 14, fontWeight: FontWeight.w400, height: 1.5);
-const TextStyle itemHintStyle = TextStyle(color: colorBCC1CD, fontSize: 16, fontWeight: FontWeight.w400, height: 1.5);
-const TextStyle itemContentStyle =
-    TextStyle(color: color2A2F3C, fontSize: 16, fontWeight: FontWeight.w400, height: 1.5);
-const Color tipsColor = colorF55656;
+/// 全局样式定义
+final TextStyle itemTitleStyle =
+    TextStyle(color: const Color(0XFF858B9B), fontSize: 14.w, fontWeight: FontWeight.w400, height: 1.5);
+final TextStyle itemTitleDisabledStyle =
+    TextStyle(color: uiBCC1CD, fontSize: 14.w, fontWeight: FontWeight.w400, height: 1.5);
+final TextStyle itemHintStyle = TextStyle(color: uiBCC1CD, fontSize: 16.sp, fontWeight: FontWeight.w400, height: 1.5);
+final TextStyle itemHintDisabledStyle = TextStyle(color: uiDCE0E8, fontSize: 16.sp, fontWeight: FontWeight.w400, height: 1.5);
 
-class ItemDivider extends StatelessWidget {
-  const ItemDivider({
-    Key? key,
-  }) : super(key: key);
+final TextStyle itemContentStyle =
+    TextStyle(color: ui2A2F3C, fontSize: 16.sp, fontWeight: FontWeight.w400, height: 1.5);
+const Color tipsColor = uiF55656;
 
-  @override
-  Widget build(BuildContext context) {
-    return const Divider(
-      color: Color(0XFFE8EAEF),
-      height: 1,
-      thickness: 1,
-    );
-  }
-}
-//用于调用接口，判断输入内容是否涉及敏感词
-//返回String 会用于输入框的提示文字
+/// 用于调用接口，判断输入内容是否涉及敏感词
+/// 返回String 会用于输入框的提示文字
 typedef CheckTextFunc = Future<String?> Function(String)?;
 
+/// 输入检查功能混入
 mixin InputCheckMixin {
   late FocusNode focusNode;
   late VoidCallback unFocus;
   String tipText = "";
 
+  /// 初始化焦点
   initFocus(String tipsText, FocusNode? focusNode, VoidCallback unFocusFunc) {
     tipText = tipsText;
     this.focusNode = focusNode ?? FocusNode();
@@ -107,10 +112,16 @@ mixin InputCheckMixin {
     this.focusNode.addListener(unFocus);
   }
 
+  /// 处理焦点移除
   disposeFocus(bool needDispose) {
     focusNode.removeListener(unFocus);
-    if(needDispose){
+    if (needDispose) {
       focusNode.dispose();
     }
   }
 }
+
+/// 全局边距定义
+final itemPaddingL = 20.w;
+final itemPaddingR = 20.w;
+final itemPaddingV = 16.w;

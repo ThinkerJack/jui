@@ -10,7 +10,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  plugin_platform_interface: ^2.0.2
+  habit: ^0.0.1
+  intl: ^0.17.0
+  stream_transform: ^2.1.0
+  infinite_scroll_pagination: ^3.2.0
 
 dev_dependencies:
   flutter_test:
