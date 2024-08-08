@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-
 import 'common.dart';
 
 /// 空页面组件，用于显示没有数据时的提示
