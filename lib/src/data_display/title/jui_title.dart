@@ -4,8 +4,11 @@ import 'package:jui/src/utils/extension.dart';
 import '../../../generated/assets.dart';
 
 class JUITitle extends StatelessWidget {
+  /// 标题文本
   final String title;
+  /// 内容可折叠
   final Widget? expandedContent;
+  /// 内容可折叠开关
   final ValueNotifier<bool>? expandFlag;
 
   const JUITitle({
