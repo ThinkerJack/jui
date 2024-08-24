@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:jui/src/basic/extension.dart';
 
-import '../../../utils.dart';
+import '../../utils/color.dart';
 import '../item/common.dart';
 
 /// 文本输入区域组件

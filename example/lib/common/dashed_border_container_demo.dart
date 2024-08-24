@@ -7,7 +7,7 @@ class DashedBorderContainerDemo extends DemoBasePage {
 
   @override
   Widget build(BuildContext context) {
-    return super.builder("DashedBorderContainerDemo", [
+    return super.builder("虚线边框组件", [
       DashedBorderContainer(
         child: DashedBorderContainer(
           onTap: () {},

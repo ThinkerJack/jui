@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../../../utils.dart';
+import '../../utils/color.dart';
 import 'common.dart';
 
 // 正则表达式，用于过滤emoji表情

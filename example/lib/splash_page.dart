@@ -7,6 +7,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: GridView(
@@ -17,12 +18,15 @@ class MainPage extends StatelessWidget {
               childAspectRatio: 3 //宽高比为1时，子widget
               ),
           children: [
-            TextButton(
-                onPressed: () => Navigator.of(context).pushNamed(DemoRouter.dashedBorderContainerDemo),
-                child: const Text("dashedBorderContainerDemo"))
+            buildTextButton(context, DemoRouter.dashedBorderContainerDemo, "虚线边框组件"),
+            buildTextButton(context, DemoRouter.jUIButtonDemo, "按钮组件"),
           ],
         ),
       ),
     );
+  }
+
+  TextButton buildTextButton(BuildContext context, routerName, text) {
+    return TextButton(onPressed: () => Navigator.of(context).pushNamed(routerName), child: Text(text));
   }
 }

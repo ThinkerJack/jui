@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../utils.dart';
+
+import '../utils/color.dart';
 
 //底部取消组件 灰色分割线
 class BCPSpacer extends StatelessWidget {

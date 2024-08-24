@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import '../../../utils.dart';
+import '../../utils/color.dart';
 import 'common.dart';
 
 /// 自定义对话框组件

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:jui/src/basic/extension.dart';
 
 import '../../../generated/assets.dart';
-import '../../../utils.dart';
+import '../../utils/color.dart';
 
 /// 显示标题文本的组件
 class _Text extends StatelessWidget {

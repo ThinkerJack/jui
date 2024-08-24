@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import '../../../common.dart';
-import '../../../utils.dart';
+import '../../utils/color.dart';
 
 typedef DialogTapCallBack = void Function();
 typedef InputConfirmTapCallBack = void Function(String);

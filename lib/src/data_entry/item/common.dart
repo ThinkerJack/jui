@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:jui/src/basic/extension.dart';
 
 import '../../../generated/assets.dart';
-import '../../../utils.dart';
+import '../../utils/color.dart';
 
 /// 提示文本组件
 class ItemTipsText extends StatelessWidget {

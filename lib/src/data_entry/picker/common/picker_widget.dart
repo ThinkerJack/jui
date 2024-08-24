@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';import 'package:jui/src/basic/extension.dart';
 
 import '../../../../generated/assets.dart';
-import '../../../../utils.dart';
+import '../../../utils/color.dart';
 
 class PickerEmptyWidget extends StatelessWidget {
   const PickerEmptyWidget({

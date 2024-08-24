@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
-import '../../utils.dart';
+import '../utils/color.dart';
 
 @Deprecated('Use VVButton instead')
 enum VVButtonType { simple, middle }

@@ -96,14 +96,14 @@ class _SVScrollDatePickerState extends State<SVScrollDatePicker> {
               alignment: Alignment.centerLeft,
               child: Padding(
                 padding: EdgeInsets.only(left: 16, top: 12, bottom: 12),
-                child: VVButton(
+                child: JUIButton(
                   text: "至今",
                   onTap: () {
                     vm.isToDate.value = !vm.isToDate.value;
                   },
-                  colorType: vm.isToDate.value ? VVButtonColorType.blueBorder : VVButtonColorType.gray,
+                  colorType: vm.isToDate.value ? JUIButtonColorType.blueBorder : JUIButtonColorType.gray,
                   backGroundColor: vm.isToDate.value ? uiEEF4FE : null,
-                  type: VVButtonSizeType.small,
+                  sizeType: JUIButtonSizeType.small,
                   height: 32,
                   width: 110,
                   circular: 8,

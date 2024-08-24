@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jui/src/basic/extension.dart';
 
 import '../../../generated/assets.dart';
-import '../../../utils.dart';
+import '../../utils/color.dart';
 import '../../basic/item_widget.dart';
 import 'common.dart';
 
