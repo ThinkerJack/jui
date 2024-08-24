@@ -10,4 +10,3 @@ export 'src/data_display/title/detail_page_title.dart';
 export 'src/data_display/text/high_light_text_widget.dart';
 export 'src/data_display/text/high_light_text_widget_old.dart';
 export 'src/data_display/empty/common.dart';
-export 'src/business/vv_user_identification.dart';

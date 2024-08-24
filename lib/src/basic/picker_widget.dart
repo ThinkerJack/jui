@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import '../../utils.dart';
 import '../data_entry/picker/date_picker/common/vv_ios_cupertino_picker.dart';
 
-TextStyle _leftTextStyle = TextStyle(fontSize: 14, color: ui858B9B, height: 1.5);
+TextStyle _leftTextStyle = const TextStyle(fontSize: 14, color: ui858B9B, height: 1.5);
 
-TextStyle _rightTextDefaultStyle = TextStyle(fontSize: 14, color: ui5590F6, height: 1.5, fontWeight: FontWeight.w500);
+TextStyle _rightTextDefaultStyle = const TextStyle(fontSize: 14, color: ui5590F6, height: 1.5, fontWeight: FontWeight.w500);
 
 class PickerTitle extends StatelessWidget {
   const PickerTitle({
@@ -32,7 +32,7 @@ class PickerTitle extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: paddingHorizontal),
       alignment: Alignment.center,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.transparent,
         border: Border(bottom: BorderSide(color: uiE5E5E5, width: 0.5)),
       ),
@@ -53,7 +53,7 @@ class PickerTitle extends StatelessWidget {
             child: Text(
               title,
               maxLines: 1,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
                 color: ui2A2F3C,
                 height: 1.5,

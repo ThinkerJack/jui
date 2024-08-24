@@ -8,8 +8,8 @@ class ItemDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Divider(
-      color: const Color(0XFFE8EAEF),
+    return const Divider(
+      color: Color(0XFFE8EAEF),
       height: 1,
     );
   }

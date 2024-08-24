@@ -17,6 +17,9 @@ class MainPage extends StatelessWidget {
               childAspectRatio: 3 //宽高比为1时，子widget
               ),
           children: [
+            TextButton(
+                onPressed: () => Navigator.of(context).pushNamed(DemoRouter.dashedBorderContainerDemo),
+                child: const Text("dashedBorderContainerDemo"))
           ],
         ),
       ),
