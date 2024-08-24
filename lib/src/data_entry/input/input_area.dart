@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:jui/src/basic/extension.dart';
+import 'package:jui/src/utils/extension.dart';
 
 import '../../utils/color.dart';
 import '../item/common.dart';

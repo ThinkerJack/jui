@@ -1,6 +1,5 @@
-export 'src/data_display/item/card_item.dart';
-export 'src/data_display/item/detail_item.dart';
-export 'src/data_display/item/icon_item.dart';
+export 'src/data_entry/item/detail_item.dart';
+export 'src/data_entry/item/icon_item.dart';
 export 'src/data_display/tag/vv_tag.dart';
 export 'src/data_display/text/expand_text.dart';
 export 'src/data_display/title/detail_page_title.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../basic/item_widget.dart';
+import 'item_widget.dart';
 import 'common.dart';
 
 /// 输入表单项组件

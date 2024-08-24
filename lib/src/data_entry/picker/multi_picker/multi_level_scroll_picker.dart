@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jui/src/utils/color.dart';
 
 import '../../../../data_entry.dart';
-import '../../../basic/picker_widget.dart';
+import '../common/picker_widget.dart';
 import 'multi_level_scroll_vm.dart';
 
 class MultiLevelScrollPicker extends StatefulWidget {

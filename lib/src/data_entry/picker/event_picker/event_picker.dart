@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../basic/bottom_cancel_widget.dart';
-import '../../../basic/picker_widget.dart';
+import '../common/bottom_cancel_widget.dart';
 import '../common/picker_const.dart';
+import '../common/picker_widget.dart';
 import 'event_picker_func.dart';
 
 /// 事件选择器组件

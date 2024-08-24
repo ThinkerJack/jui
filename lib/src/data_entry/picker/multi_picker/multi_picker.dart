@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:jui/src/basic/extension.dart';
+import 'package:jui/src/utils/extension.dart';
 
 import '../../../../generated/assets.dart';
 import '../../../utils/color.dart';
-import '../../../basic/picker_widget.dart';
 import '../common/picker_const.dart';
 import '../common/picker_func.dart';
 import '../common/picker_widget.dart';

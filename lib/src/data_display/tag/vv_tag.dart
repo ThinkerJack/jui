@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:jui/src/utils/color.dart';
 
 // Tag 颜色类型枚举
-enum VVTagColorType { black, blue, green, yellow, red, gray }
+enum JUITagColorType { black, blue, green, yellow, red, gray }
 
 // Tag 形状类型枚举
-enum VVTagShapeType {
+enum JUITagShapeType {
   // 半圆
   semicircle,
   // 矩形
@@ -15,7 +15,7 @@ enum VVTagShapeType {
 }
 
 // Tag 类型枚举
-enum VVTagType {
+enum JUITagType {
   // 纯文字
   text,
   // 图标+文字
@@ -23,17 +23,17 @@ enum VVTagType {
 }
 
 // VVTag 组件
-class VVTag extends StatelessWidget {
-  const VVTag({
+class JUITag extends StatelessWidget {
+  const JUITag({
     super.key,
-    required this.paddingVertical,
-    required this.paddingHorizontal,
-    required this.tagType,
-    required this.tagShapeType,
-    required this.tagColorType,
     required this.text,
+    this.paddingVertical = 2,
+    this.paddingHorizontal = 10,
+    this.tagType = JUITagType.text,
+    this.tagShapeType = JUITagShapeType.rectangle,
+    this.tagColorType = JUITagColorType.blue,
     this.icon,
-    required this.fontSize,
+    this.fontSize = 12,
     this.alignment = Alignment.center,
   });
 
@@ -44,13 +44,13 @@ class VVTag extends StatelessWidget {
   final double paddingHorizontal;
 
   // Tag 类型
-  final VVTagType tagType;
+  final JUITagType tagType;
 
   // Tag 形状类型
-  final VVTagShapeType tagShapeType;
+  final JUITagShapeType tagShapeType;
 
   // Tag 颜色类型
-  final VVTagColorType tagColorType;
+  final JUITagColorType tagColorType;
 
   // Tag 文本
   final String text;
@@ -66,28 +66,30 @@ class VVTag extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: paddingVertical, horizontal: paddingHorizontal),
-      decoration: BoxDecoration(borderRadius: getBorderRadius(), color: getColor(true)),
-      alignment: alignment,
-      child: buildContent(),
+    return UnconstrainedBox(
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical: paddingVertical, horizontal: paddingHorizontal),
+        decoration: BoxDecoration(borderRadius: getBorderRadius(), color: getColor(true)),
+        alignment: alignment,
+        child: buildContent(),
+      ),
     );
   }
 
   // 构建内容组件
   Widget buildContent() {
     switch (tagType) {
-      case VVTagType.text:
+      case JUITagType.text:
         return Text(
           text,
           style: TextStyle(color: getColor(false), fontSize: fontSize),
           textAlign: TextAlign.start,
         );
-      case VVTagType.icon:
+      case JUITagType.icon:
         return Row(
           children: [
             icon ?? const SizedBox(),
-            SizedBox(
+            const SizedBox(
               width: 4,
             ),
             Text(
@@ -102,17 +104,17 @@ class VVTag extends StatelessWidget {
   // 获取颜色，flag为true表示容器颜色，false表示文本颜色
   Color getColor(bool flag) {
     switch (tagColorType) {
-      case VVTagColorType.black:
+      case JUITagColorType.black:
         return flag ? uiF6F7F8 : ui2A2F3C;
-      case VVTagColorType.blue:
+      case JUITagColorType.blue:
         return flag ? ui145590F6 : ui5590F6;
-      case VVTagColorType.green:
+      case JUITagColorType.green:
         return flag ? ui1444C69D : ui44C69D;
-      case VVTagColorType.yellow:
+      case JUITagColorType.yellow:
         return flag ? ui14FFA22D : uiFFA22D;
-      case VVTagColorType.red:
+      case JUITagColorType.red:
         return flag ? ui14F55656 : uiF55656;
-      case VVTagColorType.gray:
+      case JUITagColorType.gray:
         return flag ? uiF6F7F8 : ui858B9B;
     }
   }
@@ -120,12 +122,12 @@ class VVTag extends StatelessWidget {
   // 获取圆角半径
   BorderRadius getBorderRadius() {
     switch (tagShapeType) {
-      case VVTagShapeType.semicircle:
-        return BorderRadius.only(topLeft: Radius.circular(16), bottomLeft: Radius.circular(16));
-      case VVTagShapeType.rectangle:
-        return fontSize > 12 ? BorderRadius.all(Radius.circular(6)) : BorderRadius.all(Radius.circular(4));
-      case VVTagShapeType.capsule:
-        return BorderRadius.all(Radius.circular(16));
+      case JUITagShapeType.semicircle:
+        return const BorderRadius.only(topLeft: Radius.circular(16), bottomLeft: Radius.circular(16));
+      case JUITagShapeType.rectangle:
+        return fontSize > 12 ? const BorderRadius.all(Radius.circular(6)) : const BorderRadius.all(Radius.circular(4));
+      case JUITagShapeType.capsule:
+        return const BorderRadius.all(Radius.circular(16));
     }
   }
 }

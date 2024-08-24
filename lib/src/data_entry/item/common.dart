@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:jui/src/basic/extension.dart';
+import 'package:jui/src/utils/extension.dart';
 
 import '../../../generated/assets.dart';
 import '../../utils/color.dart';

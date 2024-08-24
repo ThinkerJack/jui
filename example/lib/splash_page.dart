@@ -21,6 +21,7 @@ class MainPage extends StatelessWidget {
             _buildTextButton(context, DemoRouter.dashedBorderContainerDemo, "虚线边框组件"),
             _buildTextButton(context, DemoRouter.jUIButtonDemo, "按钮组件"),
             _buildTextButton(context, DemoRouter.emptyPlaceholderDemo, "空页面组件"),
+            _buildTextButton(context, DemoRouter.tagDemo, "标签组件"),
           ],
         ),
       ),

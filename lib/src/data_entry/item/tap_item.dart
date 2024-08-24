@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jui/generated/assets.dart';
-import 'package:jui/src/basic/extension.dart';
+import 'package:jui/src/utils/extension.dart';
 
-import '../../basic/item_widget.dart';
+import 'item_widget.dart';
 import 'common.dart';
 
 /// 点击表单项组件
