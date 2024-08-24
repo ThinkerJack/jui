@@ -10,7 +10,6 @@ enum JUIButtonSizeType { large, middle, small, ultraSmall }
 /// 按钮颜色类型
 enum JUIButtonColorType { blue, gray, white, blueBorder }
 
-
 /// 按钮
 class JUIButton extends StatelessWidget {
   const JUIButton({

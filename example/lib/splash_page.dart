@@ -18,15 +18,16 @@ class MainPage extends StatelessWidget {
               childAspectRatio: 3 //宽高比为1时，子widget
               ),
           children: [
-            buildTextButton(context, DemoRouter.dashedBorderContainerDemo, "虚线边框组件"),
-            buildTextButton(context, DemoRouter.jUIButtonDemo, "按钮组件"),
+            _buildTextButton(context, DemoRouter.dashedBorderContainerDemo, "虚线边框组件"),
+            _buildTextButton(context, DemoRouter.jUIButtonDemo, "按钮组件"),
+            _buildTextButton(context, DemoRouter.emptyPlaceholderDemo, "空页面组件"),
           ],
         ),
       ),
     );
   }
 
-  TextButton buildTextButton(BuildContext context, routerName, text) {
+  TextButton _buildTextButton(BuildContext context, routerName, text) {
     return TextButton(onPressed: () => Navigator.of(context).pushNamed(routerName), child: Text(text));
   }
 }
