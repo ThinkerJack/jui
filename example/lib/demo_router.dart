@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'common/button_demo.dart';
 import 'common/dashed_border_container_demo.dart';
 import 'common/empty_placeholder_demo.dart';
+import 'common/expanded_text_demo.dart';
+import 'common/highlighted_text_demo.dart';
 import 'common/tag_demo.dart';
 
 final demoRouterMap = <String, WidgetBuilder>{
@@ -12,6 +14,8 @@ final demoRouterMap = <String, WidgetBuilder>{
   DemoRouter.jUIButtonDemo: (context) => const JUIButtonDemo(),
   DemoRouter.emptyPlaceholderDemo: (context) => const EmptyPlaceholderDemo(),
   DemoRouter.tagDemo: (context) => const TagDemo(),
+  DemoRouter.expandedTextDemo: (context) => const ExpandedTextDemo(),
+  DemoRouter.highlightedTextDemo: (context) => const HighlightedTextDemo(),
 };
 
 class DemoRouter {
@@ -20,4 +24,6 @@ class DemoRouter {
   static const String jUIButtonDemo = "JUIButtonDemo";
   static const String emptyPlaceholderDemo = "EmptyPlaceholderDemo";
   static const String tagDemo = "TagDemo";
+  static const String expandedTextDemo = "ExpandedTextDemo";
+  static const String highlightedTextDemo = "HighlightedTextDemo";
 }
