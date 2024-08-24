@@ -1,6 +1,5 @@
 import 'package:example/common/demo_base_page.dart';
 import 'package:flutter/material.dart';
-import 'package:jui/common.dart';
 import 'package:jui/data_display.dart';
 
 class TagDemo extends DemoBasePage {
