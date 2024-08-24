@@ -7,6 +7,7 @@ import 'common/empty_placeholder_demo.dart';
 import 'common/expanded_text_demo.dart';
 import 'common/highlighted_text_demo.dart';
 import 'common/tag_demo.dart';
+import 'common/title_demo.dart';
 
 final demoRouterMap = <String, WidgetBuilder>{
   DemoRouter.mainPage: (context) => const MainPage(),
@@ -16,6 +17,7 @@ final demoRouterMap = <String, WidgetBuilder>{
   DemoRouter.tagDemo: (context) => const TagDemo(),
   DemoRouter.expandedTextDemo: (context) => const ExpandedTextDemo(),
   DemoRouter.highlightedTextDemo: (context) => const HighlightedTextDemo(),
+  DemoRouter.titleDemo: (context) => const TitleDemo(),
 };
 
 class DemoRouter {
@@ -26,4 +28,5 @@ class DemoRouter {
   static const String tagDemo = "TagDemo";
   static const String expandedTextDemo = "ExpandedTextDemo";
   static const String highlightedTextDemo = "HighlightedTextDemo";
+  static const String titleDemo = "TitleDemo";
 }

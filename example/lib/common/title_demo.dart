@@ -10,7 +10,7 @@ class TitleDemo extends DemoBasePage {
     return super.builder("标题文本", [
       JUITitle(title: "标题"),
       space,
-
+      JUITitle(title: "内容可折叠",expandFlag: ValueNotifier<bool>(false),expandedContent: Text("内容"),)
     ]);
   }
 }

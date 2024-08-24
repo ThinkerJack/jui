@@ -31,7 +31,7 @@ class JUITitle extends StatelessWidget {
 
   Widget _buildTitleRow() {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 11, horizontal: 20),
+      padding: const EdgeInsets.symmetric(vertical: 11),
       child: Row(
         children: [
           _buildBlueBlock(),
@@ -74,6 +74,7 @@ class JUITitle extends StatelessWidget {
           onTap: () => expandFlag!.value = !isExpanded,
           child: Image.asset(
             isExpanded ? Assets.imagesIconDown.path : Assets.imagesIconUp.path,
+            width: 20,
           ),
         );
       },
