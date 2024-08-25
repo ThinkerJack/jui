@@ -4,14 +4,19 @@ import 'package:flutter/material.dart';
 class HighlightedTextWidget extends StatelessWidget {
   /// 文字
   final String text;
+
   /// 高亮文字
   final List<HighlightWord> highlights;
+
   /// 文本样式
   final TextStyle? textStyle;
+
   /// 高亮样式
   final TextStyle? highlightStyle;
+
   /// 最大行数
   final int maxLines;
+
   /// 文本溢出处理
   final TextOverflow overflow;
 
@@ -73,7 +78,7 @@ class HighlightedTextWidget extends StatelessWidget {
   int _findNextHighlightIndex(int startIndex) {
     return highlights.fold<int>(
       text.length,
-          (minIndex, highlight) {
+      (minIndex, highlight) {
         int index = text.indexOf(highlight.word, startIndex);
         return index != -1 && index < minIndex ? index : minIndex;
       },
@@ -108,10 +113,12 @@ class HighlightedTextWidget extends StatelessWidget {
 class HighlightWord {
   /// 高亮文字
   final String word;
+
   /// 点击事件
   final VoidCallback? onTap;
+
   /// 高亮样式
   final TextStyle? highlightStyle;
 
-  const HighlightWord(this.word,  {this.onTap,this.highlightStyle});
+  const HighlightWord(this.word, {this.onTap, this.highlightStyle});
 }

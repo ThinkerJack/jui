@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'item_widget.dart';
+
 import 'common.dart';
+import 'item_widget.dart';
 
 /// 输入表单项组件
 class CustomItem extends StatelessWidget {

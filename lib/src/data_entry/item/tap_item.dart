@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:jui/generated/assets.dart';
 import 'package:jui/src/utils/extension.dart';
 
-import 'item_widget.dart';
 import 'common.dart';
+import 'item_widget.dart';
 
 /// 点击表单项组件
 class TapItem extends StatelessWidget {

@@ -95,7 +95,6 @@ class VVButtonBlue extends StatelessWidget {
 }
 
 @Deprecated('Use VVButton instead')
-
 ///灰色按钮
 class VVButtonGray extends StatelessWidget {
   const VVButtonGray({

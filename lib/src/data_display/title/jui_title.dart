@@ -6,8 +6,10 @@ import '../../../generated/assets.dart';
 class JUITitle extends StatelessWidget {
   /// 标题文本
   final String title;
+
   /// 内容可折叠
   final Widget? expandedContent;
+
   /// 内容可折叠开关
   final ValueNotifier<bool>? expandFlag;
 
@@ -16,8 +18,8 @@ class JUITitle extends StatelessWidget {
     required this.title,
     this.expandedContent,
     this.expandFlag,
-  }) : assert(expandedContent == null || expandFlag != null,
-  'expandFlag must be provided if expandedContent is not null'),
+  })  : assert(expandedContent == null || expandFlag != null,
+            'expandFlag must be provided if expandedContent is not null'),
         super(key: key);
 
   @override
@@ -26,8 +28,7 @@ class JUITitle extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _buildTitleRow(),
-        if (expandedContent != null)
-          _buildExpandableContent(),
+        if (expandedContent != null) _buildExpandableContent(),
       ],
     );
   }
@@ -40,8 +41,7 @@ class JUITitle extends StatelessWidget {
           _buildBlueBlock(),
           const SizedBox(width: 16),
           Expanded(child: _buildTitleText()),
-          if (expandedContent != null)
-            _buildExpandToggle(),
+          if (expandedContent != null) _buildExpandToggle(),
         ],
       ),
     );

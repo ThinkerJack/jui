@@ -32,7 +32,8 @@ class PickerEmptyWidget extends StatelessWidget {
 
 TextStyle _leftTextStyle = const TextStyle(fontSize: 14, color: ui858B9B, height: 1.5);
 
-TextStyle _rightTextDefaultStyle = const TextStyle(fontSize: 14, color: ui5590F6, height: 1.5, fontWeight: FontWeight.w500);
+TextStyle _rightTextDefaultStyle =
+    const TextStyle(fontSize: 14, color: ui5590F6, height: 1.5, fontWeight: FontWeight.w500);
 
 class PickerTitle extends StatelessWidget {
   const PickerTitle({
@@ -179,52 +180,52 @@ class VVCupertinoPicker extends StatelessWidget {
       },
       child: _isWeb()
           ? VViOSCupertinoPicker.builder(
-        scrollController: controller,
-        itemExtent: 44,
-        childCount: childCount,
-        squeeze: 1.2,
-        selectionOverlay: null,
-        useMagnifier: true,
-        onSelectedItemChanged: (index) {
-          itemChanged?.call(index);
-        },
-        itemBuilder: (context, index) {
-          return Center(
-            child: Text(
-              textList[index],
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-                fontFamily: 'Avenger',
-                color: const Color(0xFF2A2F3C),
-              ),
-            ),
-          );
-        },
-      )
+              scrollController: controller,
+              itemExtent: 44,
+              childCount: childCount,
+              squeeze: 1.2,
+              selectionOverlay: null,
+              useMagnifier: true,
+              onSelectedItemChanged: (index) {
+                itemChanged?.call(index);
+              },
+              itemBuilder: (context, index) {
+                return Center(
+                  child: Text(
+                    textList[index],
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'Avenger',
+                      color: const Color(0xFF2A2F3C),
+                    ),
+                  ),
+                );
+              },
+            )
           : CupertinoPicker.builder(
-        scrollController: controller,
-        selectionOverlay: null,
-        childCount: childCount,
-        itemExtent: 44,
-        squeeze: 1.2,
-        onSelectedItemChanged: (index) {
-          itemChanged?.call(index);
-        },
-        itemBuilder: (context, index) {
-          return Center(
-            child: Text(
-              textList[index],
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-                fontFamily: 'Avenger',
-                color: const Color(0xFF2A2F3C),
-              ),
+              scrollController: controller,
+              selectionOverlay: null,
+              childCount: childCount,
+              itemExtent: 44,
+              squeeze: 1.2,
+              onSelectedItemChanged: (index) {
+                itemChanged?.call(index);
+              },
+              itemBuilder: (context, index) {
+                return Center(
+                  child: Text(
+                    textList[index],
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'Avenger',
+                      color: const Color(0xFF2A2F3C),
+                    ),
+                  ),
+                );
+              },
             ),
-          );
-        },
-      ),
     );
   }
 
