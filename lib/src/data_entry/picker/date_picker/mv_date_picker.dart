@@ -178,7 +178,7 @@ class _MVScrollDatePickerState extends State<MVScrollDatePicker> {
           ],
         );
       default:
-        return const SizedBox();
+        return SizedBox.shrink();
     }
   }
 
@@ -288,7 +288,7 @@ class _MVScrollDatePickerState extends State<MVScrollDatePicker> {
           ],
         );
       default:
-        return const SizedBox();
+        return SizedBox.shrink();
     }
   }
 }

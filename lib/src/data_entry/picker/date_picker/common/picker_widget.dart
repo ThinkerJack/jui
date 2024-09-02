@@ -295,7 +295,7 @@ class CommonTimeTitle extends StatelessWidget {
           ),
         );
       default:
-        return const SizedBox();
+        return SizedBox.shrink();
     }
   }
 
@@ -372,7 +372,7 @@ class CommonTimeTitle extends StatelessWidget {
           ),
         );
       default:
-        return const SizedBox();
+        return SizedBox.shrink();
     }
   }
 }

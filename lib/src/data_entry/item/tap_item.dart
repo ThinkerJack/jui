@@ -62,7 +62,7 @@ class TapItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(child: ItemTitle(title: title, isRequired: isRequired, isDisabled: isDisabled)),
-            widgetAfterTitle ?? const SizedBox(),
+            widgetAfterTitle ?? SizedBox.shrink(),
           ],
         ),
         SizedBox(height: 4),

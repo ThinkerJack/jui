@@ -25,6 +25,7 @@ class MainPage extends StatelessWidget {
             _buildTextButton(context, DemoRouter.expandedTextDemo, "展开收起文本"),
             _buildTextButton(context, DemoRouter.highlightedTextDemo, "高亮文本"),
             _buildTextButton(context, DemoRouter.titleDemo, "标题文本"),
+            _buildTextButton(context, DemoRouter.dialogDemo, "弹窗组件"),
           ],
         ),
       ),

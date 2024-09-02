@@ -86,12 +86,12 @@ class _EventPickerState extends State<EventPicker> {
         return _getContainer([
           Padding(
             padding: EdgeInsets.only(right: 12),
-            child: data.icon ?? const SizedBox(),
+            child: data.icon ?? SizedBox.shrink(),
           ),
           _getText(data)
         ]);
       case EventPickerType.widget:
-        return _getContainer([data.contentWidget ?? const SizedBox()]);
+        return _getContainer([data.contentWidget ?? SizedBox.shrink()]);
     }
   }
 

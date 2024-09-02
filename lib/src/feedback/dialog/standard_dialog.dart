@@ -1,20 +1,18 @@
 import 'package:flutter/cupertino.dart';
-import 'package:jui/src/feedback/dialog/base_dialog.dart';
 
-typedef OnDialogTapCallBack = void Function();
-typedef ConfirmInputCallBack = void Function(String);
+import 'base_dialog.dart';
+import 'dialog_constants.dart';
 
-/// 自定义对话框组件
-class JUICustomDialog extends JUiBaseDialog {
-  const JUICustomDialog({
+class JUIStandardDialog extends JUiBaseDialog {
+  JUIStandardDialog({
     Key? key,
     required String title,
-    required OnDialogTapCallBack onConfirm,
-    required OnDialogTapCallBack onCancel,
+    required VoidCallback onConfirm,
+    required VoidCallback onCancel,
     required String confirmButtonText,
     required String cancelButtonText,
     required bool showCancelButton,
-    required Widget contentWidget,
+    required String content,
     required double dialogWidth,
   }) : super(
           key: key,
@@ -24,7 +22,12 @@ class JUICustomDialog extends JUiBaseDialog {
           onConfirm: onConfirm,
           onCancel: onCancel,
           showCancelButton: showCancelButton,
-          contentWidget: contentWidget,
+          contentWidget: content.isEmpty
+              ? null
+              : Text(
+                  content,
+                  style: DialogConstants.dialogContentStyle,
+                ),
           dialogWidth: dialogWidth,
         );
 }

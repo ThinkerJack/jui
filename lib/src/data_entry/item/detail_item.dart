@@ -60,7 +60,7 @@ class DetailItem extends StatelessWidget {
                                 alignment: PlaceholderAlignment.middle,
                               ),
                               WidgetSpan(
-                                child: titleEndWidget ?? const SizedBox(),
+                                child: titleEndWidget ?? SizedBox.shrink(),
                                 alignment: PlaceholderAlignment.middle,
                               ),
                             ],
@@ -69,12 +69,12 @@ class DetailItem extends StatelessWidget {
                       ),
                       Visibility(
                         visible: titleRightWidget != null,
-                        child: titleRightWidget ?? const SizedBox(),
+                        child: titleRightWidget ?? SizedBox.shrink(),
                       ),
                     ],
                   ),
                   SizedBox(height: 4),
-                  if (type == DetailItemType.custom) contentWidget ?? const SizedBox(),
+                  if (type == DetailItemType.custom) contentWidget ?? SizedBox.shrink(),
                   if (type == DetailItemType.simple)
                     Row(
                       mainAxisSize: MainAxisSize.min,
@@ -148,7 +148,7 @@ class DetailItem extends StatelessWidget {
                                     alignment: PlaceholderAlignment.middle,
                                   ),
                                   WidgetSpan(
-                                    child: titleEndWidget ?? const SizedBox(),
+                                    child: titleEndWidget ?? SizedBox.shrink(),
                                     alignment: PlaceholderAlignment.middle,
                                   ),
                                 ],
@@ -157,7 +157,7 @@ class DetailItem extends StatelessWidget {
                           ),
                           Visibility(
                             visible: titleRightWidget != null,
-                            child: titleRightWidget ?? const SizedBox(),
+                            child: titleRightWidget ?? SizedBox.shrink(),
                           ),
                         ],
                       ),
@@ -182,7 +182,7 @@ class DetailItem extends StatelessWidget {
       );
     }
 
-    return const SizedBox();
+    return SizedBox.shrink();
   }
 }
 

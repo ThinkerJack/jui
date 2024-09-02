@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 
 import 'common/button_demo.dart';
 import 'common/dashed_border_container_demo.dart';
+import 'common/dialog_demo.dart';
 import 'common/empty_placeholder_demo.dart';
 import 'common/expanded_text_demo.dart';
 import 'common/highlighted_text_demo.dart';
@@ -18,6 +19,7 @@ final demoRouterMap = <String, WidgetBuilder>{
   DemoRouter.expandedTextDemo: (context) => const ExpandedTextDemo(),
   DemoRouter.highlightedTextDemo: (context) => const HighlightedTextDemo(),
   DemoRouter.titleDemo: (context) => const TitleDemo(),
+  DemoRouter.dialogDemo: (context) => const DialogDemo(),
 };
 
 class DemoRouter {
@@ -29,4 +31,5 @@ class DemoRouter {
   static const String expandedTextDemo = "ExpandedTextDemo";
   static const String highlightedTextDemo = "HighlightedTextDemo";
   static const String titleDemo = "TitleDemo";
+  static const String dialogDemo = "DialogDemo";
 }

@@ -48,7 +48,7 @@ class IconItem extends StatelessWidget {
                   text: text,
                   children: [
                     WidgetSpan(
-                      child: endWidget ?? const SizedBox(),
+                      child: endWidget ?? SizedBox.shrink(),
                       alignment: PlaceholderAlignment.top,
                     ),
                   ],

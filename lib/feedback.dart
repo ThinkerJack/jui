@@ -1,1 +1,1 @@
-export 'src/feedback/dialog/vv_dialog.dart';
+export 'src/feedback/dialog/jui_dialog.dart';

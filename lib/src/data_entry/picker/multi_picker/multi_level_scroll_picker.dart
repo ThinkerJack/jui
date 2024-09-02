@@ -45,7 +45,7 @@ class _MultiLevelScrollPickerState extends State<MultiLevelScrollPicker> {
         child: Column(
           children: [
             _buildHeader(context),
-            widget.tipsWidget ?? const SizedBox(),
+            widget.tipsWidget ?? SizedBox.shrink(),
             _buildPicker(),
           ],
         ),

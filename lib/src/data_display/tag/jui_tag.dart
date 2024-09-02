@@ -88,7 +88,7 @@ class JUITag extends StatelessWidget {
       case JUITagType.icon:
         return Row(
           children: [
-            icon ?? const SizedBox(),
+            icon ?? SizedBox.shrink(),
             const SizedBox(
               width: 4,
             ),
