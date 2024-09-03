@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
-import '../common/jui_button.dart';
 class JuiTheme {
   static JuiColors? _colors;
   static JuiTextStyles? _textStyles;
   static JuiDimensions? _dimensions;
 
   static JuiColors get colors => _colors ??= const JuiColors();
+
   static JuiTextStyles get textStyles => _textStyles ??= const JuiTextStyles();
+
   static JuiDimensions get dimensions => _dimensions ??= const JuiDimensions();
 
   // 私有构造函数，防止实例化
@@ -33,7 +34,6 @@ class JuiTheme {
     if (dimensions != null) _dimensions = dimensions;
   }
 }
-
 
 class JuiTextStyles {
   final TextStyle itemTitle;
@@ -140,27 +140,29 @@ class JuiDimensions {
   final double itemPaddingL;
   final double itemPaddingR;
   final double itemPaddingV;
+  final double itemSpace;
   final double dialogWidth;
   final double dialogMarginTop;
   final double dialogSpacer;
   final double dialogButtonWidth;
   final double dialogWideButtonWidth;
 
-  const JuiDimensions({
-    this.itemPaddingL = 20.0,
-    this.itemPaddingR = 20.0,
-    this.itemPaddingV = 16.0,
-    this.dialogWidth = 327.0,
-    this.dialogMarginTop = 24.0,
-    this.dialogSpacer = 20.0,
-    this.dialogButtonWidth = 130.0,
-    this.dialogWideButtonWidth = 270.0,
-  });
+  const JuiDimensions(
+      {this.itemPaddingL = 20.0,
+      this.itemPaddingR = 20.0,
+      this.itemPaddingV = 16.0,
+      this.dialogWidth = 327.0,
+      this.dialogMarginTop = 24.0,
+      this.dialogSpacer = 20.0,
+      this.dialogButtonWidth = 130.0,
+      this.dialogWideButtonWidth = 270.0,
+      this.itemSpace = 4});
 
   JuiDimensions copyWith({
     double? itemPaddingL,
     double? itemPaddingR,
     double? itemPaddingV,
+    double? itemSpace,
     double? dialogWidth,
     double? dialogMarginTop,
     double? dialogSpacer,
@@ -171,6 +173,7 @@ class JuiDimensions {
       itemPaddingL: itemPaddingL ?? this.itemPaddingL,
       itemPaddingR: itemPaddingR ?? this.itemPaddingR,
       itemPaddingV: itemPaddingV ?? this.itemPaddingV,
+      itemSpace: itemSpace ?? this.itemSpace,
       dialogWidth: dialogWidth ?? this.dialogWidth,
       dialogMarginTop: dialogMarginTop ?? this.dialogMarginTop,
       dialogSpacer: dialogSpacer ?? this.dialogSpacer,
@@ -220,8 +223,11 @@ class JuiColors {
   });
 
   Color get primaryWithOpacity => primary.withOpacity(0.08);
+
   Color get secondaryWithOpacity => secondary.withOpacity(0.08);
+
   Color get successWithOpacity => success.withOpacity(0.08);
+
   Color get errorWithOpacity => error.withOpacity(0.08);
 
   JuiColors copyWith({
