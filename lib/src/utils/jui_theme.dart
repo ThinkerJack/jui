@@ -140,43 +140,4 @@ class JUIColors {
   Color get successWithOpacity => const Color(0x1444C69D);
 
   Color get errorWithOpacity => const Color(0x14F55656);
-
-  // 保留原有的颜色常量名称，以确保向后兼容性
-  Color get uiFFA22D => secondary;
-
-  Color get ui5590F6 => primary;
-
-  Color get uiC7DDFF => lightBlue;
-
-  Color get uiEEF4FE => lighterBlue;
-
-  Color get ui2A2F3C => text;
-
-  Color get ui858B9B => textSecondary;
-
-  Color get uiBCC1CD => disabled;
-
-  Color get uiDCE0E8 => disabledLight;
-
-  Color get uiE8EAEF => divider;
-
-  Color get uiF6F7F8 => background;
-
-  Color get uiFFFFFF => surface;
-
-  Color get uiF55656 => error;
-
-  Color get uiFAFAFA => lightGray;
-
-  Color get uiE5E5E5 => border;
-
-  Color get ui44C69D => success;
-
-  Color get ui145590F6 => primaryWithOpacity;
-
-  Color get ui1444C69D => successWithOpacity;
-
-  Color get ui14FFA22D => secondaryWithOpacity;
-
-  Color get ui14F55656 => errorWithOpacity;
 }

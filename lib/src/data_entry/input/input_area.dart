@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:jui/src/utils/extension.dart';
 
 import '../../form/item/common.dart';
-import '../../utils/color.dart';
+import '../../utils/jui_theme.dart';
 
 /// 文本输入区域组件
 class InputArea extends StatefulWidget {
@@ -19,7 +19,7 @@ class InputArea extends StatefulWidget {
     this.marginRight = 20,
     this.height,
     this.onUnFocus,
-    this.backgroundColor = uiFAFAFA,
+    this.backgroundColor,
     this.maxLine = 5,
     this.padding,
     this.contentPadding,
@@ -37,7 +37,7 @@ class InputArea extends StatefulWidget {
   final double marginRight; // 右侧边距
   final double? height; // 高度
   final CheckTextFunc onUnFocus; // 失去焦点时的回调函数
-  final Color backgroundColor; // 背景颜色
+  final Color? backgroundColor; // 背景颜色
   final int maxLine; // 最大行数
   final EdgeInsets? padding; // 内边距
   final EdgeInsets? contentPadding; // 内容内边距
@@ -80,7 +80,7 @@ class _InputAreaState extends State<InputArea> with InputCheckMixin {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              decoration: BoxDecoration(color: widget.backgroundColor, borderRadius: BorderRadius.circular(10)),
+              decoration: BoxDecoration(color: widget.backgroundColor??JUIColors().lightGray, borderRadius: BorderRadius.circular(10)),
               margin: EdgeInsets.only(left: widget.marginLeft, right: widget.marginRight),
               height: widget.height ?? 120,
               padding: widget.padding ?? EdgeInsets.only(left: 12, right: 10, top: 0, bottom: 6),
@@ -92,14 +92,14 @@ class _InputAreaState extends State<InputArea> with InputCheckMixin {
                   maxLines: widget.maxLine,
                   focusNode: focusNode,
                   controller: widget.textEditingController,
-                  style: TextStyle(fontSize: 16, color: ui2A2F3C, height: widget.fontHeight),
+                  style: TextStyle(fontSize: 16, color: JUIColors().text, height: widget.fontHeight),
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     contentPadding: widget.contentPadding ?? EdgeInsets.only(top: 12),
                     fillColor: Colors.transparent,
                     hintText: widget.hintText,
-                    hintStyle: TextStyle(fontSize: 16, height: widget.fontHeight, color: uiBCC1CD),
-                    helperStyle: TextStyle(color: uiBCC1CD, fontSize: 12, height: 1.5),
+                    hintStyle: TextStyle(fontSize: 16, height: widget.fontHeight, color: JUIColors().disabled),
+                    helperStyle: TextStyle(color: JUIColors().disabled, fontSize: 12, height: 1.5),
                   ),
                 ),
               ),
@@ -124,7 +124,7 @@ class _InputAreaState extends State<InputArea> with InputCheckMixin {
         thickness: 4,
         // 滚动条的圆角
         radius: const Radius.circular(5),
-        thumbColor: uiE8EAEF,
+        thumbColor: JUIColors().divider,
         child: child,
       );
     }

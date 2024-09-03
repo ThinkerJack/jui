@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jui/src/data_entry/picker/date_picker/sv_scroll_date_picker_vm.dart';
-import 'package:jui/src/utils/color.dart';
 
 import '../../../../common.dart';
+import '../../../utils/jui_theme.dart';
 import '../common/picker_widget.dart';
 import 'common/picker_widget.dart';
 import 'date_picker_func.dart';
@@ -102,7 +102,7 @@ class _SVScrollDatePickerState extends State<SVScrollDatePicker> {
                     vm.isToDate.value = !vm.isToDate.value;
                   },
                   colorType: vm.isToDate.value ? JuiButtonColorType.blueBorder : JuiButtonColorType.gray,
-                  backGroundColor: vm.isToDate.value ? uiEEF4FE : null,
+                  backGroundColor: vm.isToDate.value ? JUIColors().lighterBlue : null,
                   sizeType: JuiButtonSizeType.small,
                   height: 32,
                   width: 110,

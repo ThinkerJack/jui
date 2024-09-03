@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../../utils/color.dart';
+import '../../utils/jui_theme.dart';
 
 class JuiExpandableText extends StatefulWidget {
   /// 文本
@@ -21,16 +21,16 @@ class JuiExpandableText extends StatefulWidget {
   final String expandText;
 
   /// 展开文本颜色
-  final Color expandColor;
+  final Color? expandColor;
 
   const JuiExpandableText({
     super.key,
     this.text = '',
     this.maxLines = 1,
-    this.textStyle = const TextStyle(color: ui2A2F3C, fontSize: 16, height: 1.5),
+    this.textStyle ,
     this.shrinkText = '展开',
     this.expandText = '收起',
-    this.expandColor = ui5590F6,
+    this.expandColor,
   });
 
   @override
@@ -71,7 +71,7 @@ class _RichTextState extends State<JuiExpandableText> {
                 children: [
                   TextSpan(
                       text: _isExpand ? widget.shrinkText : widget.expandText,
-                      style: widget.textStyle?.copyWith(color: widget.expandColor),
+                      style: widget.textStyle?.copyWith(color: widget.expandColor??JUIColors().primary),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
                           setState(() {

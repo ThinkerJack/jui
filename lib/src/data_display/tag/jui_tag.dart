@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jui/src/utils/color.dart';
+
+import '../../utils/jui_theme.dart';
 
 enum JuiTagColorType { black, blue, green, yellow, red, gray }
 
@@ -71,17 +72,17 @@ class JuiTag extends StatelessWidget {
   Color _getColor(bool isBackground) {
     switch (tagColorType) {
       case JuiTagColorType.black:
-        return isBackground ? uiF6F7F8 : ui2A2F3C;
+        return isBackground ? JUIColors().background : JUIColors().text;
       case JuiTagColorType.blue:
-        return isBackground ? ui145590F6 : ui5590F6;
+        return isBackground ? JUIColors().primaryWithOpacity : JUIColors().primary;
       case JuiTagColorType.green:
-        return isBackground ? ui1444C69D : ui44C69D;
+        return isBackground ? JUIColors().successWithOpacity : JUIColors().success;
       case JuiTagColorType.yellow:
-        return isBackground ? ui14FFA22D : uiFFA22D;
+        return isBackground ? JUIColors().secondaryWithOpacity : JUIColors().secondary;
       case JuiTagColorType.red:
-        return isBackground ? ui14F55656 : uiF55656;
+        return isBackground ? JUIColors().errorWithOpacity : JUIColors().error;
       case JuiTagColorType.gray:
-        return isBackground ? uiF6F7F8 : ui858B9B;
+        return isBackground ? JUIColors().background : JUIColors().textSecondary;
     }
   }
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../utils/color.dart';
+import '../utils/jui_theme.dart';
 
 enum JuiButtonSizeType { large, middle, small, ultraSmall }
 enum JuiButtonColorType { blue, gray, white, blueBorder }
@@ -77,22 +77,22 @@ class JuiButton extends StatelessWidget {
 
   static final Map<JuiButtonColorType, _ButtonColorConfig> _colorConfig = {
     JuiButtonColorType.white: _ButtonColorConfig(
-      getColor: (_) => uiFFFFFF,
-      getFontColor: (disable) => disable ? uiDCE0E8 : ui2A2F3C,
-      border: Border.all(color: uiE8EAEF, width: 1),
+      getColor: (_) => JUIColors().surface,
+      getFontColor: (disable) => disable ? JUIColors().disabledLight : JUIColors().text,
+      border: Border.all(color: JUIColors().divider, width: 1),
     ),
     JuiButtonColorType.gray: _ButtonColorConfig(
-      getColor: (_) => uiF6F7F8,
-      getFontColor: (disable) => disable ? uiDCE0E8 : ui2A2F3C,
+      getColor: (_) => JUIColors().background,
+      getFontColor: (disable) => disable ? JUIColors().disabledLight : JUIColors().text,
     ),
     JuiButtonColorType.blue: _ButtonColorConfig(
-      getColor: (disable) => disable ? uiC7DDFF : ui5590F6,
-      getFontColor: (_) => uiFFFFFF,
+      getColor: (disable) => disable ? JUIColors().lightBlue : JUIColors().primary,
+      getFontColor: (_) => JUIColors().surface,
     ),
     JuiButtonColorType.blueBorder: _ButtonColorConfig(
-      getColor: (_) => uiFFFFFF,
-      getFontColor: (_) => ui5590F6,
-      border: Border.all(color: ui5590F6, width: 1),
+      getColor: (_) => JUIColors().surface,
+      getFontColor: (_) => JUIColors().primary,
+      border: Border.all(color: JUIColors().primary, width: 1),
     ),
   };
 }

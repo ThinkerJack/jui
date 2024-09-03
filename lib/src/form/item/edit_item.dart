@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:jui/src/utils/color.dart';
 import 'package:jui/src/utils/extension.dart';
 
 import '../../../generated/assets.dart';
+import '../../utils/jui_theme.dart';
 import 'common.dart';
 
 /// 可编辑输入框组件，包含标题、提示信息、输入框及清除按钮
@@ -52,7 +52,7 @@ class _EditItemState extends State<EditItem> with InputCheckMixin {
   late final TextField _textField;
   bool _showTextField = false;
   bool _showClearIcon = false; // 是否显示清除按钮
-  final TextStyle _textStyle = TextStyle(fontSize: 16, height: 1.5, color: ui2A2F3C);
+  final TextStyle _textStyle = TextStyle(fontSize: 16, height: 1.5, color: JUIColors().text);
 
   @override
   void initState() {

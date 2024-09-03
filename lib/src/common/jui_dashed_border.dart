@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:jui/src/utils/color.dart';
+
+import '../utils/jui_theme.dart';
 
 class JuiDashedBorder extends StatelessWidget {
-  final Color dashColor;
+  final Color? dashColor;
   final double dashWidth;
   final double dashHeight;
   final double dashSpace;
@@ -12,7 +13,7 @@ class JuiDashedBorder extends StatelessWidget {
 
   const JuiDashedBorder({
     Key? key,
-    this.dashColor = ui5590F6,
+    this.dashColor ,
     this.dashWidth = 2,
     this.dashHeight = 1,
     this.dashSpace = 2,
@@ -27,7 +28,7 @@ class JuiDashedBorder extends StatelessWidget {
       onTap: onTap,
       child: CustomPaint(
         painter: DashedBorderPainter(
-          dashColor: dashColor,
+          dashColor: dashColor??JUIColors().primary,
           dashWidth: dashWidth,
           dashHeight: dashHeight,
           dashSpace: dashSpace,

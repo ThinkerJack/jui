@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../../utils/color.dart';
 import '../../utils/jui_theme.dart';
 import 'jui_base_dialog.dart';
 

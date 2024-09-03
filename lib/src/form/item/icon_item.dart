@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../utils/color.dart';
+import '../../utils/jui_theme.dart';
 
 /// 图片文字表单项组件
 class IconItem extends StatelessWidget {
@@ -52,7 +52,7 @@ class IconItem extends StatelessWidget {
                       alignment: PlaceholderAlignment.top,
                     ),
                   ],
-                  style: textStyle ?? TextStyle(color: ui2A2F3C, fontSize: 12, height: 1.5),
+                  style: textStyle ?? TextStyle(color: JUIColors().text, fontSize: 12, height: 1.5),
                 ),
               ),
             )

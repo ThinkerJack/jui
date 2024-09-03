@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:jui/src/utils/extension.dart';
 
 import '../../../../generated/assets.dart';
-import '../../../utils/color.dart';
+import '../../../utils/jui_theme.dart';
 import '../date_picker/common/vv_ios_cupertino_picker.dart';
 
 class PickerEmptyWidget extends StatelessWidget {
@@ -23,17 +23,17 @@ class PickerEmptyWidget extends StatelessWidget {
         ),
         Text(
           "暂无数据",
-          style: TextStyle(fontSize: 16, color: ui858B9B, height: 1.5, fontWeight: FontWeight.w500),
+          style: TextStyle(fontSize: 16, color: JUIColors().textSecondary, height: 1.5, fontWeight: FontWeight.w500),
         ),
       ],
     );
   }
 }
 
-TextStyle _leftTextStyle = const TextStyle(fontSize: 14, color: ui858B9B, height: 1.5);
+TextStyle _leftTextStyle =  TextStyle(fontSize: 14, color: JUIColors().textSecondary, height: 1.5);
 
 TextStyle _rightTextDefaultStyle =
-    const TextStyle(fontSize: 14, color: ui5590F6, height: 1.5, fontWeight: FontWeight.w500);
+     TextStyle(fontSize: 14, color: JUIColors().primary, height: 1.5, fontWeight: FontWeight.w500);
 
 class PickerTitle extends StatelessWidget {
   const PickerTitle({
@@ -59,9 +59,9 @@ class PickerTitle extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: paddingHorizontal),
       alignment: Alignment.center,
-      decoration: const BoxDecoration(
+      decoration:  BoxDecoration(
         color: Colors.transparent,
-        border: Border(bottom: BorderSide(color: uiE5E5E5, width: 0.5)),
+        border: Border(bottom: BorderSide(color: JUIColors().border, width: 0.5)),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -80,9 +80,9 @@ class PickerTitle extends StatelessWidget {
             child: Text(
               title,
               maxLines: 1,
-              style: const TextStyle(
+              style:  TextStyle(
                 fontSize: 16,
-                color: ui2A2F3C,
+                color: JUIColors().text,
                 height: 1.5,
                 fontWeight: FontWeight.w500,
               ),
@@ -137,7 +137,7 @@ class PickerSelectionArea extends StatelessWidget {
       decoration: BoxDecoration(
         color: const Color(0xFFFAFBFC),
         borderRadius: BorderRadius.all(Radius.circular(8)),
-        border: Border.all(color: uiE8EAEF, width: 0.5),
+        border: Border.all(color: JUIColors().divider, width: 0.5),
       ),
       height: height,
       child: child,

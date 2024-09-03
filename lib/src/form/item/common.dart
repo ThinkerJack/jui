@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:jui/src/utils/extension.dart';
 
 import '../../../generated/assets.dart';
-import '../../utils/color.dart';
+import '../../utils/jui_theme.dart';
 
 /// 提示文本组件
 class ItemTipsText extends StatelessWidget {
@@ -85,13 +85,13 @@ class ItemTitle extends StatelessWidget {
 final TextStyle itemTitleStyle =
     TextStyle(color: const Color(0XFF858B9B), fontSize: 14, fontWeight: FontWeight.w400, height: 1.5);
 final TextStyle itemTitleDisabledStyle =
-    TextStyle(color: uiBCC1CD, fontSize: 14, fontWeight: FontWeight.w400, height: 1.5);
-final TextStyle itemHintStyle = TextStyle(color: uiBCC1CD, fontSize: 16, fontWeight: FontWeight.w400, height: 1.5);
+    TextStyle(color: JUIColors().disabled, fontSize: 14, fontWeight: FontWeight.w400, height: 1.5);
+final TextStyle itemHintStyle = TextStyle(color: JUIColors().disabled, fontSize: 16, fontWeight: FontWeight.w400, height: 1.5);
 final TextStyle itemHintDisabledStyle =
-    TextStyle(color: uiDCE0E8, fontSize: 16, fontWeight: FontWeight.w400, height: 1.5);
+    TextStyle(color: JUIColors().disabledLight, fontSize: 16, fontWeight: FontWeight.w400, height: 1.5);
 
-final TextStyle itemContentStyle = TextStyle(color: ui2A2F3C, fontSize: 16, fontWeight: FontWeight.w400, height: 1.5);
-const Color tipsColor = uiF55656;
+final TextStyle itemContentStyle = TextStyle(color: JUIColors().text, fontSize: 16, fontWeight: FontWeight.w400, height: 1.5);
+ Color tipsColor = JUIColors().error;
 
 /// 用于调用接口，判断输入内容是否涉及敏感词
 /// 返回String 会用于输入框的提示文字

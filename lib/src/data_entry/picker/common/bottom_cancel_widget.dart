@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../utils/color.dart';
+import '../../../utils/jui_theme.dart';
 
 //底部取消组件 灰色分割线
 class BCPSpacer extends StatelessWidget {
@@ -10,7 +10,7 @@ class BCPSpacer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: uiF6F7F8,
+      color: JUIColors().background,
       height: 8,
       width: double.infinity,
     );

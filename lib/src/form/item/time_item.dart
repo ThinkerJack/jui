@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jui/src/utils/extension.dart';
 
 import '../../../generated/assets.dart';
-import '../../utils/color.dart';
+import '../../utils/jui_theme.dart';
 import 'common.dart';
 
 /// 时间选择项组件
@@ -58,7 +58,7 @@ class TimeItem extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-              color: ui858B9B,
+              color: JUIColors().textSecondary,
               height: 1.5,
               fontSize: 14,
             ),
@@ -86,7 +86,7 @@ class TimeItem extends StatelessWidget {
       child: Text(
         date.isNotEmpty ? date : hintText,
         style: TextStyle(
-          color: date.isNotEmpty ? ui2A2F3C : uiBCC1CD,
+          color: date.isNotEmpty ? JUIColors().text : JUIColors().disabled,
           fontSize: 16,
           fontWeight: FontWeight.w400,
         ),
@@ -103,7 +103,7 @@ class TimeItem extends StatelessWidget {
         Text(
           tipText,
           style: TextStyle(
-            color: uiF55656,
+            color: JUIColors().error,
             fontSize: 12,
           ),
         ),

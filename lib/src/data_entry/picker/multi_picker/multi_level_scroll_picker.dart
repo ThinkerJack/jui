@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:jui/src/utils/color.dart';
 
 import '../../../../data_entry.dart';
+import '../../../utils/jui_theme.dart';
 import '../common/picker_widget.dart';
 import 'multi_level_scroll_vm.dart';
 
@@ -100,7 +100,7 @@ class _MultiLevelScrollPickerState extends State<MultiLevelScrollPicker> {
           child: Center(
             child: Text(
               "～",
-              style: TextStyle(color: ui858B9B, fontSize: 16),
+              style: TextStyle(color: JUIColors().textSecondary, fontSize: 16),
             ),
           ),
         ));

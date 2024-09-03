@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jui/src/utils/extension.dart';
 
 import '../../../../generated/assets.dart';
-import '../../../utils/color.dart';
+import '../../../utils/jui_theme.dart';
 import '../common/picker_const.dart';
 import '../common/picker_func.dart';
 import '../common/picker_widget.dart';
@@ -146,7 +146,7 @@ class _MultiSelectionPickerState extends State<MultiSelectionPicker> {
                 margin: EdgeInsets.only(right: 9),
                 child: Text(widget.filterItemData[data].toString(),
                     style: TextStyle(
-                      color: ui2A2F3C,
+                      color: JUIColors().text,
                       fontWeight: FontWeight.w400,
                       fontSize: 16,
                     ),
@@ -165,7 +165,7 @@ class _MultiSelectionPickerState extends State<MultiSelectionPicker> {
                 margin: EdgeInsets.only(left: 9, right: 9),
                 child: Text(widget.filterItemData[data],
                     style: TextStyle(
-                      color: ui2A2F3C,
+                      color: JUIColors().text,
                       fontWeight: FontWeight.w400,
                       fontSize: 16,
                     ),

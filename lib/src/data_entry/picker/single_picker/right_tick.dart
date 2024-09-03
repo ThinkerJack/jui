@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:jui/src/utils/color.dart';
 import 'package:jui/src/utils/extension.dart';
 
 import '../../../../generated/assets.dart';
+import '../../../utils/jui_theme.dart';
 import '../common/picker_const.dart';
 import '../common/picker_widget.dart';
 
@@ -99,7 +99,7 @@ class _RightTickPickerState extends State<RightTickPicker> {
                                         style: TextStyle(
                                           fontSize: 16,
                                           height: 1.5,
-                                          color: key == selectedKey ? ui2A2F3C : ui858B9B,
+                                          color: key == selectedKey ? JUIColors().text : JUIColors().textSecondary,
                                         )),
                                   ),
                                   Padding(
