@@ -26,7 +26,7 @@ class JuiStandardDialog extends JuiBaseDialog {
               ? null
               : Text(
                   content,
-                  style: JUITheme.textStyles.dialogContent,
+                  style: JuiTheme.textStyles.dialogContent,
                 ),
           dialogWidth: dialogWidth,
         );

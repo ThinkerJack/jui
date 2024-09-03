@@ -99,7 +99,7 @@ class _RightTickPickerState extends State<RightTickPicker> {
                                         style: TextStyle(
                                           fontSize: 16,
                                           height: 1.5,
-                                          color: key == selectedKey ? JUIColors().text : JUIColors().textSecondary,
+                                          color: key == selectedKey ? JuiColors().text : JuiColors().textSecondary,
                                         )),
                                   ),
                                   Padding(

@@ -71,7 +71,7 @@ class _RichTextState extends State<JuiExpandableText> {
                 children: [
                   TextSpan(
                       text: _isExpand ? widget.shrinkText : widget.expandText,
-                      style: widget.textStyle?.copyWith(color: widget.expandColor??JUIColors().primary),
+                      style: widget.textStyle?.copyWith(color: widget.expandColor??JuiColors().primary),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
                           setState(() {

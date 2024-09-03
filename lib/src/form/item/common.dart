@@ -85,13 +85,13 @@ class ItemTitle extends StatelessWidget {
 final TextStyle itemTitleStyle =
     TextStyle(color: const Color(0XFF858B9B), fontSize: 14, fontWeight: FontWeight.w400, height: 1.5);
 final TextStyle itemTitleDisabledStyle =
-    TextStyle(color: JUIColors().disabled, fontSize: 14, fontWeight: FontWeight.w400, height: 1.5);
-final TextStyle itemHintStyle = TextStyle(color: JUIColors().disabled, fontSize: 16, fontWeight: FontWeight.w400, height: 1.5);
+    TextStyle(color: JuiColors().disabled, fontSize: 14, fontWeight: FontWeight.w400, height: 1.5);
+final TextStyle itemHintStyle = TextStyle(color: JuiColors().disabled, fontSize: 16, fontWeight: FontWeight.w400, height: 1.5);
 final TextStyle itemHintDisabledStyle =
-    TextStyle(color: JUIColors().disabledLight, fontSize: 16, fontWeight: FontWeight.w400, height: 1.5);
+    TextStyle(color: JuiColors().disabledLight, fontSize: 16, fontWeight: FontWeight.w400, height: 1.5);
 
-final TextStyle itemContentStyle = TextStyle(color: JUIColors().text, fontSize: 16, fontWeight: FontWeight.w400, height: 1.5);
- Color tipsColor = JUIColors().error;
+final TextStyle itemContentStyle = TextStyle(color: JuiColors().text, fontSize: 16, fontWeight: FontWeight.w400, height: 1.5);
+ Color tipsColor = JuiColors().error;
 
 /// 用于调用接口，判断输入内容是否涉及敏感词
 /// 返回String 会用于输入框的提示文字

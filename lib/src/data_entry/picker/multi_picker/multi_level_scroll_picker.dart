@@ -100,7 +100,7 @@ class _MultiLevelScrollPickerState extends State<MultiLevelScrollPicker> {
           child: Center(
             child: Text(
               "～",
-              style: TextStyle(color: JUIColors().textSecondary, fontSize: 16),
+              style: TextStyle(color: JuiColors().textSecondary, fontSize: 16),
             ),
           ),
         ));

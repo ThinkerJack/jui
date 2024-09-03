@@ -38,7 +38,7 @@ class JuiNoContent extends StatelessWidget {
             const SizedBox(height: 8),
             Text(
               text,
-              style: JUITheme.textStyles.noContent,
+              style: JuiTheme.textStyles.noContent,
             ),
           ],
         ),

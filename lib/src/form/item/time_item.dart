@@ -58,7 +58,7 @@ class TimeItem extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-              color: JUIColors().textSecondary,
+              color: JuiColors().textSecondary,
               height: 1.5,
               fontSize: 14,
             ),
@@ -86,7 +86,7 @@ class TimeItem extends StatelessWidget {
       child: Text(
         date.isNotEmpty ? date : hintText,
         style: TextStyle(
-          color: date.isNotEmpty ? JUIColors().text : JUIColors().disabled,
+          color: date.isNotEmpty ? JuiColors().text : JuiColors().disabled,
           fontSize: 16,
           fontWeight: FontWeight.w400,
         ),
@@ -103,7 +103,7 @@ class TimeItem extends StatelessWidget {
         Text(
           tipText,
           style: TextStyle(
-            color: JUIColors().error,
+            color: JuiColors().error,
             fontSize: 12,
           ),
         ),

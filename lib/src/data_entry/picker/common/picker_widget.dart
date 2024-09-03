@@ -23,17 +23,17 @@ class PickerEmptyWidget extends StatelessWidget {
         ),
         Text(
           "暂无数据",
-          style: TextStyle(fontSize: 16, color: JUIColors().textSecondary, height: 1.5, fontWeight: FontWeight.w500),
+          style: TextStyle(fontSize: 16, color: JuiColors().textSecondary, height: 1.5, fontWeight: FontWeight.w500),
         ),
       ],
     );
   }
 }
 
-TextStyle _leftTextStyle =  TextStyle(fontSize: 14, color: JUIColors().textSecondary, height: 1.5);
+TextStyle _leftTextStyle =  TextStyle(fontSize: 14, color: JuiColors().textSecondary, height: 1.5);
 
 TextStyle _rightTextDefaultStyle =
-     TextStyle(fontSize: 14, color: JUIColors().primary, height: 1.5, fontWeight: FontWeight.w500);
+     TextStyle(fontSize: 14, color: JuiColors().primary, height: 1.5, fontWeight: FontWeight.w500);
 
 class PickerTitle extends StatelessWidget {
   const PickerTitle({
@@ -61,7 +61,7 @@ class PickerTitle extends StatelessWidget {
       alignment: Alignment.center,
       decoration:  BoxDecoration(
         color: Colors.transparent,
-        border: Border(bottom: BorderSide(color: JUIColors().border, width: 0.5)),
+        border: Border(bottom: BorderSide(color: JuiColors().border, width: 0.5)),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -82,7 +82,7 @@ class PickerTitle extends StatelessWidget {
               maxLines: 1,
               style:  TextStyle(
                 fontSize: 16,
-                color: JUIColors().text,
+                color: JuiColors().text,
                 height: 1.5,
                 fontWeight: FontWeight.w500,
               ),
@@ -137,7 +137,7 @@ class PickerSelectionArea extends StatelessWidget {
       decoration: BoxDecoration(
         color: const Color(0xFFFAFBFC),
         borderRadius: BorderRadius.all(Radius.circular(8)),
-        border: Border.all(color: JUIColors().divider, width: 0.5),
+        border: Border.all(color: JuiColors().divider, width: 0.5),
       ),
       height: height,
       child: child,

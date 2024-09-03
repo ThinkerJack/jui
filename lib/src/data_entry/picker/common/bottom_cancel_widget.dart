@@ -10,7 +10,7 @@ class BCPSpacer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: JUIColors().background,
+      color: JuiColors().background,
       height: 8,
       width: double.infinity,
     );

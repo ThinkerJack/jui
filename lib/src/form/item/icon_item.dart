@@ -52,7 +52,7 @@ class IconItem extends StatelessWidget {
                       alignment: PlaceholderAlignment.top,
                     ),
                   ],
-                  style: textStyle ?? TextStyle(color: JUIColors().text, fontSize: 12, height: 1.5),
+                  style: textStyle ?? TextStyle(color: JuiColors().text, fontSize: 12, height: 1.5),
                 ),
               ),
             )

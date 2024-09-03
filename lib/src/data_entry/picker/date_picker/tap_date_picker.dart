@@ -54,7 +54,7 @@ class _TapDatePickerState extends State<TapDatePicker> {
       child: Column(
         children: [
           _buildTitleBar(), // 构建标题栏，包含取消和确认按钮
-           Divider(color: JUIColors().divider, height: 0.5),
+           Divider(color: JuiColors().divider, height: 0.5),
           _buildYearBar(), // 构建年份选择栏
           const Divider(color: Color(0xffe5e6e8), height: 0.5),
           _buildMonthGrid(), // 构建月份选择网格
@@ -79,7 +79,7 @@ class _TapDatePickerState extends State<TapDatePicker> {
               padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 5),
               minimumSize: const Size(0, 0),
             ),
-            child: Text("取消", style:  TextStyle(color: JUIColors().textSecondary)),
+            child: Text("取消", style:  TextStyle(color: JuiColors().textSecondary)),
           ),
           Expanded(
             // 标题文本
@@ -87,7 +87,7 @@ class _TapDatePickerState extends State<TapDatePicker> {
               widget.title ?? "选择起止日期",
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
-              style:  TextStyle(color: JUIColors().text, fontSize: 17, fontWeight: FontWeight.w500),
+              style:  TextStyle(color: JuiColors().text, fontSize: 17, fontWeight: FontWeight.w500),
               textAlign: TextAlign.center,
             ),
           ),
@@ -104,7 +104,7 @@ class _TapDatePickerState extends State<TapDatePicker> {
             ),
             child: Text(
               "确定",
-              style:  TextStyle(color: JUIColors().primary, fontWeight: FontWeight.w500),
+              style:  TextStyle(color: JuiColors().primary, fontWeight: FontWeight.w500),
             ),
           ),
         ],
@@ -136,7 +136,7 @@ class _TapDatePickerState extends State<TapDatePicker> {
             // 显示当前年份
             child: Text(
               _year.toString(),
-              style: TextStyle(color: JUIColors().text, fontSize: 16, fontWeight: FontWeight.w500, fontFamily: "DIN"),
+              style: TextStyle(color: JuiColors().text, fontSize: 16, fontWeight: FontWeight.w500, fontFamily: "DIN"),
               textAlign: TextAlign.center,
             ),
           ),
@@ -154,7 +154,7 @@ class _TapDatePickerState extends State<TapDatePicker> {
               height: 32,
               child: Icon(
                 Icons.keyboard_double_arrow_right,
-                color: canForwardYear ? const Color(0xff4e5969) : JUIColors().disabled,
+                color: canForwardYear ? const Color(0xff4e5969) : JuiColors().disabled,
               ),
             ),
           ),
@@ -230,13 +230,13 @@ class _YearMonthItem extends StatelessWidget {
           decoration: isSelect
               ? BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(6)),
-                  color: JUIColors().primary,
+                  color: JuiColors().primary,
                 )
               : null,
           alignment: Alignment.center,
           child: Text(
             text,
-            style: TextStyle(color: canSelect ? (isSelect ? JUIColors().surface : JUIColors().text) : JUIColors().disabled, fontSize: 16),
+            style: TextStyle(color: canSelect ? (isSelect ? JuiColors().surface : JuiColors().text) : JuiColors().disabled, fontSize: 16),
             textAlign: TextAlign.center,
           ),
         ),

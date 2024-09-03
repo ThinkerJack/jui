@@ -61,7 +61,7 @@ class _InputField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: JUITheme.colors.primary, width: 1),
+        border: Border.all(color: JuiTheme.colors.primary, width: 1),
         borderRadius: BorderRadius.circular(8),
       ),
       child: TextField(
@@ -70,7 +70,7 @@ class _InputField extends StatelessWidget {
         maxLength: maxLength,
         maxLines: 1,
         style:  TextStyle(
-          color:  JUITheme.colors.dialogText,
+          color:  JuiTheme.colors.dialogText,
           fontSize: 16,
           height: 1.5,
         ),
@@ -82,7 +82,7 @@ class _InputField extends StatelessWidget {
           contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
           border: InputBorder.none,
           hintText: hintText,
-          hintStyle: JUITheme.textStyles.dialogHint,
+          hintStyle: JuiTheme.textStyles.dialogHint,
           counterText: '',
         ),
       ),

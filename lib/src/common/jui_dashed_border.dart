@@ -28,7 +28,7 @@ class JuiDashedBorder extends StatelessWidget {
       onTap: onTap,
       child: CustomPaint(
         painter: DashedBorderPainter(
-          dashColor: dashColor??JUIColors().primary,
+          dashColor: dashColor??JuiColors().primary,
           dashWidth: dashWidth,
           dashHeight: dashHeight,
           dashSpace: dashSpace,

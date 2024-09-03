@@ -21,7 +21,7 @@ class ItemTipsText extends StatelessWidget {
           const SizedBox(height: 4),
           Text(
             tipText,
-            style: TextStyle(color: JUITheme.colors.tips, fontSize: 12, height: 1.5),
+            style: TextStyle(color: JuiTheme.colors.tips, fontSize: 12, height: 1.5),
           ),
         ],
       ),
@@ -48,7 +48,7 @@ class ItemTitle extends StatelessWidget {
       children: [
         Text(
           title,
-          style: isDisabled ? JUITheme.textStyles.itemTitleDisabled : JUITheme.textStyles.itemTitle,
+          style: isDisabled ? JuiTheme.textStyles.itemTitleDisabled : JuiTheme.textStyles.itemTitle,
           maxLines: 1,
         ),
         const SizedBox(width: 4),
@@ -68,7 +68,7 @@ class ItemDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Divider(
-      color: JUITheme.colors.divider,
+      color: JuiTheme.colors.divider,
       height: 1,
     );
   }

@@ -52,7 +52,7 @@ class _EditItemState extends State<EditItem> with InputCheckMixin {
   late final TextField _textField;
   bool _showTextField = false;
   bool _showClearIcon = false; // 是否显示清除按钮
-  final TextStyle _textStyle = TextStyle(fontSize: 16, height: 1.5, color: JUIColors().text);
+  final TextStyle _textStyle = TextStyle(fontSize: 16, height: 1.5, color: JuiColors().text);
 
   @override
   void initState() {

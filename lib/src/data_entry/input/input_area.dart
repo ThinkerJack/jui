@@ -80,7 +80,7 @@ class _InputAreaState extends State<InputArea> with InputCheckMixin {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              decoration: BoxDecoration(color: widget.backgroundColor??JUIColors().lightGray, borderRadius: BorderRadius.circular(10)),
+              decoration: BoxDecoration(color: widget.backgroundColor??JuiColors().lightGray, borderRadius: BorderRadius.circular(10)),
               margin: EdgeInsets.only(left: widget.marginLeft, right: widget.marginRight),
               height: widget.height ?? 120,
               padding: widget.padding ?? EdgeInsets.only(left: 12, right: 10, top: 0, bottom: 6),
@@ -92,14 +92,14 @@ class _InputAreaState extends State<InputArea> with InputCheckMixin {
                   maxLines: widget.maxLine,
                   focusNode: focusNode,
                   controller: widget.textEditingController,
-                  style: TextStyle(fontSize: 16, color: JUIColors().text, height: widget.fontHeight),
+                  style: TextStyle(fontSize: 16, color: JuiColors().text, height: widget.fontHeight),
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     contentPadding: widget.contentPadding ?? EdgeInsets.only(top: 12),
                     fillColor: Colors.transparent,
                     hintText: widget.hintText,
-                    hintStyle: TextStyle(fontSize: 16, height: widget.fontHeight, color: JUIColors().disabled),
-                    helperStyle: TextStyle(color: JUIColors().disabled, fontSize: 12, height: 1.5),
+                    hintStyle: TextStyle(fontSize: 16, height: widget.fontHeight, color: JuiColors().disabled),
+                    helperStyle: TextStyle(color: JuiColors().disabled, fontSize: 12, height: 1.5),
                   ),
                 ),
               ),
@@ -124,7 +124,7 @@ class _InputAreaState extends State<InputArea> with InputCheckMixin {
         thickness: 4,
         // 滚动条的圆角
         radius: const Radius.circular(5),
-        thumbColor: JUIColors().divider,
+        thumbColor: JuiColors().divider,
         child: child,
       );
     }

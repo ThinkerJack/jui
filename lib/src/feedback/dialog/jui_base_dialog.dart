@@ -35,7 +35,7 @@ class JuiBaseDialog extends StatelessWidget {
           width: dialogWidth,
           padding: const EdgeInsets.all(24),
           decoration: BoxDecoration(
-            color: JUITheme.colors.surface,
+            color: JuiTheme.colors.surface,
             borderRadius: BorderRadius.circular(16),
           ),
           child: Column(
@@ -45,14 +45,14 @@ class JuiBaseDialog extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: JUITheme.textStyles.dialogTitle,
+                style: JuiTheme.textStyles.dialogTitle,
                 textAlign: TextAlign.center,
               ),
               if (contentWidget != null) ...[
                 const SizedBox(height: 12),
                 contentWidget!,
               ],
-              const SizedBox(height: JUIDimensions.dialogSpacer),
+              SizedBox(height: JuiTheme.dimensions.dialogSpacer),
               _buildButtons(context),
             ],
           ),
@@ -81,7 +81,7 @@ class JuiBaseDialog extends StatelessWidget {
             onConfirm();
           },
           colorType: JuiButtonColorType.blue,
-          width: showCancelButton ? JUIDimensions.dialogButtonWidth : JUIDimensions.dialogWideButtonWidth,
+          width: showCancelButton ? JuiTheme.dimensions.dialogButtonWidth : JuiTheme.dimensions.dialogWideButtonWidth,
         ),
       ],
     );
@@ -91,14 +91,14 @@ class JuiBaseDialog extends StatelessWidget {
     required String text,
     required VoidCallback onTap,
     required JuiButtonColorType colorType,
-    double width = JUIDimensions.dialogButtonWidth,
+    double? width ,
   }) {
     return JuiButton(
       onTap: onTap,
       text: text,
       colorType: colorType,
       sizeType: JuiButtonSizeType.middle,
-      width: width,
+      width: width ??JuiTheme.dimensions.dialogButtonWidth ,
     );
   }
 }

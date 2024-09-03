@@ -102,7 +102,7 @@ class _SVScrollDatePickerState extends State<SVScrollDatePicker> {
                     vm.isToDate.value = !vm.isToDate.value;
                   },
                   colorType: vm.isToDate.value ? JuiButtonColorType.blueBorder : JuiButtonColorType.gray,
-                  backGroundColor: vm.isToDate.value ? JUIColors().lighterBlue : null,
+                  backGroundColor: vm.isToDate.value ? JuiColors().lighterBlue : null,
                   sizeType: JuiButtonSizeType.small,
                   height: 32,
                   width: 110,

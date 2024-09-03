@@ -61,7 +61,7 @@ class _TitleRow extends StatelessWidget {
             width: 4,
             height: 16,
             decoration: BoxDecoration(
-              color: JUITheme.colors.primary,
+              color: JuiTheme.colors.primary,
               borderRadius: BorderRadius.horizontal(right: Radius.circular(2)),
             ),
           ),
@@ -69,7 +69,7 @@ class _TitleRow extends StatelessWidget {
           Expanded(
             child: Text(
               title,
-              style: JUITheme.textStyles.sectionTitle,
+              style: JuiTheme.textStyles.sectionTitle,
             ),
           ),
           if (hasExpandedContent)

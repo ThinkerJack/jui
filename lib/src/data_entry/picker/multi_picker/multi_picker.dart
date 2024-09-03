@@ -146,7 +146,7 @@ class _MultiSelectionPickerState extends State<MultiSelectionPicker> {
                 margin: EdgeInsets.only(right: 9),
                 child: Text(widget.filterItemData[data].toString(),
                     style: TextStyle(
-                      color: JUIColors().text,
+                      color: JuiColors().text,
                       fontWeight: FontWeight.w400,
                       fontSize: 16,
                     ),
@@ -165,7 +165,7 @@ class _MultiSelectionPickerState extends State<MultiSelectionPicker> {
                 margin: EdgeInsets.only(left: 9, right: 9),
                 child: Text(widget.filterItemData[data],
                     style: TextStyle(
-                      color: JUIColors().text,
+                      color: JuiColors().text,
                       fontWeight: FontWeight.w400,
                       fontSize: 16,
                     ),

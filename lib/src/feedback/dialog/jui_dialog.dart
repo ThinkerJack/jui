@@ -1,155 +1,114 @@
 import 'package:flutter/material.dart';
+
 import '../../utils/jui_theme.dart';
-import 'jui_standard_dialog.dart';
 import 'jui_custom_dialog.dart';
 import 'jui_input_dialog.dart';
+import 'jui_standard_dialog.dart';
 
 enum JuiDialogType { standard, input, custom }
 
-typedef OnDialogTapCallBack = void Function();
-typedef ConfirmInputCallBack = void Function(String);
+typedef OnDialogTapCallback = void Function();
+typedef ConfirmInputCallback = void Function(String);
+
+class JuiDialogConfig {
+  final String title;
+  final String content;
+  final String confirmButtonText;
+  final String cancelButtonText;
+  final bool showCancelButton;
+  final Widget contentWidget;
+  final double dialogWidth;
+  final OnDialogTapCallback onConfirmTap;
+  final OnDialogTapCallback onCancelTap;
+  final ConfirmInputCallback onConfirmTapWithInput;
+  final TextEditingController textController;
+  final bool allowEmoji;
+  final int? maxLength;
+  final FocusNode? focusNode;
+  final ValueChanged<String>? onChange;
+  final String hintText;
+
+  JuiDialogConfig({
+    String? title,
+    String? content,
+    String? confirmButtonText,
+    String? cancelButtonText,
+    bool? showCancelButton,
+    Widget? contentWidget,
+    double? dialogWidth,
+    OnDialogTapCallback? onConfirmTap,
+    OnDialogTapCallback? onCancelTap,
+    ConfirmInputCallback? onConfirmTapWithInput,
+    TextEditingController? textController,
+    bool? allowEmoji,
+    this.maxLength,
+    this.focusNode,
+    this.onChange,
+    String? hintText,
+  }) :
+        title = title ?? "",
+        content = content ?? "",
+        confirmButtonText = confirmButtonText ?? "确定",
+        cancelButtonText = cancelButtonText ?? "取消",
+        showCancelButton = showCancelButton ?? true,
+        contentWidget = contentWidget ?? const SizedBox(),
+        dialogWidth = dialogWidth ?? JuiTheme.dimensions.dialogWidth,
+        onConfirmTap = onConfirmTap ?? (() {}),
+        onCancelTap = onCancelTap ?? (() {}),
+        onConfirmTapWithInput = onConfirmTapWithInput ?? ((_) {}),
+        textController = textController ?? TextEditingController(),
+        allowEmoji = allowEmoji ?? true,
+        hintText = hintText ?? "请输入";
+}
 
 void showJuiDialog(
-    BuildContext context, {
-      required JuiDialogType type,
-      String? title = "",
-      String? content,
-      String confirmButtonText = "确定",
-      String cancelButtonText = "取消",
-      bool showCancelButton = true,
-      Widget contentWidget = const SizedBox(),
-      double dialogWidth = JUIDimensions.dialogWidth,
-      OnDialogTapCallBack? onConfirmTap,
-      OnDialogTapCallBack? onCancelTap,
-      ConfirmInputCallBack? onConfirmTapWithInput,
-      TextEditingController? textController,
-      bool allowEmoji = true,
-      int? maxLength,
-      FocusNode? focusNode,
-      ValueChanged<String>? onChange,
-      String? hintText,
-    }) {
+    BuildContext context,
+    JuiDialogType type,
+    JuiDialogConfig config,
+    ) {
   Widget dialog;
   switch (type) {
     case JuiDialogType.custom:
-      dialog = _buildCustomDialog(
-        title: title!,
-        onConfirmTap: onConfirmTap,
-        onCancelTap: onCancelTap,
-        confirmButtonText: confirmButtonText,
-        cancelButtonText: cancelButtonText,
-        showCancelButton: showCancelButton,
-        contentWidget: contentWidget,
-        dialogWidth: dialogWidth,
+      dialog = JuiCustomDialog(
+        title: config.title,
+        onConfirm: config.onConfirmTap,
+        onCancel: config.onCancelTap,
+        confirmButtonText: config.confirmButtonText,
+        cancelButtonText: config.cancelButtonText,
+        showCancelButton: config.showCancelButton,
+        contentWidget: config.contentWidget,
+        dialogWidth: config.dialogWidth,
       );
       break;
     case JuiDialogType.standard:
-      dialog = _buildStandardDialog(
-        title: title!,
-        content: content??"",
-        onConfirmTap: onConfirmTap,
-        onCancelTap: onCancelTap,
-        confirmButtonText: confirmButtonText,
-        cancelButtonText: cancelButtonText,
-        showCancelButton: showCancelButton,
-        dialogWidth: dialogWidth,
+      dialog = JuiStandardDialog(
+        title: config.title,
+        content: config.content,
+        onConfirm: config.onConfirmTap,
+        onCancel: config.onCancelTap,
+        confirmButtonText: config.confirmButtonText,
+        cancelButtonText: config.cancelButtonText,
+        showCancelButton: config.showCancelButton,
+        dialogWidth: config.dialogWidth,
       );
       break;
     case JuiDialogType.input:
-      dialog = _buildInputDialog(
-        title: title!,
-        onConfirmTapWithInput: onConfirmTapWithInput,
-        onCancelTap: onCancelTap,
-        confirmButtonText: confirmButtonText,
-        cancelButtonText: cancelButtonText,
-        showCancelButton: showCancelButton,
-        dialogWidth: dialogWidth,
-        hintText: hintText ?? "请输入",
-        maxLength: maxLength,
-        textController: textController ?? TextEditingController(),
-        focusNode: focusNode,
-        allowEmoji: allowEmoji,
-        onChange: onChange,
+      dialog = JuiInputDialog(
+        title: config.title,
+        onConfirm: config.onConfirmTapWithInput,
+        onCancel: config.onCancelTap,
+        confirmButtonText: config.confirmButtonText,
+        cancelButtonText: config.cancelButtonText,
+        showCancelButton: config.showCancelButton,
+        dialogWidth: config.dialogWidth,
+        hintText: config.hintText,
+        maxLength: config.maxLength,
+        textController: config.textController,
+        focusNode: config.focusNode,
+        allowEmoji: config.allowEmoji,
+        onChange: config.onChange,
       );
       break;
-    default:
-      throw ArgumentError('Unknown dialog type: $type');
   }
   showDialog(context: context, builder: (context) => dialog);
-}
-
-Widget _buildCustomDialog({
-  required String title,
-  required OnDialogTapCallBack? onConfirmTap,
-  required OnDialogTapCallBack? onCancelTap,
-  required String confirmButtonText,
-  required String cancelButtonText,
-  required bool showCancelButton,
-  required Widget contentWidget,
-  required double dialogWidth,
-}) {
-  return JuiCustomDialog(
-    title: title,
-    onConfirm: onConfirmTap ?? () {},
-    onCancel: onCancelTap ?? () {},
-    confirmButtonText: confirmButtonText,
-    cancelButtonText: cancelButtonText,
-    showCancelButton: showCancelButton,
-    contentWidget: contentWidget,
-    dialogWidth: dialogWidth,
-  );
-}
-
-Widget _buildStandardDialog({
-  required String title,
-  required String content,
-  required OnDialogTapCallBack? onConfirmTap,
-  required OnDialogTapCallBack? onCancelTap,
-  required String confirmButtonText,
-  required String cancelButtonText,
-  required bool showCancelButton,
-  required double dialogWidth,
-}) {
-  return JuiStandardDialog(
-    title: title,
-    content: content,
-    onConfirm: onConfirmTap ?? () {},
-    onCancel: onCancelTap ?? () {},
-    confirmButtonText: confirmButtonText,
-    cancelButtonText: cancelButtonText,
-    showCancelButton: showCancelButton,
-    dialogWidth: dialogWidth,
-  );
-}
-
-Widget _buildInputDialog({
-  required String title,
-  required ConfirmInputCallBack? onConfirmTapWithInput,
-  required OnDialogTapCallBack? onCancelTap,
-  required String confirmButtonText,
-  required String cancelButtonText,
-  required bool showCancelButton,
-  required double dialogWidth,
-  required String hintText,
-  required TextEditingController textController,
-  int? maxLength,
-  FocusNode? focusNode,
-  required bool allowEmoji,
-  ValueChanged<String>? onChange,
-}) {
-  return JuiInputDialog(
-    title: title,
-    onConfirm: onConfirmTapWithInput ?? (_) {},
-    onCancel: onCancelTap ?? () {},
-    confirmButtonText: confirmButtonText,
-    cancelButtonText: cancelButtonText,
-    showCancelButton: showCancelButton,
-    dialogWidth: dialogWidth,
-    hintText: hintText,
-    maxLength: maxLength,
-    textController: textController,
-    focusNode: focusNode,
-    allowEmoji: allowEmoji,
-    onChange: onChange,
-  );
 }

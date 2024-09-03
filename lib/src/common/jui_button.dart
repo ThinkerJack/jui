@@ -77,22 +77,22 @@ class JuiButton extends StatelessWidget {
 
   static final Map<JuiButtonColorType, _ButtonColorConfig> _colorConfig = {
     JuiButtonColorType.white: _ButtonColorConfig(
-      getColor: (_) => JUIColors().surface,
-      getFontColor: (disable) => disable ? JUIColors().disabledLight : JUIColors().text,
-      border: Border.all(color: JUIColors().divider, width: 1),
+      getColor: (_) => JuiColors().surface,
+      getFontColor: (disable) => disable ? JuiColors().disabledLight : JuiColors().text,
+      border: Border.all(color: JuiColors().divider, width: 1),
     ),
     JuiButtonColorType.gray: _ButtonColorConfig(
-      getColor: (_) => JUIColors().background,
-      getFontColor: (disable) => disable ? JUIColors().disabledLight : JUIColors().text,
+      getColor: (_) => JuiColors().background,
+      getFontColor: (disable) => disable ? JuiColors().disabledLight : JuiColors().text,
     ),
     JuiButtonColorType.blue: _ButtonColorConfig(
-      getColor: (disable) => disable ? JUIColors().lightBlue : JUIColors().primary,
-      getFontColor: (_) => JUIColors().surface,
+      getColor: (disable) => disable ? JuiColors().lightBlue : JuiColors().primary,
+      getFontColor: (_) => JuiColors().surface,
     ),
     JuiButtonColorType.blueBorder: _ButtonColorConfig(
-      getColor: (_) => JUIColors().surface,
-      getFontColor: (_) => JUIColors().primary,
-      border: Border.all(color: JUIColors().primary, width: 1),
+      getColor: (_) => JuiColors().surface,
+      getFontColor: (_) => JuiColors().primary,
+      border: Border.all(color: JuiColors().primary, width: 1),
     ),
   };
 }
