@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import '../../utils/jui_theme.dart';
 import 'jui_standard_dialog.dart';
 import 'jui_custom_dialog.dart';
 import 'jui_input_dialog.dart';
-import 'dialog_constants.dart';
 
 enum JuiDialogType { standard, input, custom }
 
@@ -18,7 +18,7 @@ void showJuiDialog(
       String cancelButtonText = "取消",
       bool showCancelButton = true,
       Widget contentWidget = const SizedBox(),
-      double dialogWidth = DialogConstants.dialogWidth,
+      double dialogWidth = JUIDimensions.dialogWidth,
       OnDialogTapCallBack? onConfirmTap,
       OnDialogTapCallBack? onCancelTap,
       ConfirmInputCallBack? onConfirmTapWithInput,

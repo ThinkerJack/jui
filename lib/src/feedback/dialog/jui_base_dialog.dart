@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../common.dart';
-import '../../utils/color.dart';
-import 'dialog_constants.dart';
+import '../../utils/jui_theme.dart';
 
 /// 自定义对话框组件基类
 class JuiBaseDialog extends StatelessWidget {
@@ -36,7 +35,7 @@ class JuiBaseDialog extends StatelessWidget {
           width: dialogWidth,
           padding: const EdgeInsets.all(24),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: JUITheme.colors.surface,
             borderRadius: BorderRadius.circular(16),
           ),
           child: Column(
@@ -46,14 +45,14 @@ class JuiBaseDialog extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: DialogConstants.dialogTitleStyle,
+                style: JUITheme.textStyles.dialogTitle,
                 textAlign: TextAlign.center,
               ),
               if (contentWidget != null) ...[
                 const SizedBox(height: 12),
                 contentWidget!,
               ],
-              const SizedBox(height: DialogConstants.dialogSpacer),
+              const SizedBox(height: JUIDimensions.dialogSpacer),
               _buildButtons(context),
             ],
           ),
@@ -82,7 +81,7 @@ class JuiBaseDialog extends StatelessWidget {
             onConfirm();
           },
           colorType: JuiButtonColorType.blue,
-          width: showCancelButton ? DialogConstants.buttonWidth : DialogConstants.wideButtonWidth,
+          width: showCancelButton ? JUIDimensions.dialogButtonWidth : JUIDimensions.dialogWideButtonWidth,
         ),
       ],
     );
@@ -92,7 +91,7 @@ class JuiBaseDialog extends StatelessWidget {
     required String text,
     required VoidCallback onTap,
     required JuiButtonColorType colorType,
-    double width = DialogConstants.buttonWidth,
+    double width = JUIDimensions.dialogButtonWidth,
   }) {
     return JuiButton(
       onTap: onTap,

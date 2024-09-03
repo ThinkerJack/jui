@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:jui/src/utils/jui_theme.dart';
 
 import 'jui_base_dialog.dart';
-import 'dialog_constants.dart';
 
 class JuiStandardDialog extends JuiBaseDialog {
   JuiStandardDialog({
@@ -26,7 +26,7 @@ class JuiStandardDialog extends JuiBaseDialog {
               ? null
               : Text(
                   content,
-                  style: DialogConstants.dialogContentStyle,
+                  style: JUITheme.textStyles.dialogContent,
                 ),
           dialogWidth: dialogWidth,
         );

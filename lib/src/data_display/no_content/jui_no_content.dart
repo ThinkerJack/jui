@@ -1,5 +1,7 @@
+
 import 'package:flutter/material.dart';
 import 'package:jui/src/utils/extension.dart';
+import '../../utils/jui_theme.dart';
 import '../../../generated/assets.dart';
 
 enum JuiNoContentType { list, search, custom }
@@ -36,12 +38,7 @@ class JuiNoContent extends StatelessWidget {
             const SizedBox(height: 8),
             Text(
               text,
-              style: const TextStyle(
-                color: Color(0XFF858B9B),
-                fontWeight: FontWeight.w500,
-                fontSize: 16,
-                height: 1.5,
-              ),
+              style: JUITheme.textStyles.noContent,
             ),
           ],
         ),

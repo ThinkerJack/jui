@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../utils/color.dart';
+import '../../utils/jui_theme.dart';
 import 'jui_base_dialog.dart';
-import 'dialog_constants.dart';
 
 class JuiInputDialog extends JuiBaseDialog {
   JuiInputDialog({
@@ -62,7 +62,7 @@ class _InputField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: DialogConstants.borderColor, width: 1),
+        border: Border.all(color: JUITheme.colors.primary, width: 1),
         borderRadius: BorderRadius.circular(8),
       ),
       child: TextField(
@@ -70,8 +70,8 @@ class _InputField extends StatelessWidget {
         controller: textController,
         maxLength: maxLength,
         maxLines: 1,
-        style: const TextStyle(
-          color: DialogConstants.textColor,
+        style:  TextStyle(
+          color:  JUITheme.colors.dialogText,
           fontSize: 16,
           height: 1.5,
         ),
@@ -83,7 +83,7 @@ class _InputField extends StatelessWidget {
           contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
           border: InputBorder.none,
           hintText: hintText,
-          hintStyle: DialogConstants.hintTextStyle,
+          hintStyle: JUITheme.textStyles.dialogHint,
           counterText: '',
         ),
       ),

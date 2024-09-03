@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jui/src/utils/extension.dart';
 import '../../../generated/assets.dart';
+import '../../utils/jui_theme.dart';
 
 class JuiTitle extends StatelessWidget {
   final String title;
@@ -59,8 +60,8 @@ class _TitleRow extends StatelessWidget {
           Container(
             width: 4,
             height: 16,
-            decoration: const BoxDecoration(
-              color: Color(0xFF5590F6),
+            decoration: BoxDecoration(
+              color: JUITheme.colors.primary,
               borderRadius: BorderRadius.horizontal(right: Radius.circular(2)),
             ),
           ),
@@ -68,11 +69,7 @@ class _TitleRow extends StatelessWidget {
           Expanded(
             child: Text(
               title,
-              style: const TextStyle(
-                fontSize: 16,
-                color: Color(0xFF2A2F3C),
-                fontWeight: FontWeight.w500,
-              ),
+              style: JUITheme.textStyles.sectionTitle,
             ),
           ),
           if (hasExpandedContent)
