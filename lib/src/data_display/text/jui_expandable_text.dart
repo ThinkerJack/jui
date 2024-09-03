@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../utils/color.dart';
 
-class ExpandableText extends StatefulWidget {
+class JuiExpandableText extends StatefulWidget {
   /// 文本
   final String text;
 
@@ -23,7 +23,7 @@ class ExpandableText extends StatefulWidget {
   /// 展开文本颜色
   final Color expandColor;
 
-  const ExpandableText({
+  const JuiExpandableText({
     super.key,
     this.text = '',
     this.maxLines = 1,
@@ -37,7 +37,7 @@ class ExpandableText extends StatefulWidget {
   _RichTextState createState() => _RichTextState();
 }
 
-class _RichTextState extends State<ExpandableText> {
+class _RichTextState extends State<JuiExpandableText> {
   bool _isExpand = true;
 
   @override

@@ -8,8 +8,8 @@ class EmptyPlaceholderDemo extends DemoBasePage {
   @override
   Widget build(BuildContext context) {
     return super.builder("空页面", [
-      const EmptyPlaceholder(
-        type: EmptyPlaceholderType.list,
+      const JuiNoContent(
+        type: JuiNoContentType.list,
       )
     ]);
   }

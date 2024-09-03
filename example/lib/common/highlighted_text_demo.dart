@@ -8,13 +8,13 @@ class HighlightedTextDemo extends DemoBasePage {
   @override
   Widget build(BuildContext context) {
     return super.builder("富文本组件", [
-      HighlightedTextWidget.buildNoTapHighlight(
+      JuiHighlightedText.buildNoTapHighlight(
           text: "这是一行文字",
           textStyle: const TextStyle(color: Colors.black),
           highlightStyle: const TextStyle(color: Colors.blue),
           highlightText: "文字"),
       space,
-      HighlightedTextWidget(
+      JuiHighlightedText(
           text: "这是一行可点击的文字",
           textStyle: TextStyle(color: Colors.black),
           highlightStyle: TextStyle(color: Colors.blue),

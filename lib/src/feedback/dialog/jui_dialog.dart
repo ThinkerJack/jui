@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'standard_dialog.dart';
-import 'custom_dialog.dart';
-import 'input_dialog.dart';
+import 'jui_standard_dialog.dart';
+import 'jui_custom_dialog.dart';
+import 'jui_input_dialog.dart';
 import 'dialog_constants.dart';
 
-enum JUIDialogType { standard, input, custom }
+enum JuiDialogType { standard, input, custom }
 
 typedef OnDialogTapCallBack = void Function();
 typedef ConfirmInputCallBack = void Function(String);
 
-void showJUIDialog(
+void showJuiDialog(
     BuildContext context, {
-      required JUIDialogType type,
+      required JuiDialogType type,
       String? title = "",
       String? content,
       String confirmButtonText = "确定",
@@ -31,7 +31,7 @@ void showJUIDialog(
     }) {
   Widget dialog;
   switch (type) {
-    case JUIDialogType.custom:
+    case JuiDialogType.custom:
       dialog = _buildCustomDialog(
         title: title!,
         onConfirmTap: onConfirmTap,
@@ -43,7 +43,7 @@ void showJUIDialog(
         dialogWidth: dialogWidth,
       );
       break;
-    case JUIDialogType.standard:
+    case JuiDialogType.standard:
       dialog = _buildStandardDialog(
         title: title!,
         content: content??"",
@@ -55,7 +55,7 @@ void showJUIDialog(
         dialogWidth: dialogWidth,
       );
       break;
-    case JUIDialogType.input:
+    case JuiDialogType.input:
       dialog = _buildInputDialog(
         title: title!,
         onConfirmTapWithInput: onConfirmTapWithInput,
@@ -88,7 +88,7 @@ Widget _buildCustomDialog({
   required Widget contentWidget,
   required double dialogWidth,
 }) {
-  return JUICustomDialog(
+  return JuiCustomDialog(
     title: title,
     onConfirm: onConfirmTap ?? () {},
     onCancel: onCancelTap ?? () {},
@@ -110,7 +110,7 @@ Widget _buildStandardDialog({
   required bool showCancelButton,
   required double dialogWidth,
 }) {
-  return JUIStandardDialog(
+  return JuiStandardDialog(
     title: title,
     content: content,
     onConfirm: onConfirmTap ?? () {},
@@ -137,7 +137,7 @@ Widget _buildInputDialog({
   required bool allowEmoji,
   ValueChanged<String>? onChange,
 }) {
-  return JUIInputDialog(
+  return JuiInputDialog(
     title: title,
     onConfirm: onConfirmTapWithInput ?? (_) {},
     onCancel: onCancelTap ?? () {},

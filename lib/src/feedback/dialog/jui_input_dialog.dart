@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../utils/color.dart';
-import 'base_dialog.dart';
+import 'jui_base_dialog.dart';
 import 'dialog_constants.dart';
 
-class JUIInputDialog extends JUiBaseDialog {
-  JUIInputDialog({
+class JuiInputDialog extends JuiBaseDialog {
+  JuiInputDialog({
     Key? key,
     required String title,
     required ValueChanged<String> onConfirm,

@@ -1,4 +1,4 @@
-export 'src/data_entry/checkbox/vv_checkbox.dart';
+export 'src/data_entry/checkbox/jui_checkbox.dart';
 export 'src/data_entry/input/input_area.dart';
 export 'src/data_entry/input/input_bottom_sheet.dart';
 export 'src/data_entry/item/custom_item.dart';

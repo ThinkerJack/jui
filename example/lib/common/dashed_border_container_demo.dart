@@ -8,18 +8,18 @@ class DashedBorderContainerDemo extends DemoBasePage {
   @override
   Widget build(BuildContext context) {
     return super.builder("虚线边框组件", [
-      DashedBorderContainer(
-        child: DashedBorderContainer(
-          onTap: () {},
-          dashColor: Colors.blue,
-          dashWidth: 5,
-          dashHeight: 5,
-          dashSpace: 5,
-          borderRadius: 10,
-          child: const SizedBox(
-            width: 100,
-            height: 100,
-          ),
+      JuiDashedBorder(
+        dashColor: Colors.blue,
+        dashWidth: 3,
+        dashHeight: 1,
+        dashSpace: 3,
+        borderRadius: 10,
+        onTap: () {
+          print('Container tapped!');
+        },
+        child: Padding(
+          padding: EdgeInsets.all(16),
+          child: Text('Hello, Dashed Border!'),
         ),
       )
     ]);

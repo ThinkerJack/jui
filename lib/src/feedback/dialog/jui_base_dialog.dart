@@ -4,8 +4,8 @@ import '../../utils/color.dart';
 import 'dialog_constants.dart';
 
 /// 自定义对话框组件基类
-class JUiBaseDialog extends StatelessWidget {
-  const JUiBaseDialog({
+class JuiBaseDialog extends StatelessWidget {
+  const JuiBaseDialog({
     Key? key,
     required this.title,
     required this.onConfirm,
@@ -73,7 +73,7 @@ class JUiBaseDialog extends StatelessWidget {
               Navigator.pop(context);
               onCancel();
             },
-            colorType: JUIButtonColorType.gray,
+            colorType: JuiButtonColorType.gray,
           ),
         _buildButton(
           text: confirmButtonText,
@@ -81,7 +81,7 @@ class JUiBaseDialog extends StatelessWidget {
             Navigator.pop(context);
             onConfirm();
           },
-          colorType: JUIButtonColorType.blue,
+          colorType: JuiButtonColorType.blue,
           width: showCancelButton ? DialogConstants.buttonWidth : DialogConstants.wideButtonWidth,
         ),
       ],
@@ -91,14 +91,14 @@ class JUiBaseDialog extends StatelessWidget {
   Widget _buildButton({
     required String text,
     required VoidCallback onTap,
-    required JUIButtonColorType colorType,
+    required JuiButtonColorType colorType,
     double width = DialogConstants.buttonWidth,
   }) {
-    return JUIButton(
+    return JuiButton(
       onTap: onTap,
       text: text,
       colorType: colorType,
-      sizeType: JUIButtonSizeType.middle,
+      sizeType: JuiButtonSizeType.middle,
       width: width,
     );
   }

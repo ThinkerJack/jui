@@ -11,29 +11,29 @@ class TagDemo extends DemoBasePage {
        Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          JUITag(
+          JuiTag(
             text: "标签",
-            tagColorType: JUITagColorType.blue,
+            tagColorType: JuiTagColorType.blue,
           ),
-          JUITag(
+          JuiTag(
             text: "标签",
-            tagColorType: JUITagColorType.black,
+            tagColorType: JuiTagColorType.black,
           ),
-          JUITag(
+          JuiTag(
             text: "标签",
-            tagColorType: JUITagColorType.green,
+            tagColorType: JuiTagColorType.green,
           ),
-          JUITag(
+          JuiTag(
             text: "标签",
-            tagColorType: JUITagColorType.yellow,
+            tagColorType: JuiTagColorType.yellow,
           ),
-          JUITag(
+          JuiTag(
             text: "标签",
-            tagColorType: JUITagColorType.red,
+            tagColorType: JuiTagColorType.red,
           ),
-          JUITag(
+          JuiTag(
             text: "标签",
-            tagColorType: JUITagColorType.gray,
+            tagColorType: JuiTagColorType.gray,
           ),
         ],
       ),
@@ -41,26 +41,26 @@ class TagDemo extends DemoBasePage {
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          JUITag(
+          JuiTag(
             text: "半圆标签",
-            tagColorType: JUITagColorType.blue,
-            tagShapeType: JUITagShapeType.semicircle,
+            tagColorType: JuiTagColorType.blue,
+            tagShapeType: JuiTagShapeType.semicircle,
           ),
-          JUITag(
+          JuiTag(
             text: "胶囊标签",
-            tagColorType: JUITagColorType.black,
-            tagShapeType: JUITagShapeType.capsule,
+            tagColorType: JuiTagColorType.black,
+            tagShapeType: JuiTagShapeType.capsule,
           ),
-          JUITag(
+          JuiTag(
             text: "图标标签",
             icon: Icon(
               Icons.add,
               size: 12,
               color: Colors.blue,
             ),
-            tagColorType: JUITagColorType.blue,
-            tagShapeType: JUITagShapeType.capsule,
-            tagType: JUITagType.icon,
+            tagColorType: JuiTagColorType.blue,
+            tagShapeType: JuiTagShapeType.capsule,
+            tagType: JuiTagType.icon,
           ),
         ],
       ),

@@ -9,7 +9,7 @@ abstract class DemoBasePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text(title),
+        title: Text(title,style: const TextStyle(color: Colors.black),),
         backgroundColor: Colors.white,
       ),
       body: ListView(
