@@ -8,7 +8,7 @@ class TagDemo extends DemoBasePage {
   @override
   Widget build(BuildContext context) {
     return super.builder("标签组件", [
-      const Row(
+       Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           JUITag(
@@ -38,7 +38,7 @@ class TagDemo extends DemoBasePage {
         ],
       ),
       space,
-      const Row(
+      Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           JUITag(

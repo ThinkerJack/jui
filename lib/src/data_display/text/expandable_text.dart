@@ -45,7 +45,7 @@ class _RichTextState extends State<ExpandableText> {
     return LayoutBuilder(builder: (context, constraints) {
       TextPainter textPainter = TextPainter(
           maxLines: widget.maxLines + 1,
-          textScaler: MediaQuery.textScalerOf(context),
+          // textScaler: MediaQuery.textScalerOf(context),
           locale: Localizations.localeOf(context),
           textAlign: TextAlign.start,
           text: TextSpan(
