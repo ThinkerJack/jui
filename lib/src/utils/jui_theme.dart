@@ -1,36 +1,100 @@
 import 'package:flutter/material.dart';
+
+import '../common/jui_button.dart';
 class JuiTheme {
   static JuiColors? _colors;
   static JuiTextStyles? _textStyles;
   static JuiDimensions? _dimensions;
+  static JuiButtonConfig? _buttonConfig;
 
   static JuiColors get colors => _colors ??= const JuiColors();
   static JuiTextStyles get textStyles => _textStyles ??= const JuiTextStyles();
   static JuiDimensions get dimensions => _dimensions ??= const JuiDimensions();
+  static JuiButtonConfig get buttonConfig => _buttonConfig ??= JuiButtonConfig();
 
-  // Private constructor to prevent instantiation
+  // 私有构造函数，防止实例化
   JuiTheme._();
 
-  // Static initializer
   static void initialize({
     JuiColors? colors,
     JuiTextStyles? textStyles,
     JuiDimensions? dimensions,
+    JuiButtonConfig? buttonConfig,
   }) {
     _colors = colors;
     _textStyles = textStyles;
     _dimensions = dimensions;
+    _buttonConfig = buttonConfig;
   }
 
   static void updateTheme({
     JuiColors? colors,
     JuiTextStyles? textStyles,
     JuiDimensions? dimensions,
+    JuiButtonConfig? buttonConfig,
   }) {
     if (colors != null) _colors = colors;
     if (textStyles != null) _textStyles = textStyles;
     if (dimensions != null) _dimensions = dimensions;
+    if (buttonConfig != null) _buttonConfig = buttonConfig;
   }
+}
+
+
+class JuiButtonConfig {
+  final Map<JuiButtonSizeType, JuiButtonSizeConfig> sizeConfig;
+  final Map<JuiButtonColorType, JuiButtonColorConfig> colorConfig;
+
+  JuiButtonConfig({
+    Map<JuiButtonSizeType, JuiButtonSizeConfig>? sizeConfig,
+    Map<JuiButtonColorType, JuiButtonColorConfig>? colorConfig,
+  }) :
+        sizeConfig = sizeConfig ?? _defaultSizeConfig,
+        colorConfig = colorConfig ?? _defaultColorConfig;
+
+  static final Map<JuiButtonSizeType, JuiButtonSizeConfig> _defaultSizeConfig = {
+    JuiButtonSizeType.large: const JuiButtonSizeConfig(height: 48, fontSize: 16, padding: 32),
+    JuiButtonSizeType.middle: const JuiButtonSizeConfig(height: 40, fontSize: 14, padding: 24),
+    JuiButtonSizeType.small: const JuiButtonSizeConfig(height: 32, fontSize: 14, padding: 16),
+    JuiButtonSizeType.ultraSmall: const JuiButtonSizeConfig(height: 24, fontSize: 12, padding: 12),
+  };
+
+  static final Map<JuiButtonColorType, JuiButtonColorConfig> _defaultColorConfig = {
+    JuiButtonColorType.white: JuiButtonColorConfig(
+      getColor: (_) => JuiTheme.colors.surface,
+      getFontColor: (disable) => disable ? JuiTheme.colors.disabledLight : JuiTheme.colors.text,
+      border: Border.all(color: JuiTheme.colors.divider, width: 1),
+    ),
+    JuiButtonColorType.gray: JuiButtonColorConfig(
+      getColor: (_) => JuiTheme.colors.background,
+      getFontColor: (disable) => disable ? JuiTheme.colors.disabledLight : JuiTheme.colors.text,
+    ),
+    JuiButtonColorType.blue: JuiButtonColorConfig(
+      getColor: (disable) => disable ? JuiTheme.colors.lightBlue : JuiTheme.colors.primary,
+      getFontColor: (_) => JuiTheme.colors.surface,
+    ),
+    JuiButtonColorType.blueBorder: JuiButtonColorConfig(
+      getColor: (_) => JuiTheme.colors.surface,
+      getFontColor: (_) => JuiTheme.colors.primary,
+      border: Border.all(color: JuiTheme.colors.primary, width: 1),
+    ),
+  };
+}
+
+class JuiButtonSizeConfig {
+  final double height;
+  final double fontSize;
+  final double padding;
+
+  const JuiButtonSizeConfig({required this.height, required this.fontSize, required this.padding});
+}
+
+class JuiButtonColorConfig {
+  final Color Function(bool disable) getColor;
+  final Color Function(bool disable) getFontColor;
+  final BoxBorder? border;
+
+  const JuiButtonColorConfig({required this.getColor, required this.getFontColor, this.border});
 }
 
 class JuiTextStyles {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jui/src/utils/extension.dart';
+
 import '../../../generated/assets.dart';
 import '../../utils/jui_theme.dart';
 
@@ -13,11 +14,7 @@ class JuiTitle extends StatelessWidget {
     required this.title,
     this.expandedContent,
     this.expandFlag,
-  }) : assert(
-  expandedContent == null || expandFlag != null,
-  'expandFlag must be provided if expandedContent is not null',
-  ),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
