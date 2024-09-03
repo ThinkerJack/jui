@@ -13,8 +13,8 @@ class MainPage extends StatelessWidget {
         child: GridView(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3, //横轴三个子widget
-              mainAxisSpacing: 10,
-              crossAxisSpacing: 10,
+              mainAxisSpacing: 20,
+              crossAxisSpacing: 20,
               childAspectRatio: 3 //宽高比为1时，子widget
               ),
           children: [
@@ -24,7 +24,7 @@ class MainPage extends StatelessWidget {
             _buildTextButton(context, DemoRouter.tagDemo, "标签"),
             _buildTextButton(context, DemoRouter.expandedTextDemo, "展开收起文本"),
             _buildTextButton(context, DemoRouter.highlightedTextDemo, "高亮文本"),
-            _buildTextButton(context, DemoRouter.titleDemo, "标题文本"),
+            _buildTextButton(context, DemoRouter.titleDemo, "标题"),
             _buildTextButton(context, DemoRouter.dialogDemo, "弹窗"),
             _buildTextButton(context, DemoRouter.checkBoxDemo, "复选框"),
           ],

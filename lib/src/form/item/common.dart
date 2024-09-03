@@ -124,3 +124,17 @@ mixin InputCheckMixin {
 final double itemPaddingL = 20;
 final double itemPaddingR = 20;
 final double itemPaddingV = 16;
+
+class ItemDivider extends StatelessWidget {
+  const ItemDivider({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Divider(
+      color: Color(0XFFE8EAEF),
+      height: 1,
+    );
+  }
+}

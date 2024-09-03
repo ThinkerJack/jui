@@ -4,7 +4,6 @@ import 'package:jui/src/utils/extension.dart';
 import '../../../generated/assets.dart';
 import '../../utils/color.dart';
 import 'common.dart';
-import 'item_widget.dart';
 
 /// 时间选择项组件
 class TimeItem extends StatelessWidget {

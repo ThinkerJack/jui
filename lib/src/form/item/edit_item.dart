@@ -5,7 +5,6 @@ import 'package:jui/src/utils/extension.dart';
 
 import '../../../generated/assets.dart';
 import 'common.dart';
-import 'item_widget.dart';
 
 /// 可编辑输入框组件，包含标题、提示信息、输入框及清除按钮
 class EditItem extends StatefulWidget {

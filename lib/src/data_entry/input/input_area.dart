@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:jui/src/utils/extension.dart';
 
+import '../../form/item/common.dart';
 import '../../utils/color.dart';
-import '../item/common.dart';
 
 /// 文本输入区域组件
 class InputArea extends StatefulWidget {
