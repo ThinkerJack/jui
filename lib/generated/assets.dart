@@ -2,28 +2,23 @@
 class Assets {
   Assets._();
 
-  static const String imagesIcArrow = 'assets/images/ic_arrow.png';
-  static const String imagesIconCircularSelected = 'assets/images/icon_circular_selected.png';
-  static const String imagesIconCircularUnselected = 'assets/images/icon_circular_unselected.png';
-  static const String imagesIconClear = 'assets/images/icon_clear.png';
-  static const String imagesIconDown = 'assets/images/icon_down.png';
-  static const String imagesIconMore = 'assets/images/icon_more.png';
-  static const String imagesIconMoreDisabled = 'assets/images/icon_more_disabled.png';
-  static const String imagesIconRight = 'assets/images/icon_right.png';
-  static const String imagesIconSelected = 'assets/images/icon_selected.png';
-  static const String imagesIconSelectedDisabled = 'assets/images/icon_selected_disabled.png';
-  static const String imagesIconTick = 'assets/images/icon_tick.png';
-  static const String imagesIconUnselected = 'assets/images/icon_unselected.png';
-  static const String imagesIconUnselectedDisabled = 'assets/images/icon_unselected_disabled.png';
-  static const String imagesIconUp = 'assets/images/icon_up.png';
-  static const String imagesImg = 'assets/images/img.png';
+  static const String imagesArrow = 'assets/images/arrow.png';
+  static const String imagesCircularSelected = 'assets/images/circular_selected.png';
+  static const String imagesCircularUnselected = 'assets/images/circular_unselected.png';
+  static const String imagesClear = 'assets/images/clear.png';
+  static const String imagesDown = 'assets/images/down.png';
   static const String imagesItemInterval = 'assets/images/item_interval.png';
   static const String imagesItemRequired = 'assets/images/item_required.png';
   static const String imagesListEmpty = 'assets/images/list_empty.png';
-  static const String imagesNonVvUserIcon = 'assets/images/non_vv_user_icon.png';
+  static const String imagesMore = 'assets/images/more.png';
+  static const String imagesMoreDisabled = 'assets/images/more_disabled.png';
+  static const String imagesRight = 'assets/images/right.png';
   static const String imagesSearchEmpty = 'assets/images/search_empty.png';
-  static const String imagesVvFlash = 'assets/images/vv_flash.png';
-  static const String imagesVvFrame = 'assets/images/vv_frame.png';
-  static const String imagesVvNewIcon = 'assets/images/vv_new_icon.png';
+  static const String imagesSelected = 'assets/images/selected.png';
+  static const String imagesSelectedDisabled = 'assets/images/selected_disabled.png';
+  static const String imagesTick = 'assets/images/tick.png';
+  static const String imagesUnselected = 'assets/images/unselected.png';
+  static const String imagesUnselectedDisabled = 'assets/images/unselected_disabled.png';
+  static const String imagesUp = 'assets/images/up.png';
 
 }

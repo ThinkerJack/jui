@@ -81,7 +81,7 @@ class _TitleRow extends StatelessWidget {
               builder: (_, isExpanded, __) => GestureDetector(
                 onTap: () => expandFlag!.value = !isExpanded,
                 child: Image.asset(
-                  isExpanded ? Assets.imagesIconDown.path : Assets.imagesIconUp.path,
+                  isExpanded ? Assets.imagesDown.path : Assets.imagesUp.path,
                   width: 20,
                 ),
               ),

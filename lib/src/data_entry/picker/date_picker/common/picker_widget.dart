@@ -190,7 +190,7 @@ class CommonTimeTitle extends StatelessWidget {
             ),
           ),
           Image.asset(
-            Assets.imagesIcArrow.path,
+            Assets.imagesArrow.path,
           ),
           Expanded(
             flex: 1,

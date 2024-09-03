@@ -136,7 +136,7 @@ class _MultiSelectionPickerState extends State<MultiSelectionPicker> {
             Padding(
               padding: EdgeInsets.only(right: 8),
               child: Image.asset(
-                selectedKeys.contains(data) ? Assets.imagesIconSelected.path : Assets.imagesIconUnselected.path,
+                selectedKeys.contains(data) ? Assets.imagesSelected.path : Assets.imagesUnselected.path,
                 width: 20,
                 height: 20,
               ),
@@ -177,8 +177,8 @@ class _MultiSelectionPickerState extends State<MultiSelectionPicker> {
               padding: EdgeInsets.only(right: 15),
               child: Image.asset(
                 selectedKeys.contains(data)
-                    ? Assets.imagesIconCircularSelected.path
-                    : Assets.imagesIconCircularUnselected.path,
+                    ? Assets.imagesCircularSelected.path
+                    : Assets.imagesCircularUnselected.path,
                 width: 20,
                 height: 20,
               ),

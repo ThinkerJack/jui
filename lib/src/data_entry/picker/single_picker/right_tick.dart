@@ -105,7 +105,7 @@ class _RightTickPickerState extends State<RightTickPicker> {
                                   Padding(
                                     padding: EdgeInsets.only(right: 20, top: 5, left: 20),
                                     child: Visibility(
-                                        visible: key == selectedKey, child: Image.asset(Assets.imagesIconTick.path)),
+                                        visible: key == selectedKey, child: Image.asset(Assets.imagesTick.path)),
                                   )
                                 ],
                               ),

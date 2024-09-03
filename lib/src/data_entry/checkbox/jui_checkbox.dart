@@ -45,12 +45,12 @@ class JuiCheckBox extends StatelessWidget {
   String _getImage(bool value) {
     switch (type) {
       case JuiCheckBoxType.circle:
-        return value ? Assets.imagesIconCircularSelected : Assets.imagesIconCircularUnselected;
+        return value ? Assets.imagesCircularSelected : Assets.imagesCircularUnselected;
       case JuiCheckBoxType.square:
         if (isDisabled) {
-          return value ? Assets.imagesIconSelectedDisabled : Assets.imagesIconUnselectedDisabled;
+          return value ? Assets.imagesSelectedDisabled : Assets.imagesUnselectedDisabled;
         } else {
-          return value ? Assets.imagesIconSelected : Assets.imagesIconUnselected;
+          return value ? Assets.imagesSelected : Assets.imagesUnselected;
         }
     }
   }

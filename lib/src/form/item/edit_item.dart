@@ -216,7 +216,7 @@ class _EditItemState extends State<EditItem> with InputCheckMixin {
               top: 0,
               bottom: 0,
               child: InkWell(
-                child: Image.asset(Assets.imagesIconClear.path, width: 16),
+                child: Image.asset(Assets.imagesClear.path, width: 16),
                 onTap: () {
                   widget.controller.clear();
                   _handleTextChange();

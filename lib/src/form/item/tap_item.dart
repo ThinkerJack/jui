@@ -99,7 +99,7 @@ class TapItem extends StatelessWidget {
   Widget _buildIcon() {
     return Container(
       padding: EdgeInsets.only(left: 18, right: 16, top: 9),
-      child: Image.asset(isDisabled ? Assets.imagesIconMoreDisabled.path : Assets.imagesIconMore.path, height: 12),
+      child: Image.asset(isDisabled ? Assets.imagesMoreDisabled.path : Assets.imagesMore.path, height: 12),
     );
   }
 }
