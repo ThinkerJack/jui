@@ -3,35 +3,77 @@ import 'package:flutter/material.dart';
 import '../../../generated/assets.dart';
 import '../../utils/jui_theme.dart';
 
-class ItemTipsText extends StatelessWidget {
-  const ItemTipsText({
+class JuiBaseItem extends StatelessWidget {
+  const JuiBaseItem({
     Key? key,
-    required this.showTips,
-    required this.tipText,
+    required this.title,
+    required this.content,
+    this.isRequired = false,
+    this.isDisabled = false,
+    this.titleSuffixWidget,
+    this.titleBeforeRequiredWidget,
+    this.requiredMarker,
+    this.customTitleStyle,
+    this.padding,
+    this.showDivider = true,
+    this.dividerPadding,
   }) : super(key: key);
 
-  final bool showTips;
-  final String tipText;
+  final String title;
+  final Widget content;
+  final bool isRequired;
+  final bool isDisabled;
+  final Widget? titleSuffixWidget;
+  final Widget? titleBeforeRequiredWidget;
+  final Widget? requiredMarker;
+  final TextStyle? customTitleStyle;
+  final bool showDivider;
+  final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? dividerPadding;
 
   @override
   Widget build(BuildContext context) {
-    return Visibility(
-      visible: showTips,
-      child: Column(
-        children: [
-          const SizedBox(height: 4),
-          Text(
-            tipText,
-            style: TextStyle(color: JuiTheme.colors.tips, fontSize: 12, height: 1.5),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: padding ??
+              EdgeInsets.only(
+                  top: JuiTheme.dimensions.itemPaddingV,
+                  right: JuiTheme.dimensions.itemPaddingR,
+                  left: JuiTheme.dimensions.itemPaddingL),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _ItemTitle(
+                title: title,
+                isRequired: isRequired,
+                isDisabled: isDisabled,
+                suffixWidget: titleSuffixWidget,
+                beforeRequiredWidget: titleBeforeRequiredWidget,
+                requiredMarker: requiredMarker,
+                customTitleStyle: customTitleStyle,
+              ),
+              SizedBox(height: JuiTheme.dimensions.itemTitleContentSpace),
+              content,
+              SizedBox(height: JuiTheme.dimensions.itemBottomSpace),
+            ],
           ),
-        ],
-      ),
+        ),
+        if (showDivider)
+          Padding(
+            padding: dividerPadding ?? EdgeInsets.only(left: JuiTheme.dimensions.itemPaddingL),
+            child: const _ItemDivider(),
+          ),
+      ],
     );
   }
 }
 
-class ItemTitle extends StatelessWidget {
-  const ItemTitle({
+
+
+class _ItemTitle extends StatelessWidget {
+  const _ItemTitle({
     Key? key,
     required this.title,
     required this.isRequired,
@@ -84,8 +126,8 @@ class ItemTitle extends StatelessWidget {
   }
 }
 
-class ItemDivider extends StatelessWidget {
-  const ItemDivider({Key? key}) : super(key: key);
+class _ItemDivider extends StatelessWidget {
+  const _ItemDivider({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -95,64 +137,27 @@ class ItemDivider extends StatelessWidget {
     );
   }
 }
-
-class JuiBaseItem extends StatelessWidget {
-  const JuiBaseItem({
+class _ItemTipsText extends StatelessWidget {
+  const _ItemTipsText({
     Key? key,
-    required this.title,
-    required this.content,
-    this.isRequired = false,
-    this.isDisabled = false,
-    this.titleSuffixWidget,
-    this.titleBeforeRequiredWidget,
-    this.requiredMarker,
-    this.customTitleStyle,
-    this.spacing = 8.0,
-    this.padding,
-    this.showDivider = true,
-    this.dividerPadding,
+    required this.showTips,
+    required this.tipText,
   }) : super(key: key);
 
-  final String title;
-  final Widget content;
-  final bool isRequired;
-  final bool isDisabled;
-  final Widget? titleSuffixWidget;
-  final Widget? titleBeforeRequiredWidget;
-  final Widget? requiredMarker;
-  final TextStyle? customTitleStyle;
-  final double spacing;
-  final bool showDivider;
-  final EdgeInsetsGeometry? padding;
-  final EdgeInsetsGeometry? dividerPadding;
+  final bool showTips;
+  final String tipText;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: padding ??
-          EdgeInsets.only(
-              top: JuiTheme.dimensions.itemPaddingV,
-              right: JuiTheme.dimensions.itemPaddingR,
-              left: JuiTheme.dimensions.itemPaddingL),
+    return Visibility(
+      visible: showTips,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ItemTitle(
-            title: title,
-            isRequired: isRequired,
-            isDisabled: isDisabled,
-            suffixWidget: titleSuffixWidget,
-            beforeRequiredWidget: titleBeforeRequiredWidget,
-            requiredMarker: requiredMarker,
-            customTitleStyle: customTitleStyle,
+          const SizedBox(height: 4),
+          Text(
+            tipText,
+            style: TextStyle(color: JuiTheme.colors.tips, fontSize: 12, height: 1.5),
           ),
-          SizedBox(height: JuiTheme.dimensions.itemSpace),
-          content,
-          if (showDivider)
-            Padding(
-              padding: dividerPadding ?? EdgeInsets.only(left: JuiTheme.dimensions.itemPaddingL),
-              child: const ItemDivider(),
-            ),
         ],
       ),
     );

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:jui/common.dart';
 
 class JuiButtonDemo extends DemoBasePage {
-  const JuiButtonDemo({super.key});
+   JuiButtonDemo({super.key});
 
   @override
   Widget build(BuildContext context) {

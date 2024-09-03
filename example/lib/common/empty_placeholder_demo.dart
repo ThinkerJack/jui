@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:jui/data_display.dart';
 
 class EmptyPlaceholderDemo extends DemoBasePage {
-  const EmptyPlaceholderDemo({super.key});
+   EmptyPlaceholderDemo({super.key});
 
   @override
   Widget build(BuildContext context) {

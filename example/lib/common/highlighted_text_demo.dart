@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:jui/data_display.dart';
 
 class HighlightedTextDemo extends DemoBasePage {
-  const HighlightedTextDemo({super.key});
+   HighlightedTextDemo({super.key});
 
   @override
   Widget build(BuildContext context) {

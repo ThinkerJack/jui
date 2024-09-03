@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:jui/common.dart';
 
 class DashedBorderContainerDemo extends DemoBasePage {
-  const DashedBorderContainerDemo({super.key});
+   DashedBorderContainerDemo({super.key});
 
   @override
   Widget build(BuildContext context) {

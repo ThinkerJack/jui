@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:jui/data_display.dart';
 
 class TitleDemo extends DemoBasePage {
-  const TitleDemo({super.key});
+   TitleDemo({super.key});
 
   @override
   Widget build(BuildContext context) {

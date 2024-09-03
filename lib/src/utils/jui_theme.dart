@@ -140,7 +140,8 @@ class JuiDimensions {
   final double itemPaddingL;
   final double itemPaddingR;
   final double itemPaddingV;
-  final double itemSpace;
+  final double itemTitleContentSpace;
+  final double itemBottomSpace;
   final double dialogWidth;
   final double dialogMarginTop;
   final double dialogSpacer;
@@ -156,13 +157,15 @@ class JuiDimensions {
       this.dialogSpacer = 20.0,
       this.dialogButtonWidth = 130.0,
       this.dialogWideButtonWidth = 270.0,
-      this.itemSpace = 4});
+      this.itemBottomSpace = 16,
+      this.itemTitleContentSpace = 4});
 
   JuiDimensions copyWith({
     double? itemPaddingL,
     double? itemPaddingR,
     double? itemPaddingV,
-    double? itemSpace,
+    double? itemTitleContentSpace,
+    double? itemBottomSpace,
     double? dialogWidth,
     double? dialogMarginTop,
     double? dialogSpacer,
@@ -173,7 +176,8 @@ class JuiDimensions {
       itemPaddingL: itemPaddingL ?? this.itemPaddingL,
       itemPaddingR: itemPaddingR ?? this.itemPaddingR,
       itemPaddingV: itemPaddingV ?? this.itemPaddingV,
-      itemSpace: itemSpace ?? this.itemSpace,
+      itemTitleContentSpace: itemTitleContentSpace ?? this.itemTitleContentSpace,
+      itemBottomSpace: itemBottomSpace ?? this.itemBottomSpace,
       dialogWidth: dialogWidth ?? this.dialogWidth,
       dialogMarginTop: dialogMarginTop ?? this.dialogMarginTop,
       dialogSpacer: dialogSpacer ?? this.dialogSpacer,

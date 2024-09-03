@@ -8,20 +8,22 @@ import 'common/dialog_demo.dart';
 import 'common/empty_placeholder_demo.dart';
 import 'common/expanded_text_demo.dart';
 import 'common/highlighted_text_demo.dart';
+import 'common/item_demo.dart';
 import 'common/tag_demo.dart';
 import 'common/title_demo.dart';
 
 final demoRouterMap = <String, WidgetBuilder>{
   DemoRouter.mainPage: (context) => const MainPage(),
-  DemoRouter.dashedBorderContainerDemo: (context) => const DashedBorderContainerDemo(),
-  DemoRouter.jUIButtonDemo: (context) => const JuiButtonDemo(),
-  DemoRouter.emptyPlaceholderDemo: (context) => const EmptyPlaceholderDemo(),
-  DemoRouter.tagDemo: (context) => const TagDemo(),
-  DemoRouter.expandedTextDemo: (context) => const ExpandedTextDemo(),
-  DemoRouter.highlightedTextDemo: (context) => const HighlightedTextDemo(),
-  DemoRouter.titleDemo: (context) => const TitleDemo(),
-  DemoRouter.dialogDemo: (context) => const DialogDemo(),
+  DemoRouter.dashedBorderContainerDemo: (context) =>  DashedBorderContainerDemo(),
+  DemoRouter.jUIButtonDemo: (context) =>  JuiButtonDemo(),
+  DemoRouter.emptyPlaceholderDemo: (context) =>  EmptyPlaceholderDemo(),
+  DemoRouter.tagDemo: (context) =>  TagDemo(),
+  DemoRouter.expandedTextDemo: (context) =>  ExpandedTextDemo(),
+  DemoRouter.highlightedTextDemo: (context) =>  HighlightedTextDemo(),
+  DemoRouter.titleDemo: (context) =>  TitleDemo(),
+  DemoRouter.dialogDemo: (context) =>  DialogDemo(),
   DemoRouter.checkBoxDemo: (context) =>  CheckBoxDemo(),
+  DemoRouter.itemDemo: (context) =>   ItemDemo(),
 };
 
 class DemoRouter {
@@ -35,4 +37,5 @@ class DemoRouter {
   static const String titleDemo = "TitleDemo";
   static const String dialogDemo = "DialogDemo";
   static const String checkBoxDemo = "CheckBoxDemo";
+  static const String itemDemo = "ItemDemo";
 }

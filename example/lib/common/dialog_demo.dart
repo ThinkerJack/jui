@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:jui/feedback.dart';
 
 class DialogDemo extends DemoBasePage {
-  const DialogDemo({super.key});
+   DialogDemo({super.key});
 
   @override
   Widget build(BuildContext context) {

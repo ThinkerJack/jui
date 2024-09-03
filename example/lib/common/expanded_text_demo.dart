@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:jui/data_display.dart';
 
 class ExpandedTextDemo extends DemoBasePage {
-  const ExpandedTextDemo({super.key});
+   ExpandedTextDemo({super.key});
 
   @override
   Widget build(BuildContext context) {
