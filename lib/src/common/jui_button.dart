@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+
 import '../utils/jui_theme.dart';
 
 enum JuiButtonSizeType { large, middle, small, ultraSmall }
+
 enum JuiButtonColorType { blue, gray, white, blueBorder }
 
 class JuiButtonSizeConfig {
@@ -29,25 +31,25 @@ class JuiButton extends StatelessWidget {
   };
 
   static Map<JuiButtonColorType, JuiButtonColorConfig> get _colorConfig => {
-    JuiButtonColorType.white: JuiButtonColorConfig(
-      getColor: (_) => JuiTheme.colors.surface,
-      getFontColor: (disable) => disable ? JuiTheme.colors.disabledLight : JuiTheme.colors.text,
-      border: Border.all(color: JuiTheme.colors.divider, width: 1),
-    ),
-    JuiButtonColorType.gray: JuiButtonColorConfig(
-      getColor: (_) => JuiTheme.colors.background,
-      getFontColor: (disable) => disable ? JuiTheme.colors.disabledLight : JuiTheme.colors.text,
-    ),
-    JuiButtonColorType.blue: JuiButtonColorConfig(
-      getColor: (disable) => disable ? JuiTheme.colors.lightBlue : JuiTheme.colors.primary,
-      getFontColor: (_) => JuiTheme.colors.surface,
-    ),
-    JuiButtonColorType.blueBorder: JuiButtonColorConfig(
-      getColor: (_) => JuiTheme.colors.surface,
-      getFontColor: (_) => JuiTheme.colors.primary,
-      border: Border.all(color: JuiTheme.colors.primary, width: 1),
-    ),
-  };
+        JuiButtonColorType.white: JuiButtonColorConfig(
+          getColor: (_) => JuiTheme.colors.surface,
+          getFontColor: (disable) => disable ? JuiTheme.colors.disabledLight : JuiTheme.colors.text,
+          border: Border.all(color: JuiTheme.colors.divider, width: 1),
+        ),
+        JuiButtonColorType.gray: JuiButtonColorConfig(
+          getColor: (_) => JuiTheme.colors.background,
+          getFontColor: (disable) => disable ? JuiTheme.colors.disabledLight : JuiTheme.colors.text,
+        ),
+        JuiButtonColorType.blue: JuiButtonColorConfig(
+          getColor: (disable) => disable ? JuiTheme.colors.lightBlue : JuiTheme.colors.primary,
+          getFontColor: (_) => JuiTheme.colors.surface,
+        ),
+        JuiButtonColorType.blueBorder: JuiButtonColorConfig(
+          getColor: (_) => JuiTheme.colors.surface,
+          getFontColor: (_) => JuiTheme.colors.primary,
+          border: Border.all(color: JuiTheme.colors.primary, width: 1),
+        ),
+      };
 
   const JuiButton({
     Key? key,

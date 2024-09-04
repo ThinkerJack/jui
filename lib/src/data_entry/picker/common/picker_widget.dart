@@ -30,10 +30,10 @@ class PickerEmptyWidget extends StatelessWidget {
   }
 }
 
-TextStyle _leftTextStyle =  TextStyle(fontSize: 14, color: JuiColors().textSecondary, height: 1.5);
+TextStyle _leftTextStyle = TextStyle(fontSize: 14, color: JuiColors().textSecondary, height: 1.5);
 
 TextStyle _rightTextDefaultStyle =
-     TextStyle(fontSize: 14, color: JuiColors().primary, height: 1.5, fontWeight: FontWeight.w500);
+    TextStyle(fontSize: 14, color: JuiColors().primary, height: 1.5, fontWeight: FontWeight.w500);
 
 class PickerTitle extends StatelessWidget {
   const PickerTitle({
@@ -59,7 +59,7 @@ class PickerTitle extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: paddingHorizontal),
       alignment: Alignment.center,
-      decoration:  BoxDecoration(
+      decoration: BoxDecoration(
         color: Colors.transparent,
         border: Border(bottom: BorderSide(color: JuiColors().border, width: 0.5)),
       ),
@@ -80,7 +80,7 @@ class PickerTitle extends StatelessWidget {
             child: Text(
               title,
               maxLines: 1,
-              style:  TextStyle(
+              style: TextStyle(
                 fontSize: 16,
                 color: JuiColors().text,
                 height: 1.5,

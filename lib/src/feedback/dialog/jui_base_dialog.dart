@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+
 import '../../../common.dart';
 import '../../utils/jui_theme.dart';
 import 'jui_dialog_config.dart';
-
 
 class JuiBaseDialog extends StatelessWidget {
   final JuiDialogConfig config;
@@ -52,9 +52,7 @@ class JuiBaseDialog extends StatelessWidget {
 
   Widget _buildButtons(BuildContext context) {
     return Row(
-      mainAxisAlignment: config.showCancelButton
-          ? MainAxisAlignment.spaceBetween
-          : MainAxisAlignment.center,
+      mainAxisAlignment: config.showCancelButton ? MainAxisAlignment.spaceBetween : MainAxisAlignment.center,
       children: [
         if (config.showCancelButton)
           _buildButton(

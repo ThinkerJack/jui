@@ -13,7 +13,7 @@ class JuiDashedBorder extends StatelessWidget {
 
   const JuiDashedBorder({
     Key? key,
-    this.dashColor ,
+    this.dashColor,
     this.dashWidth = 2,
     this.dashHeight = 1,
     this.dashSpace = 2,
@@ -28,7 +28,7 @@ class JuiDashedBorder extends StatelessWidget {
       onTap: onTap,
       child: CustomPaint(
         painter: DashedBorderPainter(
-          dashColor: dashColor??const JuiColors().primary,
+          dashColor: dashColor ?? const JuiColors().primary,
           dashWidth: dashWidth,
           dashHeight: dashHeight,
           dashSpace: dashSpace,
@@ -96,10 +96,10 @@ class DashedBorderPainter extends CustomPainter {
   @override
   bool shouldRepaint(DashedBorderPainter oldDelegate) =>
       dashColor != oldDelegate.dashColor ||
-          dashWidth != oldDelegate.dashWidth ||
-          dashHeight != oldDelegate.dashHeight ||
-          dashSpace != oldDelegate.dashSpace ||
-          borderRadius != oldDelegate.borderRadius;
+      dashWidth != oldDelegate.dashWidth ||
+      dashHeight != oldDelegate.dashHeight ||
+      dashSpace != oldDelegate.dashSpace ||
+      borderRadius != oldDelegate.borderRadius;
 }
 
 class CircularIntervalList<T> {

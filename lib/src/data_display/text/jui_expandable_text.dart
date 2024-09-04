@@ -1,88 +1,138 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../../utils/jui_theme.dart';
-
 class JuiExpandableText extends StatefulWidget {
-  /// 文本
+  const JuiExpandableText({
+    Key? key,
+    required this.text,
+    this.canPackUp = true,
+    this.maxLines = 6,
+    this.contentTextStyle,
+    this.expandedTextStyle,
+    this.expandText = '展开',
+    this.collapseText = '收起',
+  }) : super(key: key);
+
+  // 文本内容
   final String text;
 
-  /// 最大行数
+  // 最大行数
   final int maxLines;
 
-  /// 文本样式
-  final TextStyle? textStyle;
+  // 是否支持收起
+  final bool canPackUp;
 
-  /// 收起文本
-  final String shrinkText;
+  // 文本样式
+  final TextStyle? contentTextStyle;
 
-  /// 展开文本
+  // 展开/收起按钮文本样式
+  final TextStyle? expandedTextStyle;
+
+  // 展开按钮文本
   final String expandText;
 
-  /// 展开文本颜色
-  final Color? expandColor;
-
-  const JuiExpandableText({
-    super.key,
-    this.text = '',
-    this.maxLines = 1,
-    this.textStyle ,
-    this.shrinkText = '展开',
-    this.expandText = '收起',
-    this.expandColor,
-  });
+  // 收起按钮文本
+  final String collapseText;
 
   @override
-  _RichTextState createState() => _RichTextState();
+  State<JuiExpandableText> createState() => _JuiExpandableTextState();
 }
 
-class _RichTextState extends State<JuiExpandableText> {
-  bool _isExpand = true;
+class _JuiExpandableTextState extends State<JuiExpandableText> {
+  late String _expandText;
+  bool expandFlag = true; // 是否展开标志
+  late TextStyle contextTextStyle =
+      widget.contentTextStyle ?? const TextStyle(color: Color(0xff2A2F3C), fontSize: 16, height: 1.5);
+  late TextStyle expandedTextStyle =
+      widget.expandedTextStyle ?? const TextStyle(color: Color(0xff5590F6), fontSize: 16, height: 1.5);
+
+  @override
+  void initState() {
+    super.initState();
+    _expandText = "... ${widget.expandText}";
+  }
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      TextPainter textPainter = TextPainter(
-          maxLines: widget.maxLines + 1,
-          // textScaler: MediaQuery.textScalerOf(context),
-          locale: Localizations.localeOf(context),
-          textAlign: TextAlign.start,
-          text: TextSpan(
-            text: widget.text,
-            style: widget.textStyle,
-          ),
-          textDirection: Directionality.of(context))
-        ..layout(minWidth: constraints.minWidth, maxWidth: constraints.maxWidth);
-      // 判断是否已经超过最大行数
-      if (textPainter.didExceedMaxLines) {
-        final textSize = textPainter.size;
-        final position = textPainter.getPositionForOffset(Offset(
-          textSize.width - textPainter.width,
-          textSize.height,
-        ));
-        final endOffset = textPainter.getOffsetBefore(position.offset - 1);
-        return RichText(
-            overflow: TextOverflow.clip,
-            text: TextSpan(
-                // 截取 0-endOffset 的字符串，再在后面拼接展开/收起
-                text: !_isExpand ? widget.text : widget.text.substring(0, endOffset),
-                style: widget.textStyle,
+    return LayoutBuilder(builder: (context, size) {
+      if (getContentTextPainter(widget.text, size.maxWidth).didExceedMaxLines) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // 富文本组件
+            Text.rich(
+              TextSpan(
+                text: expandFlag ? "${widget.text.substring(0, getSubIndex(size))}... " : widget.text,
+                style: contextTextStyle,
                 children: [
-                  TextSpan(
-                      text: _isExpand ? widget.shrinkText : widget.expandText,
-                      style: widget.textStyle?.copyWith(color: widget.expandColor??JuiColors().primary),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () {
-                          setState(() {
-                            // 点击实现展开/收起的切换
-                            _isExpand = !_isExpand;
-                          });
-                        })
-                ]));
-      } else {
-        return Text.rich(TextSpan(text: widget.text));
+                  WidgetSpan(
+                    child: Visibility(
+                      visible: expandFlag,
+                      child: buildExpandedWidget(),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            // 展开/收起按钮
+            Visibility(
+              visible: !expandFlag && widget.canPackUp,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [buildExpandedWidget(), SizedBox(width: 5)],
+              ),
+            ),
+          ],
+        );
       }
+      // 直接显示文本
+      return Text(
+        widget.text,
+        style: contextTextStyle,
+      );
     });
+  }
+
+  // 构建展开/收起按钮
+  Widget buildExpandedWidget() {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          expandFlag = !expandFlag;
+        });
+      },
+      child: Text(
+        expandFlag ? widget.expandText : widget.collapseText,
+        textAlign: TextAlign.end,
+        style: expandedTextStyle,
+      ),
+    );
+  }
+
+  // 获取截取文本的索引
+  int getSubIndex(BoxConstraints size) {
+    int subIndex = widget.text.length;
+    List<int> runes = widget.text.runes.toList().reversed.toList();
+    for (var rune in runes) {
+      var character = String.fromCharCode(rune);
+      String text = widget.text.substring(0, subIndex);
+      final tp = getContentTextPainter("$text$_expandText", size.maxWidth);
+      if (tp.didExceedMaxLines) {
+        // 适配emoji
+        subIndex = subIndex - character.length;
+      } else {
+        return subIndex;
+      }
+    }
+    return subIndex;
+  }
+
+  // 获取文本绘制对象
+  TextPainter getContentTextPainter(String text, double maxWidth) {
+    return TextPainter(
+        text: TextSpan(text: text, style: contextTextStyle),
+        maxLines: widget.maxLines,
+        textDirection: TextDirection.ltr,
+        textScaleFactor: MediaQuery.of(context).textScaleFactor)
+      ..layout(maxWidth: maxWidth);
   }
 }

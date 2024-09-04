@@ -80,7 +80,8 @@ class _InputAreaState extends State<InputArea> with InputCheckMixin {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              decoration: BoxDecoration(color: widget.backgroundColor??JuiColors().lightGray, borderRadius: BorderRadius.circular(10)),
+              decoration: BoxDecoration(
+                  color: widget.backgroundColor ?? JuiColors().lightGray, borderRadius: BorderRadius.circular(10)),
               margin: EdgeInsets.only(left: widget.marginLeft, right: widget.marginRight),
               height: widget.height ?? 120,
               padding: widget.padding ?? EdgeInsets.only(left: 12, right: 10, top: 0, bottom: 6),

@@ -1,6 +1,7 @@
 // jui_tap_item.dart
 import 'package:flutter/material.dart';
 import 'package:jui/src/utils/extension.dart';
+
 import '../../../generated/assets.dart';
 import '../../utils/jui_theme.dart';
 import 'jui_item.dart';
@@ -44,19 +45,18 @@ class JuiTapItem extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           ),
         ),
-        trailing ?? Image.asset(
-          config.isDisabled ? Assets.imagesMoreDisabled.path : Assets.imagesMore.path,
-          height: 12,
-        )
+        trailing ??
+            Image.asset(
+              config.isDisabled ? Assets.imagesMoreDisabled.path : Assets.imagesMore.path,
+              height: 12,
+            )
       ],
     );
   }
 
   TextStyle _getTextStyle() {
     if (contentText.isEmpty) {
-      return config.isDisabled
-          ? JuiTheme.textStyles.itemHintDisabled
-          : JuiTheme.textStyles.itemHint;
+      return config.isDisabled ? JuiTheme.textStyles.itemHintDisabled : JuiTheme.textStyles.itemHint;
     }
     return JuiTheme.textStyles.itemContent;
   }

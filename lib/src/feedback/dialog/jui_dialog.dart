@@ -8,19 +8,19 @@ import 'jui_standard_dialog.dart';
 enum JuiDialogType { standard, input, custom }
 
 void showJuiDialog(
-    BuildContext context,
-    JuiDialogType type,
-    JuiDialogConfig config, {
-      String? content,
-      Widget? customContent,
-      String? hintText,
-      TextEditingController? textController,
-      bool allowEmoji = true,
-      int? maxLength,
-      FocusNode? focusNode,
-      ValueChanged<String>? onChange,
-      ConfirmInputCallback? onConfirmInput,
-    }) {
+  BuildContext context,
+  JuiDialogType type,
+  JuiDialogConfig config, {
+  String? content,
+  Widget? customContent,
+  String? hintText,
+  TextEditingController? textController,
+  bool allowEmoji = true,
+  int? maxLength,
+  FocusNode? focusNode,
+  ValueChanged<String>? onChange,
+  ConfirmInputCallback? onConfirmInput,
+}) {
   Widget dialog;
   switch (type) {
     case JuiDialogType.standard:
@@ -50,4 +50,3 @@ void showJuiDialog(
   }
   showDialog(context: context, builder: (context) => dialog);
 }
-

@@ -1,8 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:jui/src/utils/extension.dart';
-import '../../utils/jui_theme.dart';
+
 import '../../../generated/assets.dart';
+import '../../utils/jui_theme.dart';
 
 enum JuiNoContentType { list, search, custom }
 
