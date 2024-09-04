@@ -32,7 +32,7 @@ class JuiNoContent extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Image.asset(
-              _getImagePath().path,
+              _getImagePath(),
               width: imageWidth,
             ),
             const SizedBox(height: 8),
@@ -49,11 +49,11 @@ class JuiNoContent extends StatelessWidget {
   String _getImagePath() {
     switch (type) {
       case JuiNoContentType.list:
-        return Assets.imagesListEmpty;
+        return Assets.imagesListEmpty.path;
       case JuiNoContentType.search:
-        return Assets.imagesSearchEmpty;
+        return Assets.imagesSearchEmpty.path;
       case JuiNoContentType.custom:
-        return imagePath ?? Assets.imagesListEmpty;
+        return imagePath ?? Assets.imagesListEmpty.path;
     }
   }
 }

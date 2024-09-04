@@ -72,17 +72,17 @@ class JuiTag extends StatelessWidget {
   Color _getColor(bool isBackground) {
     switch (tagColorType) {
       case JuiTagColorType.black:
-        return isBackground ? JuiColors().background : JuiColors().text;
+        return isBackground ? const JuiColors().background : const JuiColors().text;
       case JuiTagColorType.blue:
-        return isBackground ? JuiColors().primaryWithOpacity : JuiColors().primary;
+        return isBackground ? const JuiColors().primaryWithOpacity : const JuiColors().primary;
       case JuiTagColorType.green:
-        return isBackground ? JuiColors().successWithOpacity : JuiColors().success;
+        return isBackground ? const JuiColors().successWithOpacity : const JuiColors().success;
       case JuiTagColorType.yellow:
-        return isBackground ? JuiColors().secondaryWithOpacity : JuiColors().secondary;
+        return isBackground ? const JuiColors().secondaryWithOpacity : const JuiColors().secondary;
       case JuiTagColorType.red:
-        return isBackground ? JuiColors().errorWithOpacity : JuiColors().error;
+        return isBackground ? const JuiColors().errorWithOpacity : const JuiColors().error;
       case JuiTagColorType.gray:
-        return isBackground ? JuiColors().background : JuiColors().textSecondary;
+        return isBackground ? const JuiColors().background : const JuiColors().textSecondary;
     }
   }
 

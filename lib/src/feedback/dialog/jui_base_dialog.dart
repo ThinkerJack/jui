@@ -52,7 +52,7 @@ class JuiBaseDialog extends StatelessWidget {
                 const SizedBox(height: 12),
                 contentWidget!,
               ],
-              SizedBox(height: JuiTheme.dimensions.dialogSpacer),
+              SizedBox(height: JuiTheme.dimensions.dialogSpace),
               _buildButtons(context),
             ],
           ),

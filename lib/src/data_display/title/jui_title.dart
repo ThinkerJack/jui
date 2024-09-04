@@ -59,7 +59,7 @@ class _TitleRow extends StatelessWidget {
             height: 16,
             decoration: BoxDecoration(
               color: JuiTheme.colors.primary,
-              borderRadius: BorderRadius.horizontal(right: Radius.circular(2)),
+              borderRadius: const BorderRadius.horizontal(right: Radius.circular(2)),
             ),
           ),
           const SizedBox(width: 16),

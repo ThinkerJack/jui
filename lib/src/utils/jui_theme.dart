@@ -140,35 +140,33 @@ class JuiDimensions {
   final double itemPaddingL;
   final double itemPaddingR;
   final double itemPaddingV;
-  final double itemTitleContentSpace;
-  final double itemBottomSpace;
+  final double itemSpace;
   final double dialogWidth;
   final double dialogMarginTop;
-  final double dialogSpacer;
+  final double dialogSpace;
   final double dialogButtonWidth;
   final double dialogWideButtonWidth;
 
-  const JuiDimensions(
-      {this.itemPaddingL = 20.0,
-      this.itemPaddingR = 20.0,
-      this.itemPaddingV = 16.0,
-      this.dialogWidth = 327.0,
-      this.dialogMarginTop = 24.0,
-      this.dialogSpacer = 20.0,
-      this.dialogButtonWidth = 130.0,
-      this.dialogWideButtonWidth = 270.0,
-      this.itemBottomSpace = 16,
-      this.itemTitleContentSpace = 4});
+  const JuiDimensions({
+    this.itemPaddingL = 20.0,
+    this.itemPaddingR = 20.0,
+    this.itemPaddingV = 16.0,
+    this.itemSpace = 4,
+    this.dialogWidth = 327.0,
+    this.dialogMarginTop = 24.0,
+    this.dialogSpace = 20.0,
+    this.dialogButtonWidth = 130.0,
+    this.dialogWideButtonWidth = 270.0,
+  });
 
   JuiDimensions copyWith({
     double? itemPaddingL,
     double? itemPaddingR,
     double? itemPaddingV,
-    double? itemTitleContentSpace,
-    double? itemBottomSpace,
+    double? itemSpace,
     double? dialogWidth,
     double? dialogMarginTop,
-    double? dialogSpacer,
+    double? dialogSpace,
     double? dialogButtonWidth,
     double? dialogWideButtonWidth,
   }) {
@@ -176,11 +174,10 @@ class JuiDimensions {
       itemPaddingL: itemPaddingL ?? this.itemPaddingL,
       itemPaddingR: itemPaddingR ?? this.itemPaddingR,
       itemPaddingV: itemPaddingV ?? this.itemPaddingV,
-      itemTitleContentSpace: itemTitleContentSpace ?? this.itemTitleContentSpace,
-      itemBottomSpace: itemBottomSpace ?? this.itemBottomSpace,
+      itemSpace: itemSpace ?? this.itemSpace,
       dialogWidth: dialogWidth ?? this.dialogWidth,
       dialogMarginTop: dialogMarginTop ?? this.dialogMarginTop,
-      dialogSpacer: dialogSpacer ?? this.dialogSpacer,
+      dialogSpace: dialogSpace ?? this.dialogSpace,
       dialogButtonWidth: dialogButtonWidth ?? this.dialogButtonWidth,
       dialogWideButtonWidth: dialogWideButtonWidth ?? this.dialogWideButtonWidth,
     );
