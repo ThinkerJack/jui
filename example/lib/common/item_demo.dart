@@ -1,17 +1,23 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:jui/form.dart';
+import 'package:example/common/demo_base_page.dart';
 
-import 'demo_base_page.dart';
+class ItemDemo extends StatefulWidget {
+  const ItemDemo({Key? key}) : super(key: key);
 
-class ItemDemo extends DemoBasePage {
-  const ItemDemo({super.key});
+  @override
+  ItemDemoState createState() => ItemDemoState();
+}
+
+class ItemDemoState extends State<ItemDemo> {
+  TextEditingController controller = TextEditingController()..text = "内容" * 30;
 
   @override
   Widget build(BuildContext context) {
-    return super.builder(
-      "表单项",
+    return DemoBasePage(
+      title: "表单项",
       padding: const EdgeInsets.symmetric(vertical: 20),
-      [
+      children: [
         JuiCustomItem(
           title: 'Custom Item',
           content: const Text('This is a custom item'),
@@ -87,6 +93,30 @@ class ItemDemo extends DemoBasePage {
             showTips: true,
           ),
         ),
+        JuiTextInputItem(
+          title: "用户名",
+          hintText: "请输入用户名",
+          controller: TextEditingController(),
+          showClearButton: false, // 不显示清除按钮
+        ),
+        JuiTextInputItem(
+          title: "Text Input Item",
+          controller: controller,
+          hintText: "请输入",
+          onChanged: (value) {
+            print("change: $value");
+          },
+          config: const JuiItemConfig(
+            isRequired: true,
+          ),
+        ),
+        TextButton(
+            onPressed: () {
+              setState(() {
+                controller.text = "change";
+              });
+            },
+            child: Text("Text Button")),
       ],
     );
   }

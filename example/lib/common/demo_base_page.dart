@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
 
-abstract class DemoBasePage extends StatelessWidget {
-  const DemoBasePage({super.key});
+class DemoBasePage extends StatelessWidget {
+  final String title;
+  final List<Widget> children;
+  final EdgeInsetsGeometry? padding;
 
-   final Widget space = const SizedBox(height: 30);
+  const DemoBasePage({
+    Key? key,
+    required this.title,
+    required this.children,
+    this.padding,
+  }) : super(key: key);
 
-  Widget builder(
-      String title,
-      List<Widget> widgets, {
-        EdgeInsetsGeometry? padding,
-      }) {
+  static const Widget space = SizedBox(height: 30);
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -21,7 +27,7 @@ abstract class DemoBasePage extends StatelessWidget {
       ),
       body: ListView(
         padding: padding ?? const EdgeInsets.all(20),
-        children: widgets,
+        children: children,
       ),
     );
   }

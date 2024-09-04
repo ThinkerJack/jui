@@ -2,12 +2,12 @@ import 'package:example/common/demo_base_page.dart';
 import 'package:flutter/material.dart';
 import 'package:jui/feedback.dart';
 
-class DialogDemo extends DemoBasePage {
+class DialogDemo extends StatelessWidget {
   DialogDemo({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return super.builder("弹窗", [
+    return DemoBasePage(title: "弹窗", children: [
       TextButton(
         onPressed: () {
           showJuiDialog(

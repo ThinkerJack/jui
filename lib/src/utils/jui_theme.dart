@@ -46,6 +46,9 @@ class JuiTextStyles {
   final TextStyle dialogHint;
   final TextStyle sectionTitle;
   final TextStyle noContent;
+  final TextStyle pickerConfirm;
+  final TextStyle pickerCancel;
+  final TextStyle pickerTitle;
 
   const JuiTextStyles({
     this.itemTitle = const TextStyle(
@@ -90,6 +93,27 @@ class JuiTextStyles {
       fontSize: 16,
       height: 1.5,
       fontWeight: FontWeight.w500,
+    ),
+    this.pickerTitle = const TextStyle(
+      decoration: TextDecoration.none,
+      color: Color(0xFF2A2F3C),
+      fontSize: 16,
+      height: 1.5,
+      fontWeight: FontWeight.w500,
+    ),
+    this.pickerConfirm = const TextStyle(
+      decoration: TextDecoration.none,
+      color: Color(0xFF5590F6),
+      fontSize: 14,
+      height: 1.5,
+      fontWeight: FontWeight.w500,
+    ),
+    this.pickerCancel = const TextStyle(
+      decoration: TextDecoration.none,
+      color: Color(0xFF858B9B),
+      fontSize: 14,
+      height: 1.5,
+      fontWeight: FontWeight.w400,
     ),
     this.dialogHint = const TextStyle(
       color: Color(0xFFBCC1CD),

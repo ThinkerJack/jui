@@ -1,16 +1,19 @@
-import 'package:example/common/demo_base_page.dart';
 import 'package:flutter/material.dart';
 import 'package:jui/data_display.dart';
+import 'package:example/common/demo_base_page.dart';
 
-class EmptyPlaceholderDemo extends DemoBasePage {
-   EmptyPlaceholderDemo({super.key});
+class EmptyPlaceholderDemo extends StatelessWidget {
+  EmptyPlaceholderDemo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return super.builder("空页面", [
-      const JuiNoContent(
-        type: JuiNoContentType.list,
-      )
-    ]);
+    return DemoBasePage(
+      title: "空页面",
+      children: [
+        const JuiNoContent(
+          type: JuiNoContentType.list,
+        )
+      ],
+    );
   }
 }

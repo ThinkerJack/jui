@@ -28,6 +28,7 @@ class MainPage extends StatelessWidget {
           ]),
           _buildSection(context, '数据录入', [
             _DemoButton(DemoRouter.checkBoxDemo, "复选框"),
+            _DemoButton(DemoRouter.singlePickerDemo, "单选选择器"),
           ]),
 
           _buildSection(context, '反馈', [
