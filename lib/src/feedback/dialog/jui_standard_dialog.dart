@@ -1,33 +1,29 @@
 import 'package:flutter/cupertino.dart';
-import 'package:jui/src/utils/jui_theme.dart';
 
+import '../../utils/jui_theme.dart';
 import 'jui_base_dialog.dart';
+import 'jui_dialog_config.dart';
 
-class JuiStandardDialog extends JuiBaseDialog {
-  JuiStandardDialog({
+class JuiStandardDialog extends StatelessWidget {
+  final JuiDialogConfig config;
+  final String content;
+
+  const JuiStandardDialog({
     Key? key,
-    required String title,
-    required VoidCallback onConfirm,
-    required VoidCallback onCancel,
-    required String confirmButtonText,
-    required String cancelButtonText,
-    required bool showCancelButton,
-    required String content,
-    required double dialogWidth,
-  }) : super(
-          key: key,
-          title: title,
-          confirmButtonText: confirmButtonText,
-          cancelButtonText: cancelButtonText,
-          onConfirm: onConfirm,
-          onCancel: onCancel,
-          showCancelButton: showCancelButton,
-          contentWidget: content.isEmpty
-              ? null
-              : Text(
-                  content,
-                  style: JuiTheme.textStyles.dialogContent,
-                ),
-          dialogWidth: dialogWidth,
-        );
+    required this.config,
+    required this.content,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return JuiBaseDialog(
+      config: config,
+      contentWidget: content.isEmpty
+          ? null
+          : Text(
+              content,
+              style: JuiTheme.textStyles.dialogContent,
+            ),
+    );
+  }
 }

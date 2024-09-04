@@ -1,29 +1,18 @@
 import 'package:flutter/material.dart';
 import '../../../common.dart';
 import '../../utils/jui_theme.dart';
+import 'jui_dialog_config.dart';
 
-/// 自定义对话框组件基类
+
 class JuiBaseDialog extends StatelessWidget {
+  final JuiDialogConfig config;
+  final Widget? contentWidget;
+
   const JuiBaseDialog({
     Key? key,
-    required this.title,
-    required this.onConfirm,
-    required this.confirmButtonText,
-    required this.showCancelButton,
-    required this.contentWidget,
-    required this.dialogWidth,
-    required this.cancelButtonText,
-    required this.onCancel,
+    required this.config,
+    this.contentWidget,
   }) : super(key: key);
-
-  final String title;
-  final String confirmButtonText;
-  final String cancelButtonText;
-  final VoidCallback onConfirm;
-  final VoidCallback onCancel;
-  final bool showCancelButton;
-  final Widget? contentWidget;
-  final double dialogWidth;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +21,7 @@ class JuiBaseDialog extends StatelessWidget {
       resizeToAvoidBottomInset: true,
       body: Center(
         child: Container(
-          width: dialogWidth,
+          width: JuiTheme.dimensions.dialogWidth,
           padding: const EdgeInsets.all(24),
           decoration: BoxDecoration(
             color: JuiTheme.colors.surface,
@@ -44,7 +33,7 @@ class JuiBaseDialog extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                title,
+                config.title,
                 style: JuiTheme.textStyles.dialogTitle,
                 textAlign: TextAlign.center,
               ),
@@ -63,25 +52,29 @@ class JuiBaseDialog extends StatelessWidget {
 
   Widget _buildButtons(BuildContext context) {
     return Row(
-      mainAxisAlignment: showCancelButton ? MainAxisAlignment.spaceBetween : MainAxisAlignment.center,
+      mainAxisAlignment: config.showCancelButton
+          ? MainAxisAlignment.spaceBetween
+          : MainAxisAlignment.center,
       children: [
-        if (showCancelButton)
+        if (config.showCancelButton)
           _buildButton(
-            text: cancelButtonText,
+            text: config.cancelButtonText,
             onTap: () {
               Navigator.pop(context);
-              onCancel();
+              config.onCancel?.call();
             },
             colorType: JuiButtonColorType.gray,
           ),
         _buildButton(
-          text: confirmButtonText,
+          text: config.confirmButtonText,
           onTap: () {
             Navigator.pop(context);
-            onConfirm();
+            config.onConfirm?.call();
           },
           colorType: JuiButtonColorType.blue,
-          width: showCancelButton ? JuiTheme.dimensions.dialogButtonWidth : JuiTheme.dimensions.dialogWideButtonWidth,
+          width: config.showCancelButton
+              ? JuiTheme.dimensions.dialogButtonWidth
+              : JuiTheme.dimensions.dialogWideButtonWidth,
         ),
       ],
     );
@@ -91,14 +84,14 @@ class JuiBaseDialog extends StatelessWidget {
     required String text,
     required VoidCallback onTap,
     required JuiButtonColorType colorType,
-    double? width ,
+    double? width,
   }) {
     return JuiButton(
       onTap: onTap,
       text: text,
       colorType: colorType,
       sizeType: JuiButtonSizeType.middle,
-      width: width ??JuiTheme.dimensions.dialogButtonWidth ,
+      width: width ?? JuiTheme.dimensions.dialogButtonWidth,
     );
   }
 }

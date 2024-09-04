@@ -1,42 +1,54 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import '../../../feedback.dart';
 import '../../utils/jui_theme.dart';
 import 'jui_base_dialog.dart';
+import 'jui_dialog_config.dart';
 
-class JuiInputDialog extends JuiBaseDialog {
-  JuiInputDialog({
+typedef ConfirmInputCallback = void Function(String);
+
+class JuiInputDialog extends StatelessWidget {
+  final JuiDialogConfig config;
+  final String hintText;
+  final TextEditingController textController;
+  final bool allowEmoji;
+  final int? maxLength;
+  final FocusNode? focusNode;
+  final ValueChanged<String>? onChange;
+  final ConfirmInputCallback? onConfirmInput;
+
+  const JuiInputDialog({
     Key? key,
-    required String title,
-    required ValueChanged<String> onConfirm,
-    required VoidCallback onCancel,
-    required String confirmButtonText,
-    required String cancelButtonText,
-    required bool showCancelButton,
-    required double dialogWidth,
-    required String hintText,
-    required TextEditingController textController,
-    bool allowEmoji = true,
-    int? maxLength,
-    FocusNode? focusNode,
-    ValueChanged<String>? onChange,
-  }) : super(
-    key: key,
-    title: title,
-    confirmButtonText: confirmButtonText,
-    cancelButtonText: cancelButtonText,
-    onConfirm: () => onConfirm(textController.text),
-    onCancel: onCancel,
-    showCancelButton: showCancelButton,
-    contentWidget: _InputField(
-      maxLength: maxLength,
-      focusNode: focusNode,
-      allowEmoji: allowEmoji,
-      hintText: hintText,
-      textController: textController,
-      onChange: onChange,
-    ),
-    dialogWidth: dialogWidth,
-  );
+    required this.config,
+    required this.hintText,
+    required this.textController,
+    this.allowEmoji = true,
+    this.maxLength,
+    this.focusNode,
+    this.onChange,
+    this.onConfirmInput,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return JuiBaseDialog(
+      config: config.copyWith(
+        onConfirm: () {
+          onConfirmInput?.call(textController.text);
+          config.onConfirm?.call();
+        },
+      ),
+      contentWidget: _InputField(
+        maxLength: maxLength,
+        focusNode: focusNode,
+        allowEmoji: allowEmoji,
+        hintText: hintText,
+        textController: textController,
+        onChange: onChange,
+      ),
+    );
+  }
 }
 
 class _InputField extends StatelessWidget {
@@ -69,8 +81,8 @@ class _InputField extends StatelessWidget {
         controller: textController,
         maxLength: maxLength,
         maxLines: 1,
-        style:  TextStyle(
-          color:  JuiTheme.colors.dialogText,
+        style: TextStyle(
+          color: JuiTheme.colors.dialogText,
           fontSize: 16,
           height: 1.5,
         ),

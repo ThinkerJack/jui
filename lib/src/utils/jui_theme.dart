@@ -142,7 +142,6 @@ class JuiDimensions {
   final double itemPaddingV;
   final double itemSpace;
   final double dialogWidth;
-  final double dialogMarginTop;
   final double dialogSpace;
   final double dialogButtonWidth;
   final double dialogWideButtonWidth;
@@ -153,7 +152,6 @@ class JuiDimensions {
     this.itemPaddingV = 16.0,
     this.itemSpace = 4,
     this.dialogWidth = 327.0,
-    this.dialogMarginTop = 24.0,
     this.dialogSpace = 20.0,
     this.dialogButtonWidth = 130.0,
     this.dialogWideButtonWidth = 270.0,
@@ -176,7 +174,6 @@ class JuiDimensions {
       itemPaddingV: itemPaddingV ?? this.itemPaddingV,
       itemSpace: itemSpace ?? this.itemSpace,
       dialogWidth: dialogWidth ?? this.dialogWidth,
-      dialogMarginTop: dialogMarginTop ?? this.dialogMarginTop,
       dialogSpace: dialogSpace ?? this.dialogSpace,
       dialogButtonWidth: dialogButtonWidth ?? this.dialogButtonWidth,
       dialogWideButtonWidth: dialogWideButtonWidth ?? this.dialogWideButtonWidth,
