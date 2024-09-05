@@ -1,3 +1,5 @@
+// jui_picker_config.dart
+
 import 'package:flutter/material.dart';
 
 enum PickerLayout {
@@ -11,21 +13,54 @@ enum SelectionMode {
   multiple,
 }
 
+class PickerUIHelper {
+  static const double itemExtent = 52.0;
+  static const double maxHeight = 650.0;
+  static const double headerFontSize = 16.0;
+  static const EdgeInsets headerPadding = EdgeInsets.all(16.0);
+
+  // UI Config 默认值
+  static const BorderRadius defaultTopBorderRadius = BorderRadius.vertical(top: Radius.circular(12));
+  static const Color defaultBackgroundColor = Colors.white;
+  static const Color defaultBarrierColor = Color.fromRGBO(0, 0, 0, 0.7);
+  static const bool defaultIsScrollControlled = true;
+  static const bool defaultEnableDrag = false;
+
+  // Header Config 默认值
+  static const String defaultCancelText = '取消';
+  static const String defaultConfirmText = '确定';
+
+  // 动态获取最大高度的方法
+  static double getMaxHeight(PickerLayout layout) {
+    switch (layout) {
+      case PickerLayout.wheel:
+        return 225.0; // CupertinoPicker 的默认高度
+      case PickerLayout.list:
+      case PickerLayout.action:
+        return 600.0;
+    }
+  }
+}
+
 class PickerUIConfig {
-  final BorderRadius? topBorderRadius;
+  final BorderRadius topBorderRadius;
   final Color backgroundColor;
-  final double? maxHeight;
+  final double maxHeight;
   final Color barrierColor;
   final bool isScrollControlled;
   final bool enableDrag;
+  final TextStyle? itemTextStyle;
+  final Color? selectedItemColor;
 
   const PickerUIConfig({
-    this.topBorderRadius = const BorderRadius.vertical(top: Radius.circular(12)),
-    this.backgroundColor = Colors.white,
-    this.maxHeight = 650,
-    this.barrierColor = const Color.fromRGBO(0, 0, 0, 0.7),
-    this.isScrollControlled = true,
-    this.enableDrag = false,
+    this.topBorderRadius = PickerUIHelper.defaultTopBorderRadius,
+    this.backgroundColor = PickerUIHelper.defaultBackgroundColor,
+    this.maxHeight = PickerUIHelper.maxHeight,
+    this.barrierColor = PickerUIHelper.defaultBarrierColor,
+    this.isScrollControlled = PickerUIHelper.defaultIsScrollControlled,
+    this.enableDrag = PickerUIHelper.defaultEnableDrag,
+    this.itemTextStyle,
+    this.selectedItemColor,
   });
 }
 
@@ -42,14 +77,15 @@ class PickerHeaderConfig {
   const PickerHeaderConfig({
     required this.title,
     this.customHeader,
-    this.cancelText = '取消',
-    this.confirmText = '确定',
+    this.cancelText = PickerUIHelper.defaultCancelText,
+    this.confirmText = PickerUIHelper.defaultConfirmText,
     this.cancelTextStyle,
     this.confirmTextStyle,
     this.showHeader,
     this.showConfirmButton,
   });
 }
+
 
 class PickerConfig {
   final PickerLayout layout;
@@ -69,7 +105,7 @@ class PickerItemData {
   final String key;
   final String value;
 
-  PickerItemData({required this.key, required this.value});
+  const PickerItemData({required this.key, required this.value});
 }
 
 class PickerItemUI {
@@ -77,7 +113,8 @@ class PickerItemUI {
   final Widget? icon;
   final VoidCallback? onTap;
 
-  PickerItemUI({required this.data, this.icon, this.onTap});
+  const PickerItemUI({required this.data, this.icon, this.onTap});
 }
 
 typedef PickerCallback = void Function(List<String> selectedKeys, List<String> selectedValues);
+typedef ItemSelectionCallback = void Function(PickerItemData item);

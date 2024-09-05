@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:jui/src/data_entry/picker_new/jui_picker_config.dart';
-import 'package:jui/src/data_entry/picker_new/jui_picker_content.dart';
-import 'package:jui/src/data_entry/picker_new/jui_picker_header.dart';
+import 'jui_picker_config.dart';
+import 'jui_picker_content.dart';
+import 'jui_picker_header.dart';
 
 class JuiPicker extends StatefulWidget {
   final PickerConfig config;
@@ -41,17 +41,13 @@ class JuiPickerState extends State<JuiPicker> {
   }
 
   void _initializeSelection() {
-    if (widget.initialSelection.isEmpty && widget.config.selectionMode == SelectionMode.single) {
-      _selectedItems = [widget.items.first.data];
-    } else {
-      _selectedItems = List.from(widget.initialSelection);
-    }
+    _selectedItems = List.from(widget.initialSelection);
   }
 
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: widget.config.uiConfig.topBorderRadius,
+      borderRadius: widget.config.uiConfig.topBorderRadius ?? BorderRadius.zero,
       child: Container(
         color: widget.config.uiConfig.backgroundColor,
         child: Column(
@@ -67,31 +63,36 @@ class JuiPickerState extends State<JuiPicker> {
 
   Widget _buildContent() {
     return _contentBuilder.build(
-      context,
-      widget.items,
-      _selectedItems,
-      widget.config,
-      _handleItemSelection,
-      widget.config.selectionMode == SelectionMode.single ? _handleImmediateConfirm : null,
+      context: context,
+      items: widget.items,
+      selectedItems: _selectedItems,
+      config: widget.config,
+      onItemTap: _handleItemSelection,
+      onImmediateConfirm: widget.config.selectionMode == SelectionMode.single ? _handleImmediateConfirm : null,
     );
   }
 
   void _handleItemSelection(PickerItemData item) {
     setState(() {
-      switch (widget.config.selectionMode) {
-        case SelectionMode.single:
-          _selectedItems = [item];
-          break;
-        case SelectionMode.multiple:
-          int index = _selectedItems.indexWhere((element) => element.key == item.key);
-          if (index != -1) {
-            _selectedItems.removeAt(index);
-          } else {
-            _selectedItems.add(item);
-          }
-          break;
+      if (widget.config.selectionMode == SelectionMode.single) {
+        _handleSingleSelection(item);
+      } else {
+        _handleMultipleSelection(item);
       }
     });
+  }
+
+  void _handleSingleSelection(PickerItemData item) {
+    _selectedItems = [item];
+  }
+
+  void _handleMultipleSelection(PickerItemData item) {
+    int index = _selectedItems.indexWhere((element) => element.key == item.key);
+    if (index != -1) {
+      _selectedItems.removeAt(index);
+    } else {
+      _selectedItems.add(item);
+    }
   }
 
   void _handleImmediateConfirm(PickerItemData item) {

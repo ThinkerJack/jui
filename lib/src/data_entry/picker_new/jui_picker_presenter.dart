@@ -13,13 +13,13 @@ Future<void> showJuiPicker({
 }) {
   return showModalBottomSheet(
     context: context,
-    constraints: BoxConstraints(maxHeight: config.uiConfig.maxHeight ?? double.infinity),
+    constraints: BoxConstraints(maxHeight: config.uiConfig.maxHeight),
     backgroundColor: Colors.transparent,
     barrierColor: config.uiConfig.barrierColor,
     isScrollControlled: config.uiConfig.isScrollControlled,
     enableDrag: config.uiConfig.enableDrag,
     shape: RoundedRectangleBorder(
-      borderRadius: config.uiConfig.topBorderRadius ?? BorderRadius.zero,
+      borderRadius: config.uiConfig.topBorderRadius,
     ),
     builder: (BuildContext context) {
       return JuiPicker(
