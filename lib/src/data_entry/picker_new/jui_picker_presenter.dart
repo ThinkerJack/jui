@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jui/src/data_entry/picker_new/picker_config.dart';
-import 'package:jui/src/data_entry/picker_new/picker_widget.dart';
+import 'package:jui/src/data_entry/picker_new/jui_picker.dart';
+import 'package:jui/src/data_entry/picker_new/jui_picker_config.dart';
 
 Future<void> showJuiPicker({
   required BuildContext context,
@@ -12,8 +12,16 @@ Future<void> showJuiPicker({
 }) {
   return showModalBottomSheet(
     context: context,
+    constraints: BoxConstraints(maxHeight: config.uiConfig.maxHeight ?? double.infinity),
+    backgroundColor: Colors.transparent,
+    barrierColor: config.uiConfig.barrierColor,
+    isScrollControlled: config.uiConfig.isScrollControlled,
+    enableDrag: config.uiConfig.enableDrag,
+    shape: RoundedRectangleBorder(
+      borderRadius: config.uiConfig.topBorderRadius ?? BorderRadius.zero,
+    ),
     builder: (BuildContext context) {
-      return Picker(
+      return JuiPicker(
         config: config,
         items: items,
         initialSelection: initialSelection,

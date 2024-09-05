@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:jui/src/data_entry/picker_new/picker_config.dart';
-import 'package:jui/src/data_entry/picker_new/picker_content_builder.dart';
+import 'package:jui/src/data_entry/picker_new/jui_picker_config.dart';
+import 'package:jui/src/data_entry/picker_new/jui_picker_content.dart';
+import 'package:jui/src/data_entry/picker_new/jui_picker_header.dart';
 
-// 核心选择器组件
-class Picker extends StatefulWidget {
+class JuiPicker extends StatefulWidget {
   final PickerConfig config;
   final List<PickerItem> items;
   final List<String> initialSelection;
   final PickerCallback onSelect;
   final VoidCallback? onCancel;
 
-  Picker({
+  const JuiPicker({
     Key? key,
     required this.config,
     required this.items,
@@ -20,37 +20,41 @@ class Picker extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  PickerState createState() => PickerState();
+  JuiPickerState createState() => JuiPickerState();
 }
 
-class PickerState extends State<Picker> {
+class JuiPickerState extends State<JuiPicker> {
   late Set<String> _selectedKeys;
   late PickerContentBuilder _contentBuilder;
+  late PickerHeaderHandler _headerHandler;
 
   @override
   void initState() {
     super.initState();
     _selectedKeys = Set.from(widget.initialSelection);
-    _contentBuilder = PickerContentBuilderFactory.getBuilder(widget.config.style);
+    _contentBuilder = PickerContentBuilderFactory.getBuilder(widget.config.layout);
+    _headerHandler = PickerHeaderHandler(
+      config: widget.config,
+      onCancel: widget.onCancel,
+      onConfirm: _handleConfirm,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          _buildHeader(),
-          _buildContent(),
-          _buildFooter(),
-        ],
+    return ClipRRect(
+      borderRadius: widget.config.uiConfig.topBorderRadius,
+      child: Container(
+        color: widget.config.uiConfig.backgroundColor,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            _headerHandler.buildHeader(),
+            _buildContent(),
+          ],
+        ),
       ),
     );
-  }
-
-  Widget _buildHeader() {
-    // 实现标题栏
-    return Container();
   }
 
   Widget _buildContent() {
@@ -63,12 +67,6 @@ class PickerState extends State<Picker> {
       widget.config.selectionMode == SelectionMode.single ? _handleImmediateConfirm : null,
     );
   }
-
-  Widget _buildFooter() {
-    // 实现底部栏
-    return Container();
-  }
-
   void _handleItemSelection(String key) {
     setState(() {
       if (widget.config.selectionMode == SelectionMode.single) {
@@ -90,7 +88,7 @@ class PickerState extends State<Picker> {
 
   void _handleConfirm() {
     List<String> selectedValues =
-        _selectedKeys.map((key) => widget.items.firstWhere((item) => item.key == key).value).toList();
+    _selectedKeys.map((key) => widget.items.firstWhere((item) => item.key == key).value).toList();
     widget.onSelect(_selectedKeys.toList(), selectedValues);
   }
 }

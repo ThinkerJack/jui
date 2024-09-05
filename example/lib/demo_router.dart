@@ -9,7 +9,7 @@ import 'common/empty_placeholder_demo.dart';
 import 'common/expanded_text_demo.dart';
 import 'common/highlighted_text_demo.dart';
 import 'common/item_demo.dart';
-import 'common/single_picker_demo.dart';
+import 'common/picker_demo.dart';
 import 'common/tag_demo.dart';
 import 'common/title_demo.dart';
 
@@ -25,7 +25,7 @@ final demoRouterMap = <String, WidgetBuilder>{
   DemoRouter.dialogDemo: (context) => DialogDemo(),
   DemoRouter.checkBoxDemo: (context) => CheckBoxDemo(),
   DemoRouter.itemDemo: (context) => ItemDemo(),
-  DemoRouter.singlePickerDemo: (context) => SinglePickerDemo(),
+  DemoRouter.singlePickerDemo: (context) => PickerDemo(),
 };
 
 class DemoRouter {
