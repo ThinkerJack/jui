@@ -20,9 +20,9 @@ class PickerHeaderHandler {
     }
     switch (config.layout) {
       case PickerLayout.list:
-      case PickerLayout.iosWheel:
+      case PickerLayout.wheel:
         return true;
-      case PickerLayout.actionSheet:
+      case PickerLayout.action:
         return false;
       default:
         return true;

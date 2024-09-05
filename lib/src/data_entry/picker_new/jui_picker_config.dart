@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 enum PickerLayout {
   list,
-  actionSheet,
-  iosWheel,
+  action,
+  wheel,
 }
 
 enum SelectionMode {

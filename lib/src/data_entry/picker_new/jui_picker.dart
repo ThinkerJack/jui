@@ -78,19 +78,18 @@ class JuiPickerState extends State<JuiPicker> {
 
   void _handleItemSelection(PickerItemData item) {
     setState(() {
-      if (widget.config.selectionMode == SelectionMode.single) {
-        // For single selection, always select the tapped item
-        _selectedItems = [item];
-      } else {
-        // For multiple selection, toggle the selection
-        int index = _selectedItems.indexWhere((element) => element.key == item.key);
-        if (index != -1) {
-          // Item is already selected, remove it
-          _selectedItems.removeAt(index);
-        } else {
-          // Item is not selected, add it
-          _selectedItems.add(item);
-        }
+      switch (widget.config.selectionMode) {
+        case SelectionMode.single:
+          _selectedItems = [item];
+          break;
+        case SelectionMode.multiple:
+          int index = _selectedItems.indexWhere((element) => element.key == item.key);
+          if (index != -1) {
+            _selectedItems.removeAt(index);
+          } else {
+            _selectedItems.add(item);
+          }
+          break;
       }
     });
   }

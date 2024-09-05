@@ -13,18 +13,22 @@ class PickerDemo extends StatelessWidget {
       title: "复选框",
       children: [
         ElevatedButton(
-          child: Text('Show Single Select List Picker'),
-          onPressed: () => _showSingleSelectListPicker(context),
+          child: Text('Show Wheel Picker'),
+          onPressed: () => _showWheelPicker(context),
         ),
         ElevatedButton(
-          child: Text('Show Multi Select Grid Picker'),
-          onPressed: () => _showMultiSelectGridPicker(context),
+          child: Text('Show List Picker'),
+          onPressed: () => _showListPicker(context),
+        ),
+        ElevatedButton(
+          child: Text('Show Action Picker'),
+          onPressed: () => _showActionPicker(context),
         ),
       ],
     );
   }
 
-  void _showSingleSelectListPicker(BuildContext context) {
+  void _showWheelPicker(BuildContext context) {
     final items = [
       PickerItemUI(data: PickerItemData(key: '1', value: 'Apple')),
       PickerItemUI(data: PickerItemData(key: '2', value: 'Banana')),
@@ -35,7 +39,7 @@ class PickerDemo extends StatelessWidget {
     showJuiPicker(
       context: context,
       config: PickerConfig(
-        layout: PickerLayout.iosWheel,
+        layout: PickerLayout.wheel,
         headerConfig: PickerHeaderConfig(title: 'Select a Fruit'),
       ),
       items: items,
@@ -47,7 +51,7 @@ class PickerDemo extends StatelessWidget {
     );
   }
 
-  void _showMultiSelectGridPicker(BuildContext context) {
+  void _showListPicker(BuildContext context) {
     final items = [
       PickerItemUI(data: PickerItemData(key: 'red', value: 'Red')),
       PickerItemUI(data: PickerItemData(key: 'blue', value: 'Blue')),
@@ -55,6 +59,12 @@ class PickerDemo extends StatelessWidget {
       PickerItemUI(data: PickerItemData(key: 'yellow', value: 'Yellow')),
       PickerItemUI(data: PickerItemData(key: 'purple', value: 'Purple')),
       PickerItemUI(data: PickerItemData(key: 'orange', value: 'Orange')),
+      // PickerItemUI(data: PickerItemData(key: 'orange2', value: 'Orange2')),
+      // PickerItemUI(data: PickerItemData(key: 'orange3', value: 'Orange3')),
+      // PickerItemUI(data: PickerItemData(key: 'orange4', value: 'Orange4')),
+      // PickerItemUI(data: PickerItemData(key: 'orange5', value: 'Orange5')),
+      // PickerItemUI(data: PickerItemData(key: 'orange6', value: 'Orange6')),
+      // PickerItemUI(data: PickerItemData(key: 'orange7', value: 'Orange7')),
     ];
 
     showJuiPicker(
@@ -66,6 +76,38 @@ class PickerDemo extends StatelessWidget {
       ),
       items: items,
       initialSelection: [items[0].data, items[2].data],
+      // Red and Green are initially selected
+      onSelect: (selectedKeys, selectedValues) {
+        print('Selected: $selectedValues');
+      },
+    );
+  }
+
+  void _showActionPicker(BuildContext context) {
+    final items = [
+      PickerItemUI(data: PickerItemData(key: 'red', value: 'Red')),
+      PickerItemUI(data: PickerItemData(key: 'blue', value: 'Blue')),
+      PickerItemUI(data: PickerItemData(key: 'green', value: 'Green')),
+      PickerItemUI(data: PickerItemData(key: 'yellow', value: 'Yellow')),
+      PickerItemUI(data: PickerItemData(key: 'purple', value: 'Purple')),
+      PickerItemUI(data: PickerItemData(key: 'orange', value: 'Orange')),
+      // PickerItemUI(data: PickerItemData(key: 'orange2', value: 'Orange2')),
+      // PickerItemUI(data: PickerItemData(key: 'orange3', value: 'Orange3')),
+      // PickerItemUI(data: PickerItemData(key: 'orange4', value: 'Orange4')),
+      // PickerItemUI(data: PickerItemData(key: 'orange5', value: 'Orange5')),
+      // PickerItemUI(data: PickerItemData(key: 'orange6', value: 'Orange6')),
+      // PickerItemUI(data: PickerItemData(key: 'orange7', value: 'Orange7')),
+    ];
+
+    showJuiPicker(
+      context: context,
+      config: PickerConfig(
+        layout: PickerLayout.action,
+        selectionMode: SelectionMode.single,
+        headerConfig: PickerHeaderConfig(title: 'Select Colors'),
+      ),
+      items: items,
+      initialSelection: [items[0].data],
       // Red and Green are initially selected
       onSelect: (selectedKeys, selectedValues) {
         print('Selected: $selectedValues');
