@@ -21,8 +21,6 @@ class PickerContentBuilderFactory {
         return CupertinoPickerBuilder();
       case PickerLayout.list:
         return ListPickerBuilder();
-      case PickerLayout.multiWheel:
-        return MultiCupertinoPickerBuilder();
       case PickerLayout.actionSheet:
         throw UnimplementedError('未实现的 PickerStyle: $style');
       default:
@@ -105,41 +103,3 @@ class ListPickerBuilder implements PickerContentBuilder {
   }
 }
 
-class MultiCupertinoPickerBuilder implements PickerContentBuilder {
-  @override
-  Widget build(
-      BuildContext context,
-      List<PickerItemUI> items,
-      List<PickerItemData> selectedItems,
-      PickerConfig config,
-      Function(PickerItemData) onItemTap,
-      Function(PickerItemData)? onImmediateConfirm
-      ) {
-    List<List<PickerItemUI>> columns = items.map((item) => item.data.value as List<PickerItemUI>).toList();
-
-    return ConstrainedBox(
-      constraints: BoxConstraints(maxHeight: 225),
-      child: Row(
-        children: [
-          for (int i = 0; i < columns.length; i++)
-            Expanded(
-              child: CupertinoPicker(
-                scrollController: FixedExtentScrollController(
-                  initialItem: selectedItems.isNotEmpty && i < selectedItems.length
-                      ? columns[i].indexWhere((item) => item.data.key == selectedItems[i].key)
-                      : 0,
-                ),
-                itemExtent: 32,
-                onSelectedItemChanged: (index) {
-                  onItemTap(columns[i][index].data);
-                },
-                children: columns[i].map((item) => Center(
-                  child: Text(item.data.value),
-                )).toList(),
-              ),
-            ),
-        ],
-      ),
-    );
-  }
-}

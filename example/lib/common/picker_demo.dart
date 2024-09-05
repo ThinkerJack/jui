@@ -20,10 +20,6 @@ class PickerDemo extends StatelessWidget {
           child: Text('Show Multi Select Grid Picker'),
           onPressed: () => _showMultiSelectGridPicker(context),
         ),
-        ElevatedButton(
-          child: Text('Show Multi Wheel Picker'),
-          onPressed: () => _showMultiWheelPicker(context),
-        ),
       ],
     );
   }
@@ -43,7 +39,8 @@ class PickerDemo extends StatelessWidget {
         headerConfig: PickerHeaderConfig(title: 'Select a Fruit'),
       ),
       items: items,
-      initialSelection: [items[1].data], // Banana is initially selected
+      initialSelection: [items[1].data],
+      // Banana is initially selected
       onSelect: (selectedKeys, selectedValues) {
         print('Selected: $selectedValues');
       },
@@ -68,43 +65,8 @@ class PickerDemo extends StatelessWidget {
         headerConfig: PickerHeaderConfig(title: 'Select Colors'),
       ),
       items: items,
-      initialSelection: [items[0].data, items[2].data], // Red and Green are initially selected
-      onSelect: (selectedKeys, selectedValues) {
-        print('Selected: $selectedValues');
-      },
-    );
-  }
-
-  void _showMultiWheelPicker(BuildContext context) {
-    final yearItems = [
-      PickerItemUI(data: PickerItemData(key: '2023', value: '2023')),
-      PickerItemUI(data: PickerItemData(key: '2024', value: '2024')),
-      PickerItemUI(data: PickerItemData(key: '2025', value: '2025')),
-    ];
-
-    final monthItems = [
-      PickerItemUI(data: PickerItemData(key: '1', value: 'Jan')),
-      PickerItemUI(data: PickerItemData(key: '2', value: 'Feb')),
-      PickerItemUI(data: PickerItemData(key: '3', value: 'Mar')),
-      // Add more months...
-    ];
-
-    final items = [
-      PickerItemUI(data: PickerItemData(key: 'year', value: '年')),
-      PickerItemUI(data: PickerItemData(key: 'month', value: '月')),
-    ];
-
-    showJuiPicker(
-      context: context,
-      config: PickerConfig(
-        layout: PickerLayout.multiWheel,
-        headerConfig: PickerHeaderConfig(title: 'Select Date'),
-      ),
-      items: items,
-      initialSelection: [
-        PickerItemData(key: '2024', value: '2024'),
-        PickerItemData(key: '2', value: 'Feb')
-      ],
+      initialSelection: [items[0].data, items[2].data],
+      // Red and Green are initially selected
       onSelect: (selectedKeys, selectedValues) {
         print('Selected: $selectedValues');
       },

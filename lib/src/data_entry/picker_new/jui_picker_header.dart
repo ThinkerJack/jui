@@ -21,7 +21,6 @@ class PickerHeaderHandler {
     switch (config.layout) {
       case PickerLayout.list:
       case PickerLayout.iosWheel:
-      case PickerLayout.multiWheel:
         return true;
       case PickerLayout.actionSheet:
         return false;

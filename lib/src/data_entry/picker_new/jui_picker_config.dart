@@ -4,7 +4,6 @@ enum PickerLayout {
   list,
   actionSheet,
   iosWheel,
-  multiWheel,
 }
 
 enum SelectionMode {
