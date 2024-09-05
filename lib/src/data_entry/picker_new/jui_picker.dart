@@ -5,8 +5,8 @@ import 'package:jui/src/data_entry/picker_new/jui_picker_header.dart';
 
 class JuiPicker extends StatefulWidget {
   final PickerConfig config;
-  final List<PickerItem> items;
-  final List<String> initialSelection;
+  final List<PickerItemUI> items;
+  final List<PickerItemData> initialSelection;
   final PickerCallback onSelect;
   final VoidCallback? onCancel;
 
@@ -24,20 +24,28 @@ class JuiPicker extends StatefulWidget {
 }
 
 class JuiPickerState extends State<JuiPicker> {
-  late Set<String> _selectedKeys;
+  late List<PickerItemData> _selectedItems;
   late PickerContentBuilder _contentBuilder;
   late PickerHeaderHandler _headerHandler;
 
   @override
   void initState() {
     super.initState();
-    _selectedKeys = Set.from(widget.initialSelection);
+    _initializeSelection();
     _contentBuilder = PickerContentBuilderFactory.getBuilder(widget.config.layout);
     _headerHandler = PickerHeaderHandler(
       config: widget.config,
       onCancel: widget.onCancel,
       onConfirm: _handleConfirm,
     );
+  }
+
+  void _initializeSelection() {
+    if (widget.initialSelection.isEmpty && widget.config.selectionMode == SelectionMode.single) {
+      _selectedItems = [widget.items.first.data];
+    } else {
+      _selectedItems = List.from(widget.initialSelection);
+    }
   }
 
   @override
@@ -61,34 +69,40 @@ class JuiPickerState extends State<JuiPicker> {
     return _contentBuilder.build(
       context,
       widget.items,
-      _selectedKeys,
+      _selectedItems,
       widget.config,
       _handleItemSelection,
       widget.config.selectionMode == SelectionMode.single ? _handleImmediateConfirm : null,
     );
   }
-  void _handleItemSelection(String key) {
+
+  void _handleItemSelection(PickerItemData item) {
     setState(() {
       if (widget.config.selectionMode == SelectionMode.single) {
-        _selectedKeys = {key};
+        // For single selection, always select the tapped item
+        _selectedItems = [item];
       } else {
-        if (_selectedKeys.contains(key)) {
-          _selectedKeys.remove(key);
+        // For multiple selection, toggle the selection
+        int index = _selectedItems.indexWhere((element) => element.key == item.key);
+        if (index != -1) {
+          // Item is already selected, remove it
+          _selectedItems.removeAt(index);
         } else {
-          _selectedKeys.add(key);
+          // Item is not selected, add it
+          _selectedItems.add(item);
         }
       }
     });
   }
 
-  void _handleImmediateConfirm(String key) {
-    _handleItemSelection(key);
+  void _handleImmediateConfirm(PickerItemData item) {
+    _handleItemSelection(item);
     _handleConfirm();
   }
 
   void _handleConfirm() {
-    List<String> selectedValues =
-    _selectedKeys.map((key) => widget.items.firstWhere((item) => item.key == key).value).toList();
-    widget.onSelect(_selectedKeys.toList(), selectedValues);
+    List<String> selectedKeys = _selectedItems.map((item) => item.key).toList();
+    List<String> selectedValues = _selectedItems.map((item) => item.value).toList();
+    widget.onSelect(selectedKeys, selectedValues);
   }
 }

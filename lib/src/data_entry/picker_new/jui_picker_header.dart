@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jui/src/data_entry/picker_new/jui_picker_config.dart';
 
 import '../../utils/jui_theme.dart';
+
 class PickerHeaderHandler {
   final PickerConfig config;
   final VoidCallback? onCancel;
@@ -19,10 +20,13 @@ class PickerHeaderHandler {
     }
     switch (config.layout) {
       case PickerLayout.list:
-      case PickerLayout.grid:
+      case PickerLayout.iosWheel:
+      case PickerLayout.multiWheel:
         return true;
       case PickerLayout.actionSheet:
         return false;
+      default:
+        return true;
     }
   }
 
@@ -30,7 +34,7 @@ class PickerHeaderHandler {
     if (config.headerConfig.showConfirmButton != null) {
       return config.headerConfig.showConfirmButton!;
     }
-    if (config.selectionMode == SelectionMode.single && config.layout == PickerLayout.grid) {
+    if (config.selectionMode == SelectionMode.single && config.layout == PickerLayout.list) {
       return false;
     }
     return true; // 多选模式下默认显示确认按钮

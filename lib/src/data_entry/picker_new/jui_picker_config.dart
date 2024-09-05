@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 enum PickerLayout {
   list,
-  grid,
   actionSheet,
+  iosWheel,
+  multiWheel,
 }
 
 enum SelectionMode {
@@ -12,7 +13,6 @@ enum SelectionMode {
 }
 
 class PickerUIConfig {
-  // 弹出框整体控制
   final BorderRadius? topBorderRadius;
   final Color backgroundColor;
   final double? maxHeight;
@@ -66,12 +66,19 @@ class PickerConfig {
   });
 }
 
-class PickerItem {
+class PickerItemData {
   final String key;
   final String value;
-  final Widget? icon;
 
-  PickerItem({required this.key, required this.value, this.icon});
+  PickerItemData({required this.key, required this.value});
+}
+
+class PickerItemUI {
+  final PickerItemData data;
+  final Widget? icon;
+  final VoidCallback? onTap;
+
+  PickerItemUI({required this.data, this.icon, this.onTap});
 }
 
 typedef PickerCallback = void Function(List<String> selectedKeys, List<String> selectedValues);

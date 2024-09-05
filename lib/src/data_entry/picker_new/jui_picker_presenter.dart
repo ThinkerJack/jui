@@ -1,3 +1,4 @@
+// jui_picker_presenter.dart
 import 'package:flutter/material.dart';
 import 'package:jui/src/data_entry/picker_new/jui_picker.dart';
 import 'package:jui/src/data_entry/picker_new/jui_picker_config.dart';
@@ -5,9 +6,9 @@ import 'package:jui/src/data_entry/picker_new/jui_picker_config.dart';
 Future<void> showJuiPicker({
   required BuildContext context,
   required PickerConfig config,
-  required List<PickerItem> items,
+  required List<PickerItemUI> items,
   required PickerCallback onSelect,
-  List<String> initialSelection = const [],
+  List<PickerItemData> initialSelection = const [],
   VoidCallback? onCancel,
 }) {
   return showModalBottomSheet(
