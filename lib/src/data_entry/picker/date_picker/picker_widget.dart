@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:jui/src/data_entry/picker/date_picker/common/picker_date_to_string.dart';
+import 'package:intl/intl.dart';
 import 'package:jui/src/utils/extension.dart';
 
-import '../../../../../generated/assets.dart';
-import '../../../../utils/jui_theme.dart';
-import '../date_picker_func.dart';
+import '../../../../generated/assets.dart';
+import '../../../utils/jui_theme.dart';
+import 'date_picker_func.dart';
 
 /// 日期选择标题栏组件，包括取消、确定按钮及标题
 class DateProcessTitle extends StatelessWidget {
@@ -120,7 +120,6 @@ class DatePickerSliding extends StatelessWidget {
 
   dynamic getLine() {
     switch (type) {
-      case DatePickerType.SINGLE_YMD:
       case DatePickerType.scrollYMD:
         return Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -226,7 +225,6 @@ class CommonTimeTitle extends StatelessWidget {
   Widget buildEndWidget(BuildContext context) {
     bool endTimeIsNotNull = endTime.value != null;
     switch (type) {
-      case DatePickerType.SINGLE_YMD:
       case DatePickerType.scrollYMD:
         return Container(
           color: Colors.white,
@@ -260,7 +258,6 @@ class CommonTimeTitle extends StatelessWidget {
             ],
           ),
         );
-      case DatePickerType.YMDWHM:
       case DatePickerType.scrollYMDWHM:
         return Container(
           color: Colors.white,
@@ -303,7 +300,6 @@ class CommonTimeTitle extends StatelessWidget {
   Widget buildStartWidget(BuildContext context) {
     bool startTimeIsNotNull = startTime != null;
     switch (type) {
-      case DatePickerType.SINGLE_YMD:
       case DatePickerType.scrollYMD:
         return Container(
           color: Colors.white,
@@ -337,7 +333,6 @@ class CommonTimeTitle extends StatelessWidget {
             ],
           ),
         );
-      case DatePickerType.YMDWHM:
       case DatePickerType.scrollYMDWHM:
         return Container(
           color: Colors.white,
@@ -401,11 +396,10 @@ class PickerEmptyWidget extends StatelessWidget {
   }
 }
 
-
 TextStyle _leftTextStyle = TextStyle(fontSize: 14, color: JuiColors().textSecondary, height: 1.5);
 
 TextStyle _rightTextDefaultStyle =
-TextStyle(fontSize: 14, color: JuiColors().primary, height: 1.5, fontWeight: FontWeight.w500);
+    TextStyle(fontSize: 14, color: JuiColors().primary, height: 1.5, fontWeight: FontWeight.w500);
 
 class PickerTitle extends StatelessWidget {
   const PickerTitle({
@@ -575,5 +569,235 @@ class VVCupertinoPicker extends StatelessWidget {
       ),
     );
   }
+}
 
+enum RangeType { hasMin, hasMax, common, hasMinAndMax }
+
+List<String> getYearList(DateTime initDate, {RangeType type = RangeType.common, int? minYear, int? maxYear}) {
+  List<String> list = [];
+  int start, end;
+
+  switch (type) {
+    case RangeType.common:
+      start = initDate.year - 50;
+      end = initDate.year + 50;
+      break;
+    case RangeType.hasMin:
+      start = minYear!;
+      end = minYear + 100;
+      break;
+    case RangeType.hasMax:
+      start = maxYear! - 100;
+      end = maxYear;
+      break;
+    case RangeType.hasMinAndMax:
+      start = minYear!;
+      end = maxYear!;
+      break;
+  }
+
+  for (int i = start; i <= end; i++) {
+    list.add(i.toString());
+  }
+
+  return list;
+}
+
+List<String> getMonthList({RangeType type = RangeType.common, int minMonth = 1, int maxMonth = 12}) {
+  List<String> list = [];
+  int start, end;
+
+  switch (type) {
+    case RangeType.common:
+      start = 1;
+      end = 12;
+      break;
+    case RangeType.hasMin:
+      start = minMonth;
+      end = 12;
+      break;
+    case RangeType.hasMax:
+      start = 1;
+      end = maxMonth;
+      break;
+    case RangeType.hasMinAndMax:
+      start = minMonth;
+      end = maxMonth;
+      break;
+  }
+
+  for (int i = start; i <= end; i++) {
+    list.add(i.toString().padLeft(2, "0"));
+  }
+
+  return list;
+}
+
+List<String> getDayList({RangeType type = RangeType.common, int? startDay, int? days, required DateTime date}) {
+  List<String> list = [];
+  int totalDays = DateTime(date.year, date.month + 1, 0).day;
+  int start = type == RangeType.hasMin ? (startDay ?? 1) : 1;
+  int end = type == RangeType.hasMax ? (days ?? totalDays) : totalDays;
+
+  for (int i = start; i <= end; i++) {
+    list.add(i.toString().padLeft(2, "0"));
+  }
+
+  return list;
+}
+
+List<String> getEndYearList(DateTime startDate) {
+  return getYearList(startDate, type: RangeType.hasMin, minYear: startDate.year);
+}
+
+List<String> getEndMonthList(DateTime startTime, DateTime endTime, Duration timeGap) {
+  if (endTime.year == startTime.add(timeGap).year) {
+    return getMonthList(minMonth: startTime.add(timeGap).month, type: RangeType.hasMin);
+  } else {
+    return getMonthList();
+  }
+}
+
+List<String> getEndDayList(DateTime startTime, DateTime endTime, Duration timeGap) {
+  if (endTime.year == startTime.add(timeGap).year && endTime.month == startTime.add(timeGap).month) {
+    return getDayList(type: RangeType.hasMin, startDay: startTime.add(timeGap).day, date: endTime);
+  } else {
+    return getDayList(date: endTime);
+  }
+}
+
+List<String> getHourList() {
+  return List.generate(24, (i) => i.toString().padLeft(2, "0"));
+}
+
+List<String> getEndHourList(DateTime startTime, DateTime endTime, Duration timeGap) {
+  if (endTime.year == startTime.add(timeGap).year &&
+      endTime.month == startTime.add(timeGap).month &&
+      endTime.day == startTime.add(timeGap).day) {
+    int startHour = startTime.add(timeGap).hour;
+    return List.generate(24 - startHour, (i) => (startHour + i).toString().padLeft(2, "0"));
+  } else {
+    return getHourList();
+  }
+}
+
+List<String> getMinuteList() {
+  return List.generate(60, (i) => i.toString().padLeft(2, "0"));
+}
+
+List<String> getEndMinuteList(DateTime startTime, DateTime endTime, Duration timeGap) {
+  if (endTime.year == startTime.add(timeGap).year &&
+      endTime.month == startTime.add(timeGap).month &&
+      endTime.day == startTime.add(timeGap).day &&
+      endTime.hour == startTime.add(timeGap).hour) {
+    int startMinute = startTime.add(timeGap).minute;
+    return List.generate(60 - startMinute, (i) => (startMinute + i).toString().padLeft(2, "0"));
+  } else {
+    return getMinuteList();
+  }
+}
+
+List<String> getYMDWList(DateTime date, BuildContext context) {
+  return List.generate(731, (i) => getYMDWText(date.add(Duration(days: i - 365)), context));
+}
+
+List<String> getEndYMDWList(DateTime startDate, BuildContext context) {
+  return List.generate(731, (i) => getYMDWText(startDate.add(Duration(days: i)), context));
+}
+
+String getMinuteText(DateTime date) {
+  return date.minute.toString().padLeft(2, "0");
+}
+
+String getHourText(DateTime date) {
+  return date.hour.toString().padLeft(2, "0");
+}
+
+String getMonthText(DateTime date) {
+  return date.month.toString().padLeft(2, "0");
+}
+
+String getDayText(DateTime date) {
+  return date.day.toString().padLeft(2, "0");
+}
+
+String getYMDWText(DateTime date, context, {bool isAbbreviation = false}) {
+  return '${getDateStringFromDate(date, 'yyyy-MM-dd')} ${getWeekString(date.weekday, context, isAbbreviation: isAbbreviation)}';
+}
+
+String getMDWText(DateTime date, context) {
+  return "${getMonthText(date)}${"月"}${getDayText(date)}${"日"} ${getWeekString(date.weekday, context)}";
+}
+
+String getYMDText(DateTime date, context) {
+  return "${date.year}${"年"}${getMonthText(date)}${"月"}${getDayText(date)}${"日"}";
+}
+
+String getWText(DateTime date, context) {
+  return getWeekString(date.weekday, context);
+}
+
+String getHMText(DateTime date) {
+  return "${getHourText(date)}:${getMinuteText(date)}";
+}
+
+String getWeekString(int weekIndex, context, {bool isAbbreviation = false}) {
+  if (isAbbreviation) {
+    final abbreviationWeekArray = [
+      "周一",
+      "周二",
+      "周三",
+      "周四",
+      "周五",
+      "周六",
+      "周日",
+    ];
+    if (abbreviationWeekArray.length > weekIndex - 1) {
+      return abbreviationWeekArray[weekIndex - 1];
+    }
+  } else {
+    final weekArray = [
+      "周一",
+      "周二",
+      "周三",
+      "周四",
+      "周五",
+      "周六",
+      "周日",
+    ];
+    if (weekArray.length > weekIndex - 1) {
+      return weekArray[weekIndex - 1];
+    }
+  }
+
+  return '';
+}
+
+String getDateStringFromDate(DateTime date, String formatterString) {
+  return DateFormat(formatterString).format(date);
+}
+
+extension CustomDateTimeExtension on DateTime {
+  bool isSameDay(DateTime date) {
+    final dateFormat = DateFormat("yyyy-MM-dd");
+    final date1 = dateFormat.format(this);
+    final date2 = dateFormat.format(date);
+    return date1 == date2;
+  }
+}
+
+class TimeRange {
+  final DateTime? min; //开始时间最小值 开始时间最大值默认当天
+  final DateTime? max; //结束时间最大值 结束时间最小值由开始时间推算
+
+  const TimeRange({required this.min, required this.max});
+}
+
+Duration getDefaultTimeGap(DatePickerType unit) {
+  switch (unit) {
+    case DatePickerType.scrollYMD:
+      return const Duration(days: 1);
+    default:
+      return const Duration(minutes: 1);
+  }
 }

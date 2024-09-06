@@ -9,9 +9,9 @@ import 'common/empty_placeholder_demo.dart';
 import 'common/expanded_text_demo.dart';
 import 'common/highlighted_text_demo.dart';
 import 'common/item_demo.dart';
-import 'common/picker_demo.dart';
+import 'common/select_picker_demo.dart';
 import 'common/tag_demo.dart';
-import 'common/title_demo.dart';
+import 'common/date_picker_demo.dart';
 
 final demoRouterMap = <String, WidgetBuilder>{
   DemoRouter.mainPage: (context) => const MainPage(),
@@ -21,11 +21,12 @@ final demoRouterMap = <String, WidgetBuilder>{
   DemoRouter.tagDemo: (context) => TagDemo(),
   DemoRouter.expandedTextDemo: (context) => ExpandedTextDemo(),
   DemoRouter.highlightedTextDemo: (context) => HighlightedTextDemo(),
-  DemoRouter.titleDemo: (context) => TitleDemo(),
+  DemoRouter.titleDemo: (context) => DatePickerDemo(),
   DemoRouter.dialogDemo: (context) => DialogDemo(),
   DemoRouter.checkBoxDemo: (context) => CheckBoxDemo(),
   DemoRouter.itemDemo: (context) => ItemDemo(),
   DemoRouter.singlePickerDemo: (context) => PickerDemo(),
+  DemoRouter.datePickerDemo: (context) => DatePickerDemo(),
 };
 
 class DemoRouter {
@@ -41,4 +42,5 @@ class DemoRouter {
   static const String checkBoxDemo = "CheckBoxDemo";
   static const String itemDemo = "ItemDemo";
   static const String singlePickerDemo = "SinglePickerDemo";
+  static const String datePickerDemo = "DatePickerDemo";
 }

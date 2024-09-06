@@ -1,26 +1,36 @@
+// lib/src/data_entry/jui_date_picker/jui_range_date_picker.dart
+
 import 'package:flutter/material.dart';
 
-import 'date_picker_func.dart';
-import 'mv_date_picker_vm.dart';
-import 'picker_widget.dart';
+import 'jui_date_picker_types.dart';
+import 'jui_range_date_picker_vm.dart';
+import 'jui_date_picker_components.dart';
+import 'jui_date_picker_utils.dart';
 
-class MVScrollDatePicker extends StatefulWidget {
-  const MVScrollDatePicker({super.key, required this.onDone, required this.type, this.startTime, this.endTime});
+class JuiRangeDatePicker extends StatefulWidget {
+  const JuiRangeDatePicker({
+    super.key,
+    required this.onDone,
+    required this.mode,
+    this.startTime,
+    this.endTime
+  });
 
-  final Function(DateTime startTime, DateTime? endTime) onDone; //点击确定调用
-  final DatePickerType type; //选择器类型
-  final DateTime? startTime; //开始时间
-  final DateTime? endTime; //结束时间
+  final Function(DateTime startTime, DateTime? endTime) onDone;
+  final JuiDatePickerMode mode;
+  final DateTime? startTime;
+  final DateTime? endTime;
+
   @override
-  State<MVScrollDatePicker> createState() => _MVScrollDatePickerState();
+  State<JuiRangeDatePicker> createState() => _JuiRangeDatePickerState();
 }
 
-class _MVScrollDatePickerState extends State<MVScrollDatePicker> {
-  late MVScrollDatePickerVM vm;
+class _JuiRangeDatePickerState extends State<JuiRangeDatePicker> {
+  late JuiRangeDatePickerVM vm;
 
   @override
   void initState() {
-    vm = MVScrollDatePickerVM();
+    vm = JuiRangeDatePickerVM();
     vm.init(widget);
     super.initState();
   }
@@ -33,22 +43,20 @@ class _MVScrollDatePickerState extends State<MVScrollDatePicker> {
         constraints: BoxConstraints(maxHeight: 370, minWidth: 37),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(
-              16,
-            ),
+            topLeft: Radius.circular(16),
             topRight: Radius.circular(16),
           ),
           color: Colors.white,
         ),
         child: Column(
           children: [
-            DateProcessTitle(
+            JuiDateProcessTitle(
                 time: vm.endTime,
                 onDone: () {
                   Navigator.pop(context);
                   widget.onDone(vm.startTime.value!, vm.endTime.value);
                 }),
-            const Divider(thickness: 0.5, color: Color.fromRGBO(0, 0, 0, 0.04)),
+            const JuiPickerDivider(),
             ValueListenableBuilder(
                 key: UniqueKey(),
                 valueListenable: vm.startTime,
@@ -61,7 +69,7 @@ class _MVScrollDatePickerState extends State<MVScrollDatePicker> {
                             key: UniqueKey(),
                             valueListenable: vm.startOrEndFlag,
                             builder: (context, value, child) {
-                              return CommonTimeTitle(
+                              return JuiCommonTimeTitle(
                                 startOrEndFlag: vm.startOrEndFlag,
                                 endTime: vm.endTime,
                                 tapStart: () {
@@ -70,19 +78,19 @@ class _MVScrollDatePickerState extends State<MVScrollDatePicker> {
                                 tapEnd: () {
                                   vm.tapEndTime();
                                 },
-                                type: widget.type,
+                                mode: widget.mode,
                                 startTime: vm.startTime.value!,
                               );
                             });
                       });
                 }),
-            DatePickerSliding(
+            JuiDatePickerSliding(
               picker: ValueListenableBuilder(
                   valueListenable: vm.startOrEndFlag,
                   builder: (context, value, child) {
                     return vm.startOrEndFlag.value ? getStartPickerList() : getEndPickerList();
                   }),
-              type: widget.type,
+              mode: widget.mode,
             ),
           ],
         ),
@@ -91,13 +99,13 @@ class _MVScrollDatePickerState extends State<MVScrollDatePicker> {
   }
 
   Widget getStartPickerList() {
-    switch (widget.type) {
-      case DatePickerType.scrollYMD:
+    switch (widget.mode) {
+      case JuiDatePickerMode.scrollYMD:
         vm.initStartController(context);
         return Row(
           children: [
             Expanded(
-              child: VVCupertinoPicker(
+              child: JuiCupertinoPicker(
                 key: UniqueKey(),
                 scrollEnd: () {
                   vm.updateStartYearOrMonth();
@@ -108,7 +116,7 @@ class _MVScrollDatePickerState extends State<MVScrollDatePicker> {
               ),
             ),
             Expanded(
-              child: VVCupertinoPicker(
+              child: JuiCupertinoPicker(
                 key: UniqueKey(),
                 scrollEnd: () {
                   vm.updateStartYearOrMonth();
@@ -123,7 +131,7 @@ class _MVScrollDatePickerState extends State<MVScrollDatePicker> {
                     key: UniqueKey(),
                     valueListenable: vm.startMonthChange,
                     builder: (context, value, child) {
-                      return VVCupertinoPicker(
+                      return JuiCupertinoPicker(
                         scrollEnd: () {
                           vm.updateStartTimeByDay();
                         },
@@ -134,13 +142,13 @@ class _MVScrollDatePickerState extends State<MVScrollDatePicker> {
                     })),
           ],
         );
-      case DatePickerType.scrollYMDWHM:
+      case JuiDatePickerMode.scrollYMDWHM:
         vm.initStartController(context);
         return Row(
           children: [
             Expanded(
               flex: 3,
-              child: VVCupertinoPicker(
+              child: JuiCupertinoPicker(
                 key: UniqueKey(),
                 scrollEnd: () {
                   vm.updateStartByYMDW(context);
@@ -151,7 +159,7 @@ class _MVScrollDatePickerState extends State<MVScrollDatePicker> {
               ),
             ),
             Expanded(
-              child: VVCupertinoPicker(
+              child: JuiCupertinoPicker(
                 key: UniqueKey(),
                 scrollEnd: () {
                   vm.updateStartByYMDW(context);
@@ -162,15 +170,15 @@ class _MVScrollDatePickerState extends State<MVScrollDatePicker> {
               ),
             ),
             Expanded(
-                child: VVCupertinoPicker(
-              key: UniqueKey(),
-              scrollEnd: () {
-                vm.updateStartByYMDW(context);
-              },
-              childCount: 60,
-              textList: getMinuteList(),
-              controller: vm.startMinuteController,
-            )),
+                child: JuiCupertinoPicker(
+                  key: UniqueKey(),
+                  scrollEnd: () {
+                    vm.updateStartByYMDW(context);
+                  },
+                  childCount: 60,
+                  textList: getMinuteList(),
+                  controller: vm.startMinuteController,
+                )),
           ],
         );
       default:
@@ -179,27 +187,27 @@ class _MVScrollDatePickerState extends State<MVScrollDatePicker> {
   }
 
   Widget getEndPickerList() {
-    switch (widget.type) {
-      case DatePickerType.scrollYMD:
+    switch (widget.mode) {
+      case JuiDatePickerMode.scrollYMD:
         vm.initEndController(context);
         return Row(
           children: [
             Expanded(
-                child: VVCupertinoPicker(
-              key: UniqueKey(),
-              scrollEnd: () {
-                vm.updateEndTimeByYear();
-              },
-              childCount: 100,
-              textList: vm.endYearList(),
-              controller: vm.endYearController,
-            )),
+                child: JuiCupertinoPicker(
+                  key: UniqueKey(),
+                  scrollEnd: () {
+                    vm.updateEndTimeByYear();
+                  },
+                  childCount: 100,
+                  textList: vm.endYearList(),
+                  controller: vm.endYearController,
+                )),
             Expanded(
               child: ValueListenableBuilder(
                   key: UniqueKey(),
                   valueListenable: vm.endYearChange,
                   builder: (context, value, child) {
-                    return VVCupertinoPicker(
+                    return JuiCupertinoPicker(
                       scrollEnd: () {
                         vm.updateEndTimeByMonth();
                       },
@@ -218,7 +226,7 @@ class _MVScrollDatePickerState extends State<MVScrollDatePicker> {
                           key: UniqueKey(),
                           valueListenable: vm.endYearChange,
                           builder: (context, value, child) {
-                            return VVCupertinoPicker(
+                            return JuiCupertinoPicker(
                               scrollEnd: () {
                                 vm.updateEndByMinute(context);
                               },
@@ -230,13 +238,13 @@ class _MVScrollDatePickerState extends State<MVScrollDatePicker> {
                     })),
           ],
         );
-      case DatePickerType.scrollYMDWHM:
+      case JuiDatePickerMode.scrollYMDWHM:
         vm.initEndController(context);
         return Row(
           children: [
             Expanded(
               flex: 3,
-              child: VVCupertinoPicker(
+              child: JuiCupertinoPicker(
                 key: UniqueKey(),
                 scrollEnd: () {
                   vm.updateEndByYMDW(context);
@@ -251,7 +259,7 @@ class _MVScrollDatePickerState extends State<MVScrollDatePicker> {
                     key: UniqueKey(),
                     valueListenable: vm.endYMDWChange,
                     builder: (context, value, child) {
-                      return VVCupertinoPicker(
+                      return JuiCupertinoPicker(
                         scrollEnd: () {
                           vm.updateEndByHour(context);
                         },
@@ -269,7 +277,7 @@ class _MVScrollDatePickerState extends State<MVScrollDatePicker> {
                           key: UniqueKey(),
                           valueListenable: vm.endHourChange,
                           builder: (context, value, child) {
-                            return VVCupertinoPicker(
+                            return JuiCupertinoPicker(
                               scrollEnd: () {
                                 vm.updateEndByMinute(context);
                               },

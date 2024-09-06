@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:jui/src/utils/jui_theme.dart';
 
-import 'jui_picker_config.dart';
+import '../../../../data_entry.dart';
 
-class PickerHeaderHandler {
-  final PickerConfig config;
+class JuiSelectPickerHeaderHandler {
+  final JuiSelectPickerConfig config;
   final VoidCallback? onCancel;
   final VoidCallback onConfirm;
 
-  PickerHeaderHandler({
+  JuiSelectPickerHeaderHandler({
     required this.config,
     required this.onCancel,
     required this.onConfirm,
@@ -20,16 +20,16 @@ class PickerHeaderHandler {
 
   bool _shouldShowHeaderByDefault() {
     switch (config.layout) {
-      case PickerLayout.list:
-      case PickerLayout.wheel:
+      case JuiSelectPickerLayout.list:
+      case JuiSelectPickerLayout.wheel:
         return true;
-      case PickerLayout.action:
+      case JuiSelectPickerLayout.action:
         return false;
     }
   }
 
   bool _shouldShowConfirmButtonByDefault() {
-    if (config.selectionMode == SelectionMode.single && config.layout == PickerLayout.list) {
+    if (config.selectionMode == SelectionMode.single && config.layout == JuiSelectPickerLayout.list) {
       return false;
     }
     return true;
@@ -41,7 +41,7 @@ class PickerHeaderHandler {
     }
 
     return config.headerConfig.customHeader ??
-        PickerHeader(
+        JuiSelectPickerHeader(
           title: config.headerConfig.title,
           titleLeftText: config.headerConfig.cancelText,
           titleRightText: shouldShowConfirmButton ? config.headerConfig.confirmText : null,
@@ -53,7 +53,7 @@ class PickerHeaderHandler {
   }
 }
 
-class PickerHeader extends StatelessWidget {
+class JuiSelectPickerHeader extends StatelessWidget {
   final String title;
   final String? titleLeftText;
   final String? titleRightText;
@@ -62,7 +62,7 @@ class PickerHeader extends StatelessWidget {
   final TextStyle? rightTextStyle;
   final TextStyle? leftTextStyle;
 
-  const PickerHeader({
+  const JuiSelectPickerHeader({
     Key? key,
     required this.title,
     this.titleLeftText,
@@ -104,7 +104,7 @@ class PickerHeader extends StatelessWidget {
     return TextButton(
       onPressed: onTap,
       style: TextButton.styleFrom(
-        padding: PickerUIHelper.headerPadding,
+        padding: JuiSelectPickerUIHelper.headerPadding,
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       ),
       child: Text(text, style: textStyle),

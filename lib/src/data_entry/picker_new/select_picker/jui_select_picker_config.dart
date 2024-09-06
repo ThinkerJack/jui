@@ -1,8 +1,8 @@
-// jui_picker_config.dart
+// jui_select_picker_config.dart
 
 import 'package:flutter/material.dart';
 
-enum PickerLayout {
+enum JuiSelectPickerLayout {
   list,
   action,
   wheel,
@@ -13,7 +13,7 @@ enum SelectionMode {
   multiple,
 }
 
-class PickerUIHelper {
+class JuiSelectPickerUIHelper {
   static const double itemExtent = 52.0;
   static const double maxHeight = 650.0;
   static const double headerFontSize = 16.0;
@@ -31,18 +31,18 @@ class PickerUIHelper {
   static const String defaultConfirmText = '确定';
 
   // 动态获取最大高度的方法
-  static double getMaxHeight(PickerLayout layout) {
+  static double getMaxHeight(JuiSelectPickerLayout layout) {
     switch (layout) {
-      case PickerLayout.wheel:
+      case JuiSelectPickerLayout.wheel:
         return 225.0; // CupertinoPicker 的默认高度
-      case PickerLayout.list:
-      case PickerLayout.action:
+      case JuiSelectPickerLayout.list:
+      case JuiSelectPickerLayout.action:
         return 600.0;
     }
   }
 }
 
-class PickerUIConfig {
+class JuiSelectPickerUIConfig {
   final BorderRadius topBorderRadius;
   final Color backgroundColor;
   final double maxHeight;
@@ -52,19 +52,19 @@ class PickerUIConfig {
   final TextStyle? itemTextStyle;
   final Color? selectedItemColor;
 
-  const PickerUIConfig({
-    this.topBorderRadius = PickerUIHelper.defaultTopBorderRadius,
-    this.backgroundColor = PickerUIHelper.defaultBackgroundColor,
-    this.maxHeight = PickerUIHelper.maxHeight,
-    this.barrierColor = PickerUIHelper.defaultBarrierColor,
-    this.isScrollControlled = PickerUIHelper.defaultIsScrollControlled,
-    this.enableDrag = PickerUIHelper.defaultEnableDrag,
+  const JuiSelectPickerUIConfig({
+    this.topBorderRadius = JuiSelectPickerUIHelper.defaultTopBorderRadius,
+    this.backgroundColor = JuiSelectPickerUIHelper.defaultBackgroundColor,
+    this.maxHeight = JuiSelectPickerUIHelper.maxHeight,
+    this.barrierColor = JuiSelectPickerUIHelper.defaultBarrierColor,
+    this.isScrollControlled = JuiSelectPickerUIHelper.defaultIsScrollControlled,
+    this.enableDrag = JuiSelectPickerUIHelper.defaultEnableDrag,
     this.itemTextStyle,
     this.selectedItemColor,
   });
 }
 
-class PickerHeaderConfig {
+class JuiSelectPickerHeaderConfig {
   final String title;
   final Widget? customHeader;
   final String? cancelText;
@@ -74,11 +74,11 @@ class PickerHeaderConfig {
   final bool? showHeader;
   final bool? showConfirmButton;
 
-  const PickerHeaderConfig({
+  const JuiSelectPickerHeaderConfig({
     required this.title,
     this.customHeader,
-    this.cancelText = PickerUIHelper.defaultCancelText,
-    this.confirmText = PickerUIHelper.defaultConfirmText,
+    this.cancelText = JuiSelectPickerUIHelper.defaultCancelText,
+    this.confirmText = JuiSelectPickerUIHelper.defaultConfirmText,
     this.cancelTextStyle,
     this.confirmTextStyle,
     this.showHeader,
@@ -87,34 +87,34 @@ class PickerHeaderConfig {
 }
 
 
-class PickerConfig {
-  final PickerLayout layout;
+class JuiSelectPickerConfig {
+  final JuiSelectPickerLayout layout;
   final SelectionMode selectionMode;
-  final PickerUIConfig uiConfig;
-  final PickerHeaderConfig headerConfig;
+  final JuiSelectPickerUIConfig uiConfig;
+  final JuiSelectPickerHeaderConfig headerConfig;
 
-  const PickerConfig({
+  const JuiSelectPickerConfig({
     required this.layout,
     required this.headerConfig,
     this.selectionMode = SelectionMode.single,
-    this.uiConfig = const PickerUIConfig(),
+    this.uiConfig = const JuiSelectPickerUIConfig(),
   });
 }
 
-class PickerItemData {
+class JuiSelectPickerItemData {
   final String key;
   final String value;
 
-  const PickerItemData({required this.key, required this.value});
+  const JuiSelectPickerItemData({required this.key, required this.value});
 }
 
-class PickerItemUI {
-  final PickerItemData data;
+class JuiSelectPickerItemUI {
+  final JuiSelectPickerItemData data;
   final Widget? icon;
   final VoidCallback? onTap;
 
-  const PickerItemUI({required this.data, this.icon, this.onTap});
+  const JuiSelectPickerItemUI({required this.data, this.icon, this.onTap});
 }
 
-typedef PickerCallback = void Function(List<String> selectedKeys, List<String> selectedValues);
-typedef ItemSelectionCallback = void Function(PickerItemData item);
+typedef JuiSelectPickerCallback = void Function(List<String> selectedKeys, List<String> selectedValues);
+typedef JuiSelectItemCallback = void Function(JuiSelectPickerItemData item);

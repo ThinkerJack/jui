@@ -1,29 +1,28 @@
-// jui_picker_content.dart
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'jui_picker_config.dart';
+import '../../../../data_entry.dart';
 
-abstract class PickerContentBuilder {
+abstract class JuiSelectPickerContentBuilder {
   Widget build({
     required BuildContext context,
-    required List<PickerItemUI> items,
-    required List<PickerItemData> selectedItems,
-    required PickerConfig config,
-    required ItemSelectionCallback onItemTap,
-    ItemSelectionCallback? onImmediateConfirm,
+    required List<JuiSelectPickerItemUI> items,
+    required List<JuiSelectPickerItemData> selectedItems,
+    required JuiSelectPickerConfig config,
+    required JuiSelectItemCallback onItemTap,
+    JuiSelectItemCallback? onImmediateConfirm,
   });
 }
 
-class PickerContentBuilderFactory {
-  static PickerContentBuilder getBuilder(PickerLayout style) {
+class JuiSelectPickerContentBuilderFactory {
+  static JuiSelectPickerContentBuilder getBuilder(JuiSelectPickerLayout style) {
     switch (style) {
-      case PickerLayout.wheel:
+      case JuiSelectPickerLayout.wheel:
         return CupertinoPickerBuilder();
-      case PickerLayout.list:
+      case JuiSelectPickerLayout.list:
         return ListPickerBuilder();
-      case PickerLayout.action:
+      case JuiSelectPickerLayout.action:
         return ActionPickerBuilder();
       default:
         throw UnimplementedError('未实现的 PickerStyle: $style');
@@ -31,25 +30,25 @@ class PickerContentBuilderFactory {
   }
 }
 
-class CupertinoPickerBuilder implements PickerContentBuilder {
+class CupertinoPickerBuilder implements JuiSelectPickerContentBuilder {
   @override
   Widget build({
     required BuildContext context,
-    required List<PickerItemUI> items,
-    required List<PickerItemData> selectedItems,
-    required PickerConfig config,
-    required ItemSelectionCallback onItemTap,
-    ItemSelectionCallback? onImmediateConfirm,
+    required List<JuiSelectPickerItemUI> items,
+    required List<JuiSelectPickerItemData> selectedItems,
+    required JuiSelectPickerConfig config,
+    required JuiSelectItemCallback onItemTap,
+    JuiSelectItemCallback? onImmediateConfirm,
   }) {
     int initialIndex =
         selectedItems.isNotEmpty ? items.indexWhere((item) => item.data.key == selectedItems.first.key) : 0;
     initialIndex = initialIndex != -1 ? initialIndex : 0;
 
     return ConstrainedBox(
-      constraints: BoxConstraints(maxHeight: PickerUIHelper.getMaxHeight(config.layout)),
+      constraints: BoxConstraints(maxHeight: JuiSelectPickerUIHelper.getMaxHeight(config.layout)),
       child: CupertinoPicker(
         scrollController: FixedExtentScrollController(initialItem: initialIndex),
-        itemExtent: PickerUIHelper.itemExtent,
+        itemExtent: JuiSelectPickerUIHelper.itemExtent,
         onSelectedItemChanged: (index) => onItemTap(items[index].data),
         children: items
             .map((item) => Center(
@@ -64,18 +63,18 @@ class CupertinoPickerBuilder implements PickerContentBuilder {
   }
 }
 
-class ListPickerBuilder implements PickerContentBuilder {
+class ListPickerBuilder implements JuiSelectPickerContentBuilder {
   @override
   Widget build({
     required BuildContext context,
-    required List<PickerItemUI> items,
-    required List<PickerItemData> selectedItems,
-    required PickerConfig config,
-    required ItemSelectionCallback onItemTap,
-    ItemSelectionCallback? onImmediateConfirm,
+    required List<JuiSelectPickerItemUI> items,
+    required List<JuiSelectPickerItemData> selectedItems,
+    required JuiSelectPickerConfig config,
+    required JuiSelectItemCallback onItemTap,
+    JuiSelectItemCallback? onImmediateConfirm,
   }) {
     return ConstrainedBox(
-      constraints: BoxConstraints(maxHeight: PickerUIHelper.getMaxHeight(config.layout)),
+      constraints: BoxConstraints(maxHeight: JuiSelectPickerUIHelper.getMaxHeight(config.layout)),
       child: ListView.builder(
         shrinkWrap: true,
         itemCount: items.length,
@@ -105,18 +104,18 @@ class ListPickerBuilder implements PickerContentBuilder {
   }
 }
 
-class ActionPickerBuilder implements PickerContentBuilder {
+class ActionPickerBuilder implements JuiSelectPickerContentBuilder {
   @override
   Widget build({
     required BuildContext context,
-    required List<PickerItemUI> items,
-    required List<PickerItemData> selectedItems,
-    required PickerConfig config,
-    required ItemSelectionCallback onItemTap,
-    ItemSelectionCallback? onImmediateConfirm,
+    required List<JuiSelectPickerItemUI> items,
+    required List<JuiSelectPickerItemData> selectedItems,
+    required JuiSelectPickerConfig config,
+    required JuiSelectItemCallback onItemTap,
+    JuiSelectItemCallback? onImmediateConfirm,
   }) {
     return ConstrainedBox(
-      constraints: BoxConstraints(maxHeight: PickerUIHelper.getMaxHeight(config.layout)),
+      constraints: BoxConstraints(maxHeight: JuiSelectPickerUIHelper.getMaxHeight(config.layout)),
       child: ListView.separated(
         shrinkWrap: true,
         itemCount: items.length,

@@ -1,27 +1,26 @@
+// lib/src/data_entry/jui_date_picker/jui_single_date_picker_vm.dart
+
 import 'package:flutter/cupertino.dart';
 
- import 'date_picker_func.dart';
-import 'picker_widget.dart';
+import 'jui_date_picker_types.dart';
+import 'jui_date_picker_utils.dart';
 
-class SVScrollDatePickerVM {
-  late DateTime initialTime; // 初始时间
-  DateTime? maxTime; // 最大时间
-  DateTime? minTime; // 最小时间
-  late DatePickerType type; // 日期选择器类型
-  late final RangeType rangeType; // 时间范围类型
+class JuiSingleDatePickerVM {
+  late DateTime initialTime;
+  DateTime? maxTime;
+  DateTime? minTime;
+  late JuiDatePickerMode mode;
+  late final JuiRangeType rangeType;
 
-  // 时间变量
   final ValueNotifier<DateTime?> chooseTime = ValueNotifier(null);
   final ValueNotifier<bool> isToDate = ValueNotifier(false);
 
-  // 滚动条控制器
   late FixedExtentScrollController chooseYearController;
   late FixedExtentScrollController chooseMonthController;
   late FixedExtentScrollController chooseDayController;
 
-  // 初始化方法
   void init(dynamic widget) {
-    type = widget.type;
+    mode = widget.mode;
     initialTime = widget.time ?? DateTime.now();
     chooseTime.value = initialTime;
     maxTime = widget.maxTime;
@@ -31,68 +30,49 @@ class SVScrollDatePickerVM {
     initController();
   }
 
-  // 确定时间范围类型
-  RangeType _determineRangeType() {
+  JuiRangeType _determineRangeType() {
     if (maxTime != null && minTime != null) {
-      return RangeType.hasMinAndMax;
+      return JuiRangeType.hasMinAndMax;
     } else if (maxTime != null) {
-      return RangeType.hasMax;
+      return JuiRangeType.hasMax;
     } else if (minTime != null) {
-      return RangeType.hasMin;
+      return JuiRangeType.hasMin;
     } else {
-      return RangeType.common;
+      return JuiRangeType.common;
     }
   }
 
-  // 初始化控制器
   void initController() {
     DateTime time = chooseTime.value ?? initialTime;
     chooseYearController = FixedExtentScrollController(initialItem: yearList().indexOf(time.year.toString()));
     chooseMonthController = FixedExtentScrollController(initialItem: monthList(time).indexOf(getMonthText(time)));
 
-    // 如果是年月日选择器，初始化日控制器
-    if (type == DatePickerType.scrollYMD) {
+    if (mode == JuiDatePickerMode.scrollYMD) {
       chooseDayController = FixedExtentScrollController(initialItem: dayList(time).indexOf(getDayText(time)));
     }
   }
 
-  // 获取当前选择的年份
   int getYear() => int.parse(yearList()[chooseYearController.selectedItem]);
-
-  // 获取当前选择的月份
   int getMonth() => int.parse(monthList(chooseTime.value!)[chooseMonthController.selectedItem]);
-
-  // 获取当前选择的日期
   int getDay() => int.parse(dayList(chooseTime.value!)[chooseDayController.selectedItem]);
 
-  // 获取年份列表
   List<String> yearList() => getYearList(initialTime, type: rangeType, maxYear: maxTime?.year, minYear: minTime?.year);
-
-  // 获取月份列表
   List<String> monthList(DateTime date) =>
       getMonthList(type: rangeType, maxMonth: _getMaxMonths(date), minMonth: _getMinMonths(date));
-
-  // 获取日期列表
   List<String> dayList(DateTime date) => getDayList(date: date, type: rangeType, days: _getMaxDays(date));
 
-  // 获取最大月份
   int _getMaxMonths(DateTime date) => (maxTime != null && date.year == maxTime!.year) ? maxTime!.month : 12;
-
-  // 获取最小月份
   int _getMinMonths(DateTime date) => (minTime != null && date.year == minTime!.year) ? minTime!.month : 1;
-
-  // 获取最大日期
   int _getMaxDays(DateTime date) => (maxTime != null && date.year == maxTime!.year && date.month == maxTime!.month)
       ? maxTime!.day
       : DateTime(date.year, date.month + 1, 0).day;
 
-  // 更新年份
   void updateYear() {
-    switch (type) {
-      case DatePickerType.scrollYMD:
+    switch (mode) {
+      case JuiDatePickerMode.scrollYMD:
         _updateYearForScrollYMD();
         break;
-      case DatePickerType.scrollYM:
+      case JuiDatePickerMode.scrollYM:
         _updateYearForScrollYM();
         break;
       default:
@@ -101,7 +81,6 @@ class SVScrollDatePickerVM {
     updateChooseTime();
   }
 
-  // 年月日选择器的年份更新逻辑
   void _updateYearForScrollYMD() {
     if (maxTime != null && getYear() == maxTime!.year) {
       if (chooseMonthController.selectedItem > maxTime!.month - 1) {
@@ -114,20 +93,18 @@ class SVScrollDatePickerVM {
     }
   }
 
-  // 年月选择器的年份更新逻辑
   void _updateYearForScrollYM() {
     if (maxTime != null && getYear() == maxTime!.year && chooseMonthController.selectedItem > maxTime!.month - 1) {
       chooseMonthController.jumpToItem(maxTime!.month - 1);
     }
   }
 
-  // 更新月份
   void updateMonth() {
-    switch (type) {
-      case DatePickerType.scrollYMD:
+    switch (mode) {
+      case JuiDatePickerMode.scrollYMD:
         _updateMonthForScrollYMD();
         break;
-      case DatePickerType.scrollYM:
+      case JuiDatePickerMode.scrollYM:
         _updateMonthForScrollYM();
         break;
       default:
@@ -136,7 +113,6 @@ class SVScrollDatePickerVM {
     updateChooseTime();
   }
 
-  // 年月日选择器的月份更新逻辑
   void _updateMonthForScrollYMD() {
     if (maxTime != null && getYear() == maxTime!.year) {
       if (chooseMonthController.selectedItem > maxTime!.month - 1) {
@@ -153,20 +129,18 @@ class SVScrollDatePickerVM {
     }
   }
 
-  // 年月选择器的月份更新逻辑
   void _updateMonthForScrollYM() {
     if (maxTime != null && getYear() == maxTime!.year && chooseMonthController.selectedItem > maxTime!.month - 1) {
       chooseMonthController.jumpToItem(maxTime!.month - 1);
     }
   }
 
-  // 更新选择的时间
   void updateChooseTime() {
-    switch (type) {
-      case DatePickerType.scrollYMD:
+    switch (mode) {
+      case JuiDatePickerMode.scrollYMD:
         chooseTime.value = DateTime(getYear(), getMonth(), getDay());
         break;
-      case DatePickerType.scrollYM:
+      case JuiDatePickerMode.scrollYM:
         chooseTime.value = DateTime(getYear(), getMonth());
         break;
       default:
@@ -174,9 +148,8 @@ class SVScrollDatePickerVM {
     }
   }
 
-  // 检查提交的时间
   void checkSubmitTime() {
     if (chooseTime.value == null) return;
-    // 提交时间检查逻辑可以在这里实现
+    // 可以在这里添加提交时间的检查逻辑
   }
 }

@@ -1,14 +1,15 @@
+// lib/src/data_entry/jui_date_picker/jui_range_date_picker_vm.dart
+
 import 'package:flutter/cupertino.dart';
 
-import 'date_picker_func.dart';
-import 'picker_widget.dart';
+import 'jui_date_picker_types.dart';
+import 'jui_date_picker_utils.dart';
 
-class MVScrollDatePickerVM {
+class JuiRangeDatePickerVM {
   late Duration timeGap;
   late DateTime initialStartTime;
-  late DatePickerType type;
+  late JuiDatePickerMode mode;
 
-  //时间变量
   ValueNotifier<bool> startOrEndFlag = ValueNotifier(true);
   ValueNotifier<DateTime?> startTime = ValueNotifier(null);
   ValueNotifier<DateTime?> endTime = ValueNotifier(null);
@@ -18,7 +19,6 @@ class MVScrollDatePickerVM {
   ValueNotifier<bool> endHourChange = ValueNotifier(true);
   ValueNotifier<bool> startMonthChange = ValueNotifier(true);
 
-  //滚动条控制器
   late FixedExtentScrollController startYMDWController;
   late FixedExtentScrollController startYearController;
   late FixedExtentScrollController startMonthController;
@@ -32,62 +32,45 @@ class MVScrollDatePickerVM {
   late FixedExtentScrollController endHourController;
   late FixedExtentScrollController endMinuteController;
 
-  init(widget) {
-    timeGap = getDefaultTimeGap(widget.type);
-    type = widget.type;
+  void init(dynamic widget) {
+    timeGap = getDefaultTimeGap(widget.mode);
+    mode = widget.mode;
     initialStartTime = widget.startTime ?? DateTime.now();
     startTime.value = widget.startTime ?? DateTime.now();
     if (widget.endTime != null) endTime.value = widget.endTime!;
   }
 
   int getStartYear() => int.parse(startYearList()[startYearController.selectedItem]);
-
   int getStartMonth() => int.parse(startMonthList()[startMonthController.selectedItem]);
-
   int getStartDay() => int.parse(startDayList(startTime.value!)[startDayController.selectedItem]);
-
   int getStartHour() => int.parse(getHourList()[startHourController.selectedItem]);
-
   int getStartMinute() => int.parse(getMinuteList()[startMinuteController.selectedItem]);
 
   int getEndYear() => int.parse(endYearList()[endYearController.selectedItem]);
-
   int getEndMonth(date) => int.parse(endMonthList(date)[endMonthController.selectedItem]);
-
   int getEndDay(date) => int.parse(endDayList(date)[endDayController.selectedItem]);
-
   int getEndHour(date) => int.parse(endHourList(date)[endHourController.selectedItem]);
-
   int getEndMinute(date) => int.parse(endMinuteList(date)[endMinuteController.selectedItem]);
 
   List<String> startYearList() => getYearList(initialStartTime);
-
   List<String> startMonthList() => getMonthList();
-
   List<String> startDayList(DateTime time) => getDayList(date: time);
-
-  List<String> endYMDWList(context) => getEndYMDWList(startTime.value!.add(timeGap), context);
-
+  List<String> endYMDWList(BuildContext context) => getEndYMDWList(startTime.value!.add(timeGap), context);
   List<String> endYearList() => getEndYearList(startTime.value!.add(timeGap));
-
   List<String> endMonthList(DateTime time) => getEndMonthList(startTime.value!, time, timeGap);
-
   List<String> endDayList(DateTime time) => getEndDayList(startTime.value!, time, timeGap);
+  List<String> endHourList(DateTime date) => getEndHourList(startTime.value!, date, timeGap);
+  List<String> endMinuteList(DateTime date) => getEndMinuteList(startTime.value!, date, timeGap);
 
-  List<String> endHourList(date) => getEndHourList(startTime.value!, date, timeGap);
-
-  List<String> endMinuteList(date) => getEndMinuteList(startTime.value!, date, timeGap);
-
-  //初始化开始控制器
-  void initStartController(context) {
+  void initStartController(BuildContext context) {
     DateTime time = (startTime.value ?? initialStartTime);
-    switch (type) {
-      case DatePickerType.scrollYMD:
+    switch (mode) {
+      case JuiDatePickerMode.scrollYMD:
         startYearController = FixedExtentScrollController(initialItem: startYearList().indexOf(time.year.toString()));
         startMonthController = FixedExtentScrollController(initialItem: startMonthList().indexOf(getMonthText(time)));
         startDayController = FixedExtentScrollController(initialItem: startDayList(time).indexOf(getDayText(time)));
         break;
-      case DatePickerType.scrollYMDWHM:
+      case JuiDatePickerMode.scrollYMDWHM:
         startYMDWController = FixedExtentScrollController(
             initialItem: getYMDWList(initialStartTime, context).indexOf(getYMDWText(time, context)));
         startHourController = FixedExtentScrollController(initialItem: getHourList().indexOf(getHourText(time)));
@@ -98,10 +81,9 @@ class MVScrollDatePickerVM {
     }
   }
 
-  //初始化结束控制器
-  void initEndController(context) {
-    switch (type) {
-      case DatePickerType.scrollYMD:
+  void initEndController(BuildContext context) {
+    switch (mode) {
+      case JuiDatePickerMode.scrollYMD:
         endYearController =
             FixedExtentScrollController(initialItem: endYearList().indexOf(endTime.value!.year.toString()));
         endMonthController = FixedExtentScrollController(
@@ -109,10 +91,10 @@ class MVScrollDatePickerVM {
         endDayController =
             FixedExtentScrollController(initialItem: endDayList(endTime.value!).indexOf(getDayText(endTime.value!)));
         break;
-      case DatePickerType.scrollYMDWHM:
+      case JuiDatePickerMode.scrollYMDWHM:
         endYMDWController = FixedExtentScrollController(
             initialItem:
-                getEndYMDWList(startTime.value!.add(timeGap), context).indexOf(getYMDWText(endTime.value!, context)));
+            getEndYMDWList(startTime.value!.add(timeGap), context).indexOf(getYMDWText(endTime.value!, context)));
         endHourController =
             FixedExtentScrollController(initialItem: endHourList(endTime.value!).indexOf(getHourText(endTime.value!)));
         endMinuteController = FixedExtentScrollController(
@@ -135,13 +117,13 @@ class MVScrollDatePickerVM {
     startOrEndFlag.value = false;
   }
 
-  void updateStartByYMDW(context) {
+  void updateStartByYMDW(BuildContext context) {
     String dateText = getYMDWList(initialStartTime, context)[startYMDWController.selectedItem].substring(0, 10);
     DateTime date = DateTime.parse(dateText);
     startTime.value = DateTime(date.year, date.month, date.day, getStartHour(), getStartMinute());
   }
 
-  void updateEndByYMDW(context) {
+  void updateEndByYMDW(BuildContext context) {
     String dateText = endYMDWList(context)[endYMDWController.selectedItem].substring(0, 10);
     DateTime date = DateTime.parse(dateText);
     if (endHourController.selectedItem >= endHourList(date).length) {
@@ -155,7 +137,7 @@ class MVScrollDatePickerVM {
     endYMDWChange.value = !endYMDWChange.value;
   }
 
-  void updateEndByHour(context) {
+  void updateEndByHour(BuildContext context) {
     String dateText = endYMDWList(context)[endYMDWController.selectedItem].substring(0, 10);
     DateTime date = DateTime.parse(dateText);
     if (endHourController.selectedItem >= endHourList(date).length) {
@@ -169,7 +151,7 @@ class MVScrollDatePickerVM {
     endHourChange.value = !endHourChange.value;
   }
 
-  void updateEndByMinute(context) {
+  void updateEndByMinute(BuildContext context) {
     String dateText = endYMDWList(context)[endYMDWController.selectedItem].substring(0, 10);
     DateTime date = DateTime.parse(dateText);
     date = DateTime(date.year, date.month, date.day, getEndHour(date));
@@ -219,8 +201,8 @@ class MVScrollDatePickerVM {
     endYearChange.value = !endYearChange.value;
   }
 
-  //检查提交的时间
-  checkSubmitTime() {
+  void checkSubmitTime() {
     if (startTime.value == null || endTime.value == null) return;
+    // Add any additional validation logic here if needed
   }
 }

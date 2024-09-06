@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'jui_picker_config.dart';
-import 'jui_picker_content.dart';
-import 'jui_picker_header.dart';
+import '../../../../data_entry.dart';
+import 'jui_select_picker_content.dart';
+import 'jui_select_picker_header.dart';
 
-class JuiPicker extends StatefulWidget {
-  final PickerConfig config;
-  final List<PickerItemUI> items;
-  final List<PickerItemData> initialSelection;
-  final PickerCallback onSelect;
+class JuiSelectPicker extends StatefulWidget {
+  final JuiSelectPickerConfig config;
+  final List<JuiSelectPickerItemUI> items;
+  final List<JuiSelectPickerItemData> initialSelection;
+  final JuiSelectPickerCallback onSelect;
   final VoidCallback? onCancel;
 
-  const JuiPicker({
+  const JuiSelectPicker({
     Key? key,
     required this.config,
     required this.items,
@@ -20,20 +20,20 @@ class JuiPicker extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  JuiPickerState createState() => JuiPickerState();
+  JuiSelectPickerState createState() => JuiSelectPickerState();
 }
 
-class JuiPickerState extends State<JuiPicker> {
-  late List<PickerItemData> _selectedItems;
-  late PickerContentBuilder _contentBuilder;
-  late PickerHeaderHandler _headerHandler;
+class JuiSelectPickerState extends State<JuiSelectPicker> {
+  late List<JuiSelectPickerItemData> _selectedItems;
+  late JuiSelectPickerContentBuilder _contentBuilder;
+  late JuiSelectPickerHeaderHandler _headerHandler;
 
   @override
   void initState() {
     super.initState();
     _initializeSelection();
-    _contentBuilder = PickerContentBuilderFactory.getBuilder(widget.config.layout);
-    _headerHandler = PickerHeaderHandler(
+    _contentBuilder = JuiSelectPickerContentBuilderFactory.getBuilder(widget.config.layout);
+    _headerHandler = JuiSelectPickerHeaderHandler(
       config: widget.config,
       onCancel: widget.onCancel,
       onConfirm: _handleConfirm,
@@ -72,7 +72,7 @@ class JuiPickerState extends State<JuiPicker> {
     );
   }
 
-  void _handleItemSelection(PickerItemData item) {
+  void _handleItemSelection(JuiSelectPickerItemData item) {
     setState(() {
       if (widget.config.selectionMode == SelectionMode.single) {
         _handleSingleSelection(item);
@@ -82,11 +82,11 @@ class JuiPickerState extends State<JuiPicker> {
     });
   }
 
-  void _handleSingleSelection(PickerItemData item) {
+  void _handleSingleSelection(JuiSelectPickerItemData item) {
     _selectedItems = [item];
   }
 
-  void _handleMultipleSelection(PickerItemData item) {
+  void _handleMultipleSelection(JuiSelectPickerItemData item) {
     int index = _selectedItems.indexWhere((element) => element.key == item.key);
     if (index != -1) {
       _selectedItems.removeAt(index);
@@ -95,7 +95,7 @@ class JuiPickerState extends State<JuiPicker> {
     }
   }
 
-  void _handleImmediateConfirm(PickerItemData item) {
+  void _handleImmediateConfirm(JuiSelectPickerItemData item) {
     _handleItemSelection(item);
     _handleConfirm();
   }
