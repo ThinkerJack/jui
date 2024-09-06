@@ -8,139 +8,92 @@ class DatePickerDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DemoBasePage(
-      title: "标题文本",
+      title: "日期选择器演示",
       children: [
-        ElevatedButton(
-          child: Text('Year-Month Picker'),
-          onPressed: () => _showYearMonthPicker(context),
+        _buildExample(
+          context,
+          '基础年月选择器',
+              () => showCustomTimePicker(
+            context: context,
+            type: TimePickerType.yearMonthSeparate,
+            mode: TimePickerMode.single,
+          ),
         ),
-        SizedBox(height: 16),
-        ElevatedButton(
-          child: Text('Year-Month-Day Picker'),
-          onPressed: () => _showYearMonthDayPicker(context),
+        _buildExample(
+          context,
+          '带最小/最大值的年月日选择器',
+              () => showCustomTimePicker(
+            context: context,
+            type: TimePickerType.yearMonthDaySeparate,
+            mode: TimePickerMode.single,
+            minTime: DateTime(2020, 10, 10),
+            maxTime: DateTime(2025, 10, 10),
+          ),
         ),
-        SizedBox(height: 16),
-        ElevatedButton(
-          child: Text('Full Date-Time Picker'),
-          onPressed: () => _showFullDateTimePicker(context),
+        _buildExample(
+          context,
+          '完整日期时间范围选择器',
+              () => showCustomTimePicker(
+            context: context,
+            type: TimePickerType.yearMonthDayHourMinuteSeparate,
+            mode: TimePickerMode.range,
+            initialStartTime: DateTime(2023, 1, 1, 9, 0),
+            initialEndTime: DateTime(2023, 1, 2, 17, 0),
+          ),
         ),
-        SizedBox(height: 16),
-        ElevatedButton(
-          child: Text('Combined Year-Month-Day Picker'),
-          onPressed: () => _showCombinedYearMonthDayPicker(context),
+        _buildExample(
+          context,
+          '带初始时间的组合日期选择器',
+              () => showCustomTimePicker(
+            context: context,
+            type: TimePickerType.yearMonthDayCombined,
+            mode: TimePickerMode.single,
+            initialTime: DateTime(2023, 6, 15),
+          ),
         ),
-        SizedBox(height: 16),
-        ElevatedButton(
-          child: Text('Combined Full Date-Time Picker'),
-          onPressed: () => _showCombinedFullDateTimePicker(context),
-        ),
-        SizedBox(height: 16),
-        ElevatedButton(
-          child: Text('Date Range Picker'),
-          onPressed: () => _showDateRangePicker(context),
+        _buildExample(
+          context,
+          '下周内的组合日期时间选择器',
+              () => showCustomTimePicker(
+            context: context,
+            type: TimePickerType.yearMonthDayHourMinuteCombined,
+            mode: TimePickerMode.single,
+            minTime: DateTime.now(),
+            maxTime: DateTime.now().add(Duration(days: 7)),
+          ),
         ),
       ],
     );
   }
-  void _showYearMonthPicker(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      builder: (BuildContext context) {
-        return CustomTimePicker(
-          type: TimePickerType.yearMonthSeparate,
-          mode: TimePickerMode.single,
-          onSingleTimeSelected: (DateTime time) {
-            print('Selected Year-Month: ${time.year}-${time.month}');
-            
-          },
-          onRangeTimeSelected: (_, __) {}, // Not used in this case
-        );
+
+  Widget _buildExample(BuildContext context, String title, Future<TimePickerModel?> Function() onTap) {
+    return ListTile(
+      title: Text(title),
+      onTap: () async {
+        final result = await onTap();
+        if (result != null) {
+          String message = _formatResult(result);
+          print(message);
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(message)),
+          );
+        }
       },
     );
   }
 
-  void _showYearMonthDayPicker(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      builder: (BuildContext context) {
-        return CustomTimePicker(
-          type: TimePickerType.yearMonthDaySeparate,
-          mode: TimePickerMode.single,
-          onSingleTimeSelected: (DateTime time) {
-            print('Selected Date: ${time.year}-${time.month}-${time.day}');
-            
-          },
-          onRangeTimeSelected: (_, __) {}, // Not used in this case
-        );
-      },
-    );
+  String _formatResult(TimePickerModel result) {
+    if (result.selectedTime != null) {
+      return '选择的时间: ${_formatDateTime(result.selectedTime!)}';
+    } else if (result.startTime != null && result.endTime != null) {
+      return '开始时间: ${_formatDateTime(result.startTime!)}, 结束时间: ${_formatDateTime(result.endTime!)}';
+    } else {
+      return '未知结果';
+    }
   }
 
-  void _showFullDateTimePicker(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      builder: (BuildContext context) {
-        return CustomTimePicker(
-          type: TimePickerType.yearMonthDayHourMinuteSeparate,
-          mode: TimePickerMode.single,
-          onSingleTimeSelected: (DateTime time) {
-            print('Selected Date-Time: ${time.year}-${time.month}-${time.day} ${time.hour}:${time.minute}');
-            
-          },
-          onRangeTimeSelected: (_, __) {}, // Not used in this case
-        );
-      },
-    );
-  }
-
-  void _showCombinedYearMonthDayPicker(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      builder: (BuildContext context) {
-        return CustomTimePicker(
-          type: TimePickerType.yearMonthDayCombined,
-          mode: TimePickerMode.single,
-          onSingleTimeSelected: (DateTime time) {
-            print('Selected Date: ${time.year}-${time.month}-${time.day}');
-            
-          },
-          onRangeTimeSelected: (_, __) {}, // Not used in this case
-        );
-      },
-    );
-  }
-
-  void _showCombinedFullDateTimePicker(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      builder: (BuildContext context) {
-        return CustomTimePicker(
-          type: TimePickerType.yearMonthDayHourMinuteCombined,
-          mode: TimePickerMode.single,
-          onSingleTimeSelected: (DateTime time) {
-            print('Selected Date-Time: ${time.year}-${time.month}-${time.day} ${time.hour}:${time.minute}');
-            
-          },
-          onRangeTimeSelected: (_, __) {}, // Not used in this case
-        );
-      },
-    );
-  }
-
-  void _showDateRangePicker(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      builder: (BuildContext context) {
-        return CustomTimePicker(
-          type: TimePickerType.yearMonthDaySeparate,
-          mode: TimePickerMode.range,
-          onSingleTimeSelected: (_) {}, // Not used in this case
-          onRangeTimeSelected: (DateTime startTime, DateTime endTime) {
-            print('Selected Date Range: ${startTime.year}-${startTime.month}-${startTime.day} to ${endTime.year}-${endTime.month}-${endTime.day}');
-            
-          },
-        );
-      },
-    );
+  String _formatDateTime(DateTime dateTime) {
+    return '${dateTime.year}-${dateTime.month.toString().padLeft(2, '0')}-${dateTime.day.toString().padLeft(2, '0')} '
+        '${dateTime.hour.toString().padLeft(2, '0')}:${dateTime.minute.toString().padLeft(2, '0')}';
   }
 }

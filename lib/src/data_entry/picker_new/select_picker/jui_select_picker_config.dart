@@ -2,6 +2,9 @@
 
 import 'package:flutter/material.dart';
 
+import '../common/jui_picker_config.dart';
+import '../common/jui_picker_header.dart';
+
 enum JuiSelectPickerLayout {
   list,
   action,
@@ -16,8 +19,6 @@ enum SelectionMode {
 class JuiSelectPickerUIHelper {
   static const double itemExtent = 52.0;
   static const double maxHeight = 650.0;
-  static const double headerFontSize = 16.0;
-  static const EdgeInsets headerPadding = EdgeInsets.all(16.0);
 
   // UI Config 默认值
   static const BorderRadius defaultTopBorderRadius = BorderRadius.vertical(top: Radius.circular(12));
@@ -64,34 +65,13 @@ class JuiSelectPickerUIConfig {
   });
 }
 
-class JuiSelectPickerHeaderConfig {
-  final String title;
-  final Widget? customHeader;
-  final String? cancelText;
-  final String? confirmText;
-  final TextStyle? cancelTextStyle;
-  final TextStyle? confirmTextStyle;
-  final bool? showHeader;
-  final bool? showConfirmButton;
-
-  const JuiSelectPickerHeaderConfig({
-    required this.title,
-    this.customHeader,
-    this.cancelText = JuiSelectPickerUIHelper.defaultCancelText,
-    this.confirmText = JuiSelectPickerUIHelper.defaultConfirmText,
-    this.cancelTextStyle,
-    this.confirmTextStyle,
-    this.showHeader,
-    this.showConfirmButton,
-  });
-}
 
 
 class JuiSelectPickerConfig {
   final JuiSelectPickerLayout layout;
   final SelectionMode selectionMode;
   final JuiSelectPickerUIConfig uiConfig;
-  final JuiSelectPickerHeaderConfig headerConfig;
+  final JuiPickerHeaderConfig headerConfig;
 
   const JuiSelectPickerConfig({
     required this.layout,

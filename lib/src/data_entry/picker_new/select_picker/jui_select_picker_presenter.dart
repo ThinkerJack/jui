@@ -1,7 +1,8 @@
 // jui_select_picker_presenter.dart
 import 'package:flutter/material.dart';
-import 'package:jui/src/data_entry/picker_new/select_picker/jui_select_picker.dart';
-import '../../../../data_entry.dart';
+
+import 'jui_select_picker.dart';
+import 'jui_select_picker_config.dart';
 
 Future<void> showJuiSelectPicker({
   required BuildContext context,

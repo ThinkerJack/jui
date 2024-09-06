@@ -1,12 +1,16 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jui/data_entry.dart';
 
 import 'demo_base_page.dart';
 
-class PickerDemo extends StatelessWidget {
+class PickerDemo extends StatefulWidget {
   const PickerDemo({Key? key}) : super(key: key);
 
+  @override
+  State<PickerDemo> createState() => _PickerDemoState();
+}
+
+class _PickerDemoState extends State<PickerDemo> {
   @override
   Widget build(BuildContext context) {
     return DemoBasePage(
@@ -24,39 +28,6 @@ class PickerDemo extends StatelessWidget {
           child: Text('Show Action Picker'),
           onPressed: () => _showActionPicker(context),
         ),
-        ElevatedButton(
-          child: Text('Select Date'),
-          onPressed: () async {
-            await showJuiDatePicker(
-              context,
-              mode: JuiDatePickerMode.scrollYMD,
-              onDone: (DateTime selectedDate) {
-                print('Selected date: $selectedDate');
-                // 在这里处理选中的日期
-              },
-              initTime: DateTime.now(),
-              title: '选择日期',
-              showTopTitle: false,
-            );
-          },
-        ),
-        ElevatedButton(
-          child: Text('Select Date Range'),
-          onPressed: () async {
-            await showJuiDatePicker(
-              context,
-              mode: JuiDatePickerMode.scrollYMDWHM,
-              onDone: (DateTime startTime, DateTime? endTime) {
-                print('Start date: $startTime');
-                print('End date: $endTime');
-                // 在这里处理选中的日期范围
-              },
-              startTime: DateTime.now(),
-              endTime: DateTime.now().add(Duration(days: 7)),
-              showTopTitle: true,
-            );
-          },
-        ),
       ],
     );
   }
@@ -73,7 +44,7 @@ class PickerDemo extends StatelessWidget {
       context: context,
       config: JuiSelectPickerConfig(
         layout: JuiSelectPickerLayout.wheel,
-        headerConfig: JuiSelectPickerHeaderConfig(title: 'Select a Fruit'),
+        headerConfig: JuiPickerHeaderConfig(title: 'Select a Fruit'),
       ),
       items: items,
       initialSelection: [items[1].data],
@@ -105,7 +76,7 @@ class PickerDemo extends StatelessWidget {
       config: JuiSelectPickerConfig(
         layout: JuiSelectPickerLayout.list,
         selectionMode: SelectionMode.multiple,
-        headerConfig: JuiSelectPickerHeaderConfig(title: 'Select Colors'),
+        headerConfig: JuiPickerHeaderConfig(title: 'Select Colors'),
       ),
       items: items,
       initialSelection: [items[0].data, items[2].data],
@@ -137,7 +108,7 @@ class PickerDemo extends StatelessWidget {
       config: JuiSelectPickerConfig(
         layout: JuiSelectPickerLayout.action,
         selectionMode: SelectionMode.single,
-        headerConfig: JuiSelectPickerHeaderConfig(title: 'Select Colors'),
+        headerConfig: JuiPickerHeaderConfig(title: 'Select Colors'),
       ),
       items: items,
       initialSelection: [items[0].data],
