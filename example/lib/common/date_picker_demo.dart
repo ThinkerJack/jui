@@ -47,11 +47,11 @@ class DatePickerDemo extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return CustomTimePicker(
-          type: TimePickerType.yearMonthDayHourMinute,
+          type: TimePickerType.yearMonthSeparate,
           mode: TimePickerMode.single,
           onSingleTimeSelected: (DateTime time) {
             print('Selected Year-Month: ${time.year}-${time.month}');
-            Navigator.pop(context);
+            
           },
           onRangeTimeSelected: (_, __) {}, // Not used in this case
         );
@@ -64,11 +64,11 @@ class DatePickerDemo extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return CustomTimePicker(
-          type: TimePickerType.yearMonthDayHourMinute,
+          type: TimePickerType.yearMonthDaySeparate,
           mode: TimePickerMode.single,
           onSingleTimeSelected: (DateTime time) {
             print('Selected Date: ${time.year}-${time.month}-${time.day}');
-            Navigator.pop(context);
+            
           },
           onRangeTimeSelected: (_, __) {}, // Not used in this case
         );
@@ -81,11 +81,11 @@ class DatePickerDemo extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return CustomTimePicker(
-          type: TimePickerType.yearMonthDayHourMinute,
+          type: TimePickerType.yearMonthDayHourMinuteSeparate,
           mode: TimePickerMode.single,
           onSingleTimeSelected: (DateTime time) {
             print('Selected Date-Time: ${time.year}-${time.month}-${time.day} ${time.hour}:${time.minute}');
-            Navigator.pop(context);
+            
           },
           onRangeTimeSelected: (_, __) {}, // Not used in this case
         );
@@ -98,11 +98,11 @@ class DatePickerDemo extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return CustomTimePicker(
-          type: TimePickerType.yearMonthDayHourMinute,
+          type: TimePickerType.yearMonthDayCombined,
           mode: TimePickerMode.single,
           onSingleTimeSelected: (DateTime time) {
             print('Selected Date: ${time.year}-${time.month}-${time.day}');
-            Navigator.pop(context);
+            
           },
           onRangeTimeSelected: (_, __) {}, // Not used in this case
         );
@@ -115,11 +115,11 @@ class DatePickerDemo extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return CustomTimePicker(
-          type: TimePickerType.yearMonthDayHourMinute,
+          type: TimePickerType.yearMonthDayHourMinuteCombined,
           mode: TimePickerMode.single,
           onSingleTimeSelected: (DateTime time) {
             print('Selected Date-Time: ${time.year}-${time.month}-${time.day} ${time.hour}:${time.minute}');
-            Navigator.pop(context);
+            
           },
           onRangeTimeSelected: (_, __) {}, // Not used in this case
         );
@@ -132,12 +132,12 @@ class DatePickerDemo extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return CustomTimePicker(
-          type: TimePickerType.yearMonthDayHourMinute,
+          type: TimePickerType.yearMonthDaySeparate,
           mode: TimePickerMode.range,
           onSingleTimeSelected: (_) {}, // Not used in this case
           onRangeTimeSelected: (DateTime startTime, DateTime endTime) {
             print('Selected Date Range: ${startTime.year}-${startTime.month}-${startTime.day} to ${endTime.year}-${endTime.month}-${endTime.day}');
-            Navigator.pop(context);
+            
           },
         );
       },
