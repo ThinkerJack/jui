@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:jui/data_entry.dart';
 
 class DatePickerDemo extends StatelessWidget {
-  DatePickerDemo({Key? key}) : super(key: key);
+  const DatePickerDemo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -59,13 +59,12 @@ class DatePickerDemo extends StatelessWidget {
             type: TimePickerType.yearMonthDayHourMinuteCombined,
             mode: TimePickerMode.single,
             minTime: DateTime.now(),
-            maxTime: DateTime.now().add(Duration(days: 7)),
+            maxTime: DateTime.now().add(const Duration(days: 7)),
           ),
         ),
       ],
     );
   }
-
   Widget _buildExample(BuildContext context, String title, Future<TimePickerModel?> Function() onTap) {
     return ListTile(
       title: Text(title),
