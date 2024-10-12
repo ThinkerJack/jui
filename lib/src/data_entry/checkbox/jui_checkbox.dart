@@ -14,9 +14,16 @@ class JuiCheckBox extends StatelessWidget {
     this.onChanged,
   }) : super(key: key);
 
+// 定义一个布尔值通知器，用于跟踪复选框的状态
   final ValueNotifier<bool> flag;
+
+  // 定义复选框的类型
   final JuiCheckBoxType type;
+
+  // 定义复选框是否被禁用
   final bool isDisabled;
+
+  // 定义当复选框状态改变时的回调函数
   final ValueChanged<bool>? onChanged;
 
   @override

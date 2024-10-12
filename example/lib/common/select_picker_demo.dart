@@ -63,12 +63,6 @@ class _PickerDemoState extends State<PickerDemo> {
       JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'yellow', value: 'Yellow')),
       JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'purple', value: 'Purple')),
       JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'orange', value: 'Orange')),
-      // PickerItemUI(data: PickerItemData(key: 'orange2', value: 'Orange2')),
-      // PickerItemUI(data: PickerItemData(key: 'orange3', value: 'Orange3')),
-      // PickerItemUI(data: PickerItemData(key: 'orange4', value: 'Orange4')),
-      // PickerItemUI(data: PickerItemData(key: 'orange5', value: 'Orange5')),
-      // PickerItemUI(data: PickerItemData(key: 'orange6', value: 'Orange6')),
-      // PickerItemUI(data: PickerItemData(key: 'orange7', value: 'Orange7')),
     ];
 
     showJuiSelectPicker(
@@ -95,12 +89,6 @@ class _PickerDemoState extends State<PickerDemo> {
       JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'yellow', value: 'Yellow')),
       JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'purple', value: 'Purple')),
       JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'orange', value: 'Orange')),
-      // PickerItemUI(data: PickerItemData(key: 'orange2', value: 'Orange2')),
-      // PickerItemUI(data: PickerItemData(key: 'orange3', value: 'Orange3')),
-      // PickerItemUI(data: PickerItemData(key: 'orange4', value: 'Orange4')),
-      // PickerItemUI(data: PickerItemData(key: 'orange5', value: 'Orange5')),
-      // PickerItemUI(data: PickerItemData(key: 'orange6', value: 'Orange6')),
-      // PickerItemUI(data: PickerItemData(key: 'orange7', value: 'Orange7')),
     ];
 
     showJuiSelectPicker(

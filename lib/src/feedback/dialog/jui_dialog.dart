@@ -8,18 +8,19 @@ import 'jui_standard_dialog.dart';
 enum JuiDialogType { standard, input, custom }
 
 void showJuiDialog(
-  BuildContext context,
-  JuiDialogType type,
+  BuildContext context, // 上下文环境，用于构建对话框
+  JuiDialogType type, // 对话框类型，定义对话框的样式和行为
   JuiDialogConfig config, {
-  String? content,
-  Widget? customContent,
-  String? hintText,
-  TextEditingController? textController,
-  bool allowEmoji = true,
-  int? maxLength,
-  FocusNode? focusNode,
-  ValueChanged<String>? onChange,
-  ConfirmInputCallback? onConfirmInput,
+  // 对话框配置，包含对话框的设置选项
+  String? content, // 对话框内容，可选字符串
+  Widget? customContent, // 自定义对话框内容，可选的Widget
+  String? hintText, // 提示文本，用于指导用户输入
+  TextEditingController? textController, // 文本控制器，用于管理文本输入
+  bool allowEmoji = true, // 是否允许输入表情，默认为true
+  int? maxLength, // 输入内容的最大长度，可选
+  FocusNode? focusNode, // 焦点节点，用于控制文本输入框的焦点
+  ValueChanged<String>? onChange, // 文本变化回调函数，当文本改变时调用
+  ConfirmInputCallback? onConfirmInput, // 确认输入回调函数，当用户确认输入时调用
 }) {
   Widget dialog;
   switch (type) {

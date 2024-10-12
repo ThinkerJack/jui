@@ -21,7 +21,6 @@ final demoRouterMap = <String, WidgetBuilder>{
   DemoRouter.tagDemo: (context) => TagDemo(),
   DemoRouter.expandedTextDemo: (context) => ExpandedTextDemo(),
   DemoRouter.highlightedTextDemo: (context) => HighlightedTextDemo(),
-  DemoRouter.titleDemo: (context) => DatePickerDemo(),
   DemoRouter.dialogDemo: (context) => DialogDemo(),
   DemoRouter.checkBoxDemo: (context) => CheckBoxDemo(),
   DemoRouter.itemDemo: (context) => ItemDemo(),
@@ -37,7 +36,6 @@ class DemoRouter {
   static const String tagDemo = "TagDemo";
   static const String expandedTextDemo = "ExpandedTextDemo";
   static const String highlightedTextDemo = "HighlightedTextDemo";
-  static const String titleDemo = "TitleDemo";
   static const String dialogDemo = "DialogDemo";
   static const String checkBoxDemo = "CheckBoxDemo";
   static const String itemDemo = "ItemDemo";

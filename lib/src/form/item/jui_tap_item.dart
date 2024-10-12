@@ -8,11 +8,23 @@ import 'jui_item.dart';
 import 'jui_item_config.dart';
 
 class JuiTapItem extends StatelessWidget {
+// 定义JuiTapItem类中的属性
+  // title: 用于显示的标题文本
   final String title;
+
+  // contentText: 主要内容的文本
   final String contentText;
+
+  // hintText: 当内容文本不显示时，用于提示的文本
   final String hintText;
+
+  // maxLines: 内容文本显示的最大行数
   final int maxLines;
+
+  // trailing: 可选的尾部组件，例如图标或按钮
   final Widget? trailing;
+
+  // config: JuiTapItem的配置信息，可能包含样式、行为等设置
   final JuiItemConfig config;
 
   const JuiTapItem({

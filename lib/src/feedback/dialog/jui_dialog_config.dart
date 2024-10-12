@@ -1,6 +1,14 @@
 import 'dart:ui';
 
 class JuiDialogConfig {
+// 对话框配置类
+  // title: 对话框的标题
+  // confirmButtonText: 确认按钮的文本
+  // cancelButtonText: 取消按钮的文本
+  // onConfirm: 点击确认按钮时的回调函数
+  // onCancel: 点击取消按钮时的回调函数
+  // showCancelButton: 是否显示取消按钮
+  // dialogWidth: 对话框的宽度
   final String title;
   final String confirmButtonText;
   final String cancelButtonText;

@@ -2,11 +2,22 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class JuiHighlightedText extends StatelessWidget {
+// 定义一个字符串变量text，用于存储要显示的文本内容
   final String text;
+
+  // 定义一个HighlightWord类型的列表highlights，用于存储文本中需要高亮显示的部分
   final List<HighlightWord> highlights;
+
+  // 定义一个TextStyle类型的可选变量textStyle，用于设置文本的样式
   final TextStyle? textStyle;
+
+  // 定义一个TextStyle类型的可选变量highlightStyle，用于设置高亮文本的样式
   final TextStyle? highlightStyle;
+
+  // 定义一个整型变量maxLines，用于限制文本显示的最大行数
   final int maxLines;
+
+  // 定义一个TextOverflow枚举类型的变量overflow，用于处理文本溢出的情况
   final TextOverflow overflow;
 
   const JuiHighlightedText({

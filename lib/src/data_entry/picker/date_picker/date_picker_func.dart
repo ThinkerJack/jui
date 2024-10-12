@@ -18,7 +18,6 @@ Future<dynamic> showVVDatePicker(
   bool isToDate = false,
   String? title,
 }) {
-
   Widget buildCupertinoPicker() {
     return showTopTitle
         ? MVScrollDatePicker(
@@ -47,7 +46,6 @@ Future<dynamic> showVVDatePicker(
           );
   }
 
-
   switch (type) {
     case DatePickerType.scrollYMDWHM:
     case DatePickerType.scrollYMD:
@@ -67,4 +65,3 @@ enum DatePickerType {
   scrollYMD, //滚动年月日
   scrollYMDWHM, //滚动年月日时分
 }
-

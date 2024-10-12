@@ -6,12 +6,25 @@ import 'jui_item.dart';
 import 'jui_item_config.dart';
 
 class JuiRangeItem extends StatelessWidget {
+  // 标题，用于显示在界面上
   final String title;
+
+  // 最小值，可选参数，表示范围选择的最小值
   final String? minValue;
+
+  // 最大值，可选参数，表示范围选择的最大值
   final String? maxValue;
+
+  // 最小值提示文本，用于提示用户输入最小值
   final String minHintText;
+
+  // 最大值提示文本，用于提示用户输入最大值
   final String maxHintText;
+
+  // 分隔符，可选参数，用于在界面上分隔不同的输入区域
   final Widget? separator;
+
+  // 配置项，用于设置JuiRangeItem的各种配置，如样式、行为等
   final JuiItemConfig config;
 
   const JuiRangeItem({

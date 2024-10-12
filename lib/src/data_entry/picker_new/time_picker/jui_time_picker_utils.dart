@@ -65,9 +65,7 @@ class TimePickerUtils {
   }
 
   List<int> getHours(DateTime selectedTime) {
-    if (selectedTime.year == minTime.year &&
-        selectedTime.month == minTime.month &&
-        selectedTime.day == minTime.day) {
+    if (selectedTime.year == minTime.year && selectedTime.month == minTime.month && selectedTime.day == minTime.day) {
       return List.generate(24 - minTime.hour, (index) => minTime.hour + index);
     } else if (selectedTime.year == maxTime.year &&
         selectedTime.month == maxTime.month &&

@@ -16,10 +16,20 @@ class JuiNoContent extends StatelessWidget {
     this.imageWidth = 180,
   }) : super(key: key);
 
+// 定义JuiNoContent组件的属性
+  // paddingTop: 顶部填充
   final double paddingTop;
+
+  // imageWidth: 图片宽度
   final double imageWidth;
+
+  // text: 显示的文本内容
   final String text;
+
+  // imagePath: 图片路径，可选参数
   final String? imagePath;
+
+  // type: JuiNoContent组件的类型
   final JuiNoContentType type;
 
   @override

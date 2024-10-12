@@ -2,24 +2,50 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:jui/src/utils/extension.dart';
 import 'package:jui/src/utils/jui_theme.dart';
+
 import '../../../generated/assets.dart';
 import 'jui_item.dart';
 import 'jui_item_config.dart';
 
 class JuiTextInputItem extends StatelessWidget {
+  // 标题，用于显示在文本输入框上方
   final String title;
+
+  // 提示文本，当输入框为空时显示
   final String hintText;
+
+  // 文本控制器，用于控制文本输入框的内容
   final TextEditingController controller;
+
+  // 焦点节点，用于管理输入框的焦点状态
   final FocusNode? focusNode;
+
+  // 键盘类型，决定打开输入框时显示的键盘类型
   final TextInputType keyboardType;
+
+  // 最大行数，限制文本输入框最多可以显示的行数
   final int maxLines;
+
+  // 最大长度，限制文本输入框中可以输入的最大字符数
   final int? maxLength;
+
+  // 是否只允许输入数字
   final bool onlyNumbers;
+
+  // 文本改变时的回调函数
   final ValueChanged<String>? onChanged;
+
+  // 编辑完成时的回调函数
   final VoidCallback? onEditingComplete;
+
+  // 提交文本时的回调函数
   final ValueChanged<String>? onSubmitted;
+
+  // 配置项，用于自定义文本输入框的外观和行为
   final JuiItemConfig config;
-  final bool showClearButton; // New property
+
+  // 是否显示清除按钮，新添加的属性
+  final bool showClearButton;
 
   const JuiTextInputItem({
     Key? key,
@@ -176,7 +202,7 @@ class _InputFieldState extends State<_InputField> {
                 isCollapsed: true,
                 counterText: '',
                 border: InputBorder.none,
-                contentPadding:  EdgeInsets.only(right: widget.showClearButton ? 20 : 0),
+                contentPadding: EdgeInsets.only(right: widget.showClearButton ? 20 : 0),
               ),
             )
           else
@@ -184,9 +210,7 @@ class _InputFieldState extends State<_InputField> {
               alignment: Alignment.centerLeft,
               child: Text(
                 widget.controller.text.isEmpty ? widget.hintText : widget.controller.text,
-                style: widget.controller.text.isEmpty
-                    ? JuiTheme.textStyles.itemHint
-                    : JuiTheme.textStyles.itemContent,
+                style: widget.controller.text.isEmpty ? JuiTheme.textStyles.itemHint : JuiTheme.textStyles.itemContent,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),

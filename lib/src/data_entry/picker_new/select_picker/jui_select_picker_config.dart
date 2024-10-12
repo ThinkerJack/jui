@@ -3,11 +3,15 @@
 import 'package:flutter/material.dart';
 
 import '../common/jui_picker_config.dart';
-import '../common/jui_picker_header.dart';
 
 enum JuiSelectPickerLayout {
+  /// 列表布局，用于展示选项列表供用户选择。
   list,
+
+  /// 动作布局，可能用于触发某些动作而非直接选择。
   action,
+
+  /// 滚动布局，以轮盘形式展示选项，适用于有限的选项数量。
   wheel,
 }
 
@@ -44,13 +48,28 @@ class JuiSelectPickerUIHelper {
 }
 
 class JuiSelectPickerUIConfig {
+  // 设置顶部边框的圆角半径
   final BorderRadius topBorderRadius;
+
+  // 设置选择器的背景颜色
   final Color backgroundColor;
+
+  // 设置选择器的最大高度
   final double maxHeight;
+
+  // 设置选择器底部的屏障颜色
   final Color barrierColor;
+
+  // 设置是否控制滚动
   final bool isScrollControlled;
+
+  // 设置是否启用拖动功能
   final bool enableDrag;
+
+  // 设置选项文本的样式
   final TextStyle? itemTextStyle;
+
+  // 设置选中项的颜色
   final Color? selectedItemColor;
 
   const JuiSelectPickerUIConfig({
@@ -65,12 +84,17 @@ class JuiSelectPickerUIConfig {
   });
 }
 
-
-
 class JuiSelectPickerConfig {
+  // 选择器的布局配置
   final JuiSelectPickerLayout layout;
+
+  // 选择模式，例如单选或多选
   final SelectionMode selectionMode;
+
+  // 选择器的UI配置，包括颜色、字体等视觉元素
   final JuiSelectPickerUIConfig uiConfig;
+
+  // 选择器头部配置，可能包括标题、按钮等
   final JuiPickerHeaderConfig headerConfig;
 
   const JuiSelectPickerConfig({

@@ -24,7 +24,6 @@ class MainPage extends StatelessWidget {
             _DemoButton(DemoRouter.highlightedTextDemo, "高亮文本"),
             _DemoButton(DemoRouter.tagDemo, "标签"),
             _DemoButton(DemoRouter.emptyPlaceholderDemo, "空页面"),
-            _DemoButton(DemoRouter.titleDemo, "标题"),
           ]),
           _buildSection(context, '数据录入', [
             _DemoButton(DemoRouter.checkBoxDemo, "复选框"),

@@ -22,6 +22,15 @@ class TimePickerModel {
   TimePickerModel({this.selectedTime, this.startTime, this.endTime});
 }
 
+/// 构造函数参数
+/// [context] 上下文环境，用于构建UI
+/// [type] 时间选择器的类型
+/// [mode] 时间选择器的模式，默认为单选模式
+/// [initialTime] 初始时间，仅在单选模式下使用
+/// [initialStartTime] 初始开始时间，仅在范围选择模式下使用
+/// [initialEndTime] 初始结束时间，仅在范围选择模式下使用
+/// [minTime] 可选的最小时间限制
+/// [maxTime] 可选的最大时间限制
 Future<TimePickerModel?> showCustomTimePicker({
   required BuildContext context,
   required TimePickerType type,

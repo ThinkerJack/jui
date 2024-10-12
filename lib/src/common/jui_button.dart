@@ -67,17 +67,40 @@ class JuiButton extends StatelessWidget {
     this.backGroundColor,
   }) : super(key: key);
 
+  // onTap: 点击按钮时触发的回调函数
   final VoidCallback onTap;
+
+  // text: 按钮上显示的文本
   final String text;
+
+  // sizeType: 按钮的大小类型
   final JuiButtonSizeType sizeType;
+
+  // colorType: 按钮的颜色类型
   final JuiButtonColorType colorType;
+
+  // visibility: 按钮是否可见
   final bool visibility;
+
+  // disable: 按钮是否禁用
   final bool disable;
+
+  // width: 按钮的宽度，可选
   final double? width;
+
+  // height: 按钮的高度，可选
   final double? height;
+
+  // fontSize: 按钮文本的字体大小，可选
   final double? fontSize;
+
+  // circular: 按钮的圆角半径
   final double circular;
+
+  // fontHeight: 字体的高度比例
   final double fontHeight;
+
+  // backGroundColor: 按钮的背景颜色，可选
   final Color? backGroundColor;
 
   static void updateSizeConfig(JuiButtonSizeType type, JuiButtonSizeConfig config) {

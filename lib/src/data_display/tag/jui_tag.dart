@@ -22,14 +22,32 @@ class JuiTag extends StatelessWidget {
     this.alignment = Alignment.center,
   }) : super(key: key);
 
+// 定义JuiTag组件的属性
+  // paddingVertical: 标签的垂直内边距
   final double paddingVertical;
+
+  // paddingHorizontal: 标签的水平内边距
   final double paddingHorizontal;
+
+  // tagType: 标签的类型
   final JuiTagType tagType;
+
+  // tagShapeType: 标签的形状类型
   final JuiTagShapeType tagShapeType;
+
+  // tagColorType: 标签的颜色类型
   final JuiTagColorType tagColorType;
+
+  // text: 标签显示的文本内容
   final String text;
+
+  // fontSize: 文本的字体大小
   final double fontSize;
+
+  // icon: 标签左侧的可选图标
   final Widget? icon;
+
+  // alignment: 文本的对齐方式
   final Alignment alignment;
 
   @override

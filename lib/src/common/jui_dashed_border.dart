@@ -3,12 +3,25 @@ import 'package:flutter/material.dart';
 import '../utils/jui_theme.dart';
 
 class JuiDashedBorder extends StatelessWidget {
+// dashColor: 虚线的颜色，可选参数，默认为null
   final Color? dashColor;
+
+// dashWidth: 虚线的宽度
   final double dashWidth;
+
+// dashHeight: 虚线的高度
   final double dashHeight;
+
+// dashSpace: 虚线之间的间距
   final double dashSpace;
+
+// borderRadius: 边框的圆角半径
   final double borderRadius;
+
+// child: 虚线边框内部包含的子组件
   final Widget child;
+
+// onTap: 当用户点击虚线边框时触发的回调函数，可选参数，默认为null
   final VoidCallback? onTap;
 
   const JuiDashedBorder({
