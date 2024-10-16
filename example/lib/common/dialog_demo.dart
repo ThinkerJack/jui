@@ -8,69 +8,6 @@ class DialogDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DemoBasePage(title: "弹窗", children: [
-      TextButton(
-        onPressed: () {
-          showJuiDialog(
-            context,
-            JuiDialogType.custom,
-            customContent: Text("自定义内容"),
-            JuiDialogConfig(
-              title: "标题",
-              onCancel: () {
-                print("点击取消");
-              },
-              onConfirm: () {
-                print("点击确定");
-              },
-            ),
-          );
-        },
-        child: Text("自定义"),
-      ),
-      TextButton(
-        onPressed: () {
-          showJuiDialog(
-            context,
-            JuiDialogType.standard,
-            content: "内容" * 50,
-            JuiDialogConfig(
-              title: "标题",
-              onConfirm: () {},
-              onCancel: () {},
-            ),
-          );
-        },
-        child: Text("通用"),
-      ),
-      TextButton(
-        onPressed: () {
-          showJuiDialog(
-            context,
-            JuiDialogType.standard,
-            JuiDialogConfig(
-              title: "内容" * 50,
-              onConfirm: () {},
-              onCancel: () {},
-            ),
-          );
-        },
-        child: Text("无标题"),
-      ),
-      TextButton(
-        onPressed: () {
-          showJuiDialog(
-            context,
-            JuiDialogType.input,
-            onConfirmInput: (inputText) {
-              print("用户输入的文本是: $inputText");
-            },
-            JuiDialogConfig(
-              title: "标题",
-            ),
-          );
-        },
-        child: Text("输入"),
-      ),
       ElevatedButton(
         child: Text('显示标准对话框'),
         onPressed: () => _showStandardDialog(context),
