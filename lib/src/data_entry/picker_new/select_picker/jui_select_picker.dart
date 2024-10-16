@@ -48,7 +48,7 @@ class JuiSelectPickerState extends State<JuiSelectPicker> {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: widget.config.uiConfig.topBorderRadius ?? BorderRadius.zero,
+      borderRadius: widget.config.uiConfig.topBorderRadius,
       child: Container(
         color: widget.config.uiConfig.backgroundColor,
         child: Column(

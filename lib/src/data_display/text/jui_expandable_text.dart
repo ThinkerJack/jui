@@ -78,7 +78,7 @@ class _JuiExpandableTextState extends State<JuiExpandableText> {
               visible: !expandFlag && widget.canPackUp,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: [buildExpandedWidget(), SizedBox(width: 5)],
+                children: [buildExpandedWidget(), const SizedBox(width: 5)],
               ),
             ),
           ],

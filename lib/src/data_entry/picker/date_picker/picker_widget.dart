@@ -23,8 +23,8 @@ class DateProcessTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20),
-      constraints: BoxConstraints(maxHeight: 56, minHeight: 56),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      constraints: const BoxConstraints(maxHeight: 56, minHeight: 56),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -32,49 +32,49 @@ class DateProcessTitle extends StatelessWidget {
             onTap: () {
               Navigator.pop(context);
             },
-            child: Text(
+            child: const Text(
               "取消",
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
                 fontFamily: 'PingFang SC',
-                color: const Color(0xFF858B9B),
+                color: Color(0xFF858B9B),
               ),
             ),
           ),
           Text(
             title ?? "选择时间",
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               fontFamily: 'PingFang SC',
               fontWeight: FontWeight.w500,
               fontSize: 16,
               height: 1.3,
-              color: const Color(0xFF2A2F3C),
+              color: Color(0xFF2A2F3C),
             ),
           ),
           ValueListenableBuilder(
             valueListenable: time,
             builder: (context, value, child) => Visibility(
               visible: time.value != null,
-              replacement: Text(
+              replacement: const Text(
                 "确定",
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
                   fontFamily: 'PingFang SC',
-                  color: const Color(0xFFC7DDFF),
+                  color: Color(0xFFC7DDFF),
                 ),
               ),
               child: GestureDetector(
                 onTap: onDone,
-                child: Text(
+                child: const Text(
                   "确定",
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
                     fontFamily: 'PingFang SC',
-                    color: const Color(0xFF5590F6),
+                    color: Color(0xFF5590F6),
                   ),
                 ),
               ),
@@ -100,8 +100,8 @@ class DatePickerSliding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(maxHeight: 220, minWidth: 345),
-      padding: EdgeInsets.symmetric(horizontal: 15),
+      constraints: const BoxConstraints(maxHeight: 220, minWidth: 345),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Stack(
         children: [
           Positioned(
@@ -175,8 +175,8 @@ class CommonTimeTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(maxHeight: 64, minHeight: 64),
-      padding: EdgeInsets.symmetric(horizontal: 16),
+      constraints: const BoxConstraints(maxHeight: 64, minHeight: 64),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

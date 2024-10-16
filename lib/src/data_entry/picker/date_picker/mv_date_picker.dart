@@ -30,8 +30,8 @@ class _MVScrollDatePickerState extends State<MVScrollDatePicker> {
     return Material(
       type: MaterialType.transparency,
       child: Container(
-        constraints: BoxConstraints(maxHeight: 370, minWidth: 37),
-        decoration: BoxDecoration(
+        constraints: const BoxConstraints(maxHeight: 370, minWidth: 37),
+        decoration: const BoxDecoration(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(
               16,
@@ -174,7 +174,7 @@ class _MVScrollDatePickerState extends State<MVScrollDatePicker> {
           ],
         );
       default:
-        return SizedBox.shrink();
+        return const SizedBox.shrink();
     }
   }
 
@@ -282,7 +282,7 @@ class _MVScrollDatePickerState extends State<MVScrollDatePicker> {
           ],
         );
       default:
-        return SizedBox.shrink();
+        return const SizedBox.shrink();
     }
   }
 }
