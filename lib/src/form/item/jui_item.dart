@@ -71,7 +71,7 @@ class JuiItem extends StatelessWidget {
           ),
         if (!config.isDisabled && config.isRequired)
           Padding(
-            padding: const EdgeInsets.only(left: 4, top: 3),
+            padding: const EdgeInsets.only(left: 4),
             child: config.requiredMarker ?? Image.asset(Assets.imagesItemRequired.path, width: 7),
           ),
         if (config.titleSuffixWidget != null)
