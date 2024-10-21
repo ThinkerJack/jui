@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../data_entry.dart';
 import '../common/jui_picker_header.dart';
+import 'jui_select_picker_config.dart';
 
 class JuiSelectPickerHeaderHandler {
   final JuiSelectPickerConfig config;

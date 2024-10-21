@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../data_entry.dart';
+import '../common/jui_picker_widget.dart';
+import 'jui_select_picker_config.dart';
 
 abstract class JuiSelectPickerContentBuilder {
   Widget build({
@@ -80,22 +82,42 @@ class ListPickerBuilder implements JuiSelectPickerContentBuilder {
         itemBuilder: (context, index) {
           final item = items[index];
           final isSelected = selectedItems.any((selected) => selected.key == item.data.key);
-
-          return ListTile(
-            title: Text(
-              item.data.value,
-              style: config.uiConfig.itemTextStyle,
-            ),
-            trailing: isSelected
-                ? Icon(Icons.check, color: config.uiConfig.selectedItemColor ?? Theme.of(context).primaryColor)
-                : null,
+          return GestureDetector(
             onTap: () {
               onItemTap(item.data);
               if (config.selectionMode == SelectionMode.single && onImmediateConfirm != null) {
                 onImmediateConfirm(item.data);
               }
             },
-            selected: isSelected,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 16, left: 16),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        item.data.value,
+                        style: config.uiConfig.itemTextStyle,
+                      ),
+                      if (isSelected)
+                        Padding(
+                          padding: const EdgeInsets.only(right: 16),
+                          child: Icon(
+                            Icons.check,
+                            color: config.uiConfig.selectedItemColor ?? Theme.of(context).primaryColor,
+                            size: 20,
+                          ),
+                        )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  const JuiPickerDivider()
+                ],
+              ),
+            ),
           );
         },
       ),
@@ -118,7 +140,7 @@ class ActionPickerBuilder implements JuiSelectPickerContentBuilder {
       child: ListView.separated(
         shrinkWrap: true,
         itemCount: items.length,
-        separatorBuilder: (context, index) => Divider(height: 1, color: Colors.grey[300]),
+        separatorBuilder: (context, index) => const JuiPickerDivider(),
         itemBuilder: (context, index) {
           final item = items[index];
           return ListTile(

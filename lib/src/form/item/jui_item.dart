@@ -3,6 +3,7 @@ import 'package:jui/src/utils/extension.dart';
 import 'package:jui/src/utils/jui_theme.dart';
 
 import '../../../generated/assets.dart';
+import '../../data_entry/picker/common/jui_picker_widget.dart';
 import 'jui_item_config.dart';
 
 class JuiItem extends StatelessWidget {
@@ -98,10 +99,7 @@ class JuiItem extends StatelessWidget {
   Widget _buildDivider() {
     return Padding(
       padding: config.dividerPadding ?? EdgeInsets.only(left: JuiTheme.dimensions.itemPaddingL),
-      child: Divider(
-        color: JuiTheme.colors.divider,
-        height: 0.5,
-      ),
+      child: const JuiPickerDivider(),
     );
   }
 }

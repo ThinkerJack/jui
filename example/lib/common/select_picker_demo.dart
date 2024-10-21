@@ -28,6 +28,10 @@ class _PickerDemoState extends State<PickerDemo> {
           child: Text('Show Action Picker'),
           onPressed: () => _showActionPicker(context),
         ),
+        ElevatedButton(
+          child: Text('Show Single List Picker'),
+          onPressed: () => _showSingleListPicker(context),
+        ),
       ],
     );
   }
@@ -74,6 +78,32 @@ class _PickerDemoState extends State<PickerDemo> {
       ),
       items: items,
       initialSelection: [items[0].data, items[2].data],
+      // Red and Green are initially selected
+      onSelect: (selectedKeys, selectedValues) {
+        print('Selected: $selectedValues');
+      },
+    );
+  }
+
+  void _showSingleListPicker(BuildContext context) {
+    final items = [
+      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'red', value: 'Red')),
+      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'blue', value: 'Blue')),
+      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'green', value: 'Green')),
+      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'yellow', value: 'Yellow')),
+      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'purple', value: 'Purple')),
+      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'orange', value: 'Orange')),
+    ];
+
+    showJuiSelectPicker(
+      context: context,
+      config: JuiSelectPickerConfig(
+        layout: JuiSelectPickerLayout.list,
+        selectionMode: SelectionMode.single,
+        headerConfig: JuiPickerHeaderConfig(title: 'Select Colors'),
+      ),
+      items: items,
+      initialSelection: [items[0].data],
       // Red and Green are initially selected
       onSelect: (selectedKeys, selectedValues) {
         print('Selected: $selectedValues');

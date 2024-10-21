@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import '../../../utils/jui_theme.dart';
+import 'jui_picker_widget.dart';
 
 class JuiPickerHeader extends StatelessWidget {
   final String? title;
@@ -46,7 +47,7 @@ class JuiPickerHeader extends StatelessWidget {
             _buildTextButton(onConfirm, titleRightText ?? '', rightTextStyle ?? JuiTheme.textStyles.pickerConfirm),
           ],
         ),
-        const Divider(height: 1, thickness: 1),
+        const JuiPickerDivider()
       ],
     );
   }
