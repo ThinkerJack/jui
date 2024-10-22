@@ -83,6 +83,7 @@ class ListPickerBuilder implements JuiSelectPickerContentBuilder {
           final item = items[index];
           final isSelected = selectedItems.any((selected) => selected.key == item.data.key);
           return GestureDetector(
+            behavior: HitTestBehavior.opaque,
             onTap: () {
               onItemTap(item.data);
               if (config.selectionMode == SelectionMode.single && onImmediateConfirm != null) {

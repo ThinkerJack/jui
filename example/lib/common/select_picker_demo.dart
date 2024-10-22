@@ -11,6 +11,13 @@ class PickerDemo extends StatefulWidget {
 }
 
 class _PickerDemoState extends State<PickerDemo> {
+  var items = [
+    JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '1', value: '语文')),
+    JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '2', value: '数学')),
+    JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '3', value: '英语')),
+    JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '4', value: '音乐')),
+  ];
+  final GlobalKey globalKey =  GlobalKey();
   @override
   Widget build(BuildContext context) {
     return DemoBasePage(
@@ -31,6 +38,36 @@ class _PickerDemoState extends State<PickerDemo> {
         ElevatedButton(
           child: Text('Show Single List Picker'),
           onPressed: () => _showSingleListPicker(context),
+        ),
+        ElevatedButton(
+          child: Text('Show Single List Picker custom'),
+          onPressed: (){
+            showJuiSelectPicker(
+              context: context,
+              key: globalKey,
+              config: JuiSelectPickerConfig(
+                  layout: JuiSelectPickerLayout.list,
+                  selectionMode: SelectionMode.single,
+                  headerConfig: JuiPickerHeaderConfig(
+                      title: '授课科目',
+                      confirmText: "添加",
+                      tapConfirm: () {
+                        items.removeLast();
+                        globalKey.currentState!.setState(() {});
+                      },
+                      showConfirmButton: true),
+                  uiConfig: JuiSelectPickerUIConfig(
+                      itemTextStyle: TextStyle(
+                        color: Color(0XFF2A2F3C),
+                        fontSize: 16,
+                      ))),
+              items: items,
+              initialSelection: [items[0].data],
+              onSelect: (selectedKeys, selectedValues) {
+                print('Selected: $selectedValues');
+              },
+            );
+          },
         ),
       ],
     );

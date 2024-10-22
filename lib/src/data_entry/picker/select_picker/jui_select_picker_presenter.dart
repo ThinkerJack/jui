@@ -18,6 +18,7 @@ Future<void> showJuiSelectPicker({
   required JuiSelectPickerCallback onSelect,
   List<JuiSelectPickerItemData> initialSelection = const [],
   VoidCallback? onCancel,
+  Key? key
 }) {
   return showModalBottomSheet(
     context: context,
@@ -33,6 +34,7 @@ Future<void> showJuiSelectPicker({
       return JuiSelectPicker(
         config: config,
         items: items,
+        key: key,
         initialSelection: initialSelection,
         onSelect: (selectedKeys, selectedValues) {
           onSelect(selectedKeys, selectedValues);

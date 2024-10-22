@@ -27,7 +27,9 @@ class JuiPickerHeaderConfig {
   // 定义一个可选的布尔值，用于控制是否显示确认按钮
   final bool? showConfirmButton;
 
-  const JuiPickerHeaderConfig({
+  final VoidCallback? tapConfirm;
+
+  const JuiPickerHeaderConfig( {
     this.title,
     this.customHeader,
     this.cancelText = JuiSelectPickerUIHelper.defaultCancelText,
@@ -36,5 +38,6 @@ class JuiPickerHeaderConfig {
     this.confirmTextStyle,
     this.showHeader,
     this.showConfirmButton,
+    this.tapConfirm,
   });
 }
