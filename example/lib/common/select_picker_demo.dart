@@ -97,23 +97,8 @@ class _PickerDemoState extends State<PickerDemo> {
   }
 
   void _showListPicker(BuildContext context) {
-    final items = [
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'red', value: 'Red')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'blue', value: 'Blue')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'green', value: 'Green')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'yellow', value: 'Yellow')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'purple', value: 'Purple')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'orange', value: 'Orange')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'orange', value: 'Orange')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'orange', value: 'Orange')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'orange', value: 'Orange')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'orange', value: 'Orange')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'orange', value: 'Orange')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'orange', value: 'Orange')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'orange', value: 'Orange')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'orange', value: 'Orange')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'orange', value: 'Orange')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'orange', value: 'Orange')),
+    final List<JuiSelectPickerItemUI> items = [
+
     ];
 
     showJuiSelectPicker(
@@ -124,7 +109,7 @@ class _PickerDemoState extends State<PickerDemo> {
         headerConfig: JuiPickerHeaderConfig(title: 'Select Colors'),
       ),
       items: items,
-      initialSelection: [items[0].data, items[2].data],
+      initialSelection: [],
       // Red and Green are initially selected
       onSelect: (selectedKeys, selectedValues) {
         print('Selected: $selectedValues');

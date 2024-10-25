@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../data_display.dart';
 import '../../../../data_entry.dart';
 import '../common/jui_picker_widget.dart';
 import 'jui_select_picker_config.dart';
@@ -76,52 +77,58 @@ class ListPickerBuilder implements JuiSelectPickerContentBuilder {
   }) {
     return ConstrainedBox(
       constraints: BoxConstraints(maxHeight: JuiSelectPickerUIHelper.getMaxHeight(config.layout)),
-      child: ListView.builder(
-        shrinkWrap: true,
-        itemCount: items.length,
-        itemBuilder: (context, index) {
-          final item = items[index];
-          final isSelected = selectedItems.any((selected) => selected.key == item.data.key);
-          return GestureDetector(
-            behavior: HitTestBehavior.opaque,
-            onTap: () {
-              onItemTap(item.data);
-              if (config.selectionMode == SelectionMode.single && onImmediateConfirm != null) {
-                onImmediateConfirm(item.data);
-              }
-            },
-            child: Padding(
-              padding: const EdgeInsets.only(top: 16, left: 16),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        item.data.value,
-                        style: config.uiConfig.itemTextStyle,
-                      ),
-                      if (isSelected)
-                        Padding(
-                          padding: const EdgeInsets.only(right: 16),
-                          child: Icon(
-                            Icons.check,
-                            color: config.uiConfig.selectedItemColor ?? Theme.of(context).primaryColor,
-                            size: 20,
-                          ),
-                        )
-                    ],
+      child: (items.isEmpty)
+          ? const JuiNoContent(
+              type: JuiNoContentType.list,
+              paddingTop: 30,
+              paddingBottom: 30,
+            )
+          : ListView.builder(
+              shrinkWrap: true,
+              itemCount: items.length,
+              itemBuilder: (context, index) {
+                final item = items[index];
+                final isSelected = selectedItems.any((selected) => selected.key == item.data.key);
+                return GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: () {
+                    onItemTap(item.data);
+                    if (config.selectionMode == SelectionMode.single && onImmediateConfirm != null) {
+                      onImmediateConfirm(item.data);
+                    }
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 16, left: 16),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              item.data.value,
+                              style: config.uiConfig.itemTextStyle,
+                            ),
+                            if (isSelected)
+                              Padding(
+                                padding: const EdgeInsets.only(right: 16),
+                                child: Icon(
+                                  Icons.check,
+                                  color: config.uiConfig.selectedItemColor ?? Theme.of(context).primaryColor,
+                                  size: 20,
+                                ),
+                              )
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        const JuiPickerDivider()
+                      ],
+                    ),
                   ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  const JuiPickerDivider()
-                ],
-              ),
+                );
+              },
             ),
-          );
-        },
-      ),
     );
   }
 }

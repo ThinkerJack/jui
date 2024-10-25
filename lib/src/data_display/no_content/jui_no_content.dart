@@ -13,12 +13,14 @@ class JuiNoContent extends StatelessWidget {
     this.text = "暂无数据",
     required this.type,
     this.imagePath,
-    this.imageWidth = 180,
+    this.imageWidth = 180,  this.paddingBottom = 0,
   }) : super(key: key);
 
 // 定义JuiNoContent组件的属性
   // paddingTop: 顶部填充
   final double paddingTop;
+
+  final double paddingBottom;
 
   // imageWidth: 图片宽度
   final double imageWidth;
@@ -37,8 +39,9 @@ class JuiNoContent extends StatelessWidget {
     return Material(
       color: Colors.white,
       child: Padding(
-        padding: EdgeInsets.only(top: paddingTop),
+        padding: EdgeInsets.only(top: paddingTop,bottom: paddingBottom),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Image.asset(
