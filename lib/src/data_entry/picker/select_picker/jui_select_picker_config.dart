@@ -22,7 +22,7 @@ enum SelectionMode {
 
 class JuiSelectPickerUIHelper {
   static const double itemExtent = 52.0;
-  static const double maxHeight = 650.0;
+  static const double maxHeight = 655.0;
 
   // UI Config 默认值
   static const BorderRadius defaultTopBorderRadius = BorderRadius.vertical(top: Radius.circular(12));
