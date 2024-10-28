@@ -21,6 +21,7 @@ class JuiItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Semantics(
+      excludeSemantics: config.excludeSemantics,
       label: config.semanticsLabel ?? title,
       child: InkWell(
         onTap: config.isDisabled ? null : config.onTap,

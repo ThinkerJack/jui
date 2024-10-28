@@ -40,19 +40,21 @@ class JuiItemConfig {
   // 语义标签
   final String? semanticsLabel;
 
-  const JuiItemConfig({
-    this.isRequired = false,
-    this.isDisabled = false,
-    this.titleSuffixWidget,
-    this.titleBeforeRequiredWidget,
-    this.requiredMarker,
-    this.customTitleStyle,
-    this.showDivider = true,
-    this.padding,
-    this.dividerPadding,
-    this.showTips = false,
-    this.tipText = '',
-    this.onTap,
-    this.semanticsLabel,
-  });
+  final bool excludeSemantics;
+
+  const JuiItemConfig(
+      {this.isRequired = false,
+      this.isDisabled = false,
+      this.titleSuffixWidget,
+      this.titleBeforeRequiredWidget,
+      this.requiredMarker,
+      this.customTitleStyle,
+      this.showDivider = true,
+      this.padding,
+      this.dividerPadding,
+      this.showTips = false,
+      this.tipText = '',
+      this.onTap,
+      this.semanticsLabel,
+      this.excludeSemantics = true});
 }
