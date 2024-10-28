@@ -20,35 +20,31 @@ class JuiItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Semantics(
-      excludeSemantics: config.excludeSemantics,
-      label: config.semanticsLabel ?? title,
-      child: InkWell(
-        onTap: config.isDisabled ? null : config.onTap,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: config.padding ??
-                  EdgeInsets.only(
-                    top: JuiTheme.dimensions.itemPaddingV,
-                    right: JuiTheme.dimensions.itemPaddingR,
-                    left: JuiTheme.dimensions.itemPaddingL,
-                  ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  _buildTitle(),
-                  SizedBox(height: JuiTheme.dimensions.itemSpace),
-                  content,
-                  if (config.showTips) _buildTips(),
-                  SizedBox(height: JuiTheme.dimensions.itemPaddingV),
-                ],
-              ),
+    return InkWell(
+      onTap: config.isDisabled ? null : config.onTap,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: config.padding ??
+                EdgeInsets.only(
+                  top: JuiTheme.dimensions.itemPaddingV,
+                  right: JuiTheme.dimensions.itemPaddingR,
+                  left: JuiTheme.dimensions.itemPaddingL,
+                ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _buildTitle(),
+                SizedBox(height: JuiTheme.dimensions.itemSpace),
+                content,
+                if (config.showTips) _buildTips(),
+                SizedBox(height: JuiTheme.dimensions.itemPaddingV),
+              ],
             ),
-            if (config.showDivider) _buildDivider(),
-          ],
-        ),
+          ),
+          if (config.showDivider) _buildDivider(),
+        ],
       ),
     );
   }
