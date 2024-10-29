@@ -55,25 +55,11 @@ packages:
       url: "https://dartrepo.vvtechnology.cn"
     source: hosted
     version: "2.0.2"
-  flutter_screenutil:
-    dependency: "direct main"
-    description:
-      name: flutter_screenutil
-      url: "https://dartrepo.vvtechnology.cn"
-    source: hosted
-    version: "5.7.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
     source: sdk
     version: "0.0.0"
-  intl:
-    dependency: "direct main"
-    description:
-      name: intl
-      url: "https://dartrepo.vvtechnology.cn"
-    source: hosted
-    version: "0.17.0"
   lints:
     dependency: transitive
     description:

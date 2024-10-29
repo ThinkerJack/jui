@@ -30,6 +30,18 @@ class ItemDemoState extends State<ItemDemo> {
             },
           ),
         ),
+        JuiCustomItem(
+          title: 'Custom Item input',
+          content: TextField(),
+          config: JuiItemConfig(
+            isRequired: true,
+            showTips: true,
+            tipText: '提示',
+            onTap: () {
+              debugPrint('onTap');
+            },
+          ),
+        ),
         JuiTextDetailItem(
           title: "Text Detail Item",
           contentText: 'This is a text detail item',

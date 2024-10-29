@@ -22,6 +22,7 @@ class JuiItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: config.isDisabled ? null : config.onTap,
+      focusColor: Colors.transparent,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

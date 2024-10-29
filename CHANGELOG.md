@@ -1,5 +1,6 @@
 ## 0.1.3
-* 更新items 辅助视觉属性
+* 更新items 去掉focusColor
+* 解决example iOS无法运行问题
 ## 0.1.2
 * 更新picker,items为空的适配
 ## 0.1.1
