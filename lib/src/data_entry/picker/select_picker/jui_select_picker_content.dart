@@ -32,6 +32,80 @@ class JuiSelectPickerContentBuilderFactory {
   }
 }
 
+// Default implementations for different styles
+class CupertinoItemBuilder implements JuiSelectPickerItemBuilder {
+  @override
+  Widget buildItem({
+    required BuildContext context,
+    required JuiSelectPickerItemUI item,
+    required bool isSelected,
+    required JuiSelectPickerConfig config,
+  }) {
+    return Center(
+      child: Text(
+        item.data.value,
+        style: config.uiConfig.itemTextStyle ?? TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+      ),
+    );
+  }
+}
+
+class ListItemBuilder implements JuiSelectPickerItemBuilder {
+  @override
+  Widget buildItem({
+    required BuildContext context,
+    required JuiSelectPickerItemUI item,
+    required bool isSelected,
+    required JuiSelectPickerConfig config,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 16, left: 16),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                item.data.value,
+                style: config.uiConfig.itemTextStyle,
+              ),
+              if (isSelected)
+                Padding(
+                  padding: const EdgeInsets.only(right: 16),
+                  child: Icon(
+                    Icons.check,
+                    color: config.uiConfig.selectedItemColor ?? Theme.of(context).primaryColor,
+                    size: 20,
+                  ),
+                )
+            ],
+          ),
+          const SizedBox(height: 16),
+          const JuiPickerDivider()
+        ],
+      ),
+    );
+  }
+}
+
+class ActionItemBuilder implements JuiSelectPickerItemBuilder {
+  @override
+  Widget buildItem({
+    required BuildContext context,
+    required JuiSelectPickerItemUI item,
+    required bool isSelected,
+    required JuiSelectPickerConfig config,
+  }) {
+    return Center(
+      child: Text(
+        item.data.value,
+        style: config.uiConfig.itemTextStyle,
+      ),
+    );
+  }
+}
+
+// Update the builders to use the item builders
 class CupertinoPickerBuilder implements JuiSelectPickerContentBuilder {
   @override
   Widget build({
@@ -46,20 +120,23 @@ class CupertinoPickerBuilder implements JuiSelectPickerContentBuilder {
         selectedItems.isNotEmpty ? items.indexWhere((item) => item.data.key == selectedItems.first.key) : 0;
     initialIndex = initialIndex != -1 ? initialIndex : 0;
 
+    final itemBuilder = config.customItemBuilder ?? CupertinoItemBuilder();
+
     return ConstrainedBox(
       constraints: BoxConstraints(maxHeight: JuiSelectPickerUIHelper.getMaxHeight(config.layout)),
       child: CupertinoPicker(
         scrollController: FixedExtentScrollController(initialItem: initialIndex),
         itemExtent: JuiSelectPickerUIHelper.itemExtent,
         onSelectedItemChanged: (index) => onItemTap(items[index].data),
-        children: items
-            .map((item) => Center(
-                  child: Text(
-                    item.data.value,
-                    style: config.uiConfig.itemTextStyle ?? TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                  ),
-                ))
-            .toList(),
+        children: items.map((item) {
+          final isSelected = selectedItems.any((selected) => selected.key == item.data.key);
+          return itemBuilder.buildItem(
+            context: context,
+            item: item,
+            isSelected: isSelected,
+            config: config,
+          );
+        }).toList(),
       ),
     );
   }
@@ -75,6 +152,8 @@ class ListPickerBuilder implements JuiSelectPickerContentBuilder {
     required JuiSelectItemCallback onItemTap,
     JuiSelectItemCallback? onImmediateConfirm,
   }) {
+    final itemBuilder = config.customItemBuilder ?? ListItemBuilder();
+
     return ConstrainedBox(
       constraints: BoxConstraints(maxHeight: JuiSelectPickerUIHelper.getMaxHeight(config.layout)),
       child: (items.isEmpty)
@@ -97,34 +176,11 @@ class ListPickerBuilder implements JuiSelectPickerContentBuilder {
                       onImmediateConfirm(item.data);
                     }
                   },
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 16, left: 16),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              item.data.value,
-                              style: config.uiConfig.itemTextStyle,
-                            ),
-                            if (isSelected)
-                              Padding(
-                                padding: const EdgeInsets.only(right: 16),
-                                child: Icon(
-                                  Icons.check,
-                                  color: config.uiConfig.selectedItemColor ?? Theme.of(context).primaryColor,
-                                  size: 20,
-                                ),
-                              )
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        const JuiPickerDivider()
-                      ],
-                    ),
+                  child: itemBuilder.buildItem(
+                    context: context,
+                    item: item,
+                    isSelected: isSelected,
+                    config: config,
                   ),
                 );
               },
@@ -143,6 +199,8 @@ class ActionPickerBuilder implements JuiSelectPickerContentBuilder {
     required JuiSelectItemCallback onItemTap,
     JuiSelectItemCallback? onImmediateConfirm,
   }) {
+    final itemBuilder = config.customItemBuilder ?? ActionItemBuilder();
+
     return ConstrainedBox(
       constraints: BoxConstraints(maxHeight: JuiSelectPickerUIHelper.getMaxHeight(config.layout)),
       child: ListView.separated(
@@ -151,8 +209,14 @@ class ActionPickerBuilder implements JuiSelectPickerContentBuilder {
         separatorBuilder: (context, index) => const JuiPickerDivider(),
         itemBuilder: (context, index) {
           final item = items[index];
+          final isSelected = selectedItems.any((selected) => selected.key == item.data.key);
           return ListTile(
-            title: Center(child: Text(item.data.value, style: config.uiConfig.itemTextStyle)),
+            title: itemBuilder.buildItem(
+              context: context,
+              item: item,
+              isSelected: isSelected,
+              config: config,
+            ),
             onTap: () {
               if (item.onTap != null) {
                 item.onTap!();
