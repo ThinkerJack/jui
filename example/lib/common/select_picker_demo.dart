@@ -59,9 +59,9 @@ class _PickerDemoState extends State<PickerDemo> {
                       showConfirmButton: true),
                   uiConfig: JuiSelectPickerUIConfig(
                       itemTextStyle: TextStyle(
-                        color: Color(0XFF2A2F3C),
-                        fontSize: 16,
-                      ))),
+                    color: Color(0XFF2A2F3C),
+                    fontSize: 16,
+                  ))),
               items: items,
               initialSelection: [items[0].data],
               onSelect: (selectedKeys, selectedValues) {
@@ -85,8 +85,8 @@ class _PickerDemoState extends State<PickerDemo> {
     showJuiSelectPicker(
       context: context,
       config: JuiSelectPickerConfig(
-          layout: JuiSelectPickerLayout.wheel,
-          headerConfig: JuiPickerHeaderConfig(title: 'Select a Fruit'),
+        layout: JuiSelectPickerLayout.wheel,
+        headerConfig: JuiPickerHeaderConfig(title: 'Select a Fruit'),
       ),
       items: items,
       initialSelection: [items[1].data],
@@ -100,7 +100,7 @@ class _PickerDemoState extends State<PickerDemo> {
   void _showListPicker(BuildContext context) {
     final List<JuiSelectPickerItemUI> items = [
       JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '1', value: 'Apple')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '2', value: 'Banana')),
+      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '2', value: '我微微' * 30)),
       JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '3', value: 'Cherry')),
       JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '4', value: 'Date')),
     ];
@@ -108,13 +108,12 @@ class _PickerDemoState extends State<PickerDemo> {
     showJuiSelectPicker(
       context: context,
       config: JuiSelectPickerConfig(
-        layout: JuiSelectPickerLayout.list,
-        selectionMode: SelectionMode.single,
-        headerConfig: JuiPickerHeaderConfig(title: 'Select Colors'),
-        customItemBuilder: CustomBuilder()
-      ),
+          layout: JuiSelectPickerLayout.list,
+          selectionMode: SelectionMode.single,
+          headerConfig: JuiPickerHeaderConfig(title: 'Select Colors'),
+          uiConfig: JuiSelectPickerUIConfig()),
       items: items,
-      initialSelection: [JuiSelectPickerItemData(key: '1', value: 'Apple')],
+      initialSelection: [JuiSelectPickerItemData(key: '2', value: 'Apple')],
       // Red and Green are initially selected
       onSelect: (selectedKeys, selectedValues) {
         print('Selected: $selectedValues');
@@ -178,9 +177,11 @@ class _PickerDemoState extends State<PickerDemo> {
 class CustomBuilder extends JuiSelectPickerItemBuilder {
   @override
   Widget buildItem(
-      {required BuildContext context, required JuiSelectPickerItemUI item, required bool isSelected, required JuiSelectPickerConfig config}) {
+      {required BuildContext context,
+      required JuiSelectPickerItemUI item,
+      required bool isSelected,
+      required JuiSelectPickerConfig config}) {
     // TODO: implement buildItem
     return Center(child: Text("${item.data.key}${isSelected}"));
   }
-
 }

@@ -71,7 +71,7 @@ class ListItemBuilder implements JuiSelectPickerItemBuilder {
                   item.data.value,
                   style: config.uiConfig.itemTextStyle,
                   maxLines: config.uiConfig.maxLines,
-                  overflow: TextOverflow.ellipsis,
+                  overflow: config.uiConfig.maxLines != null ? TextOverflow.ellipsis : TextOverflow.visible,
                 ),
               ),
               if (isSelected)
