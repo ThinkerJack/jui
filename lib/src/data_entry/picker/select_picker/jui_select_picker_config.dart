@@ -73,6 +73,9 @@ class JuiSelectPickerUIConfig {
   // 设置选中项的颜色
   final Color? selectedItemColor;
 
+  // 设置选项文本的最大行数
+  final int? maxLines;
+
   const JuiSelectPickerUIConfig({
     this.topBorderRadius = JuiSelectPickerUIHelper.defaultTopBorderRadius,
     this.backgroundColor = JuiSelectPickerUIHelper.defaultBackgroundColor,
@@ -82,6 +85,7 @@ class JuiSelectPickerUIConfig {
     this.enableDrag = JuiSelectPickerUIHelper.defaultEnableDrag,
     this.itemTextStyle,
     this.selectedItemColor,
+    this.maxLines,
   });
 }
 

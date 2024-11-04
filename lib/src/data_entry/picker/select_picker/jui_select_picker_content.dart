@@ -65,9 +65,14 @@ class ListItemBuilder implements JuiSelectPickerItemBuilder {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                item.data.value,
-                style: config.uiConfig.itemTextStyle,
+              SizedBox(
+                width: 295,
+                child: Text(
+                  item.data.value,
+                  style: config.uiConfig.itemTextStyle,
+                  maxLines: config.uiConfig.maxLines,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
               if (isSelected)
                 Padding(
