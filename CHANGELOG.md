@@ -1,3 +1,5 @@
+## 0.1.7
+* JuiTextInputItem 中英文混排适配
 ## 0.1.6
 * picker items多行样式适配
 ## 0.1.5

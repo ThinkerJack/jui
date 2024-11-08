@@ -8,43 +8,18 @@ import 'jui_item.dart';
 import 'jui_item_config.dart';
 
 class JuiTextInputItem extends StatelessWidget {
-  // 标题，用于显示在文本输入框上方
   final String title;
-
-  // 提示文本，当输入框为空时显示
   final String hintText;
-
-  // 文本控制器，用于控制文本输入框的内容
   final TextEditingController controller;
-
-  // 焦点节点，用于管理输入框的焦点状态
   final FocusNode? focusNode;
-
-  // 键盘类型，决定打开输入框时显示的键盘类型
   final TextInputType keyboardType;
-
-  // 最大行数，限制文本输入框最多可以显示的行数
   final int maxLines;
-
-  // 最大长度，限制文本输入框中可以输入的最大字符数
   final int? maxLength;
-
-  // 是否只允许输入数字
   final bool onlyNumbers;
-
-  // 文本改变时的回调函数
   final ValueChanged<String>? onChanged;
-
-  // 编辑完成时的回调函数
   final VoidCallback? onEditingComplete;
-
-  // 提交文本时的回调函数
   final ValueChanged<String>? onSubmitted;
-
-  // 配置项，用于自定义文本输入框的外观和行为
   final JuiItemConfig config;
-
-  // 是否显示清除按钮，新添加的属性
   final bool showClearButton;
 
   const JuiTextInputItem({
@@ -61,7 +36,7 @@ class JuiTextInputItem extends StatelessWidget {
     this.onEditingComplete,
     this.onSubmitted,
     this.config = const JuiItemConfig(),
-    this.showClearButton = true, // Default to true for backward compatibility
+    this.showClearButton = true,
   }) : super(key: key);
 
   @override
@@ -79,7 +54,7 @@ class JuiTextInputItem extends StatelessWidget {
         onChanged: onChanged,
         onEditingComplete: onEditingComplete,
         onSubmitted: onSubmitted,
-        showClearButton: showClearButton, // Pass the new property
+        showClearButton: showClearButton,
       ),
       config: config,
     );
@@ -97,7 +72,7 @@ class _InputField extends StatefulWidget {
   final ValueChanged<String>? onChanged;
   final VoidCallback? onEditingComplete;
   final ValueChanged<String>? onSubmitted;
-  final bool showClearButton; // New property
+  final bool showClearButton;
 
   const _InputField({
     Key? key,
@@ -111,7 +86,7 @@ class _InputField extends StatefulWidget {
     this.onChanged,
     this.onEditingComplete,
     this.onSubmitted,
-    required this.showClearButton, // New required property
+    required this.showClearButton,
   }) : super(key: key);
 
   @override
@@ -166,6 +141,18 @@ class _InputFieldState extends State<_InputField> {
     _updateClearIconVisibility();
   }
 
+  String _breakWord(String text) {
+    if (text.isEmpty) {
+      return text;
+    }
+    String breakWord = '';
+    for (var element in text.runes) {
+      breakWord += String.fromCharCode(element);
+      breakWord += '\u200B'; // 零宽空格符
+    }
+    return breakWord;
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -209,8 +196,10 @@ class _InputFieldState extends State<_InputField> {
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                widget.controller.text.isEmpty ? widget.hintText : widget.controller.text,
-                style: widget.controller.text.isEmpty ? JuiTheme.textStyles.itemHint : JuiTheme.textStyles.itemContent,
+                _breakWord(widget.controller.text.isEmpty ? widget.hintText : widget.controller.text),
+                style: widget.controller.text.isEmpty
+                    ? JuiTheme.textStyles.itemHint
+                    : JuiTheme.textStyles.itemContent,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
