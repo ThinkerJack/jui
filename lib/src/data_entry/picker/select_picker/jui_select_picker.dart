@@ -65,12 +65,14 @@ class JuiSelectPickerState extends State<JuiSelectPicker> {
 
   Widget _buildContent() {
     return _contentBuilder.build(
-      context: context,
-      items: widget.items,
-      selectedItems: _selectedItems,
-      config: widget.config,
-      onItemTap: _handleItemSelection,
-      onImmediateConfirm: widget.config.selectionMode == SelectionMode.single ? _handleImmediateConfirm : null,
+      JuiSelectPickerContentBuildParams(
+        context: context,
+        items: widget.items,
+        selectedItems: _selectedItems,
+        config: widget.config,
+        onItemTap: _handleItemSelection,
+        onImmediateConfirm: widget.config.selectionMode == SelectionMode.single ? _handleImmediateConfirm : null,
+      ),
     );
   }
 

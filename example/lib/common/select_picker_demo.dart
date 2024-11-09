@@ -111,7 +111,7 @@ class _PickerDemoState extends State<PickerDemo> {
           layout: JuiSelectPickerLayout.list,
           selectionMode: SelectionMode.single,
           headerConfig: JuiPickerHeaderConfig(title: 'Select Colors'),
-          uiConfig: JuiSelectPickerUIConfig(maxLines: 2)),
+          uiConfig: JuiSelectPickerUIConfig(maxLines: 2, shrinkWrap: false)),
       items: items,
       initialSelection: [JuiSelectPickerItemData(key: '2', value: 'Apple')],
       // Red and Green are initially selected
@@ -171,17 +171,5 @@ class _PickerDemoState extends State<PickerDemo> {
         print('Selected: $selectedValues');
       },
     );
-  }
-}
-
-class CustomBuilder extends JuiSelectPickerItemBuilder {
-  @override
-  Widget buildItem(
-      {required BuildContext context,
-      required JuiSelectPickerItemUI item,
-      required bool isSelected,
-      required JuiSelectPickerConfig config,
-      bool isLastItem = false}) {
-    return Center(child: Text("${item.data.key}${isSelected}"));
   }
 }

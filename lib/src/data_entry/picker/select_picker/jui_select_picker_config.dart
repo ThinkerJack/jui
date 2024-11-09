@@ -1,6 +1,7 @@
 // jui_select_picker_config.dart
 
 import 'package:flutter/material.dart';
+import 'package:jui/src/utils/screen_util.dart';
 
 import '../common/jui_picker_config.dart';
 
@@ -21,11 +22,13 @@ enum SelectionMode {
 }
 
 class JuiSelectPickerUIHelper {
-  static const double itemExtent = 52.0;
-  static const double maxHeight = 655.0;
+  // 使用 getter 替代常量以支持动态计算
+  static double get itemExtent => 52.w;
+
+  static double get maxHeight => 655.w;
 
   // UI Config 默认值
-  static const BorderRadius defaultTopBorderRadius = BorderRadius.vertical(top: Radius.circular(12));
+  static BorderRadius get defaultTopBorderRadius => BorderRadius.vertical(top: Radius.circular(12.w));
   static const Color defaultBackgroundColor = Colors.white;
   static const Color defaultBarrierColor = Color.fromRGBO(0, 0, 0, 0.7);
   static const bool defaultIsScrollControlled = true;
@@ -39,10 +42,10 @@ class JuiSelectPickerUIHelper {
   static double getMaxHeight(JuiSelectPickerLayout layout) {
     switch (layout) {
       case JuiSelectPickerLayout.wheel:
-        return 225.0; // CupertinoPicker 的默认高度
+        return 225.w;
       case JuiSelectPickerLayout.list:
       case JuiSelectPickerLayout.action:
-        return 600.0;
+        return 590.w;
     }
   }
 }
@@ -75,17 +78,49 @@ class JuiSelectPickerUIConfig {
   // 设置选项文本的最大行数
   final int? maxLines;
 
-  const JuiSelectPickerUIConfig({
-    this.topBorderRadius = JuiSelectPickerUIHelper.defaultTopBorderRadius,
+  // 设置列表高度是否根据内容自动适配
+  final bool shrinkWrap;
+
+  JuiSelectPickerUIConfig({
+    BorderRadius? topBorderRadius,
     this.backgroundColor = JuiSelectPickerUIHelper.defaultBackgroundColor,
-    this.maxHeight = JuiSelectPickerUIHelper.maxHeight,
+    double? maxHeight,
     this.barrierColor = JuiSelectPickerUIHelper.defaultBarrierColor,
     this.isScrollControlled = JuiSelectPickerUIHelper.defaultIsScrollControlled,
     this.enableDrag = JuiSelectPickerUIHelper.defaultEnableDrag,
     this.itemTextStyle,
     this.selectedItemColor,
     this.maxLines,
-  });
+    this.shrinkWrap = true, // 默认为 false，保持原有行为
+  })  : topBorderRadius = topBorderRadius ?? JuiSelectPickerUIHelper.defaultTopBorderRadius,
+        maxHeight = maxHeight ?? JuiSelectPickerUIHelper.maxHeight;
+
+  // 提供一个复制方法，创建配置的新实例
+  JuiSelectPickerUIConfig copyWith({
+    BorderRadius? topBorderRadius,
+    Color? backgroundColor,
+    double? maxHeight,
+    Color? barrierColor,
+    bool? isScrollControlled,
+    bool? enableDrag,
+    TextStyle? itemTextStyle,
+    Color? selectedItemColor,
+    int? maxLines,
+    bool? shrinkWrap,
+  }) {
+    return JuiSelectPickerUIConfig(
+      topBorderRadius: topBorderRadius ?? this.topBorderRadius,
+      backgroundColor: backgroundColor ?? this.backgroundColor,
+      maxHeight: maxHeight ?? this.maxHeight,
+      barrierColor: barrierColor ?? this.barrierColor,
+      isScrollControlled: isScrollControlled ?? this.isScrollControlled,
+      enableDrag: enableDrag ?? this.enableDrag,
+      itemTextStyle: itemTextStyle ?? this.itemTextStyle,
+      selectedItemColor: selectedItemColor ?? this.selectedItemColor,
+      maxLines: maxLines ?? this.maxLines,
+      shrinkWrap: shrinkWrap ?? this.shrinkWrap,
+    );
+  }
 }
 
 class JuiSelectPickerConfig {
@@ -101,14 +136,33 @@ class JuiSelectPickerConfig {
   // 选择器头部配置，可能包括标题、按钮等
   final JuiPickerHeaderConfig headerConfig;
 
-  final JuiSelectPickerItemBuilder? customItemBuilder; // Add this field
+  // 自定义项目构建器
+  final JuiSelectPickerItemBuilder? customItemBuilder;
 
-  const JuiSelectPickerConfig(
-      {required this.layout,
-      required this.headerConfig,
-      this.selectionMode = SelectionMode.single,
-      this.uiConfig = const JuiSelectPickerUIConfig(),
-      this.customItemBuilder});
+  JuiSelectPickerConfig({
+    required this.layout,
+    required this.headerConfig,
+    this.selectionMode = SelectionMode.single,
+    JuiSelectPickerUIConfig? uiConfig,
+    this.customItemBuilder,
+  }) : uiConfig = uiConfig ?? JuiSelectPickerUIConfig();
+
+  // 提供一个复制方法
+  JuiSelectPickerConfig copyWith({
+    JuiSelectPickerLayout? layout,
+    SelectionMode? selectionMode,
+    JuiSelectPickerUIConfig? uiConfig,
+    JuiPickerHeaderConfig? headerConfig,
+    JuiSelectPickerItemBuilder? customItemBuilder,
+  }) {
+    return JuiSelectPickerConfig(
+      layout: layout ?? this.layout,
+      selectionMode: selectionMode ?? this.selectionMode,
+      uiConfig: uiConfig ?? this.uiConfig,
+      headerConfig: headerConfig ?? this.headerConfig,
+      customItemBuilder: customItemBuilder ?? this.customItemBuilder,
+    );
+  }
 }
 
 class JuiSelectPickerItemData {
@@ -116,6 +170,14 @@ class JuiSelectPickerItemData {
   final String value;
 
   const JuiSelectPickerItemData({required this.key, required this.value});
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is JuiSelectPickerItemData && runtimeType == other.runtimeType && key == other.key && value == other.value;
+
+  @override
+  int get hashCode => key.hashCode ^ value.hashCode;
 }
 
 class JuiSelectPickerItemUI {
@@ -123,18 +185,81 @@ class JuiSelectPickerItemUI {
   final Widget? icon;
   final VoidCallback? onTap;
 
-  const JuiSelectPickerItemUI({required this.data, this.icon, this.onTap});
+  const JuiSelectPickerItemUI({
+    required this.data,
+    this.icon,
+    this.onTap,
+  });
 }
 
 typedef JuiSelectPickerCallback = void Function(List<String> selectedKeys, List<String> selectedValues);
 typedef JuiSelectItemCallback = void Function(JuiSelectPickerItemData item);
 
-abstract class JuiSelectPickerItemBuilder {
-  Widget buildItem({
-    required BuildContext context,
-    required JuiSelectPickerItemUI item,
-    required bool isSelected,
-    required JuiSelectPickerConfig config,
-    bool isLastItem = false, // 添加新参数，设置默认值使其向后兼容
+// 统一的参数类
+class JuiSelectPickerItemBuildParams {
+  final BuildContext context;
+  final JuiSelectPickerItemUI item;
+  final bool isSelected;
+  final JuiSelectPickerConfig config;
+  final bool isLastItem;
+
+  const JuiSelectPickerItemBuildParams({
+    required this.context,
+    required this.item,
+    required this.isSelected,
+    required this.config,
+    this.isLastItem = false,
   });
+
+  // 如果需要，可以添加便捷方法
+  bool get showDivider => !isLastItem;
+
+  // 可以添加复制方法，方便修改个别参数
+  JuiSelectPickerItemBuildParams copyWith({
+    BuildContext? context,
+    JuiSelectPickerItemUI? item,
+    bool? isSelected,
+    JuiSelectPickerConfig? config,
+    bool? isLastItem,
+  }) {
+    return JuiSelectPickerItemBuildParams(
+      context: context ?? this.context,
+      item: item ?? this.item,
+      isSelected: isSelected ?? this.isSelected,
+      config: config ?? this.config,
+      isLastItem: isLastItem ?? this.isLastItem,
+    );
+  }
+}
+
+// Builder 接口
+abstract class JuiSelectPickerItemBuilder {
+  Widget buildItem(JuiSelectPickerItemBuildParams params);
+}
+
+// ContentBuilder 相关配置参数类
+class JuiSelectPickerContentBuildParams {
+  final BuildContext context;
+  final List<JuiSelectPickerItemUI> items;
+  final List<JuiSelectPickerItemData> selectedItems;
+  final JuiSelectPickerConfig config;
+  final JuiSelectItemCallback onItemTap;
+  final JuiSelectItemCallback? onImmediateConfirm;
+
+  const JuiSelectPickerContentBuildParams({
+    required this.context,
+    required this.items,
+    required this.selectedItems,
+    required this.config,
+    required this.onItemTap,
+    this.onImmediateConfirm,
+  });
+
+  bool isSelected(JuiSelectPickerItemUI item) {
+    return selectedItems.any((selected) => selected.key == item.data.key);
+  }
+}
+
+abstract class JuiSelectPickerContentBuilder {
+  Widget build(JuiSelectPickerContentBuildParams params);
 }
