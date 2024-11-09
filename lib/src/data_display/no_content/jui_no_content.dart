@@ -13,7 +13,8 @@ class JuiNoContent extends StatelessWidget {
     this.text = "暂无数据",
     required this.type,
     this.imagePath,
-    this.imageWidth = 180,  this.paddingBottom = 0,
+    this.imageWidth = 180,
+    this.paddingBottom = 0,
   }) : super(key: key);
 
 // 定义JuiNoContent组件的属性
@@ -39,7 +40,7 @@ class JuiNoContent extends StatelessWidget {
     return Material(
       color: Colors.white,
       child: Padding(
-        padding: EdgeInsets.only(top: paddingTop,bottom: paddingBottom),
+        padding: EdgeInsets.only(top: paddingTop, bottom: paddingBottom),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,

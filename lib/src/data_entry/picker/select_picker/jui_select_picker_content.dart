@@ -81,7 +81,10 @@ class ListItemBuilder implements JuiSelectPickerItemBuilder {
               if (isSelected)
                 Padding(
                   padding: const EdgeInsets.only(right: 16),
-                  child: Image.asset(Assets.imagesTick.path,width: 20,),
+                  child: Image.asset(
+                    Assets.imagesTick.path,
+                    width: 20,
+                  ),
                 )
             ],
           ),
@@ -110,6 +113,7 @@ class ActionItemBuilder implements JuiSelectPickerItemBuilder {
     );
   }
 }
+
 // Update the builders to use the item builders
 class CupertinoPickerBuilder implements JuiSelectPickerContentBuilder {
   @override
@@ -163,34 +167,34 @@ class ListPickerBuilder implements JuiSelectPickerContentBuilder {
       constraints: BoxConstraints(maxHeight: JuiSelectPickerUIHelper.getMaxHeight(config.layout)),
       child: (items.isEmpty)
           ? const JuiNoContent(
-        type: JuiNoContentType.list,
-        paddingTop: 30,
-        paddingBottom: 30,
-      )
+              type: JuiNoContentType.list,
+              paddingTop: 30,
+              paddingBottom: 30,
+            )
           : ListView.builder(
-        shrinkWrap: true,
-        itemCount: items.length,
-        itemBuilder: (context, index) {
-          final item = items[index];
-          final isSelected = selectedItems.any((selected) => selected.key == item.data.key);
-          return GestureDetector(
-            behavior: HitTestBehavior.opaque,
-            onTap: () {
-              onItemTap(item.data);
-              if (config.selectionMode == SelectionMode.single && onImmediateConfirm != null) {
-                onImmediateConfirm(item.data);
-              }
-            },
-            child: itemBuilder.buildItem(
-              context: context,
-              item: item,
-              isSelected: isSelected,
-              config: config,
-              isLastItem: index == items.length - 1, // 传入是否是最后一个item的标志
+              shrinkWrap: true,
+              itemCount: items.length,
+              itemBuilder: (context, index) {
+                final item = items[index];
+                final isSelected = selectedItems.any((selected) => selected.key == item.data.key);
+                return GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: () {
+                    onItemTap(item.data);
+                    if (config.selectionMode == SelectionMode.single && onImmediateConfirm != null) {
+                      onImmediateConfirm(item.data);
+                    }
+                  },
+                  child: itemBuilder.buildItem(
+                    context: context,
+                    item: item,
+                    isSelected: isSelected,
+                    config: config,
+                    isLastItem: index == items.length - 1, // 传入是否是最后一个item的标志
+                  ),
+                );
+              },
             ),
-          );
-        },
-      ),
     );
   }
 }

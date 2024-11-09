@@ -1,5 +1,4 @@
 // screen_util.dart
-import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 
 class UIScreenUtil {
@@ -93,13 +92,20 @@ class UIScreenUtil {
 /// 数字扩展
 extension NumExtension on num {
   double get w => UIScreenUtil.setWidth(this);
+
   double get h => UIScreenUtil.setHeight(this);
+
   double get sp => UIScreenUtil.setSp(this);
+
   double get wp => UIScreenUtil.setWp(this);
+
   double get hp => UIScreenUtil.setHp(this);
 
   EdgeInsets get spacing => EdgeInsets.all(w);
+
   EdgeInsets get spacingH => EdgeInsets.symmetric(horizontal: w);
+
   EdgeInsets get spacingV => EdgeInsets.symmetric(vertical: h);
+
   BorderRadius get radius => BorderRadius.circular(w);
 }

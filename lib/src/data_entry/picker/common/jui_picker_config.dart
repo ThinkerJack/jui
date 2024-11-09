@@ -29,7 +29,7 @@ class JuiPickerHeaderConfig {
 
   final VoidCallback? tapConfirm;
 
-  const JuiPickerHeaderConfig( {
+  const JuiPickerHeaderConfig({
     this.title,
     this.customHeader,
     this.cancelText = JuiSelectPickerUIHelper.defaultCancelText,

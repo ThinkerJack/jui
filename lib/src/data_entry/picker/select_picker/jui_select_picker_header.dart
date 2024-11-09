@@ -47,7 +47,7 @@ class JuiSelectPickerHeaderHandler {
           titleLeftText: config.headerConfig.cancelText,
           titleRightText: shouldShowConfirmButton ? config.headerConfig.confirmText : null,
           onCancel: onCancel,
-          onConfirm: shouldShowConfirmButton ?( config.headerConfig.tapConfirm ?? onConfirm) : null,
+          onConfirm: shouldShowConfirmButton ? (config.headerConfig.tapConfirm ?? onConfirm) : null,
           leftTextStyle: config.headerConfig.cancelTextStyle,
           rightTextStyle: config.headerConfig.confirmTextStyle,
         );

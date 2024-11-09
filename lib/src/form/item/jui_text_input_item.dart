@@ -197,9 +197,7 @@ class _InputFieldState extends State<_InputField> {
               alignment: Alignment.centerLeft,
               child: Text(
                 _breakWord(widget.controller.text.isEmpty ? widget.hintText : widget.controller.text),
-                style: widget.controller.text.isEmpty
-                    ? JuiTheme.textStyles.itemHint
-                    : JuiTheme.textStyles.itemContent,
+                style: widget.controller.text.isEmpty ? JuiTheme.textStyles.itemHint : JuiTheme.textStyles.itemContent,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
