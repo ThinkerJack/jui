@@ -1,3 +1,5 @@
+## 0.2.0
+* 调整选择器UI
 ## 0.1.9
 * 重构JuiSelectPickerItemBuilder方法，不兼容旧版本
 ## 0.1.8

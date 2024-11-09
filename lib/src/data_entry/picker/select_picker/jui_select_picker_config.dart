@@ -210,9 +210,7 @@ class JuiSelectPickerItemBuildParams {
     required this.config,
     this.isLastItem = false,
   });
-
-  // 如果需要，可以添加便捷方法
-  bool get showDivider => !isLastItem;
+  
 
   // 可以添加复制方法，方便修改个别参数
   JuiSelectPickerItemBuildParams copyWith({

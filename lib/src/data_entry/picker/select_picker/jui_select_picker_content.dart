@@ -66,7 +66,7 @@ class ListItemBuilder implements JuiSelectPickerItemBuilder {
             ],
           ),
           const SizedBox(height: 16),
-          if (params.showDivider) const JuiPickerDivider(),
+          const JuiPickerDivider(),
         ],
       ),
     );
