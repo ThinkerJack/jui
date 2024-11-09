@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:jui/src/utils/screen_util.dart';
 
 import '../../../utils/jui_theme.dart';
 import 'jui_picker_widget.dart';
@@ -56,7 +57,7 @@ class JuiPickerHeader extends StatelessWidget {
     return TextButton(
       onPressed: onTap,
       style: TextButton.styleFrom(
-        padding: const EdgeInsets.all(16.0),
+        padding:  EdgeInsets.all(16.w),
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       ),
       child: Text(text, style: textStyle),

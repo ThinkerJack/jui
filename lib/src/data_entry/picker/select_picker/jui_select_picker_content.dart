@@ -120,9 +120,11 @@ class ListPickerBuilder implements JuiSelectPickerContentBuilder {
   @override
   Widget build(JuiSelectPickerContentBuildParams params) {
     final itemBuilder = params.config.customItemBuilder ?? ListItemBuilder();
+    final headerHeight = 53.w;
+    final contentMaxHeight = params.config.uiConfig.maxHeight - headerHeight;
 
     return ConstrainedBox(
-      constraints: BoxConstraints(maxHeight: JuiSelectPickerUIHelper.getMaxHeight(params.config.layout)),
+      constraints: BoxConstraints(maxHeight: contentMaxHeight),
       child: (params.items.isEmpty)
           ? const JuiNoContent(
               type: JuiNoContentType.list,

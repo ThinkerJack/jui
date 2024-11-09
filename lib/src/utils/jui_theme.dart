@@ -66,49 +66,49 @@ class JuiTextStyles {
               color: const Color(0xFF858B9B),
               fontSize: 14.sp,
               fontWeight: FontWeightUtil.regular,
-              height: 1.5,
+              height: 1.3,
             ),
         itemTitleDisabled = itemTitleDisabled ??
             TextStyle(
               color: const Color(0xFFBCC1CD),
               fontSize: 14.sp,
               fontWeight: FontWeightUtil.regular,
-              height: 1.5,
+              height: 1.3,
             ),
         itemHint = itemHint ??
             TextStyle(
               color: const Color(0xFFBCC1CD),
               fontSize: 16.sp,
               fontWeight: FontWeightUtil.regular,
-              height: 1.5,
+              height: 1.3,
             ),
         itemHintDisabled = itemHintDisabled ??
             TextStyle(
               color: const Color(0xFFDCE0E8),
               fontSize: 16.sp,
               fontWeight: FontWeightUtil.regular,
-              height: 1.5,
+              height: 1.3,
             ),
         itemContent = itemContent ??
             TextStyle(
               color: const Color(0xFF2A2F3C),
               fontSize: 16.sp,
               fontWeight: FontWeightUtil.regular,
-              height: 1.5,
+              height: 1.3,
             ),
         dialogContent = dialogContent ??
             TextStyle(
               decoration: TextDecoration.none,
               color: const Color(0xFF858B9B),
               fontSize: 14.sp,
-              height: 1.5,
+              height: 1.3,
             ),
         dialogTitle = dialogTitle ??
             TextStyle(
               decoration: TextDecoration.none,
               color: const Color(0xFF2A2F3C),
               fontSize: 16.sp,
-              height: 1.5,
+              height: 1.3,
               fontWeight: FontWeightUtil.medium,
             ),
         pickerTitle = pickerTitle ??
@@ -116,7 +116,7 @@ class JuiTextStyles {
               decoration: TextDecoration.none,
               color: const Color(0xFF2A2F3C),
               fontSize: 16.sp,
-              height: 1.5,
+              height: 1.3,
               fontWeight: FontWeightUtil.medium,
             ),
         pickerConfirm = pickerConfirm ??
@@ -124,7 +124,7 @@ class JuiTextStyles {
               decoration: TextDecoration.none,
               color: const Color(0xFF5590F6),
               fontSize: 14.sp,
-              height: 1.5,
+              height: 1.3,
               fontWeight: FontWeightUtil.medium,
             ),
         pickerCancel = pickerCancel ??
@@ -132,7 +132,7 @@ class JuiTextStyles {
               decoration: TextDecoration.none,
               color: const Color(0xFF858B9B),
               fontSize: 14.sp,
-              height: 1.5,
+              height: 1.3,
               fontWeight: FontWeightUtil.regular,
             ),
         dialogHint = dialogHint ??
@@ -152,7 +152,7 @@ class JuiTextStyles {
               color: const Color(0XFF858B9B),
               fontWeight: FontWeightUtil.medium,
               fontSize: 16.sp,
-              height: 1.5,
+              height: 1.3,
             );
 
   final TextStyle itemTitle;

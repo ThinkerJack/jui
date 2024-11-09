@@ -84,7 +84,7 @@ class _InputField extends StatelessWidget {
         style: TextStyle(
           color: JuiTheme.colors.dialogText,
           fontSize: 16,
-          height: 1.5,
+          height: 1.3,
         ),
         inputFormatters: allowEmoji ? null : [FilteringTextInputFormatter.deny(RegExp(_regexEmoji))],
         focusNode: focusNode,

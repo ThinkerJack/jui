@@ -89,7 +89,7 @@ class JuiItem extends StatelessWidget {
         SizedBox(height: JuiTheme.dimensions.itemSpace),
         Text(
           config.tipText,
-          style: TextStyle(color: JuiTheme.colors.tips, fontSize: 12.sp, height: 1.5),
+          style: TextStyle(color: JuiTheme.colors.tips, fontSize: 12.sp, height: 1.3),
         ),
       ],
     );

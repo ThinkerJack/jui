@@ -41,9 +41,9 @@ class _JuiExpandableTextState extends State<JuiExpandableText> {
   late String _expandText;
   bool expandFlag = true; // 是否展开标志
   late TextStyle contextTextStyle =
-      widget.contentTextStyle ?? const TextStyle(color: Color(0xff2A2F3C), fontSize: 16, height: 1.5);
+      widget.contentTextStyle ?? const TextStyle(color: Color(0xff2A2F3C), fontSize: 16, height: 1.3);
   late TextStyle expandedTextStyle =
-      widget.expandedTextStyle ?? const TextStyle(color: Color(0xff5590F6), fontSize: 16, height: 1.5);
+      widget.expandedTextStyle ?? const TextStyle(color: Color(0xff5590F6), fontSize: 16, height: 1.3);
 
   @override
   void initState() {

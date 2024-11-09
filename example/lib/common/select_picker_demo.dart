@@ -102,6 +102,18 @@ class _PickerDemoState extends State<PickerDemo> {
       JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '1', value: 'Apple')),
       JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '2', value: '我微微' * 30)),
       JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '3', value: 'Cherry')),
+      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '4', value: 'Date')),   JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '1', value: 'Apple')),
+      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '2', value: '我微微' * 30)),
+      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '3', value: 'Cherry')),
+      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '4', value: 'Date')),   JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '1', value: 'Apple')),
+      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '2', value: '我微微' * 30)),
+      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '3', value: 'Cherry')),
+      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '4', value: 'Date')),   JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '1', value: 'Apple')),
+      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '2', value: '我微微' * 30)),
+      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '3', value: 'Cherry')),
+      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '4', value: 'Date')),   JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '1', value: 'Apple')),
+      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '2', value: '我微微' * 30)),
+      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '3', value: 'Cherry')),
       JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '4', value: 'Date')),
     ];
 
@@ -111,7 +123,7 @@ class _PickerDemoState extends State<PickerDemo> {
           layout: JuiSelectPickerLayout.list,
           selectionMode: SelectionMode.single,
           headerConfig: JuiPickerHeaderConfig(title: 'Select Colors'),
-          uiConfig: JuiSelectPickerUIConfig(maxLines: 2, shrinkWrap: false)),
+          uiConfig: JuiSelectPickerUIConfig(maxLines: 2, shrinkWrap: false,maxHeight: 560)),
       items: items,
       initialSelection: [JuiSelectPickerItemData(key: '2', value: 'Apple')],
       // Red and Green are initially selected
