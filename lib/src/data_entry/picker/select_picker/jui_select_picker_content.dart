@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:jui/src/utils/extension.dart';
+import 'package:jui/src/utils/screen_util.dart';
 
 import '../../../../data_display.dart';
 import '../../../../data_entry.dart';
+import '../../../../generated/assets.dart';
 import '../common/jui_picker_widget.dart';
 import 'jui_select_picker_config.dart';
 
@@ -32,7 +35,6 @@ class JuiSelectPickerContentBuilderFactory {
   }
 }
 
-// Default implementations for different styles
 class CupertinoItemBuilder implements JuiSelectPickerItemBuilder {
   @override
   Widget buildItem({
@@ -40,6 +42,7 @@ class CupertinoItemBuilder implements JuiSelectPickerItemBuilder {
     required JuiSelectPickerItemUI item,
     required bool isSelected,
     required JuiSelectPickerConfig config,
+    bool isLastItem = false, // 实现时需要包含这个参数
   }) {
     return Center(
       child: Text(
@@ -57,6 +60,7 @@ class ListItemBuilder implements JuiSelectPickerItemBuilder {
     required JuiSelectPickerItemUI item,
     required bool isSelected,
     required JuiSelectPickerConfig config,
+    bool isLastItem = false,
   }) {
     return Padding(
       padding: const EdgeInsets.only(top: 16, left: 16),
@@ -66,7 +70,7 @@ class ListItemBuilder implements JuiSelectPickerItemBuilder {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SizedBox(
-                width: 295,
+                width: 320.w,
                 child: Text(
                   item.data.value,
                   style: config.uiConfig.itemTextStyle,
@@ -77,16 +81,12 @@ class ListItemBuilder implements JuiSelectPickerItemBuilder {
               if (isSelected)
                 Padding(
                   padding: const EdgeInsets.only(right: 16),
-                  child: Icon(
-                    Icons.check,
-                    color: config.uiConfig.selectedItemColor ?? Theme.of(context).primaryColor,
-                    size: 20,
-                  ),
+                  child: Image.asset(Assets.imagesTick.path,width: 20,),
                 )
             ],
           ),
           const SizedBox(height: 16),
-          const JuiPickerDivider()
+          if (!isLastItem) const JuiPickerDivider(),
         ],
       ),
     );
@@ -100,6 +100,7 @@ class ActionItemBuilder implements JuiSelectPickerItemBuilder {
     required JuiSelectPickerItemUI item,
     required bool isSelected,
     required JuiSelectPickerConfig config,
+    bool isLastItem = false, // 实现时需要包含这个参数
   }) {
     return Center(
       child: Text(
@@ -109,7 +110,6 @@ class ActionItemBuilder implements JuiSelectPickerItemBuilder {
     );
   }
 }
-
 // Update the builders to use the item builders
 class CupertinoPickerBuilder implements JuiSelectPickerContentBuilder {
   @override
@@ -163,33 +163,34 @@ class ListPickerBuilder implements JuiSelectPickerContentBuilder {
       constraints: BoxConstraints(maxHeight: JuiSelectPickerUIHelper.getMaxHeight(config.layout)),
       child: (items.isEmpty)
           ? const JuiNoContent(
-              type: JuiNoContentType.list,
-              paddingTop: 30,
-              paddingBottom: 30,
-            )
+        type: JuiNoContentType.list,
+        paddingTop: 30,
+        paddingBottom: 30,
+      )
           : ListView.builder(
-              shrinkWrap: true,
-              itemCount: items.length,
-              itemBuilder: (context, index) {
-                final item = items[index];
-                final isSelected = selectedItems.any((selected) => selected.key == item.data.key);
-                return GestureDetector(
-                  behavior: HitTestBehavior.opaque,
-                  onTap: () {
-                    onItemTap(item.data);
-                    if (config.selectionMode == SelectionMode.single && onImmediateConfirm != null) {
-                      onImmediateConfirm(item.data);
-                    }
-                  },
-                  child: itemBuilder.buildItem(
-                    context: context,
-                    item: item,
-                    isSelected: isSelected,
-                    config: config,
-                  ),
-                );
-              },
+        shrinkWrap: true,
+        itemCount: items.length,
+        itemBuilder: (context, index) {
+          final item = items[index];
+          final isSelected = selectedItems.any((selected) => selected.key == item.data.key);
+          return GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: () {
+              onItemTap(item.data);
+              if (config.selectionMode == SelectionMode.single && onImmediateConfirm != null) {
+                onImmediateConfirm(item.data);
+              }
+            },
+            child: itemBuilder.buildItem(
+              context: context,
+              item: item,
+              isSelected: isSelected,
+              config: config,
+              isLastItem: index == items.length - 1, // 传入是否是最后一个item的标志
             ),
+          );
+        },
+      ),
     );
   }
 }

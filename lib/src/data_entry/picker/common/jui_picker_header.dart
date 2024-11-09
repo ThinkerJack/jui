@@ -56,7 +56,7 @@ class JuiPickerHeader extends StatelessWidget {
     return TextButton(
       onPressed: onTap,
       style: TextButton.styleFrom(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       ),
       child: Text(text, style: textStyle),

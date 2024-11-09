@@ -111,7 +111,7 @@ class _PickerDemoState extends State<PickerDemo> {
           layout: JuiSelectPickerLayout.list,
           selectionMode: SelectionMode.single,
           headerConfig: JuiPickerHeaderConfig(title: 'Select Colors'),
-          uiConfig: JuiSelectPickerUIConfig()),
+          uiConfig: JuiSelectPickerUIConfig(maxLines: 2)),
       items: items,
       initialSelection: [JuiSelectPickerItemData(key: '2', value: 'Apple')],
       // Red and Green are initially selected
@@ -180,8 +180,8 @@ class CustomBuilder extends JuiSelectPickerItemBuilder {
       {required BuildContext context,
       required JuiSelectPickerItemUI item,
       required bool isSelected,
-      required JuiSelectPickerConfig config}) {
-    // TODO: implement buildItem
+      required JuiSelectPickerConfig config,
+      bool isLastItem = false}) {
     return Center(child: Text("${item.data.key}${isSelected}"));
   }
 }

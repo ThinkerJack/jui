@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 
 import '../common/jui_picker_config.dart';
-import 'jui_select_picker_content.dart';
 
 enum JuiSelectPickerLayout {
   /// 列表布局，用于展示选项列表供用户选择。
@@ -104,13 +103,12 @@ class JuiSelectPickerConfig {
 
   final JuiSelectPickerItemBuilder? customItemBuilder; // Add this field
 
-  const JuiSelectPickerConfig({
-    required this.layout,
-    required this.headerConfig,
-    this.selectionMode = SelectionMode.single,
-    this.uiConfig = const JuiSelectPickerUIConfig(),
-    this.customItemBuilder
-  });
+  const JuiSelectPickerConfig(
+      {required this.layout,
+      required this.headerConfig,
+      this.selectionMode = SelectionMode.single,
+      this.uiConfig = const JuiSelectPickerUIConfig(),
+      this.customItemBuilder});
 }
 
 class JuiSelectPickerItemData {
@@ -137,5 +135,6 @@ abstract class JuiSelectPickerItemBuilder {
     required JuiSelectPickerItemUI item,
     required bool isSelected,
     required JuiSelectPickerConfig config,
+    bool isLastItem = false, // 添加新参数，设置默认值使其向后兼容
   });
 }

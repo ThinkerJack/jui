@@ -1,5 +1,6 @@
 import 'package:example/splash_page.dart';
 import 'package:flutter/material.dart';
+import 'package:jui/common.dart';
 
 import 'demo_router.dart';
 

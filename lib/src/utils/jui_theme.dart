@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:jui/src/utils/screen_util.dart';
 
 class JuiTheme {
   static JuiColors? _colors;
@@ -7,9 +10,9 @@ class JuiTheme {
 
   static JuiColors get colors => _colors ??= const JuiColors();
 
-  static JuiTextStyles get textStyles => _textStyles ??= const JuiTextStyles();
+  static JuiTextStyles get textStyles => _textStyles ??= JuiTextStyles();
 
-  static JuiDimensions get dimensions => _dimensions ??= const JuiDimensions();
+  static JuiDimensions get dimensions => _dimensions ??= JuiDimensions();
 
   // 私有构造函数，防止实例化
   JuiTheme._();
@@ -35,7 +38,123 @@ class JuiTheme {
   }
 }
 
+class FontWeightUtil {
+  static FontWeight get regular => FontWeight.w400;
+
+  static FontWeight get medium => Platform.isIOS ? FontWeight.w500 : FontWeight.w600;
+
+  static FontWeight get semiBold => Platform.isIOS ? FontWeight.w600 : FontWeight.w700;
+}
+
 class JuiTextStyles {
+  JuiTextStyles({
+    TextStyle? itemTitle,
+    TextStyle? itemTitleDisabled,
+    TextStyle? itemHint,
+    TextStyle? itemHintDisabled,
+    TextStyle? itemContent,
+    TextStyle? dialogContent,
+    TextStyle? dialogTitle,
+    TextStyle? dialogHint,
+    TextStyle? sectionTitle,
+    TextStyle? noContent,
+    TextStyle? pickerConfirm,
+    TextStyle? pickerCancel,
+    TextStyle? pickerTitle,
+  })  : itemTitle = itemTitle ??
+            TextStyle(
+              color: const Color(0xFF858B9B),
+              fontSize: 14.sp,
+              fontWeight: FontWeightUtil.regular,
+              height: 1.5,
+            ),
+        itemTitleDisabled = itemTitleDisabled ??
+            TextStyle(
+              color: const Color(0xFFBCC1CD),
+              fontSize: 14.sp,
+              fontWeight: FontWeightUtil.regular,
+              height: 1.5,
+            ),
+        itemHint = itemHint ??
+            TextStyle(
+              color: const Color(0xFFBCC1CD),
+              fontSize: 16.sp,
+              fontWeight: FontWeightUtil.regular,
+              height: 1.5,
+            ),
+        itemHintDisabled = itemHintDisabled ??
+            TextStyle(
+              color: const Color(0xFFDCE0E8),
+              fontSize: 16.sp,
+              fontWeight: FontWeightUtil.regular,
+              height: 1.5,
+            ),
+        itemContent = itemContent ??
+            TextStyle(
+              color: const Color(0xFF2A2F3C),
+              fontSize: 16.sp,
+              fontWeight: FontWeightUtil.regular,
+              height: 1.5,
+            ),
+        dialogContent = dialogContent ??
+            TextStyle(
+              decoration: TextDecoration.none,
+              color: const Color(0xFF858B9B),
+              fontSize: 14.sp,
+              height: 1.5,
+            ),
+        dialogTitle = dialogTitle ??
+            TextStyle(
+              decoration: TextDecoration.none,
+              color: const Color(0xFF2A2F3C),
+              fontSize: 16.sp,
+              height: 1.5,
+              fontWeight: FontWeightUtil.medium,
+            ),
+        pickerTitle = pickerTitle ??
+            TextStyle(
+              decoration: TextDecoration.none,
+              color: const Color(0xFF2A2F3C),
+              fontSize: 16.sp,
+              height: 1.5,
+              fontWeight: FontWeightUtil.medium,
+            ),
+        pickerConfirm = pickerConfirm ??
+            TextStyle(
+              decoration: TextDecoration.none,
+              color: const Color(0xFF5590F6),
+              fontSize: 14.sp,
+              height: 1.5,
+              fontWeight: FontWeightUtil.medium,
+            ),
+        pickerCancel = pickerCancel ??
+            TextStyle(
+              decoration: TextDecoration.none,
+              color: const Color(0xFF858B9B),
+              fontSize: 14.sp,
+              height: 1.5,
+              fontWeight: FontWeightUtil.regular,
+            ),
+        dialogHint = dialogHint ??
+            TextStyle(
+              color: const Color(0xFFBCC1CD),
+              fontSize: 16.sp,
+              height: 1.3,
+            ),
+        sectionTitle = sectionTitle ??
+            TextStyle(
+              fontSize: 16.sp,
+              color: const Color(0xFF2A2F3C),
+              fontWeight: FontWeightUtil.medium,
+            ),
+        noContent = noContent ??
+            TextStyle(
+              color: const Color(0XFF858B9B),
+              fontWeight: FontWeightUtil.medium,
+              fontSize: 16.sp,
+              height: 1.5,
+            );
+
   final TextStyle itemTitle;
   final TextStyle itemTitleDisabled;
   final TextStyle itemHint;
@@ -50,89 +169,6 @@ class JuiTextStyles {
   final TextStyle pickerCancel;
   final TextStyle pickerTitle;
 
-  const JuiTextStyles({
-    this.itemTitle = const TextStyle(
-      color: Color(0xFF858B9B),
-      fontSize: 14,
-      fontWeight: FontWeight.w400,
-      height: 1.5,
-    ),
-    this.itemTitleDisabled = const TextStyle(
-      color: Color(0xFFBCC1CD),
-      fontSize: 14,
-      fontWeight: FontWeight.w400,
-      height: 1.5,
-    ),
-    this.itemHint = const TextStyle(
-      color: Color(0xFFBCC1CD),
-      fontSize: 16,
-      fontWeight: FontWeight.w400,
-      height: 1.5,
-    ),
-    this.itemHintDisabled = const TextStyle(
-      color: Color(0xFFDCE0E8),
-      fontSize: 16,
-      fontWeight: FontWeight.w400,
-      height: 1.5,
-    ),
-    this.itemContent = const TextStyle(
-      color: Color(0xFF2A2F3C),
-      fontSize: 16,
-      fontWeight: FontWeight.w400,
-      height: 1.5,
-    ),
-    this.dialogContent = const TextStyle(
-      decoration: TextDecoration.none,
-      color: Color(0xFF858B9B),
-      fontSize: 14,
-      height: 1.5,
-    ),
-    this.dialogTitle = const TextStyle(
-      decoration: TextDecoration.none,
-      color: Color(0xFF2A2F3C),
-      fontSize: 16,
-      height: 1.5,
-      fontWeight: FontWeight.w500,
-    ),
-    this.pickerTitle = const TextStyle(
-      decoration: TextDecoration.none,
-      color: Color(0xFF2A2F3C),
-      fontSize: 16,
-      height: 1.5,
-      fontWeight: FontWeight.w500,
-    ),
-    this.pickerConfirm = const TextStyle(
-      decoration: TextDecoration.none,
-      color: Color(0xFF5590F6),
-      fontSize: 14,
-      height: 1.5,
-      fontWeight: FontWeight.w500,
-    ),
-    this.pickerCancel = const TextStyle(
-      decoration: TextDecoration.none,
-      color: Color(0xFF858B9B),
-      fontSize: 14,
-      height: 1.5,
-      fontWeight: FontWeight.w400,
-    ),
-    this.dialogHint = const TextStyle(
-      color: Color(0xFFBCC1CD),
-      fontSize: 16,
-      height: 1.3,
-    ),
-    this.sectionTitle = const TextStyle(
-      fontSize: 16,
-      color: Color(0xFF2A2F3C),
-      fontWeight: FontWeight.w500,
-    ),
-    this.noContent = const TextStyle(
-      color: Color(0XFF858B9B),
-      fontWeight: FontWeight.w500,
-      fontSize: 16,
-      height: 1.5,
-    ),
-  });
-
   JuiTextStyles copyWith({
     TextStyle? itemTitle,
     TextStyle? itemTitleDisabled,
@@ -144,6 +180,9 @@ class JuiTextStyles {
     TextStyle? dialogHint,
     TextStyle? sectionTitle,
     TextStyle? noContent,
+    TextStyle? pickerConfirm,
+    TextStyle? pickerCancel,
+    TextStyle? pickerTitle,
   }) {
     return JuiTextStyles(
       itemTitle: itemTitle ?? this.itemTitle,
@@ -156,6 +195,9 @@ class JuiTextStyles {
       dialogHint: dialogHint ?? this.dialogHint,
       sectionTitle: sectionTitle ?? this.sectionTitle,
       noContent: noContent ?? this.noContent,
+      pickerConfirm: pickerConfirm ?? this.pickerConfirm,
+      pickerCancel: pickerCancel ?? this.pickerCancel,
+      pickerTitle: pickerTitle ?? this.pickerTitle,
     );
   }
 }
@@ -170,16 +212,23 @@ class JuiDimensions {
   final double dialogButtonWidth;
   final double dialogWideButtonWidth;
 
-  const JuiDimensions({
-    this.itemPaddingL = 20.0,
-    this.itemPaddingR = 20.0,
-    this.itemPaddingV = 16.0,
-    this.itemSpace = 4,
-    this.dialogWidth = 327.0,
-    this.dialogSpace = 20.0,
-    this.dialogButtonWidth = 130.0,
-    this.dialogWideButtonWidth = 270.0,
-  });
+  JuiDimensions({
+    double? itemPaddingL,
+    double? itemPaddingR,
+    double? itemPaddingV,
+    double? itemSpace,
+    double? dialogWidth,
+    double? dialogSpace,
+    double? dialogButtonWidth,
+    double? dialogWideButtonWidth,
+  })  : itemPaddingL = 20.w,
+        itemPaddingR = 20.w,
+        itemPaddingV = 16.w,
+        itemSpace = 4.w,
+        dialogWidth = 327.w,
+        dialogSpace = 20.w,
+        dialogButtonWidth = 130.w,
+        dialogWideButtonWidth = 270.w;
 
   JuiDimensions copyWith({
     double? itemPaddingL,
@@ -193,14 +242,14 @@ class JuiDimensions {
     double? dialogWideButtonWidth,
   }) {
     return JuiDimensions(
-      itemPaddingL: itemPaddingL ?? this.itemPaddingL,
-      itemPaddingR: itemPaddingR ?? this.itemPaddingR,
-      itemPaddingV: itemPaddingV ?? this.itemPaddingV,
-      itemSpace: itemSpace ?? this.itemSpace,
-      dialogWidth: dialogWidth ?? this.dialogWidth,
-      dialogSpace: dialogSpace ?? this.dialogSpace,
-      dialogButtonWidth: dialogButtonWidth ?? this.dialogButtonWidth,
-      dialogWideButtonWidth: dialogWideButtonWidth ?? this.dialogWideButtonWidth,
+      itemPaddingL: itemPaddingL,
+      itemPaddingR: itemPaddingR,
+      itemPaddingV: itemPaddingV,
+      itemSpace: itemSpace,
+      dialogWidth: dialogWidth,
+      dialogSpace: dialogSpace,
+      dialogButtonWidth: dialogButtonWidth,
+      dialogWideButtonWidth: dialogWideButtonWidth,
     );
   }
 }

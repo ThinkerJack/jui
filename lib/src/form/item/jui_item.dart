@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jui/src/utils/extension.dart';
 import 'package:jui/src/utils/jui_theme.dart';
+import 'package:jui/src/utils/screen_util.dart';
 
 import '../../../generated/assets.dart';
 import '../../data_entry/picker/common/jui_picker_widget.dart';
@@ -65,17 +66,17 @@ class JuiItem extends StatelessWidget {
         ),
         if (config.titleBeforeRequiredWidget != null)
           Padding(
-            padding: const EdgeInsets.only(left: 4),
+            padding: EdgeInsets.only(left: 4.w),
             child: config.titleBeforeRequiredWidget!,
           ),
         if (!config.isDisabled && config.isRequired)
           Padding(
-            padding: const EdgeInsets.only(left: 4),
-            child: config.requiredMarker ?? Image.asset(Assets.imagesItemRequired.path, width: 7),
+            padding: EdgeInsets.only(left: 4.w),
+            child: config.requiredMarker ?? Image.asset(Assets.imagesItemRequired.path, width: 7.w),
           ),
         if (config.titleSuffixWidget != null)
           Padding(
-            padding: const EdgeInsets.only(left: 4),
+            padding: EdgeInsets.only(left: 4.w),
             child: config.titleSuffixWidget!,
           ),
       ],
@@ -88,7 +89,11 @@ class JuiItem extends StatelessWidget {
         SizedBox(height: JuiTheme.dimensions.itemSpace),
         Text(
           config.tipText,
-          style: TextStyle(color: JuiTheme.colors.tips, fontSize: 12, height: 1.5),
+          style: TextStyle(
+              color: JuiTheme.colors.tips,
+              fontSize: 12.sp,
+              height: 1.5
+          ),
         ),
       ],
     );
