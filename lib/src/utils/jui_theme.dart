@@ -66,14 +66,12 @@ class JuiTextStyles {
               color: const Color(0xFF858B9B),
               fontSize: 14.sp,
               fontWeight: FontWeightUtil.regular,
-              height: 1.3,
             ),
         itemTitleDisabled = itemTitleDisabled ??
             TextStyle(
               color: const Color(0xFFBCC1CD),
               fontSize: 14.sp,
               fontWeight: FontWeightUtil.regular,
-              height: 1.3,
             ),
         itemHint = itemHint ??
             TextStyle(
