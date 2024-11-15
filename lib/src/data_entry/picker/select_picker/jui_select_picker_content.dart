@@ -131,38 +131,41 @@ class ListPickerBuilder implements JuiSelectPickerContentBuilder {
               paddingTop: 30,
               paddingBottom: 30,
             )
-          : RawScrollbar(
-              thumbVisibility: true,
-              thickness: 6.w,
-              minThumbLength: 50,
-              thumbColor: const Color.fromRGBO(20, 24, 56, 0.08),
-              radius: Radius.circular(4.w),
-              child: ListView.builder(
-                shrinkWrap: params.config.uiConfig.shrinkWrap,
-                itemCount: params.items.length,
-                itemBuilder: (context, index) {
-                  final item = params.items[index];
-                  return GestureDetector(
-                    behavior: HitTestBehavior.opaque,
-                    onTap: () {
-                      params.onItemTap(item.data);
-                      if (params.config.selectionMode == SelectionMode.single && params.onImmediateConfirm != null) {
-                        params.onImmediateConfirm!(item.data);
-                      }
-                    },
-                    child: itemBuilder.buildItem(
-                      JuiSelectPickerItemBuildParams(
-                        context: params.context,
-                        item: item,
-                        isSelected: params.isSelected(item),
-                        config: params.config,
-                        isLastItem: index == params.items.length - 1,
+          : Padding(
+        padding: EdgeInsets.only(right: 2.w),
+            child: RawScrollbar(
+                thumbVisibility: true,
+                thickness: 6.w,
+                minThumbLength: 50,
+                thumbColor: const Color(0xFFE8EAEF),
+                radius: Radius.circular(4.w),
+                child: ListView.builder(
+                  shrinkWrap: params.config.uiConfig.shrinkWrap,
+                  itemCount: params.items.length,
+                  itemBuilder: (context, index) {
+                    final item = params.items[index];
+                    return GestureDetector(
+                      behavior: HitTestBehavior.opaque,
+                      onTap: () {
+                        params.onItemTap(item.data);
+                        if (params.config.selectionMode == SelectionMode.single && params.onImmediateConfirm != null) {
+                          params.onImmediateConfirm!(item.data);
+                        }
+                      },
+                      child: itemBuilder.buildItem(
+                        JuiSelectPickerItemBuildParams(
+                          context: params.context,
+                          item: item,
+                          isSelected: params.isSelected(item),
+                          config: params.config,
+                          isLastItem: index == params.items.length - 1,
+                        ),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
-            ),
+          ),
     );
   }
 }
