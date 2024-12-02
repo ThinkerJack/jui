@@ -38,7 +38,7 @@ class DialogDemo extends StatelessWidget {
           print("用户点击了取消");
         },
       ),
-      content: "这是一个标准对话框的内容。您可以在这里放置一些文本信息。",
+      // content: "这是一个标准对话框的内容。您可以在这里放置一些文本信息。",
     );
   }
 

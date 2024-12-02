@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jui/src/utils/screen_util.dart';
 
 import '../../../common.dart';
 import '../../utils/jui_theme.dart';
@@ -22,10 +23,10 @@ class JuiBaseDialog extends StatelessWidget {
       body: Center(
         child: Container(
           width: JuiTheme.dimensions.dialogWidth,
-          padding: const EdgeInsets.all(24),
+          padding:  EdgeInsets.symmetric(horizontal: 20.w,vertical: 24.w),
           decoration: BoxDecoration(
             color: JuiTheme.colors.surface,
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(16.w),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -90,6 +91,7 @@ class JuiBaseDialog extends StatelessWidget {
       colorType: colorType,
       sizeType: JuiButtonSizeType.middle,
       width: width ?? JuiTheme.dimensions.dialogButtonWidth,
+      fontWeight: FontWeightUtil.medium,
     );
   }
 }

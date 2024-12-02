@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jui/src/utils/screen_util.dart';
 
 import '../utils/jui_theme.dart';
 
@@ -31,25 +32,25 @@ class JuiButton extends StatelessWidget {
   };
 
   static Map<JuiButtonColorType, JuiButtonColorConfig> get _colorConfig => {
-        JuiButtonColorType.white: JuiButtonColorConfig(
-          getColor: (_) => JuiTheme.colors.surface,
-          getFontColor: (disable) => disable ? JuiTheme.colors.disabledLight : JuiTheme.colors.text,
-          border: Border.all(color: JuiTheme.colors.divider, width: 1),
-        ),
-        JuiButtonColorType.gray: JuiButtonColorConfig(
-          getColor: (_) => JuiTheme.colors.background,
-          getFontColor: (disable) => disable ? JuiTheme.colors.disabledLight : JuiTheme.colors.text,
-        ),
-        JuiButtonColorType.blue: JuiButtonColorConfig(
-          getColor: (disable) => disable ? JuiTheme.colors.lightBlue : JuiTheme.colors.primary,
-          getFontColor: (_) => JuiTheme.colors.surface,
-        ),
-        JuiButtonColorType.blueBorder: JuiButtonColorConfig(
-          getColor: (_) => JuiTheme.colors.surface,
-          getFontColor: (_) => JuiTheme.colors.primary,
-          border: Border.all(color: JuiTheme.colors.primary, width: 1),
-        ),
-      };
+    JuiButtonColorType.white: JuiButtonColorConfig(
+      getColor: (_) => JuiTheme.colors.surface,
+      getFontColor: (disable) => disable ? JuiTheme.colors.disabledLight : JuiTheme.colors.text,
+      border: Border.all(color: JuiTheme.colors.divider, width: 1),
+    ),
+    JuiButtonColorType.gray: JuiButtonColorConfig(
+      getColor: (_) => JuiTheme.colors.background,
+      getFontColor: (disable) => disable ? JuiTheme.colors.disabledLight : JuiTheme.colors.text,
+    ),
+    JuiButtonColorType.blue: JuiButtonColorConfig(
+      getColor: (disable) => disable ? JuiTheme.colors.lightBlue : JuiTheme.colors.primary,
+      getFontColor: (_) => JuiTheme.colors.surface,
+    ),
+    JuiButtonColorType.blueBorder: JuiButtonColorConfig(
+      getColor: (_) => JuiTheme.colors.surface,
+      getFontColor: (_) => JuiTheme.colors.primary,
+      border: Border.all(color: JuiTheme.colors.primary, width: 1),
+    ),
+  };
 
   const JuiButton({
     Key? key,
@@ -65,43 +66,22 @@ class JuiButton extends StatelessWidget {
     this.fontHeight = 1.0,
     this.disable = false,
     this.backGroundColor,
+    this.fontWeight = FontWeight.normal,
   }) : super(key: key);
 
-  // onTap: 点击按钮时触发的回调函数
   final VoidCallback onTap;
-
-  // text: 按钮上显示的文本
   final String text;
-
-  // sizeType: 按钮的大小类型
   final JuiButtonSizeType sizeType;
-
-  // colorType: 按钮的颜色类型
   final JuiButtonColorType colorType;
-
-  // visibility: 按钮是否可见
   final bool visibility;
-
-  // disable: 按钮是否禁用
   final bool disable;
-
-  // width: 按钮的宽度，可选
   final double? width;
-
-  // height: 按钮的高度，可选
   final double? height;
-
-  // fontSize: 按钮文本的字体大小，可选
   final double? fontSize;
-
-  // circular: 按钮的圆角半径
   final double circular;
-
-  // fontHeight: 字体的高度比例
   final double fontHeight;
-
-  // backGroundColor: 按钮的背景颜色，可选
   final Color? backGroundColor;
+  final FontWeight fontWeight;
 
   static void updateSizeConfig(JuiButtonSizeType type, JuiButtonSizeConfig config) {
     _sizeConfig[type] = config;
@@ -122,12 +102,12 @@ class JuiButton extends StatelessWidget {
     final colorConfig = _colorConfig[colorType]!;
 
     final buttonContent = Container(
-      height: height ?? sizeConfig.height,
-      width: width,
-      padding: width == null ? EdgeInsets.symmetric(horizontal: sizeConfig.padding) : null,
+      height: (height ?? sizeConfig.height).w,
+      width: width?.w,
+      padding: width == null ? EdgeInsets.symmetric(horizontal: sizeConfig.padding.w) : null,
       decoration: BoxDecoration(
         color: backGroundColor ?? colorConfig.getColor(disable),
-        borderRadius: BorderRadius.circular(circular),
+        borderRadius: BorderRadius.circular(circular.w),
         border: colorConfig.border,
       ),
       alignment: Alignment.center,
@@ -135,8 +115,9 @@ class JuiButton extends StatelessWidget {
         text,
         style: TextStyle(
           color: colorConfig.getFontColor(disable),
-          fontSize: fontSize ?? sizeConfig.fontSize,
+          fontSize: (fontSize ?? sizeConfig.fontSize).w,
           height: fontHeight,
+          fontWeight: fontWeight,
         ),
       ),
     );

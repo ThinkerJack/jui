@@ -105,7 +105,7 @@ class JuiTextStyles {
             TextStyle(
               decoration: TextDecoration.none,
               color: const Color(0xFF2A2F3C),
-              fontSize: 16.sp,
+              fontSize: 17.sp,
               height: 1.3,
               fontWeight: FontWeightUtil.medium,
             ),
@@ -225,7 +225,7 @@ class JuiDimensions {
         itemSpace = 4.w,
         dialogWidth = 327.w,
         dialogSpace = 20.w,
-        dialogButtonWidth = 130.w,
+        dialogButtonWidth = 138.w,
         dialogWideButtonWidth = 270.w;
 
   JuiDimensions copyWith({
