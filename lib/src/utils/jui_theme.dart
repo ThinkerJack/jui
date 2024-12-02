@@ -226,7 +226,7 @@ class JuiDimensions {
         dialogWidth = 327.w,
         dialogSpace = 20.w,
         dialogButtonWidth = 138.w,
-        dialogWideButtonWidth = 270.w;
+        dialogWideButtonWidth = 287.w;
 
   JuiDimensions copyWith({
     double? itemPaddingL,
