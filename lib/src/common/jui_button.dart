@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jui/src/utils/screen_util.dart';
+import 'package:jui/src/utils/screen_util.dart'; // 假设这里是 .w 的扩展方法所在
 
 import '../utils/jui_theme.dart';
 
@@ -25,10 +25,26 @@ class JuiButtonColorConfig {
 
 class JuiButton extends StatelessWidget {
   static final Map<JuiButtonSizeType, JuiButtonSizeConfig> _sizeConfig = {
-    JuiButtonSizeType.large: const JuiButtonSizeConfig(height: 48, fontSize: 16, padding: 32),
-    JuiButtonSizeType.middle: const JuiButtonSizeConfig(height: 40, fontSize: 14, padding: 24),
-    JuiButtonSizeType.small: const JuiButtonSizeConfig(height: 32, fontSize: 14, padding: 16),
-    JuiButtonSizeType.ultraSmall: const JuiButtonSizeConfig(height: 24, fontSize: 12, padding: 12),
+    JuiButtonSizeType.large: JuiButtonSizeConfig(
+      height: 48.w, // 加上 .w
+      fontSize: 16.w, // 加上 .w
+      padding: 32.w, // 加上 .w
+    ),
+    JuiButtonSizeType.middle: JuiButtonSizeConfig(
+      height: 40.w, // 加上 .w
+      fontSize: 14.w, // 加上 .w
+      padding: 24.w, // 加上 .w
+    ),
+    JuiButtonSizeType.small: JuiButtonSizeConfig(
+      height: 32.w, // 加上 .w
+      fontSize: 14.w, // 加上 .w
+      padding: 16.w, // 加上 .w
+    ),
+    JuiButtonSizeType.ultraSmall: JuiButtonSizeConfig(
+      height: 24.w, // 加上 .w
+      fontSize: 12.w, // 加上 .w
+      padding: 12.w, // 加上 .w
+    ),
   };
 
   static Map<JuiButtonColorType, JuiButtonColorConfig> get _colorConfig => {
@@ -102,12 +118,12 @@ class JuiButton extends StatelessWidget {
     final colorConfig = _colorConfig[colorType]!;
 
     final buttonContent = Container(
-      height: (height ?? sizeConfig.height).w,
-      width: width?.w,
-      padding: width == null ? EdgeInsets.symmetric(horizontal: sizeConfig.padding.w) : null,
+      height: height ?? sizeConfig.height, // 这里的 height 已适配
+      width: width,
+      padding: width == null ? EdgeInsets.symmetric(horizontal: sizeConfig.padding) : null,
       decoration: BoxDecoration(
         color: backGroundColor ?? colorConfig.getColor(disable),
-        borderRadius: BorderRadius.circular(circular.w),
+        borderRadius: BorderRadius.circular(circular),
         border: colorConfig.border,
       ),
       alignment: Alignment.center,
@@ -115,7 +131,7 @@ class JuiButton extends StatelessWidget {
         text,
         style: TextStyle(
           color: colorConfig.getFontColor(disable),
-          fontSize: (fontSize ?? sizeConfig.fontSize).w,
+          fontSize: fontSize ?? sizeConfig.fontSize, // 这里的 fontSize 已适配
           height: fontHeight,
           fontWeight: fontWeight,
         ),
