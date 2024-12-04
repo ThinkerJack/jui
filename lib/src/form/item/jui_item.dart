@@ -56,29 +56,37 @@ class JuiItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Flexible(
-          child: Text(
-            title,
-            style: config.customTitleStyle ??
-                (config.isDisabled ? JuiTheme.textStyles.itemTitleDisabled : JuiTheme.textStyles.itemTitle),
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
+          fit: FlexFit.tight,
+          child: Text.rich(
+            TextSpan(
+              children: [
+                TextSpan(
+                  text: title,
+                  style: config.customTitleStyle ??
+                      (config.isDisabled ? JuiTheme.textStyles.itemTitleDisabled : JuiTheme.textStyles.itemTitle),
+                ),
+                if (config.titleBeforeRequiredWidget != null)
+                  WidgetSpan(
+                    child: config.titleBeforeRequiredWidget!,
+                    alignment: PlaceholderAlignment.middle,
+                  ),
+                if (!config.isDisabled && config.isRequired)
+                  WidgetSpan(
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 4.w),
+                      child: config.requiredMarker ??
+                          Image.asset(
+                            Assets.imagesItemRequired.path,
+                            width: 7.w,
+                          ),
+                    ),
+                    alignment: PlaceholderAlignment.middle,
+                  ),
+              ],
+            ),
           ),
         ),
-        if (config.titleBeforeRequiredWidget != null)
-          Padding(
-            padding: EdgeInsets.only(left: 4.w),
-            child: config.titleBeforeRequiredWidget!,
-          ),
-        if (!config.isDisabled && config.isRequired)
-          Padding(
-            padding: EdgeInsets.only(left: 4.w),
-            child: config.requiredMarker ?? Image.asset(Assets.imagesItemRequired.path, width: 7.w),
-          ),
-        if (config.titleSuffixWidget != null)
-          Padding(
-            padding: EdgeInsets.only(left: 4.w),
-            child: config.titleSuffixWidget!,
-          ),
+        if (config.titleSuffixWidget != null) config.titleSuffixWidget!,
       ],
     );
   }
