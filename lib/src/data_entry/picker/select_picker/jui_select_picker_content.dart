@@ -30,7 +30,7 @@ class CupertinoItemBuilder implements JuiSelectPickerItemBuilder {
     return Center(
       child: Text(
         params.item.data.value,
-        style: params.config.uiConfig.itemTextStyle ?? TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+        style: params.config.uiConfig.itemTextStyle ?? const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
       ),
     );
   }

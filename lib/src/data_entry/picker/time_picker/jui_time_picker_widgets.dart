@@ -55,7 +55,7 @@ class TimeDisplay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -63,7 +63,7 @@ class TimeDisplay extends StatelessWidget {
             child: GestureDetector(
               onTap: tapStart,
               child: Container(
-                padding: EdgeInsets.all(8),
+                padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: isSelectingStartTime ? Colors.blue : Colors.grey,
@@ -74,19 +74,19 @@ class TimeDisplay extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('开始时间', style: TextStyle(fontSize: 12)),
-                    Text(startTime, style: TextStyle(fontSize: 16)),
+                    const Text('开始时间', style: TextStyle(fontSize: 12)),
+                    Text(startTime, style: const TextStyle(fontSize: 16)),
                   ],
                 ),
               ),
             ),
           ),
-          SizedBox(width: 16),
+          const SizedBox(width: 16),
           Expanded(
             child: GestureDetector(
               onTap: tapEnd,
               child: Container(
-                padding: EdgeInsets.all(8),
+                padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: !isSelectingStartTime ? Colors.blue : Colors.grey,
@@ -97,8 +97,8 @@ class TimeDisplay extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('结束时间', style: TextStyle(fontSize: 12)),
-                    Text(endTime, style: TextStyle(fontSize: 16)),
+                    const Text('结束时间', style: TextStyle(fontSize: 12)),
+                    Text(endTime, style: const TextStyle(fontSize: 16)),
                   ],
                 ),
               ),

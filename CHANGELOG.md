@@ -1,55 +1,85 @@
+# Changelog
+## 0.2.8
+* Updated documentation
+
 ## 0.2.7
-* 调整表单ui
+* Adjusted form UI
+
 ## 0.2.6
-* 调整按钮ui
+* Adjusted button UI
+
 ## 0.2.5
-* 调整弹出框UI
+* Adjusted popup UI
+
 ## 0.2.4
-* 调整滚动条
+* Adjusted scrollbar
+
 ## 0.2.3
-* 调整选择器UI
+* Adjusted picker UI
+
 ## 0.2.2
-* 调整星号位置
+* Adjusted asterisk position
+
 ## 0.2.1
-* 调整文字行高，与高度适配
+* Adjusted text line height to fit container height
+
 ## 0.2.0
-* 调整选择器UI
+* Adjusted picker UI
+
 ## 0.1.9
-* 重构JuiSelectPickerItemBuilder方法，不兼容旧版本
+* Refactored `JuiSelectPickerItemBuilder` method (breaking change)
+
 ## 0.1.8
-* 新增屏幕适配，不同设备展示相同的UI效果，还原相同的宽高比例
+* Added screen adaptation for consistent UI across different devices
+
 ## 0.1.7
-* JuiTextInputItem 中英文混排适配
+* Improved mixed Chinese-English text layout in `JuiTextInputItem`
+
 ## 0.1.6
-* picker items多行样式适配
+* Improved multi-line style adaptation for picker items
+
 ## 0.1.5
-* picker items多行样式适配
+* Improved multi-line style adaptation for picker items
+
 ## 0.1.4
-* picker items支持自定义传入
+* Picker items now support custom input
+
 ## 0.1.3
-* 解决example iOS无法运行问题
+* Fixed issue preventing iOS example from running
+
 ## 0.1.2
-* 更新picker,items为空的适配
+* Updated picker to handle empty items properly
+
 ## 0.1.1
-* 更新dart适配版本
+* Updated Dart compatibility version
+
 ## 0.1.0
-* 更新readme
-* 更新UI
+* Updated README
+* Updated UI
+
 ## 0.0.9
-* 更新readme
+* Updated README
+
 ## 0.0.8
-* 新增文档
+* Added documentation
+
 ## 0.0.7
-* 新增数据展示组件与通用组件
+* Added data display and general components
+
 ## 0.0.6
-* 新增Tag组件
+* Added `Tag` component
+
 ## 0.0.5
-* 新增点击表单项
+* Added tapable form items
+
 ## 0.0.4
-* 新增按钮组件
+* Added button component
+
 ## 0.0.3
-* 新增展开收起文字组件
+* Added expandable text component
+
 ## 0.0.2
-* 更新readme
+* Updated README
+
 ## 0.0.1
-* 新增富文本组件
+* Added rich text component

@@ -1,10 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 import '../../../../data_entry.dart';
-import '../common/jui_picker_config.dart';
 import '../common/jui_picker_header.dart';
-import 'jui_time_picker_func.dart';
 import 'jui_time_picker_utils.dart';
 import 'jui_time_picker_widgets.dart';
 
@@ -29,10 +26,10 @@ class CustomTimePicker extends StatefulWidget {
   });
 
   @override
-  _CustomTimePickerState createState() => _CustomTimePickerState();
+  CustomTimePickerState createState() => CustomTimePickerState();
 }
 
-class _CustomTimePickerState extends State<CustomTimePicker> {
+class CustomTimePickerState extends State<CustomTimePicker> {
   late DateTime _selectedTime;
   late DateTime _startTime;
   late DateTime _endTime;
@@ -63,7 +60,7 @@ class _CustomTimePickerState extends State<CustomTimePicker> {
     _selectedTime = _timePickerUtils.normalizeDateTime(widget.initialTime ?? now, widget.type);
     _startTime = _timePickerUtils.normalizeDateTime(widget.initialStartTime ?? now, widget.type);
     _endTime =
-        _timePickerUtils.normalizeDateTime(widget.initialEndTime ?? _startTime.add(Duration(days: 1)), widget.type);
+        _timePickerUtils.normalizeDateTime(widget.initialEndTime ?? _startTime.add(const Duration(days: 1)), widget.type);
     _minTime = widget.minTime ?? DateTime(now.year - 100, 1, 1);
     _maxTime = widget.maxTime ?? DateTime(now.year + 100, 12, 31);
 
@@ -217,7 +214,7 @@ class _CustomTimePickerState extends State<CustomTimePicker> {
         break;
     }
 
-    return Container(
+    return SizedBox(
       height: 200,
       child: Row(
         children: pickers.map((picker) => Expanded(child: picker)).toList(),

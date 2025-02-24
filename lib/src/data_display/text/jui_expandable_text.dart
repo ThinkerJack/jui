@@ -132,7 +132,7 @@ class _JuiExpandableTextState extends State<JuiExpandableText> {
         text: TextSpan(text: text, style: contextTextStyle),
         maxLines: widget.maxLines,
         textDirection: TextDirection.ltr,
-        textScaleFactor: MediaQuery.of(context).textScaleFactor)
+        textScaler: MediaQuery.of(context).textScaler)
       ..layout(maxWidth: maxWidth);
   }
 }
