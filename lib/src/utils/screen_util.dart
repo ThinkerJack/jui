@@ -1,4 +1,6 @@
 // screen_util.dart
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class UIScreenUtil {
@@ -14,15 +16,15 @@ class UIScreenUtil {
 
   static void _initIfNeeded() {
     if (_screenWidth == null) {
-      final window = WidgetsBinding.instance.window;
-      final physicalSize = window.physicalSize;
-      final ratio = window.devicePixelRatio;
+      final FlutterView view = PlatformDispatcher.instance.views.first;
+      final Size physicalSize = view.physicalSize;
+      final double ratio = view.devicePixelRatio;
 
       _devicePixelRatio = ratio;
       _screenWidth = physicalSize.width / ratio;
       _screenHeight = physicalSize.height / ratio;
 
-      final padding = window.padding;
+      final ViewPadding padding = view.viewInsets;
       _statusBarHeight = padding.top / ratio;
       _bottomBarHeight = padding.bottom / ratio;
     }
