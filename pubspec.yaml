@@ -5,7 +5,7 @@ homepage: https://github.com/ThinkerJack/jui
 repository: https://github.com/ThinkerJack/jui
 
 environment:
-  sdk: ">=2.17.5 <3.0.0"
+  sdk: ">=2.17.5 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
