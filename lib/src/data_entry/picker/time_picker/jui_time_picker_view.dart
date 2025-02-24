@@ -349,8 +349,9 @@ class CustomTimePickerState extends State<CustomTimePicker> {
       }
 
       // 更新控制器
-      if (year != null)
+      if (year != null) {
         _yearController.jumpToItem(_timePickerUtils.getYears().indexOf(year));
+      }
       if (month != null) {
         if (_selectedTime.month != month) {
           _selectedTime = updateSelectedTime(_selectedTime, month);
@@ -364,15 +365,18 @@ class CustomTimePickerState extends State<CustomTimePicker> {
             _timePickerUtils.getMonths(_selectedTime).indexOf(month));
       }
 
-      if (day != null)
+      if (day != null) {
         _dayController
             .jumpToItem(_timePickerUtils.getDays(_selectedTime).indexOf(day));
-      if (hour != null)
+      }
+      if (hour != null) {
         _hourController
             .jumpToItem(_timePickerUtils.getHours(_selectedTime).indexOf(hour));
-      if (minute != null)
+      }
+      if (minute != null) {
         _minuteController.jumpToItem(
             _timePickerUtils.getMinutes(_selectedTime).indexOf(minute));
+      }
     });
   }
 

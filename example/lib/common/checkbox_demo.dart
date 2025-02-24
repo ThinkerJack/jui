@@ -11,11 +11,13 @@ class CheckBoxDemo extends StatelessWidget {
       title: "复选框",
       children: [
         JuiCheckBox(
-          type: JuiCheckBoxType.square, flag: ValueNotifier<bool>(true),
+          type: JuiCheckBoxType.square,
+          flag: ValueNotifier<bool>(true),
         ),
         DemoBasePage.space,
         JuiCheckBox(
-          type: JuiCheckBoxType.circle, flag: ValueNotifier<bool>(true),
+          type: JuiCheckBoxType.circle,
+          flag: ValueNotifier<bool>(true),
         ),
       ],
     );

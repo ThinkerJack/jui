@@ -76,10 +76,14 @@ class _PickerDemoState extends State<PickerDemo> {
 
   void _showWheelPicker(BuildContext context) {
     final items = [
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '1', value: 'Apple')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '2', value: 'Banana')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '3', value: 'Cherry')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '4', value: 'Date')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: '1', value: 'Apple')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: '2', value: 'Banana')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: '3', value: 'Cherry')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: '4', value: 'Date')),
     ];
 
     showJuiSelectPicker(
@@ -99,22 +103,46 @@ class _PickerDemoState extends State<PickerDemo> {
 
   void _showListPicker(BuildContext context) {
     final List<JuiSelectPickerItemUI> items = [
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '1', value: 'Apple')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '2', value: '我微微' * 30)),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '3', value: 'Cherry')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '4', value: 'Date')),   JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '1', value: 'Apple')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '2', value: '我微微' * 30)),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '3', value: 'Cherry')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '4', value: 'Date')),   JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '1', value: 'Apple')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '2', value: '我微微' * 30)),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '3', value: 'Cherry')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '4', value: 'Date')),   JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '1', value: 'Apple')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '2', value: '我微微' * 30)),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '3', value: 'Cherry')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '4', value: 'Date')),   JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '1', value: 'Apple')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '2', value: '我微微' * 30)),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '3', value: 'Cherry')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: '4', value: 'Date')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: '1', value: 'Apple')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: '2', value: '我微微' * 30)),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: '3', value: 'Cherry')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: '4', value: 'Date')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: '1', value: 'Apple')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: '2', value: '我微微' * 30)),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: '3', value: 'Cherry')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: '4', value: 'Date')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: '1', value: 'Apple')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: '2', value: '我微微' * 30)),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: '3', value: 'Cherry')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: '4', value: 'Date')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: '1', value: 'Apple')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: '2', value: '我微微' * 30)),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: '3', value: 'Cherry')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: '4', value: 'Date')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: '1', value: 'Apple')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: '2', value: '我微微' * 30)),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: '3', value: 'Cherry')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: '4', value: 'Date')),
     ];
 
     showJuiSelectPicker(
@@ -123,7 +151,8 @@ class _PickerDemoState extends State<PickerDemo> {
           layout: JuiSelectPickerLayout.list,
           selectionMode: SelectionMode.single,
           headerConfig: JuiPickerHeaderConfig(title: 'Select Colors'),
-          uiConfig: JuiSelectPickerUIConfig(maxLines: 2, shrinkWrap: false,maxHeight: 560)),
+          uiConfig: JuiSelectPickerUIConfig(
+              maxLines: 2, shrinkWrap: false, maxHeight: 560)),
       items: items,
       initialSelection: [JuiSelectPickerItemData(key: '2', value: 'Apple')],
       // Red and Green are initially selected
@@ -135,12 +164,18 @@ class _PickerDemoState extends State<PickerDemo> {
 
   void _showSingleListPicker(BuildContext context) {
     final items = [
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'red', value: 'Red')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'blue', value: 'Blue')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'green', value: 'Green')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'yellow', value: 'Yellow')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'purple', value: 'Purple')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'orange', value: 'Orange')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: 'red', value: 'Red')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: 'blue', value: 'Blue')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: 'green', value: 'Green')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: 'yellow', value: 'Yellow')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: 'purple', value: 'Purple')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: 'orange', value: 'Orange')),
     ];
 
     showJuiSelectPicker(
@@ -161,12 +196,18 @@ class _PickerDemoState extends State<PickerDemo> {
 
   void _showActionPicker(BuildContext context) {
     final items = [
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'red', value: 'Red')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'blue', value: 'Blue')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'green', value: 'Green')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'yellow', value: 'Yellow')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'purple', value: 'Purple')),
-      JuiSelectPickerItemUI(data: JuiSelectPickerItemData(key: 'orange', value: 'Orange')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: 'red', value: 'Red')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: 'blue', value: 'Blue')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: 'green', value: 'Green')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: 'yellow', value: 'Yellow')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: 'purple', value: 'Purple')),
+      JuiSelectPickerItemUI(
+          data: JuiSelectPickerItemData(key: 'orange', value: 'Orange')),
     ];
 
     showJuiSelectPicker(

@@ -18,31 +18,52 @@ class MainPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _buildSection(context, '通用', [
-                  _DemoButton(DemoRouter.jUIButtonDemo, "按钮"),
-                  _DemoButton(DemoRouter.dashedBorderContainerDemo, "虚线边框"),
-                ], isDesktop, constraints.maxWidth),
-
-                _buildSection(context, '数据展示', [
-                  _DemoButton(DemoRouter.expandedTextDemo, "展开收起文本"),
-                  _DemoButton(DemoRouter.highlightedTextDemo, "高亮文本"),
-                  _DemoButton(DemoRouter.tagDemo, "标签"),
-                  _DemoButton(DemoRouter.emptyPlaceholderDemo, "空页面"),
-                ], isDesktop, constraints.maxWidth),
-
-                _buildSection(context, '数据录入', [
-                  _DemoButton(DemoRouter.checkBoxDemo, "复选框"),
-                  _DemoButton(DemoRouter.singlePickerDemo, "单选选择器"),
-                  _DemoButton(DemoRouter.datePickerDemo, "时间选择器"),
-                ], isDesktop, constraints.maxWidth),
-
-                _buildSection(context, '反馈', [
-                  _DemoButton(DemoRouter.dialogDemo, "弹窗"),
-                ], isDesktop, constraints.maxWidth),
-
-                _buildSection(context, '表单', [
-                  _DemoButton(DemoRouter.itemDemo, "表单项"),
-                ], isDesktop, constraints.maxWidth),
+                _buildSection(
+                    context,
+                    '通用',
+                    [
+                      _DemoButton(DemoRouter.jUIButtonDemo, "按钮"),
+                      _DemoButton(DemoRouter.dashedBorderContainerDemo, "虚线边框"),
+                    ],
+                    isDesktop,
+                    constraints.maxWidth),
+                _buildSection(
+                    context,
+                    '数据展示',
+                    [
+                      _DemoButton(DemoRouter.expandedTextDemo, "展开收起文本"),
+                      _DemoButton(DemoRouter.highlightedTextDemo, "高亮文本"),
+                      _DemoButton(DemoRouter.tagDemo, "标签"),
+                      _DemoButton(DemoRouter.emptyPlaceholderDemo, "空页面"),
+                    ],
+                    isDesktop,
+                    constraints.maxWidth),
+                _buildSection(
+                    context,
+                    '数据录入',
+                    [
+                      _DemoButton(DemoRouter.checkBoxDemo, "复选框"),
+                      _DemoButton(DemoRouter.singlePickerDemo, "单选选择器"),
+                      _DemoButton(DemoRouter.datePickerDemo, "时间选择器"),
+                    ],
+                    isDesktop,
+                    constraints.maxWidth),
+                _buildSection(
+                    context,
+                    '反馈',
+                    [
+                      _DemoButton(DemoRouter.dialogDemo, "弹窗"),
+                    ],
+                    isDesktop,
+                    constraints.maxWidth),
+                _buildSection(
+                    context,
+                    '表单',
+                    [
+                      _DemoButton(DemoRouter.itemDemo, "表单项"),
+                    ],
+                    isDesktop,
+                    constraints.maxWidth),
               ],
             ),
           );
@@ -61,8 +82,10 @@ class MainPage extends StatelessWidget {
   }
 
   /// **自适应网格布局**
-  Widget _buildSection(BuildContext context, String title, List<_DemoButton> buttons, bool isDesktop, double maxWidth) {
-    int crossAxisCount = isDesktop ? (maxWidth ~/ 250).clamp(2, 4) : 2; // 桌面端 2-4 列，移动端 2 列
+  Widget _buildSection(BuildContext context, String title,
+      List<_DemoButton> buttons, bool isDesktop, double maxWidth) {
+    int crossAxisCount =
+        isDesktop ? (maxWidth ~/ 250).clamp(2, 4) : 2; // 桌面端 2-4 列，移动端 2 列
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -84,7 +107,8 @@ class MainPage extends StatelessWidget {
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           itemCount: buttons.length,
-          itemBuilder: (context, index) => _buildButton(context, buttons[index]),
+          itemBuilder: (context, index) =>
+              _buildButton(context, buttons[index]),
         ),
       ],
     );
@@ -95,7 +119,8 @@ class MainPage extends StatelessWidget {
     return ElevatedButton(
       onPressed: () => Navigator.of(context).pushNamed(button.routerName),
       style: ElevatedButton.styleFrom(
-        foregroundColor: Colors.blue, backgroundColor: Colors.white,
+        foregroundColor: Colors.blue,
+        backgroundColor: Colors.white,
         side: const BorderSide(color: Colors.blue),
         padding: const EdgeInsets.symmetric(vertical: 12),
       ),

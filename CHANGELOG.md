@@ -1,4 +1,7 @@
 # Changelog
+## 0.3.0
+* Format
+
 ## 0.2.9
 * Format
 

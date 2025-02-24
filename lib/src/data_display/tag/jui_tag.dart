@@ -1,14 +1,63 @@
 import 'package:flutter/material.dart';
-
 import '../../utils/jui_theme.dart';
 
-enum JuiTagColorType { black, blue, green, yellow, red, gray }
+/// `JuiTagColorType` 枚举，定义标签的颜色类型。
+enum JuiTagColorType {
+  /// 黑色标签
+  black,
 
-enum JuiTagShapeType { semicircle, rectangle, capsule }
+  /// 蓝色标签
+  blue,
 
-enum JuiTagType { text, icon }
+  /// 绿色标签
+  green,
 
+  /// 黄色标签
+  yellow,
+
+  /// 红色标签
+  red,
+
+  /// 灰色标签
+  gray
+}
+
+/// `JuiTagShapeType` 枚举，定义标签的形状类型。
+enum JuiTagShapeType {
+  /// 半圆形（左侧圆角）
+  semicircle,
+
+  /// 矩形（带圆角）
+  rectangle,
+
+  /// 胶囊形（圆角较大）
+  capsule
+}
+
+/// `JuiTagType` 枚举，定义标签的类型。
+enum JuiTagType {
+  /// 纯文本标签
+  text,
+
+  /// 带图标的标签
+  icon
+}
+
+/// `JuiTag` 组件用于显示各种标签。
+///
+/// 该组件支持自定义文本、颜色、形状、字体大小，并可选择添加图标。
 class JuiTag extends StatelessWidget {
+  /// 创建一个 `JuiTag` 组件
+  ///
+  /// - [text]：标签显示的文本内容（必填）。
+  /// - [paddingVertical]：垂直内边距，默认为 `2`。
+  /// - [paddingHorizontal]：水平内边距，默认为 `10`。
+  /// - [tagType]：标签类型（文本或带图标），默认为 `JuiTagType.text`。
+  /// - [tagShapeType]：标签形状，默认为 `JuiTagShapeType.rectangle`。
+  /// - [tagColorType]：标签颜色，默认为 `JuiTagColorType.blue`。
+  /// - [icon]：可选的左侧图标，仅在 `tagType.icon` 下有效。
+  /// - [fontSize]：文本字体大小，默认为 `12`。
+  /// - [alignment]：文本对齐方式，默认为 `Alignment.center`。
   const JuiTag({
     Key? key,
     required this.text,
@@ -22,32 +71,31 @@ class JuiTag extends StatelessWidget {
     this.alignment = Alignment.center,
   }) : super(key: key);
 
-// 定义JuiTag组件的属性
-  // paddingVertical: 标签的垂直内边距
+  /// 标签的垂直内边距
   final double paddingVertical;
 
-  // paddingHorizontal: 标签的水平内边距
+  /// 标签的水平内边距
   final double paddingHorizontal;
 
-  // tagType: 标签的类型
+  /// 标签类型（文本或带图标）
   final JuiTagType tagType;
 
-  // tagShapeType: 标签的形状类型
+  /// 标签的形状类型
   final JuiTagShapeType tagShapeType;
 
-  // tagColorType: 标签的颜色类型
+  /// 标签的颜色类型
   final JuiTagColorType tagColorType;
 
-  // text: 标签显示的文本内容
+  /// 标签显示的文本内容
   final String text;
 
-  // fontSize: 文本的字体大小
+  /// 文本的字体大小
   final double fontSize;
 
-  // icon: 标签左侧的可选图标
+  /// 标签左侧的可选图标（仅在 `JuiTagType.icon` 下有效）
   final Widget? icon;
 
-  // alignment: 文本的对齐方式
+  /// 文本的对齐方式
   final Alignment alignment;
 
   @override
@@ -58,7 +106,7 @@ class JuiTag extends StatelessWidget {
             vertical: paddingVertical, horizontal: paddingHorizontal),
         decoration: BoxDecoration(
           borderRadius: _getBorderRadius(),
-          color: _getColor(true),
+          color: _getColor(isBackground: true),
         ),
         alignment: alignment,
         child: _buildContent(),
@@ -66,57 +114,54 @@ class JuiTag extends StatelessWidget {
     );
   }
 
+  /// 根据 `tagType` 构建标签内容
   Widget _buildContent() {
     final textWidget = Text(
       text,
-      style: TextStyle(color: _getColor(false), fontSize: fontSize),
+      style:
+          TextStyle(color: _getColor(isBackground: false), fontSize: fontSize),
     );
-    switch (tagType) {
-      case JuiTagType.text:
-        return textWidget;
-      case JuiTagType.icon:
-        return Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            if (icon != null) ...[
-              icon!,
-              const SizedBox(width: 4),
-            ],
-            textWidget,
+
+    if (tagType == JuiTagType.text) {
+      return textWidget;
+    } else {
+      return Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (icon != null) ...[
+            icon!,
+            const SizedBox(width: 4),
           ],
-        );
+          textWidget,
+        ],
+      );
     }
   }
 
-  Color _getColor(bool isBackground) {
+  /// 获取标签的颜色
+  ///
+  /// - `isBackground = true` 表示获取背景颜色。
+  /// - `isBackground = false` 表示获取文本颜色。
+  Color _getColor({required bool isBackground}) {
+    final colors = JuiTheme.colors;
+
     switch (tagColorType) {
       case JuiTagColorType.black:
-        return isBackground
-            ? const JuiColors().background
-            : const JuiColors().text;
+        return isBackground ? colors.background : colors.text;
       case JuiTagColorType.blue:
-        return isBackground
-            ? const JuiColors().primaryWithOpacity
-            : const JuiColors().primary;
+        return isBackground ? colors.primaryWithOpacity : colors.primary;
       case JuiTagColorType.green:
-        return isBackground
-            ? const JuiColors().successWithOpacity
-            : const JuiColors().success;
+        return isBackground ? colors.successWithOpacity : colors.success;
       case JuiTagColorType.yellow:
-        return isBackground
-            ? const JuiColors().secondaryWithOpacity
-            : const JuiColors().secondary;
+        return isBackground ? colors.secondaryWithOpacity : colors.secondary;
       case JuiTagColorType.red:
-        return isBackground
-            ? const JuiColors().errorWithOpacity
-            : const JuiColors().error;
+        return isBackground ? colors.errorWithOpacity : colors.error;
       case JuiTagColorType.gray:
-        return isBackground
-            ? const JuiColors().background
-            : const JuiColors().textSecondary;
+        return isBackground ? colors.background : colors.textSecondary;
     }
   }
 
+  /// 获取标签的圆角样式
   BorderRadius _getBorderRadius() {
     switch (tagShapeType) {
       case JuiTagShapeType.semicircle:

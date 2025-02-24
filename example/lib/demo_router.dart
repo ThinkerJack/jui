@@ -15,7 +15,8 @@ import 'common/date_picker_demo.dart';
 
 final demoRouterMap = <String, WidgetBuilder>{
   DemoRouter.mainPage: (context) => const MainPage(),
-  DemoRouter.dashedBorderContainerDemo: (context) => DashedBorderContainerDemo(),
+  DemoRouter.dashedBorderContainerDemo: (context) =>
+      DashedBorderContainerDemo(),
   DemoRouter.jUIButtonDemo: (context) => JuiButtonDemo(),
   DemoRouter.emptyPlaceholderDemo: (context) => EmptyPlaceholderDemo(),
   DemoRouter.tagDemo: (context) => TagDemo(),

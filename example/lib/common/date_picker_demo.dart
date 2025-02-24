@@ -13,7 +13,7 @@ class DatePickerDemo extends StatelessWidget {
         _buildExample(
           context,
           '基础年月选择器',
-              () => showCustomTimePicker(
+          () => showCustomTimePicker(
             context: context,
             type: TimePickerType.yearMonthSeparate,
             mode: TimePickerMode.single,
@@ -22,7 +22,7 @@ class DatePickerDemo extends StatelessWidget {
         _buildExample(
           context,
           '带最小/最大值的年月日选择器',
-              () => showCustomTimePicker(
+          () => showCustomTimePicker(
             context: context,
             type: TimePickerType.yearMonthDaySeparate,
             mode: TimePickerMode.single,
@@ -33,7 +33,7 @@ class DatePickerDemo extends StatelessWidget {
         _buildExample(
           context,
           '完整日期时间范围选择器',
-              () => showCustomTimePicker(
+          () => showCustomTimePicker(
             context: context,
             type: TimePickerType.yearMonthDayHourMinuteSeparate,
             mode: TimePickerMode.range,
@@ -44,7 +44,7 @@ class DatePickerDemo extends StatelessWidget {
         _buildExample(
           context,
           '带初始时间的组合日期选择器',
-              () => showCustomTimePicker(
+          () => showCustomTimePicker(
             context: context,
             type: TimePickerType.yearMonthDayCombined,
             mode: TimePickerMode.single,
@@ -54,7 +54,7 @@ class DatePickerDemo extends StatelessWidget {
         _buildExample(
           context,
           '下周内的组合日期时间选择器',
-              () => showCustomTimePicker(
+          () => showCustomTimePicker(
             context: context,
             type: TimePickerType.yearMonthDayHourMinuteCombined,
             mode: TimePickerMode.single,
@@ -65,7 +65,9 @@ class DatePickerDemo extends StatelessWidget {
       ],
     );
   }
-  Widget _buildExample(BuildContext context, String title, Future<TimePickerModel?> Function() onTap) {
+
+  Widget _buildExample(BuildContext context, String title,
+      Future<TimePickerModel?> Function() onTap) {
     return ListTile(
       title: Text(title),
       onTap: () async {

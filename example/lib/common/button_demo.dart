@@ -10,21 +10,47 @@ class JuiButtonDemo extends StatelessWidget {
     return DemoBasePage(
       title: "按钮组件",
       children: [
-        JuiButton(colorType: JuiButtonColorType.blue, sizeType: JuiButtonSizeType.large, text: "大号蓝色按钮", onTap: () {}),
-        DemoBasePage.space,
-        JuiButton(colorType: JuiButtonColorType.blue, sizeType: JuiButtonSizeType.middle, text: "中号蓝色按钮", onTap: () {}),
-        DemoBasePage.space,
-        JuiButton(colorType: JuiButtonColorType.blue, sizeType: JuiButtonSizeType.small, text: "小号蓝色按钮", onTap: () {}),
+        JuiButton(
+            colorType: JuiButtonColorType.blue,
+            sizeType: JuiButtonSizeType.large,
+            text: "大号蓝色按钮",
+            onTap: () {}),
         DemoBasePage.space,
         JuiButton(
-            colorType: JuiButtonColorType.blue, sizeType: JuiButtonSizeType.ultraSmall, text: "超小蓝色按钮", onTap: () {}),
+            colorType: JuiButtonColorType.blue,
+            sizeType: JuiButtonSizeType.middle,
+            text: "中号蓝色按钮",
+            onTap: () {}),
         DemoBasePage.space,
         JuiButton(
-            colorType: JuiButtonColorType.blueBorder, sizeType: JuiButtonSizeType.small, text: "中号边框按钮", onTap: () {}),
+            colorType: JuiButtonColorType.blue,
+            sizeType: JuiButtonSizeType.small,
+            text: "小号蓝色按钮",
+            onTap: () {}),
         DemoBasePage.space,
-        JuiButton(colorType: JuiButtonColorType.gray, sizeType: JuiButtonSizeType.small, text: "中号灰色按钮", onTap: () {}),
+        JuiButton(
+            colorType: JuiButtonColorType.blue,
+            sizeType: JuiButtonSizeType.ultraSmall,
+            text: "超小蓝色按钮",
+            onTap: () {}),
         DemoBasePage.space,
-        JuiButton(colorType: JuiButtonColorType.white, sizeType: JuiButtonSizeType.small, text: "中号白色按钮", onTap: () {}),
+        JuiButton(
+            colorType: JuiButtonColorType.blueBorder,
+            sizeType: JuiButtonSizeType.small,
+            text: "中号边框按钮",
+            onTap: () {}),
+        DemoBasePage.space,
+        JuiButton(
+            colorType: JuiButtonColorType.gray,
+            sizeType: JuiButtonSizeType.small,
+            text: "中号灰色按钮",
+            onTap: () {}),
+        DemoBasePage.space,
+        JuiButton(
+            colorType: JuiButtonColorType.white,
+            sizeType: JuiButtonSizeType.small,
+            text: "中号白色按钮",
+            onTap: () {}),
       ],
     );
   }
