@@ -86,12 +86,15 @@ class _InputField extends StatelessWidget {
           fontSize: 16,
           height: 1.3,
         ),
-        inputFormatters: allowEmoji ? null : [FilteringTextInputFormatter.deny(RegExp(_regexEmoji))],
+        inputFormatters: allowEmoji
+            ? null
+            : [FilteringTextInputFormatter.deny(RegExp(_regexEmoji))],
         focusNode: focusNode,
         onChanged: onChange,
         decoration: InputDecoration(
           isDense: true,
-          contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
           border: InputBorder.none,
           hintText: hintText,
           hintStyle: JuiTheme.textStyles.dialogHint,

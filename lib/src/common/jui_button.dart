@@ -12,7 +12,8 @@ class JuiButtonSizeConfig {
   final double fontSize;
   final double padding;
 
-  const JuiButtonSizeConfig({required this.height, required this.fontSize, required this.padding});
+  const JuiButtonSizeConfig(
+      {required this.height, required this.fontSize, required this.padding});
 }
 
 class JuiButtonColorConfig {
@@ -20,7 +21,8 @@ class JuiButtonColorConfig {
   final Color Function(bool disable) getFontColor;
   final BoxBorder? border;
 
-  const JuiButtonColorConfig({required this.getColor, required this.getFontColor, this.border});
+  const JuiButtonColorConfig(
+      {required this.getColor, required this.getFontColor, this.border});
 }
 
 class JuiButton extends StatelessWidget {
@@ -48,25 +50,28 @@ class JuiButton extends StatelessWidget {
   };
 
   static Map<JuiButtonColorType, JuiButtonColorConfig> get _colorConfig => {
-    JuiButtonColorType.white: JuiButtonColorConfig(
-      getColor: (_) => JuiTheme.colors.surface,
-      getFontColor: (disable) => disable ? JuiTheme.colors.disabledLight : JuiTheme.colors.text,
-      border: Border.all(color: JuiTheme.colors.divider, width: 1),
-    ),
-    JuiButtonColorType.gray: JuiButtonColorConfig(
-      getColor: (_) => JuiTheme.colors.background,
-      getFontColor: (disable) => disable ? JuiTheme.colors.disabledLight : JuiTheme.colors.text,
-    ),
-    JuiButtonColorType.blue: JuiButtonColorConfig(
-      getColor: (disable) => disable ? JuiTheme.colors.lightBlue : JuiTheme.colors.primary,
-      getFontColor: (_) => JuiTheme.colors.surface,
-    ),
-    JuiButtonColorType.blueBorder: JuiButtonColorConfig(
-      getColor: (_) => JuiTheme.colors.surface,
-      getFontColor: (_) => JuiTheme.colors.primary,
-      border: Border.all(color: JuiTheme.colors.primary, width: 1),
-    ),
-  };
+        JuiButtonColorType.white: JuiButtonColorConfig(
+          getColor: (_) => JuiTheme.colors.surface,
+          getFontColor: (disable) =>
+              disable ? JuiTheme.colors.disabledLight : JuiTheme.colors.text,
+          border: Border.all(color: JuiTheme.colors.divider, width: 1),
+        ),
+        JuiButtonColorType.gray: JuiButtonColorConfig(
+          getColor: (_) => JuiTheme.colors.background,
+          getFontColor: (disable) =>
+              disable ? JuiTheme.colors.disabledLight : JuiTheme.colors.text,
+        ),
+        JuiButtonColorType.blue: JuiButtonColorConfig(
+          getColor: (disable) =>
+              disable ? JuiTheme.colors.lightBlue : JuiTheme.colors.primary,
+          getFontColor: (_) => JuiTheme.colors.surface,
+        ),
+        JuiButtonColorType.blueBorder: JuiButtonColorConfig(
+          getColor: (_) => JuiTheme.colors.surface,
+          getFontColor: (_) => JuiTheme.colors.primary,
+          border: Border.all(color: JuiTheme.colors.primary, width: 1),
+        ),
+      };
 
   const JuiButton({
     Key? key,
@@ -99,7 +104,8 @@ class JuiButton extends StatelessWidget {
   final Color? backGroundColor;
   final FontWeight fontWeight;
 
-  static void updateSizeConfig(JuiButtonSizeType type, JuiButtonSizeConfig config) {
+  static void updateSizeConfig(
+      JuiButtonSizeType type, JuiButtonSizeConfig config) {
     _sizeConfig[type] = config;
   }
 
@@ -120,7 +126,9 @@ class JuiButton extends StatelessWidget {
     final buttonContent = Container(
       height: height ?? sizeConfig.height, // 这里的 height 已适配
       width: width,
-      padding: width == null ? EdgeInsets.symmetric(horizontal: sizeConfig.padding) : null,
+      padding: width == null
+          ? EdgeInsets.symmetric(horizontal: sizeConfig.padding)
+          : null,
       decoration: BoxDecoration(
         color: backGroundColor ?? colorConfig.getColor(disable),
         borderRadius: BorderRadius.circular(circular),
@@ -138,6 +146,8 @@ class JuiButton extends StatelessWidget {
       ),
     );
 
-    return width == double.infinity ? buttonContent : UnconstrainedBox(child: buttonContent);
+    return width == double.infinity
+        ? buttonContent
+        : UnconstrainedBox(child: buttonContent);
   }
 }

@@ -34,7 +34,8 @@ class JuiSelectPickerState extends State<JuiSelectPicker> {
   void initState() {
     super.initState();
     _initializeSelection();
-    _contentBuilder = JuiSelectPickerContentBuilderFactory.getBuilder(widget.config.layout);
+    _contentBuilder =
+        JuiSelectPickerContentBuilderFactory.getBuilder(widget.config.layout);
     _headerHandler = JuiSelectPickerHeaderHandler(
       config: widget.config,
       onCancel: widget.onCancel,
@@ -71,7 +72,9 @@ class JuiSelectPickerState extends State<JuiSelectPicker> {
         selectedItems: _selectedItems,
         config: widget.config,
         onItemTap: _handleItemSelection,
-        onImmediateConfirm: widget.config.selectionMode == SelectionMode.single ? _handleImmediateConfirm : null,
+        onImmediateConfirm: widget.config.selectionMode == SelectionMode.single
+            ? _handleImmediateConfirm
+            : null,
       ),
     );
   }
@@ -106,7 +109,8 @@ class JuiSelectPickerState extends State<JuiSelectPicker> {
 
   void _handleConfirm() {
     List<String> selectedKeys = _selectedItems.map((item) => item.key).toList();
-    List<String> selectedValues = _selectedItems.map((item) => item.value).toList();
+    List<String> selectedValues =
+        _selectedItems.map((item) => item.value).toList();
     widget.onSelect(selectedKeys, selectedValues);
   }
 }

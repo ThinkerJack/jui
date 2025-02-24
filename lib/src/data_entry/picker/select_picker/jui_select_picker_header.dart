@@ -15,9 +15,12 @@ class JuiSelectPickerHeaderHandler {
     required this.onConfirm,
   });
 
-  bool get shouldShowHeader => config.headerConfig.showHeader ?? _shouldShowHeaderByDefault();
+  bool get shouldShowHeader =>
+      config.headerConfig.showHeader ?? _shouldShowHeaderByDefault();
 
-  bool get shouldShowConfirmButton => config.headerConfig.showConfirmButton ?? _shouldShowConfirmButtonByDefault();
+  bool get shouldShowConfirmButton =>
+      config.headerConfig.showConfirmButton ??
+      _shouldShowConfirmButtonByDefault();
 
   bool _shouldShowHeaderByDefault() {
     switch (config.layout) {
@@ -30,7 +33,8 @@ class JuiSelectPickerHeaderHandler {
   }
 
   bool _shouldShowConfirmButtonByDefault() {
-    if (config.selectionMode == SelectionMode.single && config.layout == JuiSelectPickerLayout.list) {
+    if (config.selectionMode == SelectionMode.single &&
+        config.layout == JuiSelectPickerLayout.list) {
       return false;
     }
     return true;
@@ -45,9 +49,12 @@ class JuiSelectPickerHeaderHandler {
         JuiPickerHeader(
           title: config.headerConfig.title,
           titleLeftText: config.headerConfig.cancelText,
-          titleRightText: shouldShowConfirmButton ? config.headerConfig.confirmText : null,
+          titleRightText:
+              shouldShowConfirmButton ? config.headerConfig.confirmText : null,
           onCancel: onCancel,
-          onConfirm: shouldShowConfirmButton ? (config.headerConfig.tapConfirm ?? onConfirm) : null,
+          onConfirm: shouldShowConfirmButton
+              ? (config.headerConfig.tapConfirm ?? onConfirm)
+              : null,
           leftTextStyle: config.headerConfig.cancelTextStyle,
           rightTextStyle: config.headerConfig.confirmTextStyle,
         );

@@ -63,7 +63,9 @@ class JuiHighlightedText extends StatelessWidget {
       spans.add(TextSpan(
         text: highlight.word,
         style: highlight.highlightStyle ?? highlightStyle,
-        recognizer: highlight.onTap != null ? (TapGestureRecognizer()..onTap = highlight.onTap) : null,
+        recognizer: highlight.onTap != null
+            ? (TapGestureRecognizer()..onTap = highlight.onTap)
+            : null,
       ));
 
       currentIndex = startIndex + highlight.word.length;
@@ -88,7 +90,8 @@ class JuiHighlightedText extends StatelessWidget {
     TextOverflow overflow = TextOverflow.ellipsis,
   }) {
     if (highlightText.isEmpty) {
-      return Text(text, maxLines: maxLines, overflow: overflow, style: textStyle);
+      return Text(text,
+          maxLines: maxLines, overflow: overflow, style: textStyle);
     }
 
     final lowercaseText = text.toLowerCase();
@@ -97,18 +100,23 @@ class JuiHighlightedText extends StatelessWidget {
     int currentIndex = 0;
 
     while (currentIndex < text.length) {
-      int highlightIndex = lowercaseText.indexOf(lowercaseHighlight, currentIndex);
+      int highlightIndex =
+          lowercaseText.indexOf(lowercaseHighlight, currentIndex);
       if (highlightIndex == -1) {
-        spans.add(TextSpan(text: text.substring(currentIndex), style: textStyle));
+        spans.add(
+            TextSpan(text: text.substring(currentIndex), style: textStyle));
         break;
       }
 
       if (highlightIndex > currentIndex) {
-        spans.add(TextSpan(text: text.substring(currentIndex, highlightIndex), style: textStyle));
+        spans.add(TextSpan(
+            text: text.substring(currentIndex, highlightIndex),
+            style: textStyle));
       }
 
       spans.add(TextSpan(
-        text: text.substring(highlightIndex, highlightIndex + highlightText.length),
+        text: text.substring(
+            highlightIndex, highlightIndex + highlightText.length),
         style: highlightStyle,
       ));
 

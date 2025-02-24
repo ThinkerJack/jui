@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:jui/src/utils/screen_util.dart';
 import 'package:universal_platform/universal_platform.dart';
@@ -41,9 +40,11 @@ class JuiTheme {
 class FontWeightUtil {
   static FontWeight get regular => FontWeight.w400;
 
-  static FontWeight get medium => UniversalPlatform.isIOS ? FontWeight.w500 : FontWeight.w600;
+  static FontWeight get medium =>
+      UniversalPlatform.isIOS ? FontWeight.w500 : FontWeight.w600;
 
-  static FontWeight get semiBold => UniversalPlatform.isIOS ? FontWeight.w600 : FontWeight.w700;
+  static FontWeight get semiBold =>
+      UniversalPlatform.isIOS ? FontWeight.w600 : FontWeight.w700;
 }
 
 class JuiTextStyles {
@@ -339,6 +340,7 @@ class JuiColors {
     );
   }
 }
+
 extension ColorOpacityExtension on Color {
   /// Returns a color with the specified opacity (0.0 - 1.0) using `withValues()`
   Color withCustomOpacity(double opacity) {

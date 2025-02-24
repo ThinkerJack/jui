@@ -59,7 +59,9 @@ class JuiTapItem extends StatelessWidget {
         ),
         trailing ??
             Image.asset(
-              config.isDisabled ? Assets.imagesMoreDisabled.path : Assets.imagesMore.path,
+              config.isDisabled
+                  ? Assets.imagesMoreDisabled.path
+                  : Assets.imagesMore.path,
               height: 12,
             )
       ],
@@ -68,7 +70,9 @@ class JuiTapItem extends StatelessWidget {
 
   TextStyle _getTextStyle() {
     if (contentText.isEmpty) {
-      return config.isDisabled ? JuiTheme.textStyles.itemHintDisabled : JuiTheme.textStyles.itemHint;
+      return config.isDisabled
+          ? JuiTheme.textStyles.itemHintDisabled
+          : JuiTheme.textStyles.itemHint;
     }
     return JuiTheme.textStyles.itemContent;
   }

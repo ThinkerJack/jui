@@ -57,10 +57,13 @@ class CustomTimePickerState extends State<CustomTimePicker> {
     _minTime = widget.minTime ?? DateTime(now.year - 100, 1, 1);
     _maxTime = widget.maxTime ?? DateTime(now.year + 100, 12, 31);
     _timePickerUtils = TimePickerUtils(minTime: _minTime, maxTime: _maxTime);
-    _selectedTime = _timePickerUtils.normalizeDateTime(widget.initialTime ?? now, widget.type);
-    _startTime = _timePickerUtils.normalizeDateTime(widget.initialStartTime ?? now, widget.type);
-    _endTime =
-        _timePickerUtils.normalizeDateTime(widget.initialEndTime ?? _startTime.add(const Duration(days: 1)), widget.type);
+    _selectedTime = _timePickerUtils.normalizeDateTime(
+        widget.initialTime ?? now, widget.type);
+    _startTime = _timePickerUtils.normalizeDateTime(
+        widget.initialStartTime ?? now, widget.type);
+    _endTime = _timePickerUtils.normalizeDateTime(
+        widget.initialEndTime ?? _startTime.add(const Duration(days: 1)),
+        widget.type);
     _minTime = widget.minTime ?? DateTime(now.year - 100, 1, 1);
     _maxTime = widget.maxTime ?? DateTime(now.year + 100, 12, 31);
 
@@ -68,19 +71,27 @@ class CustomTimePickerState extends State<CustomTimePicker> {
   }
 
   void _initScrollControllers() {
-    _yearController = FixedExtentScrollController(initialItem: _timePickerUtils.getYears().indexOf(_selectedTime.year));
+    _yearController = FixedExtentScrollController(
+        initialItem: _timePickerUtils.getYears().indexOf(_selectedTime.year));
     _monthController = FixedExtentScrollController(
-        initialItem: _timePickerUtils.getMonths(_selectedTime).indexOf(_selectedTime.month));
-    _dayController =
-        FixedExtentScrollController(initialItem: _timePickerUtils.getDays(_selectedTime).indexOf(_selectedTime.day));
-    _hourController =
-        FixedExtentScrollController(initialItem: _timePickerUtils.getHours(_selectedTime).indexOf(_selectedTime.hour));
+        initialItem: _timePickerUtils
+            .getMonths(_selectedTime)
+            .indexOf(_selectedTime.month));
+    _dayController = FixedExtentScrollController(
+        initialItem:
+            _timePickerUtils.getDays(_selectedTime).indexOf(_selectedTime.day));
+    _hourController = FixedExtentScrollController(
+        initialItem: _timePickerUtils
+            .getHours(_selectedTime)
+            .indexOf(_selectedTime.hour));
     _minuteController = FixedExtentScrollController(
-        initialItem: _timePickerUtils.getMinutes(_selectedTime).indexOf(_selectedTime.minute));
-    _combinedYearMonthDayController =
-        FixedExtentScrollController(initialItem: _getCombinedYearMonthDayIndex(_selectedTime));
-    _combinedYearMonthDayHourMinuteController =
-        FixedExtentScrollController(initialItem: _getCombinedYearMonthDayHourMinuteIndex(_selectedTime));
+        initialItem: _timePickerUtils
+            .getMinutes(_selectedTime)
+            .indexOf(_selectedTime.minute));
+    _combinedYearMonthDayController = FixedExtentScrollController(
+        initialItem: _getCombinedYearMonthDayIndex(_selectedTime));
+    _combinedYearMonthDayHourMinuteController = FixedExtentScrollController(
+        initialItem: _getCombinedYearMonthDayHourMinuteIndex(_selectedTime));
   }
 
   int _getCombinedYearMonthDayIndex(DateTime date) {
@@ -92,7 +103,9 @@ class CustomTimePickerState extends State<CustomTimePicker> {
   }
 
   DateTime _getDateTimeFromCombinedIndex(int index, bool includeTime) {
-    return includeTime ? _minTime.add(Duration(minutes: index)) : _minTime.add(Duration(days: index));
+    return includeTime
+        ? _minTime.add(Duration(minutes: index))
+        : _minTime.add(Duration(days: index));
   }
 
   @override
@@ -106,9 +119,11 @@ class CustomTimePickerState extends State<CustomTimePicker> {
             titleRightText: const JuiPickerHeaderConfig().confirmText,
             onConfirm: () {
               if (widget.mode == TimePickerMode.single) {
-                Navigator.of(context).pop(TimePickerModel(selectedTime: _selectedTime));
+                Navigator.of(context)
+                    .pop(TimePickerModel(selectedTime: _selectedTime));
               } else {
-                Navigator.of(context).pop(TimePickerModel(startTime: _startTime, endTime: _endTime));
+                Navigator.of(context).pop(
+                    TimePickerModel(startTime: _startTime, endTime: _endTime));
               }
             },
             onCancel: () => Navigator.of(context).pop()),
@@ -138,26 +153,38 @@ class CustomTimePickerState extends State<CustomTimePicker> {
   void _scrollToTime(DateTime time) {
     switch (widget.type) {
       case TimePickerType.yearMonthSeparate:
-        _yearController.jumpToItem(_timePickerUtils.getYears().indexOf(time.year));
-        _monthController.jumpToItem(_timePickerUtils.getMonths(_selectedTime).indexOf(time.month));
+        _yearController
+            .jumpToItem(_timePickerUtils.getYears().indexOf(time.year));
+        _monthController.jumpToItem(
+            _timePickerUtils.getMonths(_selectedTime).indexOf(time.month));
         break;
       case TimePickerType.yearMonthDaySeparate:
-        _yearController.jumpToItem(_timePickerUtils.getYears().indexOf(time.year));
-        _monthController.jumpToItem(_timePickerUtils.getMonths(_selectedTime).indexOf(time.month));
-        _dayController.jumpToItem(_timePickerUtils.getDays(_selectedTime).indexOf(time.day));
+        _yearController
+            .jumpToItem(_timePickerUtils.getYears().indexOf(time.year));
+        _monthController.jumpToItem(
+            _timePickerUtils.getMonths(_selectedTime).indexOf(time.month));
+        _dayController.jumpToItem(
+            _timePickerUtils.getDays(_selectedTime).indexOf(time.day));
         break;
       case TimePickerType.yearMonthDayHourMinuteSeparate:
-        _yearController.jumpToItem(_timePickerUtils.getYears().indexOf(time.year));
-        _monthController.jumpToItem(_timePickerUtils.getMonths(_selectedTime).indexOf(time.month));
-        _dayController.jumpToItem(_timePickerUtils.getDays(_selectedTime).indexOf(time.day));
-        _hourController.jumpToItem(_timePickerUtils.getHours(_selectedTime).indexOf(time.hour));
-        _minuteController.jumpToItem(_timePickerUtils.getMinutes(_selectedTime).indexOf(time.minute));
+        _yearController
+            .jumpToItem(_timePickerUtils.getYears().indexOf(time.year));
+        _monthController.jumpToItem(
+            _timePickerUtils.getMonths(_selectedTime).indexOf(time.month));
+        _dayController.jumpToItem(
+            _timePickerUtils.getDays(_selectedTime).indexOf(time.day));
+        _hourController.jumpToItem(
+            _timePickerUtils.getHours(_selectedTime).indexOf(time.hour));
+        _minuteController.jumpToItem(
+            _timePickerUtils.getMinutes(_selectedTime).indexOf(time.minute));
         break;
       case TimePickerType.yearMonthDayCombined:
-        _combinedYearMonthDayController.jumpToItem(_getCombinedYearMonthDayIndex(time));
+        _combinedYearMonthDayController
+            .jumpToItem(_getCombinedYearMonthDayIndex(time));
         break;
       case TimePickerType.yearMonthDayHourMinuteCombined:
-        _combinedYearMonthDayHourMinuteController.jumpToItem(_getCombinedYearMonthDayHourMinuteIndex(time));
+        _combinedYearMonthDayHourMinuteController
+            .jumpToItem(_getCombinedYearMonthDayHourMinuteIndex(time));
         break;
     }
   }
@@ -168,48 +195,83 @@ class CustomTimePickerState extends State<CustomTimePicker> {
     switch (widget.type) {
       case TimePickerType.yearMonthSeparate:
         pickers = [
-          _buildPicker(_timePickerUtils.getYears(), _yearController,
-              (index) => _updateDateTime(year: _timePickerUtils.getYears()[index])),
-          _buildPicker(_timePickerUtils.getMonths(_selectedTime), _monthController,
-              (index) => _updateDateTime(month: _timePickerUtils.getMonths(_selectedTime)[index])),
+          _buildPicker(
+              _timePickerUtils.getYears(),
+              _yearController,
+              (index) =>
+                  _updateDateTime(year: _timePickerUtils.getYears()[index])),
+          _buildPicker(
+              _timePickerUtils.getMonths(_selectedTime),
+              _monthController,
+              (index) => _updateDateTime(
+                  month: _timePickerUtils.getMonths(_selectedTime)[index])),
         ];
         break;
       case TimePickerType.yearMonthDaySeparate:
         pickers = [
-          _buildPicker(_timePickerUtils.getYears(), _yearController,
-              (index) => _updateDateTime(year: _timePickerUtils.getYears()[index])),
-          _buildPicker(_timePickerUtils.getMonths(_selectedTime), _monthController, (index) {
-            _updateDateTime(month: _timePickerUtils.getMonths(_selectedTime)[index]);
+          _buildPicker(
+              _timePickerUtils.getYears(),
+              _yearController,
+              (index) =>
+                  _updateDateTime(year: _timePickerUtils.getYears()[index])),
+          _buildPicker(
+              _timePickerUtils.getMonths(_selectedTime), _monthController,
+              (index) {
+            _updateDateTime(
+                month: _timePickerUtils.getMonths(_selectedTime)[index]);
           }),
-          _buildPicker(_timePickerUtils.getDays(_selectedTime), _dayController, (index) {
-            _updateDateTime(day: _timePickerUtils.getDays(_selectedTime)[index]);
+          _buildPicker(_timePickerUtils.getDays(_selectedTime), _dayController,
+              (index) {
+            _updateDateTime(
+                day: _timePickerUtils.getDays(_selectedTime)[index]);
           }),
         ];
         break;
       case TimePickerType.yearMonthDayHourMinuteSeparate:
         pickers = [
-          _buildPicker(_timePickerUtils.getYears(), _yearController,
-              (index) => _updateDateTime(year: _timePickerUtils.getYears()[index])),
-          _buildPicker(_timePickerUtils.getMonths(_selectedTime), _monthController,
-              (index) => _updateDateTime(month: _timePickerUtils.getMonths(_selectedTime)[index])),
-          _buildPicker(_timePickerUtils.getDays(_selectedTime), _dayController,
-              (index) => _updateDateTime(day: _timePickerUtils.getDays(_selectedTime)[index])),
-          _buildPicker(_timePickerUtils.getHours(_selectedTime), _hourController,
-              (index) => _updateDateTime(hour: _timePickerUtils.getHours(_selectedTime)[index])),
-          _buildPicker(_timePickerUtils.getMinutes(_selectedTime), _minuteController,
-              (index) => _updateDateTime(minute: _timePickerUtils.getMinutes(_selectedTime)[index])),
+          _buildPicker(
+              _timePickerUtils.getYears(),
+              _yearController,
+              (index) =>
+                  _updateDateTime(year: _timePickerUtils.getYears()[index])),
+          _buildPicker(
+              _timePickerUtils.getMonths(_selectedTime),
+              _monthController,
+              (index) => _updateDateTime(
+                  month: _timePickerUtils.getMonths(_selectedTime)[index])),
+          _buildPicker(
+              _timePickerUtils.getDays(_selectedTime),
+              _dayController,
+              (index) => _updateDateTime(
+                  day: _timePickerUtils.getDays(_selectedTime)[index])),
+          _buildPicker(
+              _timePickerUtils.getHours(_selectedTime),
+              _hourController,
+              (index) => _updateDateTime(
+                  hour: _timePickerUtils.getHours(_selectedTime)[index])),
+          _buildPicker(
+              _timePickerUtils.getMinutes(_selectedTime),
+              _minuteController,
+              (index) => _updateDateTime(
+                  minute: _timePickerUtils.getMinutes(_selectedTime)[index])),
         ];
         break;
       case TimePickerType.yearMonthDayCombined:
         pickers = [
-          _buildCombinedPicker(_combinedYearMonthDayController, (index) => _updateDateTimeFromCombined(index),
-              _getCombinedYearMonthDayIndex(_maxTime) + 1, false),
+          _buildCombinedPicker(
+              _combinedYearMonthDayController,
+              (index) => _updateDateTimeFromCombined(index),
+              _getCombinedYearMonthDayIndex(_maxTime) + 1,
+              false),
         ];
         break;
       case TimePickerType.yearMonthDayHourMinuteCombined:
         pickers = [
-          _buildCombinedPicker(_combinedYearMonthDayHourMinuteController, (index) => _updateDateTimeFromCombined(index),
-              _getCombinedYearMonthDayHourMinuteIndex(_maxTime) + 1, true),
+          _buildCombinedPicker(
+              _combinedYearMonthDayHourMinuteController,
+              (index) => _updateDateTimeFromCombined(index),
+              _getCombinedYearMonthDayHourMinuteIndex(_maxTime) + 1,
+              true),
         ];
         break;
     }
@@ -222,12 +284,16 @@ class CustomTimePickerState extends State<CustomTimePicker> {
     );
   }
 
-  Widget _buildPicker(List<int> items, FixedExtentScrollController controller, Function(int) onSelectedItemChanged) {
-    return CustomWheelPicker(onSelectedItemChanged: onSelectedItemChanged, items: items, controller: controller);
+  Widget _buildPicker(List<int> items, FixedExtentScrollController controller,
+      Function(int) onSelectedItemChanged) {
+    return CustomWheelPicker(
+        onSelectedItemChanged: onSelectedItemChanged,
+        items: items,
+        controller: controller);
   }
 
-  Widget _buildCombinedPicker(
-      FixedExtentScrollController controller, Function(int) onSelectedItemChanged, int itemCount, bool includeTime) {
+  Widget _buildCombinedPicker(FixedExtentScrollController controller,
+      Function(int) onSelectedItemChanged, int itemCount, bool includeTime) {
     return NotificationListener<ScrollEndNotification>(
       onNotification: (notification) {
         if (notification.depth == 0) {
@@ -245,32 +311,37 @@ class CustomTimePickerState extends State<CustomTimePicker> {
         // 保留空的回调以满足 CupertinoPicker 的要求
         itemBuilder: (context, index) {
           DateTime date = _getDateTimeFromCombinedIndex(index, includeTime);
-          return Center(child: Text(_timePickerUtils.formatDateTime(date, widget.type)));
+          return Center(
+              child: Text(_timePickerUtils.formatDateTime(date, widget.type)));
         },
         childCount: itemCount,
       ),
     );
   }
 
-  void _updateDateTime({int? year, int? month, int? day, int? hour, int? minute}) {
+  void _updateDateTime(
+      {int? year, int? month, int? day, int? hour, int? minute}) {
     setState(() {
       DateTime updatedTime;
       if (widget.mode == TimePickerMode.single) {
-        updatedTime =
-            _timePickerUtils.updateTime(_selectedTime, year: year, month: month, day: day, hour: hour, minute: minute);
-        _selectedTime = _timePickerUtils.normalizeDateTime(updatedTime, widget.type);
+        updatedTime = _timePickerUtils.updateTime(_selectedTime,
+            year: year, month: month, day: day, hour: hour, minute: minute);
+        _selectedTime =
+            _timePickerUtils.normalizeDateTime(updatedTime, widget.type);
       } else {
         if (_isSelectingStartTime) {
-          updatedTime =
-              _timePickerUtils.updateTime(_startTime, year: year, month: month, day: day, hour: hour, minute: minute);
-          _startTime = _timePickerUtils.normalizeDateTime(updatedTime, widget.type);
+          updatedTime = _timePickerUtils.updateTime(_startTime,
+              year: year, month: month, day: day, hour: hour, minute: minute);
+          _startTime =
+              _timePickerUtils.normalizeDateTime(updatedTime, widget.type);
           if (_startTime.isAfter(_endTime)) {
             _endTime = _startTime;
           }
         } else {
-          updatedTime =
-              _timePickerUtils.updateTime(_endTime, year: year, month: month, day: day, hour: hour, minute: minute);
-          _endTime = _timePickerUtils.normalizeDateTime(updatedTime, widget.type);
+          updatedTime = _timePickerUtils.updateTime(_endTime,
+              year: year, month: month, day: day, hour: hour, minute: minute);
+          _endTime =
+              _timePickerUtils.normalizeDateTime(updatedTime, widget.type);
           if (_endTime.isBefore(_startTime)) {
             _startTime = _endTime;
           }
@@ -278,19 +349,30 @@ class CustomTimePickerState extends State<CustomTimePicker> {
       }
 
       // 更新控制器
-      if (year != null) _yearController.jumpToItem(_timePickerUtils.getYears().indexOf(year));
+      if (year != null)
+        _yearController.jumpToItem(_timePickerUtils.getYears().indexOf(year));
       if (month != null) {
         if (_selectedTime.month != month) {
           _selectedTime = updateSelectedTime(_selectedTime, month);
-          _monthController.jumpToItem(_timePickerUtils.getMonths(_selectedTime).indexOf(month));
-          _dayController.jumpToItem(_timePickerUtils.getDays(_selectedTime).indexOf(_selectedTime.day));
+          _monthController.jumpToItem(
+              _timePickerUtils.getMonths(_selectedTime).indexOf(month));
+          _dayController.jumpToItem(_timePickerUtils
+              .getDays(_selectedTime)
+              .indexOf(_selectedTime.day));
         }
-        _monthController.jumpToItem(_timePickerUtils.getMonths(_selectedTime).indexOf(month));
+        _monthController.jumpToItem(
+            _timePickerUtils.getMonths(_selectedTime).indexOf(month));
       }
 
-      if (day != null) _dayController.jumpToItem(_timePickerUtils.getDays(_selectedTime).indexOf(day));
-      if (hour != null) _hourController.jumpToItem(_timePickerUtils.getHours(_selectedTime).indexOf(hour));
-      if (minute != null) _minuteController.jumpToItem(_timePickerUtils.getMinutes(_selectedTime).indexOf(minute));
+      if (day != null)
+        _dayController
+            .jumpToItem(_timePickerUtils.getDays(_selectedTime).indexOf(day));
+      if (hour != null)
+        _hourController
+            .jumpToItem(_timePickerUtils.getHours(_selectedTime).indexOf(hour));
+      if (minute != null)
+        _minuteController.jumpToItem(
+            _timePickerUtils.getMinutes(_selectedTime).indexOf(minute));
     });
   }
 
@@ -298,25 +380,30 @@ class CustomTimePickerState extends State<CustomTimePicker> {
     int year = selectedTime.year;
     // 获取目标月份的最大天数
     int maxDayInMonth = DateTime(year, month + 1, 0).day;
-    DateTime updatedTime = DateTime(year, month, maxDayInMonth, selectedTime.hour, selectedTime.minute);
+    DateTime updatedTime = DateTime(
+        year, month, maxDayInMonth, selectedTime.hour, selectedTime.minute);
     return updatedTime;
   }
 
   void _updateDateTimeFromCombined(int index) {
     setState(() {
-      DateTime updatedTime =
-          _getDateTimeFromCombinedIndex(index, widget.type == TimePickerType.yearMonthDayHourMinuteCombined);
+      DateTime updatedTime = _getDateTimeFromCombinedIndex(
+          index, widget.type == TimePickerType.yearMonthDayHourMinuteCombined);
       if (widget.mode == TimePickerMode.single) {
-        _selectedTime = _timePickerUtils.normalizeDateTime(updatedTime, widget.type);
+        _selectedTime =
+            _timePickerUtils.normalizeDateTime(updatedTime, widget.type);
       } else {
         if (_isSelectingStartTime) {
-          _startTime = _timePickerUtils.normalizeDateTime(updatedTime, widget.type);
+          _startTime =
+              _timePickerUtils.normalizeDateTime(updatedTime, widget.type);
           if (_startTime.isAfter(_endTime)) {
             _endTime = _startTime;
           }
         } else {
-          _endTime = _timePickerUtils.normalizeDateTime(updatedTime, widget.type);
-          _endTime = _timePickerUtils.normalizeDateTime(updatedTime, widget.type);
+          _endTime =
+              _timePickerUtils.normalizeDateTime(updatedTime, widget.type);
+          _endTime =
+              _timePickerUtils.normalizeDateTime(updatedTime, widget.type);
           if (_endTime.isBefore(_startTime)) {
             _startTime = _endTime;
           }

@@ -128,7 +128,9 @@ class _InputFieldState extends State<_InputField> {
   }
 
   void _updateClearIconVisibility() {
-    final shouldShowClearIcon = widget.showClearButton && _focusNode.hasFocus && widget.controller.text.isNotEmpty;
+    final shouldShowClearIcon = widget.showClearButton &&
+        _focusNode.hasFocus &&
+        widget.controller.text.isNotEmpty;
     if (_showClearIcon != shouldShowClearIcon) {
       setState(() {
         _showClearIcon = shouldShowClearIcon;
@@ -182,22 +184,29 @@ class _InputFieldState extends State<_InputField> {
                 widget.onSubmitted?.call(value);
               },
               style: JuiTheme.textStyles.itemContent,
-              inputFormatters: widget.onlyNumbers ? [FilteringTextInputFormatter.digitsOnly] : null,
+              inputFormatters: widget.onlyNumbers
+                  ? [FilteringTextInputFormatter.digitsOnly]
+                  : null,
               decoration: InputDecoration(
                 hintText: widget.hintText,
                 hintStyle: JuiTheme.textStyles.itemHint,
                 isCollapsed: true,
                 counterText: '',
                 border: InputBorder.none,
-                contentPadding: EdgeInsets.only(right: widget.showClearButton ? 20 : 0),
+                contentPadding:
+                    EdgeInsets.only(right: widget.showClearButton ? 20 : 0),
               ),
             )
           else
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                _breakWord(widget.controller.text.isEmpty ? widget.hintText : widget.controller.text),
-                style: widget.controller.text.isEmpty ? JuiTheme.textStyles.itemHint : JuiTheme.textStyles.itemContent,
+                _breakWord(widget.controller.text.isEmpty
+                    ? widget.hintText
+                    : widget.controller.text),
+                style: widget.controller.text.isEmpty
+                    ? JuiTheme.textStyles.itemHint
+                    : JuiTheme.textStyles.itemContent,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),

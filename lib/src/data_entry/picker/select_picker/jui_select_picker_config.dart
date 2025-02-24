@@ -28,7 +28,8 @@ class JuiSelectPickerUIHelper {
   static double get maxHeight => 655.w;
 
   // UI Config 默认值
-  static BorderRadius get defaultTopBorderRadius => BorderRadius.vertical(top: Radius.circular(12.w));
+  static BorderRadius get defaultTopBorderRadius =>
+      BorderRadius.vertical(top: Radius.circular(12.w));
   static const Color defaultBackgroundColor = Colors.white;
   static const Color defaultBarrierColor = Color.fromRGBO(0, 0, 0, 0.7);
   static const bool defaultIsScrollControlled = true;
@@ -92,7 +93,8 @@ class JuiSelectPickerUIConfig {
     this.selectedItemColor,
     this.maxLines,
     this.shrinkWrap = true, // 默认为 false，保持原有行为
-  })  : topBorderRadius = topBorderRadius ?? JuiSelectPickerUIHelper.defaultTopBorderRadius,
+  })  : topBorderRadius =
+            topBorderRadius ?? JuiSelectPickerUIHelper.defaultTopBorderRadius,
         maxHeight = maxHeight ?? JuiSelectPickerUIHelper.maxHeight;
 
   // 提供一个复制方法，创建配置的新实例
@@ -174,7 +176,10 @@ class JuiSelectPickerItemData {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is JuiSelectPickerItemData && runtimeType == other.runtimeType && key == other.key && value == other.value;
+      other is JuiSelectPickerItemData &&
+          runtimeType == other.runtimeType &&
+          key == other.key &&
+          value == other.value;
 
   @override
   int get hashCode => key.hashCode ^ value.hashCode;
@@ -192,7 +197,8 @@ class JuiSelectPickerItemUI {
   });
 }
 
-typedef JuiSelectPickerCallback = void Function(List<String> selectedKeys, List<String> selectedValues);
+typedef JuiSelectPickerCallback = void Function(
+    List<String> selectedKeys, List<String> selectedValues);
 typedef JuiSelectItemCallback = void Function(JuiSelectPickerItemData item);
 
 // 统一的参数类
@@ -210,7 +216,6 @@ class JuiSelectPickerItemBuildParams {
     required this.config,
     this.isLastItem = false,
   });
-  
 
   // 可以添加复制方法，方便修改个别参数
   JuiSelectPickerItemBuildParams copyWith({

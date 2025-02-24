@@ -19,7 +19,8 @@ class TimePickerUtils {
     }
   }
 
-  DateTime updateTime(DateTime original, {int? year, int? month, int? day, int? hour, int? minute}) {
+  DateTime updateTime(DateTime original,
+      {int? year, int? month, int? day, int? hour, int? minute}) {
     return DateTime(
       year ?? original.year,
       month ?? original.month,
@@ -43,14 +44,18 @@ class TimePickerUtils {
   }
 
   List<int> getYears() {
-    return List.generate(maxTime.year - minTime.year + 1, (index) => minTime.year + index);
+    return List.generate(
+        maxTime.year - minTime.year + 1, (index) => minTime.year + index);
   }
 
   List<int> getMonths(DateTime selectedTime) {
-    if (selectedTime.year == minTime.year && selectedTime.year == maxTime.year) {
-      return List.generate(maxTime.month - minTime.month + 1, (index) => minTime.month + index);
+    if (selectedTime.year == minTime.year &&
+        selectedTime.year == maxTime.year) {
+      return List.generate(
+          maxTime.month - minTime.month + 1, (index) => minTime.month + index);
     } else if (selectedTime.year == minTime.year) {
-      return List.generate(13 - minTime.month, (index) => minTime.month + index);
+      return List.generate(
+          13 - minTime.month, (index) => minTime.month + index);
     } else if (selectedTime.year == maxTime.year) {
       return List.generate(maxTime.month, (index) => index + 1);
     }
@@ -58,14 +63,23 @@ class TimePickerUtils {
   }
 
   List<int> getDays(DateTime selectedTime) {
-    int daysInMonth = DateTime(selectedTime.year, selectedTime.month + 1, 0).day;
-    int startDay = (selectedTime.year == minTime.year && selectedTime.month == minTime.month) ? minTime.day : 1;
-    int endDay = (selectedTime.year == maxTime.year && selectedTime.month == maxTime.month) ? maxTime.day : daysInMonth;
+    int daysInMonth =
+        DateTime(selectedTime.year, selectedTime.month + 1, 0).day;
+    int startDay = (selectedTime.year == minTime.year &&
+            selectedTime.month == minTime.month)
+        ? minTime.day
+        : 1;
+    int endDay = (selectedTime.year == maxTime.year &&
+            selectedTime.month == maxTime.month)
+        ? maxTime.day
+        : daysInMonth;
     return List.generate(endDay - startDay + 1, (index) => startDay + index);
   }
 
   List<int> getHours(DateTime selectedTime) {
-    if (selectedTime.year == minTime.year && selectedTime.month == minTime.month && selectedTime.day == minTime.day) {
+    if (selectedTime.year == minTime.year &&
+        selectedTime.month == minTime.month &&
+        selectedTime.day == minTime.day) {
       return List.generate(24 - minTime.hour, (index) => minTime.hour + index);
     } else if (selectedTime.year == maxTime.year &&
         selectedTime.month == maxTime.month &&
@@ -80,7 +94,8 @@ class TimePickerUtils {
         selectedTime.month == minTime.month &&
         selectedTime.day == minTime.day &&
         selectedTime.hour == minTime.hour) {
-      return List.generate(60 - minTime.minute, (index) => minTime.minute + index);
+      return List.generate(
+          60 - minTime.minute, (index) => minTime.minute + index);
     } else if (selectedTime.year == maxTime.year &&
         selectedTime.month == maxTime.month &&
         selectedTime.day == maxTime.day &&

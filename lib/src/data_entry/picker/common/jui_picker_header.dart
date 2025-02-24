@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:jui/src/utils/screen_util.dart';
 
@@ -34,7 +33,8 @@ class JuiPickerHeader extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            _buildTextButton(onCancel, titleLeftText ?? '', leftTextStyle ?? JuiTheme.textStyles.pickerCancel),
+            _buildTextButton(onCancel, titleLeftText ?? '',
+                leftTextStyle ?? JuiTheme.textStyles.pickerCancel),
             Expanded(
               child: Text(
                 title ?? '',
@@ -44,7 +44,8 @@ class JuiPickerHeader extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-            _buildTextButton(onConfirm, titleRightText ?? '', rightTextStyle ?? JuiTheme.textStyles.pickerConfirm),
+            _buildTextButton(onConfirm, titleRightText ?? '',
+                rightTextStyle ?? JuiTheme.textStyles.pickerConfirm),
           ],
         ),
         const JuiPickerDivider()
@@ -52,11 +53,12 @@ class JuiPickerHeader extends StatelessWidget {
     );
   }
 
-  Widget _buildTextButton(VoidCallback? onTap, String text, TextStyle? textStyle) {
+  Widget _buildTextButton(
+      VoidCallback? onTap, String text, TextStyle? textStyle) {
     return TextButton(
       onPressed: onTap,
       style: TextButton.styleFrom(
-        padding:  EdgeInsets.all(16.w),
+        padding: EdgeInsets.all(16.w),
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       ),
       child: Text(text, style: textStyle),

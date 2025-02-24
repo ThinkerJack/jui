@@ -53,14 +53,18 @@ class JuiRangeItem extends StatelessWidget {
         Expanded(
           child: Text(
             minValue ?? minHintText,
-            style: minValue != null ? JuiTheme.textStyles.itemContent : _getHintStyle(),
+            style: minValue != null
+                ? JuiTheme.textStyles.itemContent
+                : _getHintStyle(),
           ),
         ),
         separator ?? _defaultSeparator(),
         Expanded(
           child: Text(
             maxValue ?? maxHintText,
-            style: maxValue != null ? JuiTheme.textStyles.itemContent : _getHintStyle(),
+            style: maxValue != null
+                ? JuiTheme.textStyles.itemContent
+                : _getHintStyle(),
           ),
         ),
       ],
@@ -80,6 +84,8 @@ class JuiRangeItem extends StatelessWidget {
   }
 
   TextStyle _getHintStyle() {
-    return config.isDisabled ? JuiTheme.textStyles.itemHintDisabled : JuiTheme.textStyles.itemHint;
+    return config.isDisabled
+        ? JuiTheme.textStyles.itemHintDisabled
+        : JuiTheme.textStyles.itemHint;
   }
 }

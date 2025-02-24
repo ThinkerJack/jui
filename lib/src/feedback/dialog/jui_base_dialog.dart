@@ -23,7 +23,7 @@ class JuiBaseDialog extends StatelessWidget {
       body: Center(
         child: Container(
           width: JuiTheme.dimensions.dialogWidth,
-          padding:  EdgeInsets.symmetric(horizontal: 20.w,vertical: 24.w),
+          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 24.w),
           decoration: BoxDecoration(
             color: JuiTheme.colors.surface,
             borderRadius: BorderRadius.circular(16.w),
@@ -53,7 +53,9 @@ class JuiBaseDialog extends StatelessWidget {
 
   Widget _buildButtons(BuildContext context) {
     return Row(
-      mainAxisAlignment: config.showCancelButton ? MainAxisAlignment.spaceBetween : MainAxisAlignment.center,
+      mainAxisAlignment: config.showCancelButton
+          ? MainAxisAlignment.spaceBetween
+          : MainAxisAlignment.center,
       children: [
         if (config.showCancelButton)
           _buildButton(

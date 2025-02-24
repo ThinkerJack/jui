@@ -29,7 +29,8 @@ class JuiTitle extends StatelessWidget {
         if (expandedContent != null)
           ValueListenableBuilder<bool>(
             valueListenable: expandFlag!,
-            builder: (_, isExpanded, __) => isExpanded ? expandedContent! : const SizedBox.shrink(),
+            builder: (_, isExpanded, __) =>
+                isExpanded ? expandedContent! : const SizedBox.shrink(),
           ),
       ],
     );
@@ -59,7 +60,8 @@ class _TitleRow extends StatelessWidget {
             height: 16,
             decoration: BoxDecoration(
               color: JuiTheme.colors.primary,
-              borderRadius: const BorderRadius.horizontal(right: Radius.circular(2)),
+              borderRadius:
+                  const BorderRadius.horizontal(right: Radius.circular(2)),
             ),
           ),
           const SizedBox(width: 16),

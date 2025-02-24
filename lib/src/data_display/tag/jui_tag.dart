@@ -54,7 +54,8 @@ class JuiTag extends StatelessWidget {
   Widget build(BuildContext context) {
     return UnconstrainedBox(
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: paddingVertical, horizontal: paddingHorizontal),
+        padding: EdgeInsets.symmetric(
+            vertical: paddingVertical, horizontal: paddingHorizontal),
         decoration: BoxDecoration(
           borderRadius: _getBorderRadius(),
           color: _getColor(true),
@@ -90,17 +91,29 @@ class JuiTag extends StatelessWidget {
   Color _getColor(bool isBackground) {
     switch (tagColorType) {
       case JuiTagColorType.black:
-        return isBackground ? const JuiColors().background : const JuiColors().text;
+        return isBackground
+            ? const JuiColors().background
+            : const JuiColors().text;
       case JuiTagColorType.blue:
-        return isBackground ? const JuiColors().primaryWithOpacity : const JuiColors().primary;
+        return isBackground
+            ? const JuiColors().primaryWithOpacity
+            : const JuiColors().primary;
       case JuiTagColorType.green:
-        return isBackground ? const JuiColors().successWithOpacity : const JuiColors().success;
+        return isBackground
+            ? const JuiColors().successWithOpacity
+            : const JuiColors().success;
       case JuiTagColorType.yellow:
-        return isBackground ? const JuiColors().secondaryWithOpacity : const JuiColors().secondary;
+        return isBackground
+            ? const JuiColors().secondaryWithOpacity
+            : const JuiColors().secondary;
       case JuiTagColorType.red:
-        return isBackground ? const JuiColors().errorWithOpacity : const JuiColors().error;
+        return isBackground
+            ? const JuiColors().errorWithOpacity
+            : const JuiColors().error;
       case JuiTagColorType.gray:
-        return isBackground ? const JuiColors().background : const JuiColors().textSecondary;
+        return isBackground
+            ? const JuiColors().background
+            : const JuiColors().textSecondary;
     }
   }
 

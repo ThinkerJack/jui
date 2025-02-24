@@ -3,8 +3,10 @@ class Assets {
   Assets._();
 
   static const String imagesArrow = 'assets/images/arrow.png';
-  static const String imagesCircularSelected = 'assets/images/circular_selected.png';
-  static const String imagesCircularUnselected = 'assets/images/circular_unselected.png';
+  static const String imagesCircularSelected =
+      'assets/images/circular_selected.png';
+  static const String imagesCircularUnselected =
+      'assets/images/circular_unselected.png';
   static const String imagesClear = 'assets/images/clear.png';
   static const String imagesDown = 'assets/images/down.png';
   static const String imagesItemInterval = 'assets/images/item_interval.png';
@@ -15,10 +17,11 @@ class Assets {
   static const String imagesRight = 'assets/images/right.png';
   static const String imagesSearchEmpty = 'assets/images/search_empty.png';
   static const String imagesSelected = 'assets/images/selected.png';
-  static const String imagesSelectedDisabled = 'assets/images/selected_disabled.png';
+  static const String imagesSelectedDisabled =
+      'assets/images/selected_disabled.png';
   static const String imagesTick = 'assets/images/tick.png';
   static const String imagesUnselected = 'assets/images/unselected.png';
-  static const String imagesUnselectedDisabled = 'assets/images/unselected_disabled.png';
+  static const String imagesUnselectedDisabled =
+      'assets/images/unselected_disabled.png';
   static const String imagesUp = 'assets/images/up.png';
-
 }

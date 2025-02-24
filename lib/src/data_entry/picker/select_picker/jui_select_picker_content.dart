@@ -30,7 +30,8 @@ class CupertinoItemBuilder implements JuiSelectPickerItemBuilder {
     return Center(
       child: Text(
         params.item.data.value,
-        style: params.config.uiConfig.itemTextStyle ?? const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+        style: params.config.uiConfig.itemTextStyle ??
+            const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
       ),
     );
   }
@@ -51,10 +52,12 @@ class ListItemBuilder implements JuiSelectPickerItemBuilder {
                   params.item.data.value,
                   style: params.config.uiConfig.itemTextStyle,
                   maxLines: params.config.uiConfig.maxLines,
-                  overflow: params.config.uiConfig.maxLines != null ? TextOverflow.ellipsis : TextOverflow.visible,
+                  overflow: params.config.uiConfig.maxLines != null
+                      ? TextOverflow.ellipsis
+                      : TextOverflow.visible,
                 ),
               ),
-              SizedBox(width:16.w ),
+              SizedBox(width: 16.w),
               if (params.isSelected)
                 Padding(
                   padding: const EdgeInsets.only(right: 16),
@@ -89,18 +92,24 @@ class CupertinoPickerBuilder implements JuiSelectPickerContentBuilder {
   @override
   Widget build(JuiSelectPickerContentBuildParams params) {
     int initialIndex = params.selectedItems.isNotEmpty
-        ? params.items.indexWhere((item) => item.data.key == params.selectedItems.first.key)
+        ? params.items.indexWhere(
+            (item) => item.data.key == params.selectedItems.first.key)
         : 0;
     initialIndex = initialIndex != -1 ? initialIndex : 0;
 
-    final itemBuilder = params.config.customItemBuilder ?? CupertinoItemBuilder();
+    final itemBuilder =
+        params.config.customItemBuilder ?? CupertinoItemBuilder();
 
     return ConstrainedBox(
-      constraints: BoxConstraints(maxHeight: JuiSelectPickerUIHelper.getMaxHeight(params.config.layout)),
+      constraints: BoxConstraints(
+          maxHeight:
+              JuiSelectPickerUIHelper.getMaxHeight(params.config.layout)),
       child: CupertinoPicker(
-        scrollController: FixedExtentScrollController(initialItem: initialIndex),
+        scrollController:
+            FixedExtentScrollController(initialItem: initialIndex),
         itemExtent: JuiSelectPickerUIHelper.itemExtent,
-        onSelectedItemChanged: (index) => params.onItemTap(params.items[index].data),
+        onSelectedItemChanged: (index) =>
+            params.onItemTap(params.items[index].data),
         children: params.items.map((item) {
           return itemBuilder.buildItem(
             JuiSelectPickerItemBuildParams(
@@ -132,8 +141,8 @@ class ListPickerBuilder implements JuiSelectPickerContentBuilder {
               paddingBottom: 30,
             )
           : Padding(
-        padding: EdgeInsets.only(right: 2.w),
-            child: RawScrollbar(
+              padding: EdgeInsets.only(right: 2.w),
+              child: RawScrollbar(
                 thumbVisibility: true,
                 thickness: 6.w,
                 minThumbLength: 50,
@@ -148,7 +157,9 @@ class ListPickerBuilder implements JuiSelectPickerContentBuilder {
                       behavior: HitTestBehavior.opaque,
                       onTap: () {
                         params.onItemTap(item.data);
-                        if (params.config.selectionMode == SelectionMode.single && params.onImmediateConfirm != null) {
+                        if (params.config.selectionMode ==
+                                SelectionMode.single &&
+                            params.onImmediateConfirm != null) {
                           params.onImmediateConfirm!(item.data);
                         }
                       },
@@ -165,7 +176,7 @@ class ListPickerBuilder implements JuiSelectPickerContentBuilder {
                   },
                 ),
               ),
-          ),
+            ),
     );
   }
 }
@@ -176,7 +187,9 @@ class ActionPickerBuilder implements JuiSelectPickerContentBuilder {
     final itemBuilder = params.config.customItemBuilder ?? ActionItemBuilder();
 
     return ConstrainedBox(
-      constraints: BoxConstraints(maxHeight: JuiSelectPickerUIHelper.getMaxHeight(params.config.layout)),
+      constraints: BoxConstraints(
+          maxHeight:
+              JuiSelectPickerUIHelper.getMaxHeight(params.config.layout)),
       child: ListView.separated(
         shrinkWrap: true,
         itemCount: params.items.length,

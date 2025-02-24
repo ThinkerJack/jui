@@ -63,7 +63,9 @@ class JuiItem extends StatelessWidget {
                 TextSpan(
                   text: title,
                   style: config.customTitleStyle ??
-                      (config.isDisabled ? JuiTheme.textStyles.itemTitleDisabled : JuiTheme.textStyles.itemTitle),
+                      (config.isDisabled
+                          ? JuiTheme.textStyles.itemTitleDisabled
+                          : JuiTheme.textStyles.itemTitle),
                 ),
                 if (config.titleBeforeRequiredWidget != null)
                   WidgetSpan(
@@ -97,7 +99,8 @@ class JuiItem extends StatelessWidget {
         SizedBox(height: JuiTheme.dimensions.itemSpace),
         Text(
           config.tipText,
-          style: TextStyle(color: JuiTheme.colors.tips, fontSize: 12.sp, height: 1.3),
+          style: TextStyle(
+              color: JuiTheme.colors.tips, fontSize: 12.sp, height: 1.3),
         ),
       ],
     );
@@ -105,7 +108,8 @@ class JuiItem extends StatelessWidget {
 
   Widget _buildDivider() {
     return Padding(
-      padding: config.dividerPadding ?? EdgeInsets.only(left: JuiTheme.dimensions.itemPaddingL),
+      padding: config.dividerPadding ??
+          EdgeInsets.only(left: JuiTheme.dimensions.itemPaddingL),
       child: const JuiPickerDivider(),
     );
   }
