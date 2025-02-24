@@ -1,4 +1,7 @@
 # Changelog
+## 0.2.9
+* Format
+
 ## 0.2.8
 * Updated documentation
 

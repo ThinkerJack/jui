@@ -1,6 +1,6 @@
 name: jui
 description: A Flutter UI component library with four modules, general, data display, data entry, and feedback. Includes buttons, labels, text, headers, containers, and placeholder
-version: 0.2.8
+version: 0.2.9
 homepage: https://github.com/ThinkerJack/jui
 repository: https://github.com/ThinkerJack/jui
 
