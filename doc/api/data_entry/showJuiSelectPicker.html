@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the showJuiSelectPicker function from the data_entry library, for the Dart programming language.">
+  <title>showJuiSelectPicker function - data_entry library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">jui</a></li>
+    <li><a href="../data_entry/data_entry-library.html">data_entry.dart</a></li>
+    <li class="self-crumb">showJuiSelectPicker function</li>
+  </ol>
+  <div class="self-name">showJuiSelectPicker</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+  <div
+      id="dartdoc-main-content"
+      class="main-content"
+      data-above-sidebar="data_entry&#47;data_entry-library-sidebar.html"
+      data-below-sidebar="">
+      <div>
+<h1><span class="kind-function">showJuiSelectPicker</span> function 
+ 
+</h1></div>
+
+    <section class="multi-line-signature">
+        
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+<span class="name ">showJuiSelectPicker</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="showJuiSelectPicker-param-context"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span></li>
+<li><span class="parameter" id="showJuiSelectPicker-param-config"><span>required</span> <span class="type-annotation"><a href="../data_entry/JuiSelectPickerConfig-class.html">JuiSelectPickerConfig</a></span> <span class="parameter-name">config</span>, </span></li>
+<li><span class="parameter" id="showJuiSelectPicker-param-items"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../data_entry/JuiSelectPickerItemUI-class.html">JuiSelectPickerItemUI</a></span>&gt;</span></span> <span class="parameter-name">items</span>, </span></li>
+<li><span class="parameter" id="showJuiSelectPicker-param-onSelect"><span>required</span> <span class="type-annotation"><a href="../data_entry/JuiSelectPickerCallback.html">JuiSelectPickerCallback</a></span> <span class="parameter-name">onSelect</span>, </span></li>
+<li><span class="parameter" id="showJuiSelectPicker-param-initialSelection"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../data_entry/JuiSelectPickerItemData-class.html">JuiSelectPickerItemData</a></span>&gt;</span></span> <span class="parameter-name">initialSelection</span> = <span class="default-value">const []</span>, </span></li>
+<li><span class="parameter" id="showJuiSelectPicker-param-onCancel"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onCancel</span>, </span></li>
+<li><span class="parameter" id="showJuiSelectPicker-param-key"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span></li>
+</ol>})
+
+        
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; showJuiSelectPicker(
+    {
+&#47;&#47; 构造函数参数说明
+    &#47;&#47; context: 构建上下文，用于构建UI组件
+    &#47;&#47; config: JuiSelectPicker的配置信息
+    &#47;&#47; items: 选择器中显示的项目列表
+    &#47;&#47; onSelect: 当用户选择一个项目时调用的回调函数
+    &#47;&#47; initialSelection: 初始选中的项目列表，默认为空
+    &#47;&#47; onCancel: 当用户取消选择时调用的回调函数，默认为null
+    required BuildContext context,
+    required JuiSelectPickerConfig config,
+    required List&lt;JuiSelectPickerItemUI&gt; items,
+    required JuiSelectPickerCallback onSelect,
+    List&lt;JuiSelectPickerItemData&gt; initialSelection = const [],
+    VoidCallback? onCancel,
+    Key? key}) {
+  return showModalBottomSheet(
+    context: context,
+    constraints: BoxConstraints(maxHeight: config.uiConfig.maxHeight),
+    backgroundColor: Colors.transparent,
+    barrierColor: config.uiConfig.barrierColor,
+    isScrollControlled: config.uiConfig.isScrollControlled,
+    enableDrag: config.uiConfig.enableDrag,
+    shape: RoundedRectangleBorder(
+      borderRadius: config.uiConfig.topBorderRadius,
+    ),
+    builder: (BuildContext context) {
+      return JuiSelectPicker(
+        config: config,
+        items: items,
+        key: key,
+        initialSelection: initialSelection,
+        onSelect: (selectedKeys, selectedValues) {
+          onSelect(selectedKeys, selectedValues);
+          Navigator.pop(context);
+        },
+        onCancel: () {
+          if (onCancel != null) {
+            onCancel();
+          }
+          Navigator.pop(context);
+        },
+      );
+    },
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../index.html">jui</a></li>
+    <li><a href="../data_entry/data_entry-library.html">data_entry</a></li>
+    <li class="self-crumb">showJuiSelectPicker function</li>
+</ol>
+
+    <h5>data_entry library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-left-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    jui
+      0.3.0
+  </span>
+  
+</footer>
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+
