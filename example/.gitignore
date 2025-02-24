@@ -5,21 +5,42 @@
 *.swp
 .DS_Store
 .atom/
+.build/
 .buildlog/
 .history
 .svn/
+.swiftpm/
 migrate_working_dir/
+
+# macOS system files
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Windows system files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux system files
+*.pid
+*.seed
+*.lock
 
 # IntelliJ related
 *.iml
 *.ipr
 *.iws
 .idea/
+*.idea_modules/
 
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
+# VS Code related
+.vscode/
+*.code-workspace
 
 # Flutter/Dart/Pub related
 **/doc/api/
@@ -31,6 +52,51 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+.cyclonedx.json  # Dependency scanning tools
+
+# Flutter specific
+.flutter-versions
+.fvm/
+
+# iOS related
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/Generated.xcconfig
+ios/Flutter/ephemeral/
+ios/Flutter/*.xcworkspace
+ios/.generated/
+ios/.dart_tool/
+ios/.idea/
+
+# Android related
+/android/app/debug
+/android/app/profile
+/android/app/release
+android/.cxx/
+android/.gradle/
+android/app/.externalNativeBuild/
+android/app/build/
+android/gradle/wrapper/gradle-wrapper.jar
+
+# Xcode related
+*.xcworkspace/
+*.xcuserstate
+*.xcuserdatad/
+*.lock
+xcuserdata/
+
+# Firebase related
+firebase.json
+*.firebaserc
+
+# Fastlane related
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
 
 # Symbolication related
 app.*.symbols
@@ -38,7 +104,10 @@ app.*.symbols
 # Obfuscation related
 app.*.map.json
 
-# Android Studio will place build artifacts here
-/android/app/debug
-/android/app/profile
-/android/app/release
+# Google Service configuration files
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+
+# Crashlytics related
+crashlytics.properties
+fabric.properties
